@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import Controlador.Hotel;
 import Controlador.Metodoak;
@@ -22,9 +23,10 @@ public class Ventana2 extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	int NumHoteldelArray=0;
+	
 	private JTextField textFieldPrezioa;
 
+	int NumHoteldelArray;
 	public Ventana2(ArrayList <Hotel> Hoteles) {
 
 		this.setBounds(275,100,700,600);
@@ -58,6 +60,7 @@ public class Ventana2 extends JFrame {
 						//Mirar haber si funciona para saber que numero es del array para llevarlo a la ventana3 de pagar
 						NumHoteldelArray=i;
 						textFieldPrezioa.setText(PrezioHotel+" €");
+						break;
 					}
 
 				}
@@ -66,6 +69,13 @@ public class Ventana2 extends JFrame {
 		JButton btnHurrengoa = new JButton("Hurrengoa");
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String hotelak = (String) comboBoxNombreHoteles.getSelectedItem();
+				if (hotelak.equals("Hotel bat aukeratu")) {
+					btnHurrengoa.setEnabled(false);
+					JOptionPane.showMessageDialog(null,"Ez duzu hotelik aukeratu. Mezedez, Hotel bat aukeratu.");
+
+					
+				}
 				dispose();
 				Metodoak.hirugarrenLeihoa(Hoteles);
 			}
@@ -84,8 +94,10 @@ public class Ventana2 extends JFrame {
 		textFieldPrezioa.setBounds(432, 107, 150, 59);
 		getContentPane().add(textFieldPrezioa);
 		textFieldPrezioa.setColumns(10);
+		textFieldPrezioa.setEditable(false);
 
 		//Mirar haber si funciona para saber que numero es del array para llevarlo a la ventana3 de pagar
+		System.out.println("holaaaaaaaa");
 		System.out.println(NumHoteldelArray);
 
 
