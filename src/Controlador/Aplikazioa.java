@@ -8,7 +8,7 @@ public class Aplikazioa {
 		
 
 	
-			Conexion b1 =new Modelo.Conexion();
+			Conexion b1 =new Conexion();
 			
 			Metodoak.lehenengoLeihoa();
 
