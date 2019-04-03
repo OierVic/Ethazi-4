@@ -10,6 +10,7 @@ public class Metodoak {
 		
 		Ventana1 ventana1= new Ventana1();
 		ventana1.setVisible(true);
+		
 
 	}
 	public static void bigarrenLeihoa() {
