@@ -40,8 +40,8 @@ public class Ventana3 extends JFrame {
 
 
 	public Ventana3(ArrayList <Hotel> Hoteles) {
-		//prezioa=hoteles.getPrecioHotel();
-		prezioa=0.0;
+		prezioa=Ventana2.PrezioHotel;
+		//prezioa=0.0;
 		this.setBounds(275,100,700,600);
 		getContentPane().setLayout(null);
 		lblOrdainketa.setBounds(90, 106, 162, 34);
@@ -187,7 +187,8 @@ public class Ventana3 extends JFrame {
 		getContentPane().add(Itzuliak);
 		Itzuliak.setEditable(false);
 		//String ordaintzeko = String.valueOf(hoteles.getPrecioHotel());
-		String ordaintzeko="0";
+		String ordaintzeko = String.valueOf(Ventana2.PrezioHotel);
+		//String ordaintzeko="0";
 		lblOrdaintzeko.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		lblOrdaintzeko.setText(ordaintzeko);

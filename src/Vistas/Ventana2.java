@@ -23,10 +23,11 @@ public class Ventana2 extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	
+
 	private JTextField textFieldPrezioa;
 
-	int NumHoteldelArray;
+	public static Double PrezioHotel;
+
 	public Ventana2(ArrayList <Hotel> Hoteles) {
 
 		this.setBounds(275,100,700,600);
@@ -56,9 +57,10 @@ public class Ventana2 extends JFrame {
 				for (int i=0;i<Hoteles.size();i++) {
 					if (hotelak.equals(Hoteles.get(i).getOstatu_Izena())) {
 						// Prezioa String-era pasatu behar da zeren setText egiterakoan eskatzen duelako
+						PrezioHotel = Hoteles.get(i).getPrezioHotel();
 						String PrezioHotel = String.valueOf(Hoteles.get(i).getPrezioHotel());
 						//Mirar haber si funciona para saber que numero es del array para llevarlo a la ventana3 de pagar
-						NumHoteldelArray=i;
+
 						textFieldPrezioa.setText(PrezioHotel+" €");
 						break;
 					}
@@ -73,11 +75,12 @@ public class Ventana2 extends JFrame {
 				if (hotelak.equals("Hotel bat aukeratu")) {
 					btnHurrengoa.setEnabled(false);
 					JOptionPane.showMessageDialog(null,"Ez duzu hotelik aukeratu. Mezedez, Hotel bat aukeratu.");
-
-					
 				}
-				dispose();
-				Metodoak.hirugarrenLeihoa(Hoteles);
+				else {
+					System.out.println(PrezioHotel);
+					dispose();
+					Metodoak.hirugarrenLeihoa(Hoteles);
+				}
 			}
 		});
 		btnHurrengoa.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -98,7 +101,7 @@ public class Ventana2 extends JFrame {
 
 		//Mirar haber si funciona para saber que numero es del array para llevarlo a la ventana3 de pagar
 		System.out.println("holaaaaaaaa");
-		System.out.println(NumHoteldelArray);
+
 
 
 	}
