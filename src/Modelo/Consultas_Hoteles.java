@@ -26,7 +26,7 @@ public class Consultas_Hoteles{
 			// Se realiza la consulta. Los resultados se guardan en el ResultSet rs
 
 
-			String queryL = "SELECT o.idOstatu, o.izenOstatu, logelaKopurua, izarKopurua, prezioHotel, izenOstatu,logelaOkupatuta FROM hotel h, ostatu o WHERE o.idOstatu = h.idOstatu";
+			String queryL = "SELECT o.idOstatu, o.izenOstatu, logelaKopurua, izarKopurua, prezioHotel, o.izenOstatu,logelaOkupatuta FROM hotel h, ostatu o WHERE o.idOstatu = h.idOstatu";
 
 			ResultSet rs = s.executeQuery(queryL);
 
@@ -34,16 +34,16 @@ public class Consultas_Hoteles{
 
 			while (rs.next()) {
 
-				System.out.println("o.idOstatu: "+rs.getString("o.idOstatu")+ " "+"logelaKopurua: "+ " " +rs.getString("logelaKopurua")+ " " +"izarKopuru: "+rs.getString("izarKopuru")+ " " +"prezioHotel: " + rs.getString("prezioHotel")+" "+ "izenOstatu: " + rs.getString("izenOstatu"));
+				System.out.println("(1).o.idOstatu: "+rs.getString("o.idOstatu")+ " "+"(2).logelaKopurua: "+ " " +rs.getString("logelaKopurua")+ " " +"(3).izarKopurua: "+rs.getString("izarKopurua")+ " " +"(4).prezioHotel: " + rs.getString("prezioHotel")+" "+ "(5).izenOstatu: " + rs.getString("izenOstatu")+" "+ "6.logelaOkupatuta: " + rs.getString("logelaOkupatuta"));
 				idHotela=(rs.getInt(1));
-				hotelIzena=(rs.getString(2));
-				logelaKopurua=(rs.getInt(3));
-				izarKopuru=(rs.getInt(4));
-				prezioHotela=(rs.getDouble(5));
-				logelahartuta=(rs.getInt(6));
+				//logelaKopurua=(rs.getInt(2));
+				izarKopuru=(rs.getInt(3));
+				prezioHotela=(rs.getDouble(4));
+				hotelIzena=(rs.getString(5));
+				//logelahartuta=(rs.getInt(6));
 
-				Hotel h1 = new Hotel(idHotela, hotelIzena, izarKopuru, prezioHotela, logelahartuta, logelaKopurua);
-				hotelak.add(h1);
+				//Hotel h1 = new Hotel(idHotela, hotelIzena, izarKopuru, prezioHotela, logelahartuta, logelaKopurua);
+				//hotelak.add(h1);
 
 			}
 
