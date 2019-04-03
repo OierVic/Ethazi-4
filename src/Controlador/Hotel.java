@@ -38,6 +38,13 @@ public class Hotel extends Ostatu{
 	public double getPrecioHotel() {
 		return precioHotel;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "Hotel [izarKopurua=" + izarKopurua + ", logelaKopurua=" + logelaKopurua + ", precioHotel=" + precioHotel +", id_Ostatu=" + id_Ostatu +", ostatu_Izena=" + Ostatu_Izena + "]";
+	}
 	
 	
 	

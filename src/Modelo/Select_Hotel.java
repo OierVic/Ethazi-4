@@ -43,6 +43,8 @@ public class Select_Hotel{
 				
 				Hotel h1 = new Hotel(idHotela, hotelIzena, izarKopuru, logelaKopurua, prezioHotela);
 				hotelak.add(h1);
+				
+			
 
           
         }
