@@ -3,52 +3,65 @@ package Controlador;
 public class Hotel extends Ostatu{
 	//atributuak
 	
+	private int LogelaKopurua;
+	private int HartutakoLogelak;
 	private int izarKopurua;
-	private double precioHotel;
-	private int Logelaokupatuta;
-	private int LogelaTotala;
-	//Kontruktorea hotelak behar dituen datuak zartzeko...
+	private double prezioHotel;
+	private int helbideHotel;
 	
-	public Hotel(int id_Ostatu, String ostatu_Izena, int izarKopurua, double precioHotel, int logelaTotala,
-			int logelaokupatuta) {
-		super(id_Ostatu, ostatu_Izena);
+	//Kontruktorea hotelak behar dituen datuak sartzeko...
+
+	public Hotel(int id_Hotel, String izena_Hotel, int logelaKopurua, int hartutakoLogelak, int izarKopurua,
+			double prezioHotel, int helbideHotel) {
+		super(id_Hotel, izena_Hotel);
+		LogelaKopurua = logelaKopurua;
+		HartutakoLogelak = hartutakoLogelak;
 		this.izarKopurua = izarKopurua;
-		this.precioHotel = precioHotel;
-		Logelaokupatuta = logelaokupatuta;
-		LogelaTotala = logelaTotala;
+		this.prezioHotel = prezioHotel;
+		this.helbideHotel = helbideHotel;
+	}
+
+	public int getLogelaKopurua() {
+		return LogelaKopurua;
+	}
+
+	public int getHartutakoLogelak() {
+		return HartutakoLogelak;
 	}
 
 	public int getIzarKopurua() {
 		return izarKopurua;
 	}
 
+	public double getPrezioHotel() {
+		return prezioHotel;
+	}
+
+	public int getHelbideHotel() {
+		return helbideHotel;
+	}
+
+	public void setLogelaKopurua(int logelaKopurua) {
+		LogelaKopurua = logelaKopurua;
+	}
+
+	public void setHartutakoLogelak(int hartutakoLogelak) {
+		HartutakoLogelak = hartutakoLogelak;
+	}
+
 	public void setIzarKopurua(int izarKopurua) {
 		this.izarKopurua = izarKopurua;
 	}
 
-	public double getPrecioHotel() {
-		return precioHotel;
+	public void setPrezioHotel(double prezioHotel) {
+		this.prezioHotel = prezioHotel;
 	}
 
-	public void setPrecioHotel(double precioHotel) {
-		this.precioHotel = precioHotel;
+	public void setHelbideHotel(int helbideHotel) {
+		this.helbideHotel = helbideHotel;
 	}
-
-	public int getLogelaokupatuta() {
-		return Logelaokupatuta;
-	}
-
-	public void setLogelaokupatuta(int logelaokupatuta) {
-		Logelaokupatuta = logelaokupatuta;
-	}
-
-	public int getLogelaTotala() {
-		return LogelaTotala;
-	}
-
-	public void setLogelaTotala(int logelaTotala) {
-		LogelaTotala = logelaTotala;
-	}
+	
+	
 	
 
 	

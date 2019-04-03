@@ -22,9 +22,7 @@ public class Conexion {
 	public Conexion() {
 	
 		String fichero = "src\\Modelo\\Konexioa.txt";
-		//C:\Users\maÒana.ORD32\git\Ethazi-4\bin\ConexiÛn txt
-		//"\\C:\\Users\\ma√±ana\\git\\mvcEthazi3\\src\\Modelo\\Conexi√≥n txt\\Konexioa.txt"
-		//C:\Users\Asier\Desktop\Asier\mvcethazi3\src\Modelo\Conexi√≥n txt
+
 		int kontagailua =0;
 		String server="jdbc:mysql://";
 		try {
@@ -73,7 +71,7 @@ public class Conexion {
             	System.out.println("Error al conectar con la base de datos");
             	System.exit(0);
             }
-            System.out.println("Conectado a base de datos");
+            System.out.println("Conectado a "+this.projeckt);
 
 
         

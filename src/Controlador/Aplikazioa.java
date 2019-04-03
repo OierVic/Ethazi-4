@@ -11,9 +11,9 @@ public class Aplikazioa {
 	
 			Conexion b1 =new Conexion();
 			
-			//Metodoak.lehenengoLeihoa();
+			Metodoak.lehenengoLeihoa();
 			
-			Consultas_Hoteles.Select_Hotel();
+			//Consultas_Hoteles.HotelakIkusi();
 			
 
 	}

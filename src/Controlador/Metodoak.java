@@ -21,7 +21,7 @@ public class Metodoak {
 	public static void bigarrenLeihoa() {
 		
 		ArrayList <Hotel> Hoteles= new ArrayList <Hotel>();
-		Hoteles=Consultas_Hoteles.Select_Hotel();
+		Hoteles=Consultas_Hoteles.HotelakIkusi();
 		Ventana2 ventana2= new Ventana2(Hoteles);
 		ventana2.setVisible(true);
 
