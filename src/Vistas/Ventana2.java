@@ -1,11 +1,14 @@
 package Vistas;
 
 import java.awt.SystemColor;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
 import java.awt.Font;
 import javax.swing.JComboBox;
+import javax.swing.JButton;
 
 public class Ventana2 extends JFrame {
 	
@@ -23,9 +26,18 @@ public class Ventana2 extends JFrame {
 		lblHotelak.setBounds(73, 24, 121, 59);
 		getContentPane().add(lblHotelak);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(56, 122, 105, 29);
-		getContentPane().add(comboBox);
+		JComboBox comboBoxNombreHoteles = new JComboBox();
+		comboBoxNombreHoteles.setBounds(56, 122, 105, 29);
+		getContentPane().add(comboBoxNombreHoteles);
+//		for (int i=0;i<hoteles.size();i++) {
+//			comboBoxNombreHoteles.addItem(hoteles.get(i).getIzena());
+//
+//		}
+		
+		JButton btnHurrengoa = new JButton("Hurrengoa");
+		btnHurrengoa.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		btnHurrengoa.setBounds(487, 503, 157, 29);
+		getContentPane().add(btnHurrengoa);
 		
 		
 	}

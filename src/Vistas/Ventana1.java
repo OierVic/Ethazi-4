@@ -8,6 +8,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import Controlador.Metodoak;
+
 public class Ventana1 extends JFrame {
 
 
@@ -17,6 +19,14 @@ public class Ventana1 extends JFrame {
 	private JLabel lblTxrtelSaltzailera = new JLabel("Bidai-Onera");
 
 	public Ventana1() {
+		getContentPane().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				dispose();
+				Metodoak.bigarrenLeihoa();
+				
+			}
+		});
 
 		this.setBounds(275,100,700,600);
 		this.setBackground(SystemColor.control);
