@@ -14,8 +14,8 @@ public class Hotel extends Ostatu{
 	public Hotel(int id_Hotel, String izena_Hotel, int logelaKopurua, int hartutakoLogelak, int izarKopurua,
 			double prezioHotel, int helbideHotel) {
 		super(id_Hotel, izena_Hotel);
-		LogelaKopurua = logelaKopurua;
-		HartutakoLogelak = hartutakoLogelak;
+		this.LogelaKopurua = logelaKopurua;
+		this.HartutakoLogelak = hartutakoLogelak;
 		this.izarKopurua = izarKopurua;
 		this.prezioHotel = prezioHotel;
 		this.helbideHotel = helbideHotel;
@@ -60,9 +60,7 @@ public class Hotel extends Ostatu{
 	public void setHelbideHotel(int helbideHotel) {
 		this.helbideHotel = helbideHotel;
 	}
-	
-	
-	
+
 
 	
 	
