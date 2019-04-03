@@ -14,6 +14,7 @@ public class Aplikazioa {
 			//Metodoak.lehenengoLeihoa();
 			
 			Select_Hotel.Select_Hotel();
+			
 
 	}
 

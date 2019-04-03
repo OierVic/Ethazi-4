@@ -1,17 +1,24 @@
 package Controlador;
 
 public class Hotel extends Ostatu{
-	//Kontruktorea hotelak behar dituen datuak zartzeko...
-	public Hotel(String hotel_Izena, int izarKopurua, int logelaKopurua) {
-		super(logelaKopurua, hotel_Izena);
-		this.izarKopurua = izarKopurua;
-		this.logelaKopurua = logelaKopurua;
-	}
+	
+	
+
+	
 	//atributuak
 	
 	private int izarKopurua;
 	private int logelaKopurua;
 	private double precioHotel;
+	
+	//Kontruktorea hotelak behar dituen datuak zartzeko...
+
+	public Hotel(int id_Ostatu, String ostatu_Izena, int izarKopurua, int logelaKopurua, double precioHotel) {
+		super(id_Ostatu, ostatu_Izena);
+		this.izarKopurua = izarKopurua;
+		this.logelaKopurua = logelaKopurua;
+		this.precioHotel = precioHotel;
+	}
 	
 	
 
@@ -31,5 +38,7 @@ public class Hotel extends Ostatu{
 	public double getPrecioHotel() {
 		return precioHotel;
 	}
+	
+	
 	
 }

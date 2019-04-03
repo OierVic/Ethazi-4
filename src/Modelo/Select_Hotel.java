@@ -2,10 +2,21 @@ package Modelo;
 import java.sql.*;
 import java.util.ArrayList;
 
+import Controlador.Hotel;
+
 public class Select_Hotel{
 	
 
 	public static void Select_Hotel(){
+		
+		ArrayList <Hotel> hotelak = new ArrayList<Hotel>();
+		int idHotela;
+		int logelaKopurua;
+		String hotelIzena;
+		Double prezioHotela;
+		int izarKopuru;
+		
+		
 		System.out.println("X --------------------------------------------" );
 			Connection conexion = Conexion.getConexion();	
 		try {
@@ -24,11 +35,19 @@ public class Select_Hotel{
        while (rs.next()) {
     	 
         	 System.out.println("o.idOstatu: "+rs.getString("o.idOstatu")+ " "+"logelaKopuru: "+ " " +rs.getString("logelaKopuru")+ " " +"izarKopuru: "+rs.getString("izarKopuru")+ " " +"prezioHotel: " + rs.getString("prezioHotel")+" "+ "izenOstatu: " + rs.getString("izenOstatu"));
-       
+        	 idHotela=(rs.getInt(1));
+				logelaKopurua=(rs.getInt(2));
+				izarKopuru=(rs.getInt(3));
+				prezioHotela=(rs.getDouble(4));
+				hotelIzena=(rs.getString(5));
+				
+				Hotel h1 = new Hotel(idHotela, hotelIzena, izarKopuru, logelaKopurua, prezioHotela);
+				hotelak.add(h1);
 
           
         }
         
+       
     } catch (SQLException e) {
         System.out.println(e.getMessage());
         
