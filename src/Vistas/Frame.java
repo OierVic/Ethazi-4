@@ -11,7 +11,7 @@ public class Frame extends JFrame {
 	GridBagConstraints config = new GridBagConstraints();
 
 	public Frame() {
-		this.setTitle("Txartel Saltzailea");
+		this.setTitle("Bidai-On");
 		
 		this.setSize(770,670);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
