@@ -26,7 +26,7 @@ public class Consultas_Hoteles{
 			// Se realiza la consulta. Los resultados se guardan en el ResultSet rs
 
 
-			String queryL = "SELECT o.idOstatu, o.izenOstatu, logelaKopurua, izarKopurua, prezioHotel, o.izenOstatu,logelaOkupatuta FROM hotel h, ostatu o WHERE o.idOstatu = h.idOstatu";
+			String queryL = "SELECT o.idOstatu, logelaOkupatuta, izarKopurua, prezioHotel, o.izenOstatu, logelaKopurua FROM hotel h, ostatu o WHERE o.idOstatu = h.idOstatu";
 
 			ResultSet rs = s.executeQuery(queryL);
 
@@ -36,14 +36,17 @@ public class Consultas_Hoteles{
 
 				System.out.println("(1).o.idOstatu: "+rs.getString("o.idOstatu")+ " "+"(2).logelaKopurua: "+ " " +rs.getString("logelaKopurua")+ " " +"(3).izarKopurua: "+rs.getString("izarKopurua")+ " " +"(4).prezioHotel: " + rs.getString("prezioHotel")+" "+ "(5).izenOstatu: " + rs.getString("izenOstatu")+" "+ "6.logelaOkupatuta: " + rs.getString("logelaOkupatuta"));
 				idHotela=(rs.getInt(1));
-				//logelaKopurua=(rs.getInt(2));
+				logelaKopurua=(rs.getInt(2));
 				izarKopuru=(rs.getInt(3));
 				prezioHotela=(rs.getDouble(4));
 				hotelIzena=(rs.getString(5));
-				//logelahartuta=(rs.getInt(6));
+				logelahartuta=(rs.getInt(6));
 
-				//Hotel h1 = new Hotel(idHotela, hotelIzena, izarKopuru, prezioHotela, logelahartuta, logelaKopurua);
-				//hotelak.add(h1);
+				Hotel h1 = new Hotel(idHotela,logelaKopurua, izarKopuru, prezioHotela,hotelIzena, logelahartuta);
+				hotelak.add(h1);
+				
+				//System.out.println(h1);
+				
 
 			}
 

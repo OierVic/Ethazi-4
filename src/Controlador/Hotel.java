@@ -9,7 +9,7 @@ public class Hotel extends Ostatu{
 	private int LogelaTotala;
 	//Kontruktorea hotelak behar dituen datuak zartzeko...
 	
-	public Hotel(int id_Ostatu, String ostatu_Izena, int izarKopurua, double precioHotel, int logelaTotala,
+	public Hotel(int id_Ostatu,int logelaTotala, int izarKopurua, double precioHotel, String ostatu_Izena,
 			int logelaokupatuta) {
 		super(id_Ostatu, ostatu_Izena);
 		this.izarKopurua = izarKopurua;
@@ -49,7 +49,13 @@ public class Hotel extends Ostatu{
 	public void setLogelaTotala(int logelaTotala) {
 		LogelaTotala = logelaTotala;
 	}
-	
+
+/*	@Override
+	public String toString() {
+		return "Hotel [izarKopurua=" + izarKopurua + ", precioHotel=" + precioHotel + ", Logelaokupatuta="
+				+ Logelaokupatuta + ", LogelaTotala=" + LogelaTotala + ", ostatu_Izena=" + Ostatu_Izena + "]";
+	}
+	*/
 
 	
 	
