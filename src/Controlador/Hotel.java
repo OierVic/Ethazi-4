@@ -1,51 +1,59 @@
 package Controlador;
 
 public class Hotel extends Ostatu{
-	
-	
-
-	
 	//atributuak
 	
 	private int izarKopurua;
-	private int logelaKopurua;
 	private double precioHotel;
-	
+	private int Logelaokupatuta;
+	private int LogelaTotala;
 	//Kontruktorea hotelak behar dituen datuak zartzeko...
-
-	public Hotel(int id_Ostatu, String ostatu_Izena, int izarKopurua, int logelaKopurua, double precioHotel) {
+	
+	public Hotel(int id_Ostatu, String ostatu_Izena, int izarKopurua, double precioHotel, int logelaTotala,
+			int logelaokupatuta) {
 		super(id_Ostatu, ostatu_Izena);
 		this.izarKopurua = izarKopurua;
-		this.logelaKopurua = logelaKopurua;
 		this.precioHotel = precioHotel;
+		Logelaokupatuta = logelaokupatuta;
+		LogelaTotala = logelaTotala;
 	}
-	
-	
 
 	public int getIzarKopurua() {
 		return izarKopurua;
 	}
+
 	public void setIzarKopurua(int izarKopurua) {
 		this.izarKopurua = izarKopurua;
 	}
-	public int getLogelaKopurua() {
-		return logelaKopurua;
-	}
-	public void setLogelaKopurua(int logelaKopurua) {
-		this.logelaKopurua = logelaKopurua;
-	}
-	
+
 	public double getPrecioHotel() {
 		return precioHotel;
 	}
 
-
-
-	@Override
-	public String toString() {
-		return "Hotel [izarKopurua=" + izarKopurua + ", logelaKopurua=" + logelaKopurua + ", precioHotel=" + precioHotel +", id_Ostatu=" + id_Ostatu +", ostatu_Izena=" + Ostatu_Izena + "]";
+	public void setPrecioHotel(double precioHotel) {
+		this.precioHotel = precioHotel;
 	}
+
+	public int getLogelaokupatuta() {
+		return Logelaokupatuta;
+	}
+
+	public void setLogelaokupatuta(int logelaokupatuta) {
+		Logelaokupatuta = logelaokupatuta;
+	}
+
+	public int getLogelaTotala() {
+		return LogelaTotala;
+	}
+
+	public void setLogelaTotala(int logelaTotala) {
+		LogelaTotala = logelaTotala;
+	}
+	
+
 	
 	
 	
 }
+
+

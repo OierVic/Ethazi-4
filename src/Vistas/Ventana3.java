@@ -13,6 +13,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import Controlador.Hotel;
 import Controlador.Metodoak;
 
 public class Ventana3 extends JFrame {
@@ -38,8 +39,9 @@ public class Ventana3 extends JFrame {
 	private double prezio2 = 0;
 
 
-	public Ventana3(Hotel Hotel) {
-		prezioa=Hotel.getPrecio();
+	public Ventana3(ArrayList<Hotel> hoteles) {
+		//prezioa=hoteles.getPrecioHotel();
+		prezioa=0.0;
 		this.setBounds(275,100,700,600);
 		getContentPane().setLayout(null);
 		lblOrdainketa.setBounds(90, 106, 162, 34);
@@ -104,7 +106,7 @@ public class Ventana3 extends JFrame {
 		});
 		getContentPane().add(btnEzeztatu);
 		btnAtzera.setBounds(176, 467, 105, 43);
-		String nan = Hotel.getDni();
+		//String nan = Hotel.getDni();
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -184,8 +186,10 @@ public class Ventana3 extends JFrame {
 		Itzuliak.setBounds(231, 244, 380, 195);
 		getContentPane().add(Itzuliak);
 		Itzuliak.setEditable(false);
-		String ordaintzeko = String.valueOf(Hotel.getPrecio());
+		//String ordaintzeko = String.valueOf(hoteles.getPrecioHotel());
+		String ordaintzeko="0";
 		lblOrdaintzeko.setHorizontalAlignment(SwingConstants.CENTER);
+		
 		lblOrdaintzeko.setText(ordaintzeko);
 		lblOrdaintzeko.setFont(new Font("Arial", Font.PLAIN, 18));
 		lblOrdaintzeko.setBounds(274, 112, 52, 30);
@@ -198,3 +202,4 @@ public class Ventana3 extends JFrame {
 
 	}
 }
+

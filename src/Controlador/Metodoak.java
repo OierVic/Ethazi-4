@@ -1,10 +1,13 @@
 package Controlador;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
+import Modelo.Consultas_Hoteles;
 import Vistas.Ventana1;
 import Vistas.Ventana2;
+import Vistas.Ventana3;
 
 public class Metodoak {
 	
@@ -16,9 +19,18 @@ public class Metodoak {
 
 	}
 	public static void bigarrenLeihoa() {
-
-		Ventana2 ventana2= new Ventana2();
+		
+		ArrayList <Hotel> Hoteles= new ArrayList <Hotel>();
+		Hoteles=Consultas_Hoteles.Select_Hotel();
+		Ventana2 ventana2= new Ventana2(Hoteles);
 		ventana2.setVisible(true);
+
+	}
+	public static void hirugarrenLeihoa(ArrayList <Hotel> Hoteles) {
+		
+
+		Ventana3 ventana3= new Ventana3(Hoteles);
+		ventana3.setVisible(true);
 
 	}
 	
@@ -203,3 +215,5 @@ public class Metodoak {
 	} 
 	
 }
+
+

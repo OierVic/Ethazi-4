@@ -1,7 +1,7 @@
 package Controlador;
 
 import Modelo.Conexion;
-import Modelo.Select_Hotel;
+import Modelo.Consultas_Hoteles;
 
 public class Aplikazioa {
 
@@ -13,7 +13,7 @@ public class Aplikazioa {
 			
 			//Metodoak.lehenengoLeihoa();
 			
-			Select_Hotel.Select_Hotel();
+			Consultas_Hoteles.Select_Hotel();
 			
 
 	}
