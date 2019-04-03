@@ -11,6 +11,8 @@ public class Aplikazioa {
 			Conexion b1 =new Conexion();
 			
 			Metodoak.lehenengoLeihoa();
+			
+			
 
 	}
 

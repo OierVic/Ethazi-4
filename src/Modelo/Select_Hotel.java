@@ -15,7 +15,7 @@ public class Select_Hotel{
         // Se realiza la consulta. Los resultados se guardan en el ResultSet rs
 
        
-        String queryL = "SELECT izena FROM hotel";
+        String queryL = "SELECT idOstatu, logelaKopuru, izarKopuru, prezioHotel FROM hotel";
 
         ResultSet rs = s.executeQuery(queryL);
               
