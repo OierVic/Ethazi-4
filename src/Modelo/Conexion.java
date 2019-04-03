@@ -21,7 +21,7 @@ public class Conexion {
 	/*******Konexioa objektua sortzen dugu metodo batekin konexioa egiteko**********/
 	public Conexion() {
 	
-		String fichero = "\\C:\\Users\\mañana.ORD32\\git\\Ethazi-4\\bin\\Conexión txt\\Konexioa.txt";
+		String fichero = "src\\Konexioa.txt";
 		//C:\Users\mañana.ORD32\git\Ethazi-4\bin\Conexión txt
 		//"\\C:\\Users\\maÃ±ana\\git\\mvcEthazi3\\src\\Modelo\\ConexiÃ³n txt\\Konexioa.txt"
 		//C:\Users\Asier\Desktop\Asier\mvcethazi3\src\Modelo\ConexiÃ³n txt
