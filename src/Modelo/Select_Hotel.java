@@ -6,7 +6,7 @@ public class Select_Hotel{
 	
 
 	public static void Select_Hotel(){
-		
+		System.out.println("X --------------------------------------------" );
 			Connection conexion = Conexion.getConexion();	
 		try {
 		
@@ -15,15 +15,15 @@ public class Select_Hotel{
         // Se realiza la consulta. Los resultados se guardan en el ResultSet rs
 
        
-        String queryL = "SELECT idOstatu, logelaKopuru, izarKopuru, prezioHotel FROM hotel";
+        String queryL = "SELECT o.idOstatu, logelaKopuru, izarKopuru, prezioHotel, izenOstatu FROM hotel h, ostatu o WHERE o.idOstatu = h.idOstatu";
 
         ResultSet rs = s.executeQuery(queryL);
               
-                
+        System.out.println("X --------------------------------------------" );  
        
        while (rs.next()) {
-        	
-        	 System.out.println("Izena: "+rs.getString("nombre"));
+    	 
+        	 System.out.println("o.idOstatu: "+rs.getString("o.idOstatu")+ " "+"logelaKopuru: "+ " " +rs.getString("logelaKopuru")+ " " +"izarKopuru: "+rs.getString("izarKopuru")+ " " +"prezioHotel: " + rs.getString("prezioHotel")+" "+ "izenOstatu: " + rs.getString("izenOstatu"));
        
 
           

@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.Conexion;
+import Modelo.Select_Hotel;
 
 public class Aplikazioa {
 
@@ -10,9 +11,9 @@ public class Aplikazioa {
 	
 			Conexion b1 =new Conexion();
 			
-			Metodoak.lehenengoLeihoa();
+			//Metodoak.lehenengoLeihoa();
 			
-			
+			Select_Hotel.Select_Hotel();
 
 	}
 
