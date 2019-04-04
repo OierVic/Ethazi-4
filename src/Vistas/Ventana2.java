@@ -40,12 +40,12 @@ public class Ventana2 extends JFrame {
 		getContentPane().add(lblHotelak);
 
 		JComboBox<String> comboBoxNombreHoteles = new JComboBox<String>();
-		comboBoxNombreHoteles.setBounds(40, 122, 133, 29);
+		comboBoxNombreHoteles.setToolTipText("Aukeratu hotel bat");
+		comboBoxNombreHoteles.setBounds(40, 122, 302, 29);
 		getContentPane().add(comboBoxNombreHoteles);
 		comboBoxNombreHoteles.addItem("Hotel bat aukeratu");
 		for (int i=0;i<Hoteles.size();i++) {
-			comboBoxNombreHoteles.addItem(Hoteles.get(i).getOstatu_Izena());
-
+			comboBoxNombreHoteles.addItem(Hoteles.get(i).cbIzena());
 		}
 
 		comboBoxNombreHoteles.addItemListener(new ItemListener() {
@@ -55,7 +55,7 @@ public class Ventana2 extends JFrame {
 					textFieldPrezioa.setText("");
 				}
 				for (int i=0;i<Hoteles.size();i++) {
-					if (hotelak.equals(Hoteles.get(i).getOstatu_Izena())) {
+					if (hotelak.equals(Hoteles.get(i).cbIzena())) {
 						// Prezioa String-era pasatu behar da zeren setText egiterakoan eskatzen duelako
 						PrezioHotel = Hoteles.get(i).getPrezioHotel();
 						String PrezioHotel = String.valueOf(Hoteles.get(i).getPrezioHotel());
