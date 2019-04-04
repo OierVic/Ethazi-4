@@ -2,6 +2,7 @@ package Vistas;
 
 import java.awt.SystemColor;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -29,6 +30,8 @@ public class Ventana2 extends JFrame {
 	JComboBox<String> comboBoxNombreHoteles = new JComboBox<String>();
 	JButton btnHurrengoa = new JButton("Hurrengoa");
 	JLabel lblPrezioa = new JLabel("Prezioa");
+	JComboBox comboBoxHelbidea = new JComboBox();
+
 
 
 	public static Double PrezioHotel;
@@ -44,7 +47,7 @@ public class Ventana2 extends JFrame {
 		getContentPane().add(lblHotelak);
 
 		comboBoxNombreHoteles.setToolTipText("Aukeratu hotel bat");
-		comboBoxNombreHoteles.setBounds(40, 122, 302, 29);
+		comboBoxNombreHoteles.setBounds(29, 287, 302, 29);
 		getContentPane().add(comboBoxNombreHoteles);
 		comboBoxNombreHoteles.addItem("Hotel bat aukeratu");
 		for (int i=0;i<Hoteles.size();i++) {
@@ -100,6 +103,14 @@ public class Ventana2 extends JFrame {
 		getContentPane().add(textFieldPrezioa);
 		textFieldPrezioa.setColumns(10);
 		textFieldPrezioa.setEditable(false);
+		
+		
+		comboBoxHelbidea.setBounds(29, 94, 251, 20);
+		getContentPane().add(comboBoxHelbidea);
+		//Mirar
+		for (int i=0;i<Hoteles.size();i++) {
+			comboBoxHelbidea.addItem(Hoteles.get(i).getHelbideHotel());
+		}
 
 
 

@@ -17,7 +17,7 @@ public class Consultas_Hoteles{
 		int HartutakoLogelak=0;
 		int izarKopurua=0;
 		Double prezioHotel=null;
-		int PostaKodeaHotel=0;
+		String Helbidea=null;
 		
 		
 		Connection Conexion = null;
@@ -28,7 +28,7 @@ public class Consultas_Hoteles{
 			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
-			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idHotel,izenaHotel,logelaKopurua,HartutakoLogelak,izarKopurua,prezioHotel,PostaKodeaHotel FROM hotel");
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idHotel,izenaHotel,logelaKopurua,HartutakoLogelak,izarKopurua,prezioHotel,Helbidea FROM hotel");
 			while (rs.next()) {
 				idHotela = rs.getInt("idHotel");
 				hotelIzena = rs.getString("izenaHotel");
@@ -36,8 +36,8 @@ public class Consultas_Hoteles{
 				HartutakoLogelak = rs.getInt("HartutakoLogelak");
 				izarKopurua = rs.getInt("izarKopurua");
 				prezioHotel = rs.getDouble("prezioHotel");
-				PostaKodeaHotel = rs.getInt("PostaKodeaHotel");
-				Hotel h1 = new Hotel(idHotela, hotelIzena, logelaKopurua, HartutakoLogelak, izarKopurua, prezioHotel,PostaKodeaHotel);
+				Helbidea = rs.getString("Helbidea");
+				Hotel h1 = new Hotel(idHotela, hotelIzena, logelaKopurua, HartutakoLogelak, izarKopurua, prezioHotel,Helbidea);
 				hotelak.add(h1);
 				//System.out.println(izena);
 
