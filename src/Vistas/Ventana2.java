@@ -25,6 +25,11 @@ public class Ventana2 extends JFrame {
 
 
 	private JTextField textFieldPrezioa;
+	JLabel lblHotelak = new JLabel("Hotelak");
+	JComboBox<String> comboBoxNombreHoteles = new JComboBox<String>();
+	JButton btnHurrengoa = new JButton("Hurrengoa");
+	JLabel lblPrezioa = new JLabel("Prezioa");
+
 
 	public static Double PrezioHotel;
 
@@ -34,18 +39,16 @@ public class Ventana2 extends JFrame {
 		this.setBackground(SystemColor.control);
 		getContentPane().setLayout(null);
 
-		JLabel lblHotelak = new JLabel("Hotelak");
 		lblHotelak.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblHotelak.setBounds(73, 24, 121, 59);
 		getContentPane().add(lblHotelak);
 
-		JComboBox<String> comboBoxNombreHoteles = new JComboBox<String>();
-		comboBoxNombreHoteles.setBounds(40, 122, 133, 29);
+		comboBoxNombreHoteles.setToolTipText("Aukeratu hotel bat");
+		comboBoxNombreHoteles.setBounds(40, 122, 302, 29);
 		getContentPane().add(comboBoxNombreHoteles);
 		comboBoxNombreHoteles.addItem("Hotel bat aukeratu");
 		for (int i=0;i<Hoteles.size();i++) {
-			comboBoxNombreHoteles.addItem(Hoteles.get(i).getOstatu_Izena());
-
+			comboBoxNombreHoteles.addItem(Hoteles.get(i).cbIzena());
 		}
 
 		comboBoxNombreHoteles.addItemListener(new ItemListener() {
@@ -55,20 +58,20 @@ public class Ventana2 extends JFrame {
 					textFieldPrezioa.setText("");
 				}
 				for (int i=0;i<Hoteles.size();i++) {
-					if (hotelak.equals(Hoteles.get(i).getOstatu_Izena())) {
+					if (hotelak.equals(Hoteles.get(i).cbIzena())) {
 						// Prezioa String-era pasatu behar da zeren setText egiterakoan eskatzen duelako
 						PrezioHotel = Hoteles.get(i).getPrezioHotel();
 						String PrezioHotel = String.valueOf(Hoteles.get(i).getPrezioHotel());
 						//Mirar haber si funciona para saber que numero es del array para llevarlo a la ventana3 de pagar
 
 						textFieldPrezioa.setText(PrezioHotel+" €");
+						btnHurrengoa.setEnabled(true);
 						break;
 					}
 
 				}
 			}
 		});
-		JButton btnHurrengoa = new JButton("Hurrengoa");
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String hotelak = (String) comboBoxNombreHoteles.getSelectedItem();
@@ -87,7 +90,6 @@ public class Ventana2 extends JFrame {
 		btnHurrengoa.setBounds(487, 503, 157, 29);
 		getContentPane().add(btnHurrengoa);
 
-		JLabel lblPrezioa = new JLabel("Prezioa");
 		lblPrezioa.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblPrezioa.setBounds(463, 41, 76, 29);
 		getContentPane().add(lblPrezioa);
@@ -98,9 +100,6 @@ public class Ventana2 extends JFrame {
 		getContentPane().add(textFieldPrezioa);
 		textFieldPrezioa.setColumns(10);
 		textFieldPrezioa.setEditable(false);
-
-		//Mirar haber si funciona para saber que numero es del array para llevarlo a la ventana3 de pagar
-		System.out.println("holaaaaaaaa");
 
 
 

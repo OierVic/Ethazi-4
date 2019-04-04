@@ -61,7 +61,11 @@ public class Hotel extends Ostatu{
 		this.helbideHotel = helbideHotel;
 	}
 
-
+	public String cbIzena () {
+		int logelak = this.getLogelaKopurua() - this.getHartutakoLogelak();
+		String cb = this.getOstatu_Izena() + "           Logelak eskuragarri: " + logelak;
+		return cb;
+	}
 	
 	
 	

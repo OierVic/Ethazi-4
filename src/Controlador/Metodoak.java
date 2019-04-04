@@ -1,5 +1,6 @@
 package Controlador;
 
+import java.io.FileWriter;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -39,6 +40,19 @@ public class Metodoak {
 		if (zbk>0)
 			balidatu=true;
 		return balidatu;
+	}
+	
+	public static void imprimatuTiketa(Erreserba e1) {
+
+		String nombre = "tiket.txt";
+		try{
+			FileWriter fichero = new FileWriter("src\\controlador\\"+nombre);
+			fichero.write(e1.toString() + "\r\n");
+			fichero.close();
+
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
 	}
 	
 	public static String kanbioMetodoa(double zbk) {
