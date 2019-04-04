@@ -187,7 +187,7 @@ public class Ventana3 extends JFrame {
 		getContentPane().add(Itzuliak);
 		Itzuliak.setEditable(false);
 		//String ordaintzeko = String.valueOf(hoteles.getPrecioHotel());
-		String ordaintzeko = String.valueOf(Ventana2.PrezioHotel);
+		String ordaintzeko = String.valueOf(Ventana2.PrezioHotel); 
 		//String ordaintzeko="0";
 		lblOrdaintzeko.setHorizontalAlignment(SwingConstants.CENTER);
 		
