@@ -7,12 +7,12 @@ public class Hotel extends Ostatu{
 	private int HartutakoLogelak;
 	private int izarKopurua;
 	private double prezioHotel;
-	private int helbideHotel;
+	private String helbideHotel;
 	
 	//Kontruktorea hotelak behar dituen datuak sartzeko...
 
 	public Hotel(int id_Hotel, String izena_Hotel, int logelaKopurua, int hartutakoLogelak, int izarKopurua,
-			double prezioHotel, int helbideHotel) {
+			double prezioHotel, String helbideHotel) {
 		super(id_Hotel, izena_Hotel);
 		this.LogelaKopurua = logelaKopurua;
 		this.HartutakoLogelak = hartutakoLogelak;
@@ -37,7 +37,7 @@ public class Hotel extends Ostatu{
 		return prezioHotel;
 	}
 
-	public int getHelbideHotel() {
+	public String getHelbideHotel() {
 		return helbideHotel;
 	}
 
@@ -57,13 +57,18 @@ public class Hotel extends Ostatu{
 		this.prezioHotel = prezioHotel;
 	}
 
-	public void setHelbideHotel(int helbideHotel) {
+	public void setHelbideHotel(String helbideHotel) {
 		this.helbideHotel = helbideHotel;
 	}
+	public int LogelaEskugarri (int LogelaKopurua,int HartutakoLogelak) {
+		int LogelaEskugarri=0;
+		LogelaEskugarri=LogelaKopurua-HartutakoLogelak;
+		return LogelaEskugarri;
+	}
 
-	public String cbIzena () {
-		int logelak = this.getLogelaKopurua() - this.getHartutakoLogelak();
-		String cb = this.getOstatu_Izena() + "           Logelak eskuragarri: " + logelak;
+	public String comboboxIzena () {
+		//int logelak = this.getLogelaKopurua() - this.getHartutakoLogelak();
+		String cb = this.getOstatu_Izena() + "           Logelak eskuragarri: " + LogelaEskugarri(this.getLogelaKopurua(),this.getHartutakoLogelak())+"           Helbidea: "+this.helbideHotel;
 		return cb;
 	}
 	

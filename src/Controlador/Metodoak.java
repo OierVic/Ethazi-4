@@ -23,7 +23,9 @@ public class Metodoak {
 		
 		ArrayList <Hotel> Hoteles= new ArrayList <Hotel>();
 		Hoteles=Consultas_Hoteles.HotelakIkusi();
-		Ventana2 ventana2= new Ventana2(Hoteles);
+		ArrayList<String> Helbideak =new ArrayList<String>();
+		Helbideak=Consultas_Hoteles.HelbideakIkusi();
+		Ventana2 ventana2= new Ventana2(Hoteles,Helbideak);
 		ventana2.setVisible(true);
 
 	}
