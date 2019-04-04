@@ -68,7 +68,7 @@ public class Ventana3 extends JFrame {
 		btnAmaitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Metodoak.bigarrenLeihoa();
+				//Metodoak.bigarrenLeihoa();
 				
 			}
 		});

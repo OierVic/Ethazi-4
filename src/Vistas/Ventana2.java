@@ -25,6 +25,11 @@ public class Ventana2 extends JFrame {
 
 
 	private JTextField textFieldPrezioa;
+	JLabel lblHotelak = new JLabel("Hotelak");
+	JComboBox<String> comboBoxNombreHoteles = new JComboBox<String>();
+	JButton btnHurrengoa = new JButton("Hurrengoa");
+	JLabel lblPrezioa = new JLabel("Prezioa");
+
 
 	public static Double PrezioHotel;
 
@@ -34,12 +39,10 @@ public class Ventana2 extends JFrame {
 		this.setBackground(SystemColor.control);
 		getContentPane().setLayout(null);
 
-		JLabel lblHotelak = new JLabel("Hotelak");
 		lblHotelak.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblHotelak.setBounds(73, 24, 121, 59);
 		getContentPane().add(lblHotelak);
 
-		JComboBox<String> comboBoxNombreHoteles = new JComboBox<String>();
 		comboBoxNombreHoteles.setToolTipText("Aukeratu hotel bat");
 		comboBoxNombreHoteles.setBounds(40, 122, 302, 29);
 		getContentPane().add(comboBoxNombreHoteles);
@@ -62,13 +65,13 @@ public class Ventana2 extends JFrame {
 						//Mirar haber si funciona para saber que numero es del array para llevarlo a la ventana3 de pagar
 
 						textFieldPrezioa.setText(PrezioHotel+" €");
+						btnHurrengoa.setEnabled(true);
 						break;
 					}
 
 				}
 			}
 		});
-		JButton btnHurrengoa = new JButton("Hurrengoa");
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String hotelak = (String) comboBoxNombreHoteles.getSelectedItem();
@@ -87,7 +90,6 @@ public class Ventana2 extends JFrame {
 		btnHurrengoa.setBounds(487, 503, 157, 29);
 		getContentPane().add(btnHurrengoa);
 
-		JLabel lblPrezioa = new JLabel("Prezioa");
 		lblPrezioa.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblPrezioa.setBounds(463, 41, 76, 29);
 		getContentPane().add(lblPrezioa);
@@ -98,9 +100,6 @@ public class Ventana2 extends JFrame {
 		getContentPane().add(textFieldPrezioa);
 		textFieldPrezioa.setColumns(10);
 		textFieldPrezioa.setEditable(false);
-
-		//Mirar haber si funciona para saber que numero es del array para llevarlo a la ventana3 de pagar
-		System.out.println("holaaaaaaaa");
 
 
 
