@@ -2,7 +2,6 @@ package Vistas;
 
 import java.awt.SystemColor;
 import java.util.ArrayList;
-import java.util.HashSet;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -30,28 +29,30 @@ public class Ventana2 extends JFrame {
 	JComboBox<String> comboBoxNombreHoteles = new JComboBox<String>();
 	JButton btnHurrengoa = new JButton("Hurrengoa");
 	JLabel lblPrezioa = new JLabel("Prezioa");
-	JComboBox comboBoxHelbidea = new JComboBox();
+	JLabel lblHelbideak = new JLabel("Helbideak");
+	JComboBox comboBoxHelbideak = new JComboBox();
 
 
 
 	public static Double PrezioHotel;
 
-	public Ventana2(ArrayList <Hotel> Hoteles) {
+	public Ventana2(ArrayList <Hotel> Hoteles,ArrayList<String> Helbideak) {
 
 		this.setBounds(275,100,700,600);
 		this.setBackground(SystemColor.control);
 		getContentPane().setLayout(null);
 
 		lblHotelak.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblHotelak.setBounds(73, 24, 121, 59);
+		lblHotelak.setBounds(58, 203, 121, 59);
 		getContentPane().add(lblHotelak);
 
 		comboBoxNombreHoteles.setToolTipText("Aukeratu hotel bat");
-		comboBoxNombreHoteles.setBounds(29, 287, 302, 29);
+		comboBoxNombreHoteles.setBounds(40, 284, 542, 29);
 		getContentPane().add(comboBoxNombreHoteles);
 		comboBoxNombreHoteles.addItem("Hotel bat aukeratu");
 		for (int i=0;i<Hoteles.size();i++) {
-			comboBoxNombreHoteles.addItem(Hoteles.get(i).cbIzena());
+			System.out.println("holaaaaaaaaaa");
+			comboBoxNombreHoteles.addItem(Hoteles.get(i).comboboxIzena());
 		}
 
 		comboBoxNombreHoteles.addItemListener(new ItemListener() {
@@ -61,7 +62,7 @@ public class Ventana2 extends JFrame {
 					textFieldPrezioa.setText("");
 				}
 				for (int i=0;i<Hoteles.size();i++) {
-					if (hotelak.equals(Hoteles.get(i).cbIzena())) {
+					if (hotelak.equals(Hoteles.get(i).comboboxIzena())) {
 						// Prezioa String-era pasatu behar da zeren setText egiterakoan eskatzen duelako
 						PrezioHotel = Hoteles.get(i).getPrezioHotel();
 						String PrezioHotel = String.valueOf(Hoteles.get(i).getPrezioHotel());
@@ -82,7 +83,7 @@ public class Ventana2 extends JFrame {
 					btnHurrengoa.setEnabled(false);
 					JOptionPane.showMessageDialog(null,"Ez duzu hotelik aukeratu. Mezedez, Hotel bat aukeratu.");
 				}
-				else {
+				else if(!(hotelak.equals("Hotel bat aukeratu"))) {
 					System.out.println(PrezioHotel);
 					dispose();
 					Metodoak.hirugarrenLeihoa(Hoteles);
@@ -104,17 +105,27 @@ public class Ventana2 extends JFrame {
 		textFieldPrezioa.setColumns(10);
 		textFieldPrezioa.setEditable(false);
 		
+		lblHelbideak.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblHelbideak.setBounds(74, 36, 105, 39);
+		getContentPane().add(lblHelbideak);
 		
-		comboBoxHelbidea.setBounds(29, 94, 251, 20);
-		getContentPane().add(comboBoxHelbidea);
-		//Mirar
-		for (int i=0;i<Hoteles.size();i++) {
-			comboBoxHelbidea.addItem(Hoteles.get(i).getHelbideHotel());
+		
+		comboBoxHelbideak.setBounds(58, 107, 196, 39);
+		getContentPane().add(comboBoxHelbideak);
+		for (int i=0;i<Helbideak.size();i++) {
+			System.out.println(Helbideak);
+			comboBoxHelbideak.addItem(Helbideak.get(i));
 		}
+		comboBoxHelbideak.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent arg0) {
+				/* Se pasarian los hoteles que hayamos seleccionado en el Combobox de helbideak y
+				se verian los de ese Helbide seleccionado en los que serian iguales a los hoteles */
+				
+				
+			}
+		});
 
 
 
 	}
 }
-
-

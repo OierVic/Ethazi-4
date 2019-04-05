@@ -60,10 +60,15 @@ public class Hotel extends Ostatu{
 	public void setHelbideHotel(String helbideHotel) {
 		this.helbideHotel = helbideHotel;
 	}
+	public int LogelaEskugarri (int LogelaKopurua,int HartutakoLogelak) {
+		int LogelaEskugarri=0;
+		LogelaEskugarri=LogelaKopurua-HartutakoLogelak;
+		return LogelaEskugarri;
+	}
 
-	public String cbIzena () {
-		int logelak = this.getLogelaKopurua() - this.getHartutakoLogelak();
-		String cb = this.getOstatu_Izena() + "           Logelak eskuragarri: " + logelak;
+	public String comboboxIzena () {
+		//int logelak = this.getLogelaKopurua() - this.getHartutakoLogelak();
+		String cb = this.getOstatu_Izena() + "           Logelak eskuragarri: " + LogelaEskugarri(this.getLogelaKopurua(),this.getHartutakoLogelak())+"           Helbidea: "+this.helbideHotel;
 		return cb;
 	}
 	

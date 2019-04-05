@@ -28,7 +28,7 @@ public class Consultas_Hoteles{
 			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
-			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idHotel,izenaHotel,logelaKopurua,HartutakoLogelak,izarKopurua,prezioHotel,Helbidea FROM hotel");
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idHotel,izenaHotel,logelaKopurua,HartutakoLogelak,izarKopurua,prezioHotel,helbideHotel FROM hotel");
 			while (rs.next()) {
 				idHotela = rs.getInt("idHotel");
 				hotelIzena = rs.getString("izenaHotel");
@@ -36,7 +36,7 @@ public class Consultas_Hoteles{
 				HartutakoLogelak = rs.getInt("HartutakoLogelak");
 				izarKopurua = rs.getInt("izarKopurua");
 				prezioHotel = rs.getDouble("prezioHotel");
-				Helbidea = rs.getString("Helbidea");
+				Helbidea = rs.getString("helbideHotel");
 				Hotel h1 = new Hotel(idHotela, hotelIzena, logelaKopurua, HartutakoLogelak, izarKopurua, prezioHotel,Helbidea);
 				hotelak.add(h1);
 				//System.out.println(izena);
@@ -50,7 +50,34 @@ public class Consultas_Hoteles{
 		return hotelak;
 		
 	}
-	
+	public static ArrayList <String> HelbideakIkusi() {
+		ArrayList <String> Helbideak = new ArrayList<String>();
+		String helbideak=null;
+		
+		
+		
+		Connection Conexion = null;
+		Statement s =null;
+
+		try {
+			//Class.forName("com.mysql.jdbc.Driver");
+			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			s =(Statement) Conexion.createStatement();
+
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT helbideHotel FROM hotel group by helbideHotel");
+			while (rs.next()) {
+				helbideak = rs.getString("helbideHotel");
+				Helbideak.add(helbideak);
+				
+			}
+			System.out.println();
+			System.out.println("Conexioa eginda2");
+		}catch(Exception e) {
+			e.getMessage();
+		}
+		return Helbideak;
+		
+	}
 	
 	
 	
@@ -58,25 +85,3 @@ public class Consultas_Hoteles{
 	
 	
 }
-		 
-		
-		
-		
-		
-
-	
-	
-		
-	
-
-	
-
-	
-
-
-
-
-
-
-
-
