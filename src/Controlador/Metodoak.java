@@ -29,10 +29,9 @@ public class Metodoak {
 		ventana2.setVisible(true);
 
 	}
-	public static void hirugarrenLeihoa(ArrayList <Hotel> Hoteles) {
+	public static void hirugarrenLeihoa(ArrayList <Hotel> Hoteles, Double prezioHotel) {
 		
-
-		Ventana3 ventana3= new Ventana3(Hoteles);
+		Ventana3 ventana3= new Ventana3(Hoteles,prezioHotel);
 		ventana3.setVisible(true);
 
 	}
@@ -46,7 +45,7 @@ public class Metodoak {
 	
 	public static void imprimatuTiketa(Erreserba e1) {
 
-		String nombre = "tiket.txt";
+		String nombre = "erreserba.txt";
 		try{
 			FileWriter fichero = new FileWriter("src\\controlador\\"+nombre);
 			fichero.write(e1.toString() + "\r\n");

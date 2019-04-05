@@ -13,6 +13,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import Controlador.Erreserba;
 import Controlador.Hotel;
 import Controlador.Metodoak;
 
@@ -39,8 +40,8 @@ public class Ventana3 extends JFrame {
 	private double prezio2 = 0;
 
 
-	public Ventana3(ArrayList <Hotel> Hoteles) {
-		prezioa=Ventana2.PrezioHotel;
+	public Ventana3(ArrayList <Hotel> Hoteles, Double prezioHotel) {
+		prezioa=prezioHotel;
 		//prezioa=0.0;
 		this.setBounds(275,100,700,600);
 		getContentPane().setLayout(null);
@@ -68,6 +69,14 @@ public class Ventana3 extends JFrame {
 		btnAmaitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				String izenBezero="Pedro";
+				String dataJoan="20-01-1990";
+				String dataEtorri="20-03-1990";
+				int nagusiKopuru=10;
+				int umekopuru=5;
+				Double precio=prezioHotel;
+//				Erreserba e1 = new Erreserba(izenBezero, dataJoan, dataEtorri, nagusiKopuru, umekopuru, precio);
+//				Metodoak.imprimatuTiketa(e1);
 				//Metodoak.bigarrenLeihoa();
 				
 			}
@@ -187,7 +196,7 @@ public class Ventana3 extends JFrame {
 		getContentPane().add(Itzuliak);
 		Itzuliak.setEditable(false);
 		//String ordaintzeko = String.valueOf(hoteles.getPrecioHotel());
-		String ordaintzeko = String.valueOf(Ventana2.PrezioHotel); 
+		String ordaintzeko = String.valueOf(prezioHotel); 
 		//String ordaintzeko="0";
 		lblOrdaintzeko.setHorizontalAlignment(SwingConstants.CENTER);
 		

@@ -34,7 +34,7 @@ public class Ventana2 extends JFrame {
 
 
 
-	public static Double PrezioHotel;
+	public Double PrezioHotel;
 
 	public Ventana2(ArrayList <Hotel> Hoteles,ArrayList<String> Helbideak) {
 
@@ -86,7 +86,7 @@ public class Ventana2 extends JFrame {
 				else if(!(hotelak.equals("Hotel bat aukeratu"))) {
 					System.out.println(PrezioHotel);
 					dispose();
-					Metodoak.hirugarrenLeihoa(Hoteles);
+					Metodoak.hirugarrenLeihoa(Hoteles,PrezioHotel);
 				}
 			}
 		});
@@ -120,7 +120,6 @@ public class Ventana2 extends JFrame {
 			public void itemStateChanged(ItemEvent arg0) {
 				/* Se pasarian los hoteles que hayamos seleccionado en el Combobox de helbideak y
 				se verian los de ese Helbide seleccionado en los que serian iguales a los hoteles */
-				
 				
 			}
 		});
