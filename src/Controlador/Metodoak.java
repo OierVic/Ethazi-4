@@ -9,6 +9,7 @@ import Modelo.Consultas_Hoteles;
 import Vistas.Ventana1;
 import Vistas.Ventana2;
 import Vistas.Ventana3;
+import Vistas.Ventana4;
 
 public class Metodoak {
 	
@@ -33,6 +34,13 @@ public class Metodoak {
 		
 		Ventana3 ventana3= new Ventana3(Hoteles,prezioHotel);
 		ventana3.setVisible(true);
+
+	}
+	
+public static void laugarrenLeihoa() {
+		
+		Ventana4 ventana4= new Ventana4();
+		ventana4.setVisible(true);
 
 	}
 	

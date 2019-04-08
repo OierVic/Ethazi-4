@@ -69,16 +69,18 @@ public class Ventana3 extends JFrame {
 		btnAmaitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				String izenBezero="Pedro";
+				int idOstatu=1;
+				String idBezero="12345678Z";
+				String Eskatutakodata=Metodoak.dataAtera();
+				String EskatutakoOrdua=Metodoak.orduaAtera();
 				String dataJoan="20-01-1990";
 				String dataEtorri="20-03-1990";
 				int nagusiKopuru=10;
 				int umekopuru=5;
 				Double precio=prezioHotel;
-//				Erreserba e1 = new Erreserba(izenBezero, dataJoan, dataEtorri, nagusiKopuru, umekopuru, precio);
-//				Metodoak.imprimatuTiketa(e1);
-				//Metodoak.bigarrenLeihoa();
-				
+				Erreserba e1 = new Erreserba(idOstatu, idBezero,Eskatutakodata,EskatutakoOrdua, dataJoan, dataEtorri, nagusiKopuru, umekopuru, precio);
+				Metodoak.imprimatuTiketa(e1);
+				Metodoak.laugarrenLeihoa();
 			}
 		});
 		getContentPane().add(btnAmaitu);
