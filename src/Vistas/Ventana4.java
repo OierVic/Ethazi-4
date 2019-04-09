@@ -5,15 +5,9 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-/**
- * 
- * @author oier, ander, aintzane
- *
- */
+
 public class Ventana4 extends JFrame {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	private JLabel lblEskerrikAsko = new JLabel("Eskerrik asko erosteagatik ");
