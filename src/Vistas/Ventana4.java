@@ -11,7 +11,7 @@ public class Ventana4 extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	private JLabel lblEskerrikAsko = new JLabel("Eskerrik asko erosteagatik ");
-	private JLabel lblZureTxartelaOrain = new JLabel("Zure txartela orain aterako da");
+	private JLabel lblZureTxartelaOrain = new JLabel("Zure erreserba orain aterako da");
 	private JLabel icono = new JLabel();
 
 	public Ventana4() {

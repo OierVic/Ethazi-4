@@ -45,24 +45,54 @@ public class Ventana2 extends JFrame {
 		lblHotelak.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblHotelak.setBounds(58, 203, 121, 59);
 		getContentPane().add(lblHotelak);
+		
+		comboBoxHelbideak.setBounds(58, 107, 196, 39);
+		getContentPane().add(comboBoxHelbideak);
+		comboBoxHelbideak.addItem("");
+		for (int i=0;i<Helbideak.size();i++) {
+			System.out.println(Helbideak);
+			comboBoxHelbideak.addItem(Helbideak.get(i));
+		}
+		comboBoxHelbideak.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent arg0) {
+				String helbideakSelected = (String) comboBoxHelbideak.getSelectedItem();
+				ArrayList<Hotel>HotelCombobox = new ArrayList<Hotel>();
+				HotelCombobox=Modelo.Consultas_Hoteles.HotelakHelbidearekinAtera(helbideakSelected);
+				//comboBoxNombreHoteles.removeAllItems();
+				comboBoxNombreHoteles.addItem("Hotel bat aukeratu");
+				for (int i = 0; i < HotelCombobox.size(); i++) {
+					comboBoxNombreHoteles.addItem(HotelCombobox.get(i).comboboxIzena());
+				}
+				
+				
+			}
+		});
+		
 
 		comboBoxNombreHoteles.setToolTipText("Aukeratu hotel bat");
 		comboBoxNombreHoteles.setBounds(40, 284, 542, 29);
 		getContentPane().add(comboBoxNombreHoteles);
 		comboBoxNombreHoteles.addItem("Hotel bat aukeratu");
-		for (int i=0;i<Hoteles.size();i++) {
-			System.out.println("holaaaaaaaaaa");
-			comboBoxNombreHoteles.addItem(Hoteles.get(i).comboboxIzena());
-		}
+//		for (int i=0;i<Hoteles.size();i++) {
+//			System.out.println("holaaaaaaaaaa");
+//			comboBoxNombreHoteles.addItem(Hoteles.get(i).comboboxIzena());
+//		}
 
 		comboBoxNombreHoteles.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
-				String hotelak = (String) comboBoxNombreHoteles.getSelectedItem();
-				if (hotelak.equals("Hotel bat aukeratu")) {
+				String hotelakSelected = (String) comboBoxNombreHoteles.getSelectedItem();
+				//String helbideaSelected = (String) comboBoxHelbideak.getSelectedItem();
+
+//				ArrayList<Hotel>HotelCombobox = new ArrayList<Hotel>();
+//				HotelCombobox=Modelo.Consultas_Hoteles.HotelakHelbidearekinAtera(hotelakSelected);
+				
+				//String hau badago textFieldPrezioan ezer ez jartzeko
+				if (hotelakSelected.equals("Hotel bat aukeratu")) {
 					textFieldPrezioa.setText("");
 				}
+				//Combobox-etik textFieldPreziora prezioa eramateko
 				for (int i=0;i<Hoteles.size();i++) {
-					if (hotelak.equals(Hoteles.get(i).comboboxIzena())) {
+					if (hotelakSelected.equals(Hoteles.get(i).comboboxIzena())) {
 						// Prezioa String-era pasatu behar da zeren setText egiterakoan eskatzen duelako
 						PrezioHotel = Hoteles.get(i).getPrezioHotel();
 						String PrezioHotel = String.valueOf(Hoteles.get(i).getPrezioHotel());
@@ -74,6 +104,7 @@ public class Ventana2 extends JFrame {
 					}
 
 				}
+				
 			}
 		});
 		btnHurrengoa.addActionListener(new ActionListener() {
@@ -110,19 +141,7 @@ public class Ventana2 extends JFrame {
 		getContentPane().add(lblHelbideak);
 		
 		
-		comboBoxHelbideak.setBounds(58, 107, 196, 39);
-		getContentPane().add(comboBoxHelbideak);
-		for (int i=0;i<Helbideak.size();i++) {
-			System.out.println(Helbideak);
-			comboBoxHelbideak.addItem(Helbideak.get(i));
-		}
-		comboBoxHelbideak.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-				/* Se pasarian los hoteles que hayamos seleccionado en el Combobox de helbideak y
-				se verian los de ese Helbide seleccionado en los que serian iguales a los hoteles */
-				
-			}
-		});
+		
 
 
 
