@@ -20,7 +20,7 @@ public class Insert_Erreserba {
 			s = (Statement) Conexion.createStatement();
 
 			s.executeUpdate("INSERT INTO 'erreserba' ('idOstatu','idBezero','dataJoan','dataEtorri','nagusiKopuru','umeKopuru')"
-					+ " VALUES ("+e1.getIdOstatu()+","+e1.getIdBezero()+",'"+e1.getDataJoan()+"','"+e1.getDataEtorri()+"',"+e1.getNagusiKopuru()+","+e1.getUmekopuru());
+					+ " VALUES ("+e1.getIdOstatu()+","+e1.getIdBezero()+",'"+e1.getDataJoan()+"','"+e1.getDataEtorri()+"',"+e1.getNagusiKopuru()+","+e1.getUmekopuru()+")");
 			s.close();
 
 			System.out.println("Conexioa eginda");

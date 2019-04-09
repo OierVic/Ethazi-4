@@ -23,10 +23,10 @@ public class Consulta_Bezero {
 
 		try {
 			//Class.forName("com.mysql.jdbc.Driver");
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion2","root","");
+			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
-			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idBezero, izenBezero, abizenBezero, telefBezero, postaBezero FROM bezero where idBezero =1");
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idBezero, izenBezero, abizenBezero, telefBezero, postaBezero FROM bezero");
 			while (rs.next()) {
 				idBezero = rs.getInt("idBezero");
 				izenBezero = rs.getString("izenBezero");
