@@ -27,7 +27,7 @@ public class EskerrikAskoLeihoa extends JFrame {
 		
 		//LABEL ZURE ERRESERBA ORAIN
 		lblZureTxartelaOrain.setFont(new Font("Arial", Font.PLAIN, 41));
-		lblZureTxartelaOrain.setBounds(70, 198, 555, 45);
+		lblZureTxartelaOrain.setBounds(70, 198, 581, 45);
 		getContentPane().add(lblZureTxartelaOrain);
 		
 		

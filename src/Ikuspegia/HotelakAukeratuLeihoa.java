@@ -127,7 +127,9 @@ public class HotelakAukeratuLeihoa extends JFrame {
 					PrezioHotel = HotelCombobox.get(PosicionSelected).getPrezioHotel();
 							
 					
-					Metodoak.hirugarrenLeihoa(Hoteles,PrezioHotel);
+					//Metodoak.hirugarrenLeihoa(Hoteles,PrezioHotel);
+					Metodoak.ordainduleihora(Hoteles, PrezioHotel);
+					
 				}
 				
 			}

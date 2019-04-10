@@ -8,23 +8,46 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import Eredua.Kontsulta_Bezero;
 import Eredua.Kontsulta_Hoteles;
+import Ikuspegia.ErregistroLeihoa;
 import Ikuspegia.EskerrikAskoLeihoa;
 import Ikuspegia.HotelakAukeratuLeihoa;
+import Ikuspegia.LoginLeihoa;
 import Ikuspegia.OngiEtorriLeihoa;
 import Ikuspegia.OrdainduLeihoa;
 
 public class Metodoak {
-	
-	public static void lehenengoLeihoa() {
-		
+	//Ventana1
+	public static void ongietorrileihora() {
+
 		OngiEtorriLeihoa OngiEtorriLeihoa= new OngiEtorriLeihoa();
 		OngiEtorriLeihoa.setVisible(true);
-		
+
 
 	}
-	public static void bigarrenLeihoa() {
+	
+	//Ventana2 Login
+		public static void loginleihora() {
+			ArrayList <Bezero> Bezeroak= new ArrayList <Bezero>();
+			Bezeroak=Kontsulta_Bezero.BezeroakIkusi();
+			LoginLeihoa LoginLeihoa= new LoginLeihoa(Bezeroak);
+			LoginLeihoa.setVisible(true);
+
+		}
 		
+	//Ventana2 Erregistratu
+		public static void erregistroleihora() {
+			ArrayList <Bezero> Bezeroak= new ArrayList <Bezero>();
+			Bezeroak=Kontsulta_Bezero.BezeroakIkusi();
+			ErregistroLeihoa ErregistroLeihoa= new ErregistroLeihoa(Bezeroak);
+			ErregistroLeihoa.setVisible(true);
+
+		}
+		
+	//Ventana3
+	public static void hotelakaukeratuleihora() {
+
 		ArrayList <Hotel> Hoteles= new ArrayList <Hotel>();
 		Hoteles=Kontsulta_Hoteles.HotelakIkusi();
 		ArrayList<String> Helbideak =new ArrayList<String>();
@@ -32,28 +55,31 @@ public class Metodoak {
 		HotelakAukeratuLeihoa LoginLeihoa= new HotelakAukeratuLeihoa(Hoteles,Helbideak);
 		LoginLeihoa.setVisible(true);
 
+
 	}
-	public static void hirugarrenLeihoa(ArrayList <Hotel> Hoteles, double prezioHotel) {
-		
+
+	//Ventana4
+	public static void ordainduleihora(ArrayList <Hotel> Hoteles, double prezioHotel) {
+
 		OrdainduLeihoa HotelakAukeratuLeihoa= new OrdainduLeihoa(Hoteles,prezioHotel);
 		HotelakAukeratuLeihoa.setVisible(true);
 
 	}
-	
-public static void EskerrikAskoLeihoa() {
-		
+	//Ventana5
+	public static void eskerrikaskoleihoara() {
+
 		EskerrikAskoLeihoa EskerrikAskoLeihoa= new EskerrikAskoLeihoa();
 		EskerrikAskoLeihoa.setVisible(true);
 
 	}
-	
+
 	public static boolean konprobatuNegatibo(double zbk) {
 		boolean balidatu=false;
 		if (zbk>0)
 			balidatu=true;
 		return balidatu;
 	}
-	
+
 	public static void imprimatuTiketa(Erreserba e1) {
 
 		String nombre = "erreserba.txt";
@@ -66,7 +92,7 @@ public static void EskerrikAskoLeihoa() {
 			ex.printStackTrace();
 		}
 	}
-	
+
 	public static String kanbioMetodoa(double zbk) {
 
 
@@ -154,7 +180,7 @@ public static void EskerrikAskoLeihoa() {
 		}
 		return kanbioa;
 	}
-	
+
 	public static boolean konprobatuLetra(String zbk) {
 		boolean balidatu=false;
 
@@ -166,7 +192,7 @@ public static void EskerrikAskoLeihoa() {
 		}
 		return balidatu;
 	}
-	
+
 	public static boolean diruFalta(double zbk,double prezioa) {
 
 		boolean diru_falta=false;
@@ -178,7 +204,7 @@ public static void EskerrikAskoLeihoa() {
 		}
 		return diru_falta;
 	}
-	
+
 	public static String orduaAtera () {
 		int hora,minutos = 0;
 		Calendar fecha = Calendar.getInstance();
@@ -201,7 +227,7 @@ public static void EskerrikAskoLeihoa() {
 		System.out.println(ordua);
 		return ordua;
 	}
-	
+
 	public static String dataAtera () {
 		int año,mes,dia = 0;
 
@@ -226,7 +252,10 @@ public static void EskerrikAskoLeihoa() {
 		System.out.println(data);
 		return data;
 	}
-	
+	//	public static void bezeroaIgo(BezeroIgo bezeroIgo) {
+	//		Kontrolatzailea.erregistroa(bezeroIgo);
+	//	}
+
 	public static double Redondear(double numero)
 	{
 		return Math.rint(numero*100)/100;
@@ -239,7 +268,7 @@ public static void EskerrikAskoLeihoa() {
 		String letra = Character.toString(letra1);
 		return letra; 
 	} 
-	
+
 	public static String ateraMD5(String input) {
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
@@ -256,5 +285,5 @@ public static void EskerrikAskoLeihoa() {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 }

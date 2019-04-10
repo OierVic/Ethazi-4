@@ -23,7 +23,7 @@ public class OngiEtorriLeihoa extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				dispose();
-				Metodoak.bigarrenLeihoa();
+				Metodoak.loginleihora();
 				
 			}
 		});

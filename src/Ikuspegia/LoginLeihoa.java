@@ -23,10 +23,12 @@ public class LoginLeihoa extends JFrame {
 	private JTextField textNAN;
 	private JTextField textLetra;
 	private JPasswordField Pasahitza;
-	private JLabel lblTxatelaErregistroa = new JLabel("Txatel Logina");
+	private JLabel lblTxatelaErregistroa = new JLabel("Logina");
 	private JLabel lblNan = new JLabel("NAN");
 	private JLabel lblLetra = new JLabel("Letra");
 	private JLabel lblPasahitza = new JLabel("Pasahitza");
+	JLabel lblEzDaukazuKonturik = new JLabel("Ez daukazu Konturik ?");
+
 	
 	private JButton Atzera = new JButton("Atzera");
 	private JButton Jarraitu = new JButton("Jarraitu");
@@ -44,12 +46,12 @@ public class LoginLeihoa extends JFrame {
 
 		//LABEL TXARTEL ERREGISTROA
 		lblTxatelaErregistroa.setFont(new Font("Arial", Font.BOLD, 37));
-		lblTxatelaErregistroa.setBounds(222, 46, 250, 37);
+		lblTxatelaErregistroa.setBounds(222, 46, 133, 37);
 		getContentPane().add(lblTxatelaErregistroa);
 
 		//LABEL NAN
 		lblNan.setFont(new Font("Arial", Font.BOLD, 20));
-		lblNan.setBounds(165, 128, 47, 28);
+		lblNan.setBounds(85, 127, 47, 28);
 		getContentPane().add(lblNan);
 
 		//TEXT NAN
@@ -71,7 +73,7 @@ public class LoginLeihoa extends JFrame {
 			}
 		});
 		zenbakia=textNAN.getText();
-		textNAN.setBounds(241, 128, 109, 28);
+		textNAN.setBounds(158, 128, 109, 28);
 		getContentPane().add(textNAN);
 		textNAN.setColumns(10);
 
@@ -102,19 +104,19 @@ public class LoginLeihoa extends JFrame {
 		});
 		letra=textLetra.getText();
 		textLetra.setColumns(10);
-		textLetra.setBounds(422, 128, 32, 28);
+		textLetra.setBounds(373, 128, 32, 28);
 		getContentPane().add(textLetra);
 
 
 
 		//LETRA LABEL
 		lblLetra.setFont(new Font("Arial", Font.BOLD, 20));
-		lblLetra.setBounds(360, 128, 52, 28);
+		lblLetra.setBounds(297, 127, 52, 28);
 		getContentPane().add(lblLetra);
 
 		//LABEL PASAHITZA
 		lblPasahitza.setFont(new Font("Arial", Font.BOLD, 20));
-		lblPasahitza.setBounds(120, 212, 92, 28);
+		lblPasahitza.setBounds(85, 212, 92, 28);
 		getContentPane().add(lblPasahitza);
 
 		//EZEZTATU BOTOIA
@@ -123,7 +125,7 @@ public class LoginLeihoa extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
-				Metodoak.lehenengoLeihoa();
+				Metodoak.ongietorrileihora();
 
 			}
 		});
@@ -131,11 +133,11 @@ public class LoginLeihoa extends JFrame {
 		getContentPane().add(Atzera);
 
 		//JARRAITU BOTOIA
-		Jarraitu.setEnabled(false);
+		Jarraitu.setEnabled(true);
 		Jarraitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Metodoak.bigarrenLeihoa();
+				Metodoak.hotelakaukeratuleihora();
 			}
 		});
 		Jarraitu.setFont(new Font("Arial", Font.PLAIN, 18));
@@ -147,7 +149,7 @@ public class LoginLeihoa extends JFrame {
 		//PASAHITZA TEXTUA
 		Pasahitza = new JPasswordField();
 		Pasahitza.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		Pasahitza.setBounds(241, 213, 170, 28);
+		Pasahitza.setBounds(200, 213, 170, 28);
 		getContentPane().add(Pasahitza);
 
 		//DNI ETA PASAHITZA BALIDATZEKO BOTOIA
@@ -198,11 +200,15 @@ public class LoginLeihoa extends JFrame {
 				btnKontuBerria.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						dispose();
-						//Metodoak.bigarrenLeihoaB(bezero);
+						Metodoak.erregistroleihora();
 					}
 				});
 				btnKontuBerria.setFont(new Font("Arial", Font.PLAIN, 20));
 				btnKontuBerria.setBounds(464, 204, 170, 44);
 				getContentPane().add(btnKontuBerria);
+				
+				lblEzDaukazuKonturik.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+				lblEzDaukazuKonturik.setBounds(464, 140, 189, 35);
+				getContentPane().add(lblEzDaukazuKonturik);
 	}
 }

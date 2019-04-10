@@ -113,7 +113,7 @@ public class OrdainduLeihoa extends JFrame {
 		btnEzeztatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Metodoak.lehenengoLeihoa();
+				Metodoak.ongietorrileihora();
 				
 			}
 		});
@@ -123,7 +123,7 @@ public class OrdainduLeihoa extends JFrame {
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Metodoak.bigarrenLeihoa();
+				Metodoak.hotelakaukeratuleihora();
 				
 			}
 		});

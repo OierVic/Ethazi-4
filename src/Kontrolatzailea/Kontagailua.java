@@ -18,7 +18,7 @@ public class Kontagailua extends Thread {
 			}	
     	}
     	EskerrikAskoLeihoa.dispose();
-    	Metodoak.lehenengoLeihoa();
+    	Metodoak.ongietorrileihora();
     }
     	
 	

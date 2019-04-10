@@ -3,26 +3,26 @@ package Kontrolatzailea;
 public class Bezero {
 
 
-	private int idBezero;
+	private String idBezeroNan;
 	private String izenBezero;
 	private String abizenBezero;
 	private int tlfBezero;
 	private String postaBezero;
 	
-	public Bezero(int idBezero, String izenBezero, String abizenBezero, int tlfBezero, String postaBezero) {
-		this.idBezero = idBezero;
+	public Bezero(String idBezeroNan, String izenBezero, String abizenBezero, int tlfBezero, String postaBezero) {
+		this.idBezeroNan = idBezeroNan;
 		this.izenBezero = izenBezero;
 		this.abizenBezero = abizenBezero;
 		this.tlfBezero = tlfBezero;
 		this.postaBezero = postaBezero;
 	}
 
-	public int getIdBezero() {
-		return idBezero;
+	public String getidBezeroNan() {
+		return idBezeroNan;
 	}
 
-	public void setIdBezero(int idBezero) {
-		this.idBezero = idBezero;
+	public void setidBezeroNan(String idBezero) {
+		this.idBezeroNan = idBezero;
 	}
 
 	public String getIzenBezero() {
@@ -59,7 +59,7 @@ public class Bezero {
 
 	@Override
 	public String toString() {
-		return "Bezero [idBezero=" + idBezero + ", izenBezero=" + izenBezero + " " + abizenBezero
+		return "Bezero [idBezero=" + idBezeroNan + ", izenBezero=" + izenBezero + " " + abizenBezero
 				+ ", tlfBezero=" + tlfBezero + ", postaBezero=" + postaBezero + "]";
 	}
 	

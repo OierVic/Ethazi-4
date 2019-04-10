@@ -50,6 +50,7 @@ public class Kontsulta_Hoteles{
 		return hotelak;
 		
 	}
+	
 	public static ArrayList <String> HelbideakIkusi() {
 		ArrayList <String> Helbideak = new ArrayList<String>();
 		String helbideak=null;

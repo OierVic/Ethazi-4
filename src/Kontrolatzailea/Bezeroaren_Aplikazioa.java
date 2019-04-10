@@ -11,7 +11,7 @@ public class Bezeroaren_Aplikazioa {
 	
 			Konexioa b1 =new Konexioa();
 			
-			Metodoak.lehenengoLeihoa();
+			Metodoak.ongietorrileihora();
 						
 
 	}
