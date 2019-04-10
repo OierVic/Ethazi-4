@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 
 import Controlador.Metodoak;
 
-public class Ventana1 extends JFrame {
+public class OngiEtorriLeihoa extends JFrame {
 
 
 	private static final long serialVersionUID = 1L;
@@ -18,7 +18,7 @@ public class Ventana1 extends JFrame {
 	private JLabel lblOngiEtorri = new JLabel("Ongi Etorri");
 	private JLabel lblTxrtelSaltzailera = new JLabel("Bidai-Onera");
 
-	public Ventana1() {
+	public OngiEtorriLeihoa() {
 		getContentPane().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {

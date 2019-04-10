@@ -6,7 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class Ventana4 extends JFrame {
+public class EskerrikAskoLeihoa extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -14,7 +14,7 @@ public class Ventana4 extends JFrame {
 	private JLabel lblZureTxartelaOrain = new JLabel("Zure erreserba orain aterako da");
 	private JLabel icono = new JLabel();
 
-	public Ventana4() {
+	public EskerrikAskoLeihoa() {
 		
 		
 		this.setBounds(275,100,700,600);

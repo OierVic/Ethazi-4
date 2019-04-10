@@ -19,16 +19,12 @@ import javax.swing.JTextField;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 
-public class Ventana2 extends JFrame {
+public class HotelakAukeratuLeihoa extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-
-
-	private JTextField textFieldPrezioa;
 	JLabel lblHotelak = new JLabel("Hotelak");
 	JComboBox<String> comboBoxNombreHoteles = new JComboBox<String>();
 	JButton btnHurrengoa = new JButton("Hurrengoa");
-	JLabel lblPrezioa = new JLabel("Prezioa");
 	JLabel lblHelbideak = new JLabel("Helbideak");
 	JComboBox comboBoxHelbideak = new JComboBox();
 	ArrayList<Hotel>HotelCombobox = new ArrayList<Hotel>();
@@ -39,7 +35,7 @@ public class Ventana2 extends JFrame {
 	public Double PrezioHotel;
 	public int aukera;
 
-	public Ventana2(ArrayList <Hotel> Hoteles,ArrayList<String> Helbideak) {
+	public HotelakAukeratuLeihoa(ArrayList <Hotel> Hoteles,ArrayList<String> Helbideak) {
 
 		this.setBounds(275,100,700,600);
 		this.setBackground(SystemColor.control);
@@ -138,17 +134,6 @@ public class Ventana2 extends JFrame {
 		btnHurrengoa.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		btnHurrengoa.setBounds(487, 503, 157, 29);
 		getContentPane().add(btnHurrengoa);
-
-		lblPrezioa.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblPrezioa.setBounds(463, 41, 76, 29);
-		getContentPane().add(lblPrezioa);
-
-		textFieldPrezioa = new JTextField();
-		textFieldPrezioa.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		textFieldPrezioa.setBounds(432, 107, 150, 59);
-		getContentPane().add(textFieldPrezioa);
-		textFieldPrezioa.setColumns(10);
-		textFieldPrezioa.setEditable(false);
 		
 		lblHelbideak.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblHelbideak.setBounds(74, 36, 105, 39);

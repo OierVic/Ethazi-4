@@ -13,11 +13,12 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import Controlador.Contador;
 import Controlador.Erreserba;
 import Controlador.Hotel;
 import Controlador.Metodoak;
 
-public class Ventana3 extends JFrame {
+public class OrdainduLeihoa extends JFrame {
 
 
 	private static final long serialVersionUID = 1L;
@@ -40,7 +41,7 @@ public class Ventana3 extends JFrame {
 	private double prezio2 = 0;
 
 
-	public Ventana3(ArrayList <Hotel> Hoteles, double prezioHotel) {
+	public OrdainduLeihoa(ArrayList <Hotel> Hoteles, double prezioHotel) {
 		prezioa=prezioHotel;
 		//prezioa=0.0;
 		this.setBounds(275,100,700,600);
@@ -80,7 +81,8 @@ public class Ventana3 extends JFrame {
 				Double precio=prezioHotel;
 				Erreserba e1 = new Erreserba(idOstatu, idBezero,Eskatutakodata,EskatutakoOrdua, dataJoan, dataEtorri, nagusiKopuru, umekopuru, precio);
 				Metodoak.imprimatuTiketa(e1);
-				Metodoak.laugarrenLeihoa();
+				Contador contador = new Contador();
+				contador.start();
 			}
 		});
 		getContentPane().add(btnAmaitu);

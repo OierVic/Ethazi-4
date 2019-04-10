@@ -6,16 +6,16 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import Modelo.Consultas_Hoteles;
-import Vistas.Ventana1;
-import Vistas.Ventana2;
-import Vistas.Ventana3;
-import Vistas.Ventana4;
+import Vistas.OngiEtorriLeihoa;
+import Vistas.HotelakAukeratuLeihoa;
+import Vistas.OrdainduLeihoa;
+import Vistas.EskerrikAskoLeihoa;
 
 public class Metodoak {
 	
 	public static void lehenengoLeihoa() {
 		
-		Ventana1 ventana1= new Ventana1();
+		OngiEtorriLeihoa ventana1= new OngiEtorriLeihoa();
 		ventana1.setVisible(true);
 		
 
@@ -26,20 +26,20 @@ public class Metodoak {
 		Hoteles=Consultas_Hoteles.HotelakIkusi();
 		ArrayList<String> Helbideak =new ArrayList<String>();
 		Helbideak=Consultas_Hoteles.HelbideakIkusi();
-		Ventana2 ventana2= new Ventana2(Hoteles,Helbideak);
+		HotelakAukeratuLeihoa ventana2= new HotelakAukeratuLeihoa(Hoteles,Helbideak);
 		ventana2.setVisible(true);
 
 	}
 	public static void hirugarrenLeihoa(ArrayList <Hotel> Hoteles, double prezioHotel) {
 		
-		Ventana3 ventana3= new Ventana3(Hoteles,prezioHotel);
+		OrdainduLeihoa ventana3= new OrdainduLeihoa(Hoteles,prezioHotel);
 		ventana3.setVisible(true);
 
 	}
 	
 public static void laugarrenLeihoa() {
 		
-		Ventana4 ventana4= new Ventana4();
+		EskerrikAskoLeihoa ventana4= new EskerrikAskoLeihoa();
 		ventana4.setVisible(true);
 
 	}
@@ -238,5 +238,3 @@ public static void laugarrenLeihoa() {
 	} 
 	
 }
-
-
