@@ -14,27 +14,8 @@ import Kontrolatzailea.ErabiltzaileaIgo;
 
 public class Konsulta_Erregistro {
 	
-//	public static  void Erabiltzailea_erregistratu() {
-//		
-//		Connection Conexion = null;
-//		Statement s =null;
-//		try {
-//
-//			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
-//
-//			s = (Statement) Conexion.createStatement();
-//
-//			s.executeUpdate("INSERT INTO bezero VALUES('" + h1.getNan() + "', '" + h1.getPasahitza() + "', '" + h1.getErabil_Izena() + "', '" + h1.getErabil_Abizenak() + "', '" + h1.getTeleBezero() + "',  '" + h1.getPostaBezero() + "', '" + h1.getJaiotzeData() + "')");
-//			s.close();
-//
-//			System.out.println("Conexioa eginda");
-//			//ErabiltzaileaIgo h1
-//		}catch(Exception e) {
-//			e.getMessage();
-//		}
-//	}
 	
-	public static void Erabiltzailea_erregistratu(ErabiltzaileaIgo e1) {	
+	public static void Erabiltzailea_erregistratu(ErabiltzaileaIgo e1) {
 		
 		Connection Conexion = null;
 		Statement s =null;
