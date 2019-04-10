@@ -19,11 +19,11 @@ Connection Conexion = null;
 Statement s =null;
 try {
 
-	Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"pruebalogin","root","");
+	Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 
 	s = (Statement) Conexion.createStatement();
 
-	s.executeUpdate("INSERT INTO pruebal VALUES('" + h1.getNan() + "', '" + h1.getPasahitza() + "', '" + h1.getErabil_Izena() + "', '" + h1.getErabil_Abizenak() + "', '" + h1.getJaiotzeData() + "')");
+	s.executeUpdate("INSERT INTO bezero VALUES('" + h1.getNan() + "', '" + h1.getPasahitza() + "', '" + h1.getErabil_Izena() + "', '" + h1.getErabil_Abizenak() + "', '" + h1.getTeleBezero() + "',  '" + h1.getPostaBezero() + "', '" + h1.getJaiotzeData() + "')");
 	s.close();
 
 	System.out.println("Conexioa eginda");
