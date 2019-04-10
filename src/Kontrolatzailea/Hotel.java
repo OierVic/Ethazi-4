@@ -1,4 +1,4 @@
-package Controlador;
+package Kontrolatzailea;
 
 public class Hotel extends Ostatu{
 	//atributuak

@@ -1,4 +1,4 @@
-package Modelo;
+package Eredua;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.sql.Connection;
@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Conexion {
+public class Konexioa {
 	
 	private String makina;
 	private String projeckt;
@@ -19,9 +19,9 @@ public class Conexion {
 	
 	
 	/*******Konexioa objektua sortzen dugu metodo batekin konexioa egiteko**********/
-	public Conexion() {
+	public Konexioa() {
 	
-		String fichero = "src\\Modelo\\Konexioa.txt";
+		String fichero = "src\\Eredua\\Konexioa.txt";
 
 		int kontagailua =0;
 		String server="jdbc:mysql://";

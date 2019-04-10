@@ -1,7 +1,7 @@
-package Controlador;
+package Kontrolatzailea;
 
-import Modelo.Conexion;
-import Modelo.Consultas_Hoteles;
+import Eredua.Konexioa;
+import Eredua.Kontsulta_Hoteles;
 
 public class Bezeroaren_Aplikazioa {
 
@@ -9,7 +9,7 @@ public class Bezeroaren_Aplikazioa {
 		
 
 	
-			Conexion b1 =new Conexion();
+			Konexioa b1 =new Konexioa();
 			
 			Metodoak.lehenengoLeihoa();
 						

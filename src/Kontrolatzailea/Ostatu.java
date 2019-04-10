@@ -1,4 +1,4 @@
-package Controlador;
+package Kontrolatzailea;
 
 public class Ostatu {
 	public Ostatu(int id_Ostatu, String ostatu_Izena) {

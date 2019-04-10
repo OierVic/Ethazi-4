@@ -1,4 +1,4 @@
-package Vistas;
+package Ikuspegia;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -13,10 +13,10 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import Controlador.Contador;
-import Controlador.Erreserba;
-import Controlador.Hotel;
-import Controlador.Metodoak;
+import Kontrolatzailea.Kontagailua;
+import Kontrolatzailea.Erreserba;
+import Kontrolatzailea.Hotel;
+import Kontrolatzailea.Metodoak;
 
 public class OrdainduLeihoa extends JFrame {
 
@@ -81,7 +81,7 @@ public class OrdainduLeihoa extends JFrame {
 				Double precio=prezioHotel;
 				Erreserba e1 = new Erreserba(idOstatu, idBezero,Eskatutakodata,EskatutakoOrdua, dataJoan, dataEtorri, nagusiKopuru, umekopuru, precio);
 				Metodoak.imprimatuTiketa(e1);
-				Contador contador = new Contador();
+				Kontagailua contador = new Kontagailua();
 				contador.start();
 			}
 		});

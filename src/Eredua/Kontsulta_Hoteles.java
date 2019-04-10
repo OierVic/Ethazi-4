@@ -1,13 +1,13 @@
-package Modelo;
+package Eredua;
 import java.sql.*; 
 
 import java.util.ArrayList;
 
 import com.mysql.jdbc.Statement;
 
-import Controlador.Hotel;
+import Kontrolatzailea.Hotel;
 
-public class Consultas_Hoteles{
+public class Kontsulta_Hoteles{
 	
 	public static ArrayList <Hotel> HotelakIkusi() {
 		ArrayList <Hotel> hotelak = new ArrayList<Hotel>();

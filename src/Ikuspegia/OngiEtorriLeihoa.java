@@ -1,4 +1,4 @@
-package Vistas;
+package Ikuspegia;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import Controlador.Metodoak;
+import Kontrolatzailea.Metodoak;
 
 public class OngiEtorriLeihoa extends JFrame {
 

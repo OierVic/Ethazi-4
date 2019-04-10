@@ -1,4 +1,4 @@
-package Modelo;
+package Eredua;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,9 +7,9 @@ import java.util.ArrayList;
 
 import com.mysql.jdbc.Statement;
 
-import Controlador.Bezero;
+import Kontrolatzailea.Bezero;
 
-public class Consulta_Bezero {
+public class Kontsulta_Bezero {
 	public static ArrayList <Bezero> BezeroakIkusi() {
 		ArrayList <Bezero> bezeroak = new ArrayList<Bezero>();
 		int idBezero=0;

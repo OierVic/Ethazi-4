@@ -1,4 +1,4 @@
-package Vistas;
+package Ikuspegia;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -14,7 +14,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import Controlador.*;
+import Kontrolatzailea.*;
 
 
 public class LoginLeihoa extends JFrame {

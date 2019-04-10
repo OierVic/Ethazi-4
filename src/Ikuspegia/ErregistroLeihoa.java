@@ -1,4 +1,4 @@
-package Vistas;
+package Ikuspegia;
 
 public class ErregistroLeihoa {
 

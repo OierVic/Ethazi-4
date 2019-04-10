@@ -1,4 +1,4 @@
-package Controlador;
+package Kontrolatzailea;
 
 import java.io.FileWriter;
 import java.math.BigInteger;
@@ -8,42 +8,42 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import Modelo.Consultas_Hoteles;
-import Vistas.OngiEtorriLeihoa;
-import Vistas.HotelakAukeratuLeihoa;
-import Vistas.OrdainduLeihoa;
-import Vistas.EskerrikAskoLeihoa;
+import Eredua.Kontsulta_Hoteles;
+import Ikuspegia.EskerrikAskoLeihoa;
+import Ikuspegia.HotelakAukeratuLeihoa;
+import Ikuspegia.OngiEtorriLeihoa;
+import Ikuspegia.OrdainduLeihoa;
 
 public class Metodoak {
 	
 	public static void lehenengoLeihoa() {
 		
-		OngiEtorriLeihoa ventana1= new OngiEtorriLeihoa();
-		ventana1.setVisible(true);
+		OngiEtorriLeihoa OngiEtorriLeihoa= new OngiEtorriLeihoa();
+		OngiEtorriLeihoa.setVisible(true);
 		
 
 	}
 	public static void bigarrenLeihoa() {
 		
 		ArrayList <Hotel> Hoteles= new ArrayList <Hotel>();
-		Hoteles=Consultas_Hoteles.HotelakIkusi();
+		Hoteles=Kontsulta_Hoteles.HotelakIkusi();
 		ArrayList<String> Helbideak =new ArrayList<String>();
-		Helbideak=Consultas_Hoteles.HelbideakIkusi();
-		HotelakAukeratuLeihoa ventana2= new HotelakAukeratuLeihoa(Hoteles,Helbideak);
-		ventana2.setVisible(true);
+		Helbideak=Kontsulta_Hoteles.HelbideakIkusi();
+		HotelakAukeratuLeihoa LoginLeihoa= new HotelakAukeratuLeihoa(Hoteles,Helbideak);
+		LoginLeihoa.setVisible(true);
 
 	}
 	public static void hirugarrenLeihoa(ArrayList <Hotel> Hoteles, double prezioHotel) {
 		
-		OrdainduLeihoa ventana3= new OrdainduLeihoa(Hoteles,prezioHotel);
-		ventana3.setVisible(true);
+		OrdainduLeihoa HotelakAukeratuLeihoa= new OrdainduLeihoa(Hoteles,prezioHotel);
+		HotelakAukeratuLeihoa.setVisible(true);
 
 	}
 	
-public static void laugarrenLeihoa() {
+public static void EskerrikAskoLeihoa() {
 		
-		EskerrikAskoLeihoa ventana4= new EskerrikAskoLeihoa();
-		ventana4.setVisible(true);
+		EskerrikAskoLeihoa EskerrikAskoLeihoa= new EskerrikAskoLeihoa();
+		EskerrikAskoLeihoa.setVisible(true);
 
 	}
 	
@@ -58,7 +58,7 @@ public static void laugarrenLeihoa() {
 
 		String nombre = "erreserba.txt";
 		try{
-			FileWriter fichero = new FileWriter("src\\controlador\\"+nombre);
+			FileWriter fichero = new FileWriter("src\\Kontrolatzailea\\"+nombre);
 			fichero.write(e1.toString() + "\r\n");
 			fichero.close();
 

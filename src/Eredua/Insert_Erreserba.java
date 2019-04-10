@@ -1,11 +1,11 @@
-package Modelo;
+package Eredua;
 
 import java.sql.DriverManager;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
-import Controlador.Erreserba;
+import Kontrolatzailea.Erreserba;
 
 public class Insert_Erreserba {
 	

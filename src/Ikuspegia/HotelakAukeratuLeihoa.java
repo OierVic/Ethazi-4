@@ -1,4 +1,4 @@
-package Vistas;
+package Ikuspegia;
 
 import java.awt.SystemColor;
 import java.util.ArrayList;
@@ -7,15 +7,16 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import Controlador.Hotel;
-import Controlador.Metodoak;
-
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+
+import Kontrolatzailea.Hotel;
+import Kontrolatzailea.Metodoak;
+
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 
@@ -58,7 +59,7 @@ public class HotelakAukeratuLeihoa extends JFrame {
 				comboBoxNombreHoteles.removeAllItems();
 				//System.out.println("Le he pegado");
 				String helbideakSelected = (String) comboBoxHelbideak.getSelectedItem();
-				HotelCombobox=Modelo.Consultas_Hoteles.HotelakHelbidearekinAtera(helbideakSelected);
+				HotelCombobox=Eredua.Kontsulta_Hoteles.HotelakHelbidearekinAtera(helbideakSelected);
 				for (int i = 0; i < HotelCombobox.size(); i++) {
 					//comboBoxNombreHoteles.addItem("kk");
 					comboBoxNombreHoteles.addItem(HotelCombobox.get(i).comboboxIzena());
