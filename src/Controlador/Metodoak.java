@@ -30,7 +30,7 @@ public class Metodoak {
 		ventana2.setVisible(true);
 
 	}
-	public static void hirugarrenLeihoa(ArrayList <Hotel> Hoteles, Double prezioHotel) {
+	public static void hirugarrenLeihoa(ArrayList <Hotel> Hoteles, double prezioHotel) {
 		
 		Ventana3 ventana3= new Ventana3(Hoteles,prezioHotel);
 		ventana3.setVisible(true);

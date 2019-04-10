@@ -112,6 +112,11 @@ public class Consultas_Hoteles{
 				//System.out.println(izena);
 
 			}
+			for (int i = 0; i < hotelak2.size(); i++) {
+				hotelak2.get(i);
+			}
+			
+			
 			System.out.println();
 			System.out.println("Conexioa eginda");
 		}catch(Exception e) {

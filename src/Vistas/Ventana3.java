@@ -40,7 +40,7 @@ public class Ventana3 extends JFrame {
 	private double prezio2 = 0;
 
 
-	public Ventana3(ArrayList <Hotel> Hoteles, Double prezioHotel) {
+	public Ventana3(ArrayList <Hotel> Hoteles, double prezioHotel) {
 		prezioa=prezioHotel;
 		//prezioa=0.0;
 		this.setBounds(275,100,700,600);

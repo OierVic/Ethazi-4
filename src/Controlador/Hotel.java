@@ -68,7 +68,7 @@ public class Hotel extends Ostatu{
 
 	public String comboboxIzena () {
 		//int logelak = this.getLogelaKopurua() - this.getHartutakoLogelak();
-		String cb = this.getOstatu_Izena() + "           Logelak eskuragarri: " + LogelaEskugarri(this.getLogelaKopurua(),this.getHartutakoLogelak())+"           Helbidea: "+this.helbideHotel;
+		String cb = this.getOstatu_Izena() + "           Logelak eskuragarri: " + LogelaEskugarri(this.getLogelaKopurua(),this.getHartutakoLogelak())+"           Helbidea: "+this.helbideHotel+"           Prezioa: "+this.prezioHotel;
 		return cb;
 	}
 	
