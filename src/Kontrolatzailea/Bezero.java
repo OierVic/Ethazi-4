@@ -7,17 +7,15 @@ public class Bezero {
 	private String pasahitzaBezero;
 	private String izenBezero;
 	private String abizenBezero;
-	private int tlfBezero;
 	private String postaBezero;
 	
 	
-	public Bezero(String idBezeroNan, String pasahitzaBezero, String izenBezero, String abizenBezero, int tlfBezero,
+	public Bezero(String idBezeroNan, String pasahitzaBezero, String izenBezero, String abizenBezero,
 			String postaBezero) {
 		this.idBezeroNan = idBezeroNan;
 		this.pasahitzaBezero = pasahitzaBezero;
 		this.izenBezero = izenBezero;
 		this.abizenBezero = abizenBezero;
-		this.tlfBezero = tlfBezero;
 		this.postaBezero = postaBezero;
 	}
 
@@ -62,16 +60,6 @@ public class Bezero {
 	}
 
 
-	public int getTlfBezero() {
-		return tlfBezero;
-	}
-
-
-	public void setTlfBezero(int tlfBezero) {
-		this.tlfBezero = tlfBezero;
-	}
-
-
 	public String getPostaBezero() {
 		return postaBezero;
 	}
@@ -85,9 +73,12 @@ public class Bezero {
 	@Override
 	public String toString() {
 		return "Bezero [idBezeroNan=" + idBezeroNan + ", pasahitzaBezero=" + pasahitzaBezero + ", izenBezero="
-				+ izenBezero + ", abizenBezero=" + abizenBezero + ", tlfBezero=" + tlfBezero + ", postaBezero="
-				+ postaBezero + "]";
+				+ izenBezero + ", abizenBezero=" + abizenBezero + ", postaBezero=" + postaBezero + "]";
 	}
+	
+	
+	
+	
 	
 	
 	

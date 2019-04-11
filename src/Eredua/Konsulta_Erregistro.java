@@ -22,11 +22,11 @@ public class Konsulta_Erregistro {
 
 		try {
 			//Class.forName("com.mysql.jdbc.Driver");
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion2","root","");
 			s =(Statement) Conexion.createStatement();
 
 			ResultSet rs = ((java.sql.Statement) s).executeQuery("INSERT INTO bezero (idBezero,pasahitzaBezero,izenBezero,abizenBezero,telefBezero,postaBezero,jaiotzeData)"
-					+ "VALUES('" + e1.getNan() + "', '" + e1.getPasahitza() + "', '" + e1.getErabil_Izena() + "', '" + e1.getErabil_Abizenak() + "', '" + e1.getTelefonoa() + "',  '" + e1.getPostaBezero() + "', '" + e1.getJaiotzeData() + "')");
+					+ "VALUES('" + e1.getNan() + "', '" + e1.getPasahitza() + "', '" + e1.getErabil_Izena() + "', '" + e1.getErabil_Abizenak() + "', '" + e1.getPostaBezero() + "', '" + e1.getJaiotzeData() + "')");
 			
 			System.out.println();
 			System.out.println("Conexioa eginda");

@@ -25,18 +25,18 @@ public class Kontsulta_Bezero {
 
 		try {
 			//Class.forName("com.mysql.jdbc.Driver");
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion2","root","");
 			s =(Statement) Conexion.createStatement();
 
-			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idBezero,pasahitzaBezero, izenBezero, abizenBezero, telefBezero, postaBezero FROM bezero");
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idBezero,pasahitzaBezero, izenBezero, abizenBezero, postaBezero FROM bezero");
 			while (rs.next()) {
 				idBezeroNan = rs.getString("idBezero");
 				pasahitzaBezero = rs.getString("pasahitzaBezero");
 				izenBezero = rs.getString("izenBezero");
 				abizenBezero = rs.getString("abizenBezero");
-				tlfBezero = rs.getInt("telefBezero");
+				//tlfBezero = rs.getInt("telefBezero");
 				postaBezero = rs.getString("postaBezero");
-				Bezero b1 = new Bezero(idBezeroNan,pasahitzaBezero, izenBezero, abizenBezero, tlfBezero, postaBezero);
+				Bezero b1 = new Bezero(idBezeroNan,pasahitzaBezero, izenBezero, abizenBezero, postaBezero);
 				bezeroak.add(b1);
 				System.out.println(b1);
 

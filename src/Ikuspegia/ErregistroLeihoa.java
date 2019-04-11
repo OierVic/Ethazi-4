@@ -314,7 +314,7 @@ public class ErregistroLeihoa extends JFrame {
 		//JARRAITU BOTOIA
 		
 		//De momento lo ponemos en true para pasar de pantalla
-		Jarraitu.setEnabled(true);
+		Jarraitu.setEnabled(false);
 		//Jarraitu Botoiak egiten duena
 		Jarraitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

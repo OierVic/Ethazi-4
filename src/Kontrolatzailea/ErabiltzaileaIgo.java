@@ -10,19 +10,16 @@ public class ErabiltzaileaIgo {
 	private String erabil_Abizenak;
 	private String pasahitza;
 	private String jaiotzeData;
-	private int telefonoa;
 	private String postaBezero;
 	
 	
-	public ErabiltzaileaIgo(String nan, String erabil_Izena, String erabil_Abizenak, String pasahitza, String jaiotzeData,
-			int telefonoa, String postaBezero) {
-		super();
+	public ErabiltzaileaIgo(String nan, String erabil_Izena, String erabil_Abizenak, String pasahitza,
+			String jaiotzeData, String postaBezero) {
 		this.nan = nan;
 		this.erabil_Izena = erabil_Izena;
 		this.erabil_Abizenak = erabil_Abizenak;
 		this.pasahitza = pasahitza;
 		this.jaiotzeData = jaiotzeData;
-		this.telefonoa = telefonoa;
 		this.postaBezero = postaBezero;
 	}
 
@@ -77,16 +74,6 @@ public class ErabiltzaileaIgo {
 	}
 
 
-	public int getTelefonoa() {
-		return telefonoa;
-	}
-
-
-	public void setTelefonoa(int telefonoa) {
-		this.telefonoa = telefonoa;
-	}
-
-
 	public String getPostaBezero() {
 		return postaBezero;
 	}
@@ -97,6 +84,15 @@ public class ErabiltzaileaIgo {
 	}
 
 
+	@Override
+	public String toString() {
+		return "ErabiltzaileaIgo [nan=" + nan + ", erabil_Izena=" + erabil_Izena + ", erabil_Abizenak="
+				+ erabil_Abizenak + ", pasahitza=" + pasahitza + ", jaiotzeData=" + jaiotzeData + ", postaBezero="
+				+ postaBezero + "]";
+	}
+	
+	
+	
 
 	
 

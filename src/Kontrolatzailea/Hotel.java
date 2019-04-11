@@ -65,6 +65,8 @@ public class Hotel extends Ostatu{
 		LogelaEskugarri=LogelaKopurua-HartutakoLogelak;
 		return LogelaEskugarri;
 	}
+	
+	
 
 	public String comboboxIzena () {
 		//int logelak = this.getLogelaKopurua() - this.getHartutakoLogelak();
