@@ -133,7 +133,7 @@ public class LoginLeihoa extends JFrame {
 		getContentPane().add(Atzera);
 
 		//JARRAITU BOTOIA
-		Jarraitu.setEnabled(false);
+		Jarraitu.setEnabled(true);
 		Jarraitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
