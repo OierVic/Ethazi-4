@@ -1,6 +1,5 @@
 package Ikuspegia;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,9 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -21,6 +18,7 @@ import javax.swing.SwingConstants;
 
 import com.toedter.calendar.JDateChooser;
 
+import Eredua.Konsulta_Erregistro;
 import Kontrolatzailea.Bezero;
 import Kontrolatzailea.ErabiltzaileaIgo;
 import Kontrolatzailea.Metodoak;
@@ -330,10 +328,10 @@ public class ErregistroLeihoa extends JFrame {
 		Jarraitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				ErabiltzaileaIgo ErabIgo = new ErabiltzaileaIgo(nan, izena2, abizena, pasahitza, jaio_data, PostaElektronikoa);
+				ErabiltzaileaIgo e1 = new ErabiltzaileaIgo(nan, izena2, abizena, pasahitza, jaio_data, PostaElektronikoa);
 //				BezeroIgo BeIgo = new BezeroIgo(nan, izena2, abizena, jaio_data, sexua, pasahitza);
 //				Metodoak.bezeroaIgo(cliente);
-				Metodoak.Erregistratu(ErabIgo);
+				Metodoak.Erregistratu(e1);
 				Metodoak.loginleihora();
 			}
 		});
