@@ -15,7 +15,7 @@ public class Insert_Erreserba {
 		Statement s =null;
 		try {
 
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion2","root","");
+			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 
 			s = (Statement) Conexion.createStatement();
 

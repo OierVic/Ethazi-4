@@ -22,7 +22,7 @@ public class Konsulta_Erregistro {
 
 		try {
 			//Class.forName("com.mysql.jdbc.Driver");
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion2","root","");
+			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
 			ResultSet rs = ((java.sql.Statement) s).executeQuery("INSERT INTO bezero (idBezero,pasahitzaBezero,izenBezero,abizenBezero,telefBezero,postaBezero,jaiotzeData)"
