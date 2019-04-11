@@ -8,6 +8,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import Eredua.Konsulta_Erregistro;
 import Eredua.Kontsulta_Bezero;
 import Eredua.Kontsulta_Hoteles;
 import Ikuspegia.ErregistroLeihoa;
@@ -71,6 +72,11 @@ public class Metodoak {
 		EskerrikAskoLeihoa EskerrikAskoLeihoa= new EskerrikAskoLeihoa();
 		EskerrikAskoLeihoa.setVisible(true);
 
+	}
+	// Erabiltzaile berri bat erregistratzeko
+	public static void Erregistratu(ErabiltzaileaIgo e1) {
+		Konsulta_Erregistro.Erabiltzailea_erregistratu(e1);
+		
 	}
 
 	public static boolean konprobatuNegatibo(double zbk) {

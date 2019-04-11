@@ -48,8 +48,9 @@ public class ErregistroLeihoa extends JFrame {
 	private JLabel lblAbizena = new JLabel("Abizena");
 	private JLabel lblErabiltzaileDatuak = new JLabel("Erabiltzaile Datuak  ----------------------------------------------------------------------------------------------------------------------------------");
 	private JLabel lblDatuPertsonalak = new JLabel("Datu Pertsonalak  ----------------------------------------------------------------------------------------------------------------------------------");
-	SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
-	JLabel lblPostaElektronikoa = new JLabel("Posta Elektronikoa");
+	private SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
+	private JLabel lblPostaElektronikoa = new JLabel("Posta Elektronikoa");
+	private JTextField textFieldPostaElektronikoa;
 
 
 
@@ -63,7 +64,7 @@ public class ErregistroLeihoa extends JFrame {
 	private String abizena="";
 	private String jaio_data;
 	private String sexua;
-	private JTextField textFieldPostaElektronikoa;
+	String PostaElektronikoa;
 
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -207,6 +208,17 @@ public class ErregistroLeihoa extends JFrame {
 		lblJaiotzeData.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
 		lblJaiotzeData.setBounds(327, 151, 133, 28);
 		getContentPane().add(lblJaiotzeData);
+		
+		//LABEL POSTAElektronikoa
+		lblPostaElektronikoa.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+		lblPostaElektronikoa.setBounds(327, 216, 145, 28);
+		getContentPane().add(lblPostaElektronikoa);
+		
+		//Textfield POSTA Elektronikoa 
+		textFieldPostaElektronikoa = new JTextField();
+		textFieldPostaElektronikoa.setBounds(492, 221, 122, 22);
+		getContentPane().add(textFieldPostaElektronikoa);
+		textFieldPostaElektronikoa.setColumns(10);
 
 		//DATA JCALENDAR
 		jaiodata.setBounds(470, 151, 122, 28);
@@ -291,8 +303,7 @@ public class ErregistroLeihoa extends JFrame {
 				izena2=izena.getText();
 				abizena=abizenatextfield.getText();
 
-				String PostaElektronikoa;
-				PostaElektronikoa=textFieldPostaElektronikoa.getSelectedText();
+				PostaElektronikoa=textFieldPostaElektronikoa.getText();
 				
 				
 				pasahitza=Pasahitza.getText();
@@ -319,8 +330,10 @@ public class ErregistroLeihoa extends JFrame {
 		Jarraitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-//				BezeroIgo cliente = new BezeroIgo(nan, izena2, abizena, jaio_data, sexua, pasahitza);
+				ErabiltzaileaIgo ErabIgo = new ErabiltzaileaIgo(nan, izena2, abizena, pasahitza, jaio_data, PostaElektronikoa);
+//				BezeroIgo BeIgo = new BezeroIgo(nan, izena2, abizena, jaio_data, sexua, pasahitza);
 //				Metodoak.bezeroaIgo(cliente);
+				Metodoak.Erregistratu(ErabIgo);
 				Metodoak.loginleihora();
 			}
 		});
@@ -329,14 +342,7 @@ public class ErregistroLeihoa extends JFrame {
 		Jarraitu.setBounds(462, 452, 115, 44);
 		getContentPane().add(Jarraitu);
 		
-		lblPostaElektronikoa.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
-		lblPostaElektronikoa.setBounds(327, 216, 145, 28);
-		getContentPane().add(lblPostaElektronikoa);
 		
-		textFieldPostaElektronikoa = new JTextField();
-		textFieldPostaElektronikoa.setBounds(492, 221, 122, 22);
-		getContentPane().add(textFieldPostaElektronikoa);
-		textFieldPostaElektronikoa.setColumns(10);
 
 	}
 }
