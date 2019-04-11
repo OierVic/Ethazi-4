@@ -17,6 +17,7 @@ import Kontrolatzailea.Kontagailua;
 import Kontrolatzailea.Erreserba;
 import Kontrolatzailea.Hotel;
 import Kontrolatzailea.Metodoak;
+import javax.swing.JScrollBar;
 
 public class OrdainduLeihoa extends JFrame {
 
@@ -63,7 +64,7 @@ public class OrdainduLeihoa extends JFrame {
 		lblItzuliak.setFont(new Font("Arial", Font.BOLD, 24));
 		getContentPane().add(lblItzuliak);
 		btnAmaitu.setEnabled(false);
-		btnAmaitu.setBounds(514, 467, 97, 43);
+		btnAmaitu.setBounds(514, 490, 97, 43);
 
 		//BOTOIA AMAITU
 		btnAmaitu.setFont(new Font("Arial", Font.PLAIN, 18));
@@ -107,7 +108,7 @@ public class OrdainduLeihoa extends JFrame {
 		});
 		getContentPane().add(dirua);
 		dirua.setColumns(10);
-		btnEzeztatu.setBounds(339, 468, 112, 41);
+		btnEzeztatu.setBounds(340, 491, 112, 41);
 
 		btnEzeztatu.setFont(new Font("Arial", Font.PLAIN, 18));
 		btnEzeztatu.addActionListener(new ActionListener() {
@@ -118,7 +119,7 @@ public class OrdainduLeihoa extends JFrame {
 			}
 		});
 		getContentPane().add(btnEzeztatu);
-		btnAtzera.setBounds(176, 467, 105, 43);
+		btnAtzera.setBounds(176, 490, 105, 43);
 		//String nan = Hotel.getDni();
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -196,7 +197,7 @@ public class OrdainduLeihoa extends JFrame {
 		getContentPane().add(btnOrdaindu);
 		Itzuliak.setFont(new Font("Arial", Font.PLAIN, 18));
 
-		Itzuliak.setBounds(231, 244, 380, 195);
+		Itzuliak.setBounds(241, 225, 380, 254);
 		getContentPane().add(Itzuliak);
 		Itzuliak.setEditable(false);
 		//String ordaintzeko = String.valueOf(hoteles.getPrecioHotel());

@@ -7,6 +7,8 @@ import java.awt.event.KeyAdapter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -63,6 +65,7 @@ public class ErregistroLeihoa extends JFrame {
 	private String jaio_data;
 	private String sexua;
 	String PostaElektronikoa;
+	Pattern pattern = Pattern.compile("^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$");
 
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -260,7 +263,8 @@ public class ErregistroLeihoa extends JFrame {
 					int zbk= Integer.parseInt(zenbakia);
 					letra=textLetra.getText();
 					nan=zenbakia+letra;
-
+					
+					
 					letra2=Metodoak.KalkulatuLetra(zbk);
 					nan2=zenbakia+letra2;
 					System.out.println("Sartutako nan: "+nan);
@@ -303,6 +307,14 @@ public class ErregistroLeihoa extends JFrame {
 
 				PostaElektronikoa=textFieldPostaElektronikoa.getText();
 				
+				//Validar gmail
+				Matcher matcher = pattern.matcher(PostaElektronikoa);
+				   if (!(matcher.matches())) {
+					   Jarraitu.setEnabled(false);
+					   Balidatu.setEnabled(true);
+					JOptionPane.showMessageDialog(null, "Posta Elektronikoa txarto dago. Mesedez osotu");
+					   
+				   }
 				
 				pasahitza=Pasahitza.getText();
 				pasahitza=Metodoak.ateraMD5(pasahitza);
