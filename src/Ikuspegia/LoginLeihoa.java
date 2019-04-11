@@ -169,27 +169,27 @@ public class LoginLeihoa extends JFrame {
 							
 						}
 						boolean balidatu=true;
-//						for (int i=0;i<bezero.size();i++) {
-//							if (bezero.get(i).getDni().equals(nan)) {								
-//								if (bezero.get(i).getContraseña().equals(Metodoak.ateraMD5(pasahitza))) {
-//									Jarraitu.setEnabled(true);
-//									Balidatu.setEnabled(false);
-//									btnKontuBerria.setEnabled(false);									
-//									break;
-//								}else {
-//									balidatu=false;
-//									Pasahitza.setText("");
-//									JOptionPane.showMessageDialog(null,"Pasahitza gaizki dago. Mesedez sartu berriro.");
-//									}
-//								
-//							}else {
-//								if(i==bezero.size()-1 && balidatu==true) {
-//								textNAN.setText("");
-//								textLetra.setText("");
-//								JOptionPane.showMessageDialog(null,"NAN-a gaizki dago. Mesedez sartu berriro.");
-//								}
-//							}
-//						}
+						for (int i=0;i<bezero.size();i++) {
+							if (bezero.get(i).getIdBezeroNan().equals(nan)) {								
+								if (bezero.get(i).getPasahitzaBezero().equals(Metodoak.ateraMD5(pasahitza))) {
+									Jarraitu.setEnabled(true);
+									Balidatu.setEnabled(false);
+									btnKontuBerria.setEnabled(false);									
+									break;
+								}else {
+									balidatu=false;
+									Pasahitza.setText("");
+									JOptionPane.showMessageDialog(null,"Pasahitza gaizki dago. Mesedez sartu berriro.");
+									}
+								
+							}else {
+								if(i==bezero.size()-1 && balidatu==true) {
+								textNAN.setText("");
+								textLetra.setText("");
+								JOptionPane.showMessageDialog(null,"NAN-a gaizki dago. Mesedez sartu berriro.");
+								}
+							}
+						}
 						
 					}
 				});

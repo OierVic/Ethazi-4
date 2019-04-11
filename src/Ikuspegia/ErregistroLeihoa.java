@@ -43,16 +43,14 @@ public class ErregistroLeihoa extends JFrame {
 	private JTextField izena = new JTextField();
 	private JDateChooser jaiodata = new JDateChooser();
 	private JTextField abizenatextfield = new JTextField();
-	private JLabel lblSexua = new JLabel("Sexua*");
 	private JLabel lblIzena = new JLabel("Izena");
 	private JLabel lblJaiotzeData = new JLabel("Jaiotze data ");
 	private JLabel lblAbizena = new JLabel("Abizena");
-	private JComboBox AukeratuSexua = new JComboBox();
-	private JLabel lblMNeska = new JLabel("   M = Neska");
-	private JLabel lblMutila = new JLabel("* V = Mutila");
 	private JLabel lblErabiltzaileDatuak = new JLabel("Erabiltzaile Datuak  ----------------------------------------------------------------------------------------------------------------------------------");
 	private JLabel lblDatuPertsonalak = new JLabel("Datu Pertsonalak  ----------------------------------------------------------------------------------------------------------------------------------");
 	SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
+	JLabel lblPostaElektronikoa = new JLabel("Posta Elektronikoa");
+
 
 
 	private String nan="";
@@ -65,6 +63,7 @@ public class ErregistroLeihoa extends JFrame {
 	private String abizena="";
 	private String jaio_data;
 	private String sexua;
+	private JTextField textFieldPostaElektronikoa;
 
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -218,11 +217,6 @@ public class ErregistroLeihoa extends JFrame {
 		jaiodata.cleanup();
 		jaiodata.setMaxSelectableDate(new Date());
 
-		//LABEL SEXUA
-		lblSexua.setFont(new Font("Arial", Font.BOLD, 20));
-		lblSexua.setBounds(359, 213, 78, 28);
-		getContentPane().add(lblSexua);
-
 		//LABEL DATU PERSTSONALAK
 		lblDatuPertsonalak.setBounds(22, 118, 632, 22);
 		getContentPane().add(lblDatuPertsonalak);
@@ -230,23 +224,6 @@ public class ErregistroLeihoa extends JFrame {
 		//LABEL ERABILTZAILE DATUAK
 		lblErabiltzaileDatuak.setBounds(22, 288, 632, 22);
 		getContentPane().add(lblErabiltzaileDatuak);
-
-		//LABEL INFO TESTUA
-		lblMutila.setToolTipText("");
-		lblMutila.setBounds(533, 213, 74, 22);
-		getContentPane().add(lblMutila);
-
-		lblMNeska.setToolTipText("");
-		lblMNeska.setBounds(533, 233, 74, 22);
-		getContentPane().add(lblMNeska);
-		AukeratuSexua.setForeground(Color.BLACK);
-		AukeratuSexua.setBackground(Color.WHITE);
-
-
-		AukeratuSexua.setFont(new Font("Arial", Font.PLAIN, 18));
-		AukeratuSexua.setModel(new DefaultComboBoxModel(new String[] {"V", "M"}));
-		AukeratuSexua.setBounds(450, 220, 40, 20);
-		getContentPane().add(AukeratuSexua);
 
 
 		//EZEZTATU BOTOIA
@@ -303,7 +280,7 @@ public class ErregistroLeihoa extends JFrame {
 				}
 
 				for (int i=0;i<bezero.size();i++) {
-					if (bezero.get(i).getidBezeroNan().equals(nan)) {
+					if (bezero.get(i).getIdBezeroNan().equals(nan)) {
 						
 						Jarraitu.setEnabled(false);
 						Balidatu.setEnabled(true);
@@ -314,12 +291,10 @@ public class ErregistroLeihoa extends JFrame {
 				izena2=izena.getText();
 				abizena=abizenatextfield.getText();
 
-				int sexuzbk;
-				sexuzbk=AukeratuSexua.getSelectedIndex();
-				if (sexuzbk==0)
-					sexua="V";
-				else
-					sexua="M";
+				String PostaElektronikoa;
+				PostaElektronikoa=textFieldPostaElektronikoa.getSelectedText();
+				
+				
 				pasahitza=Pasahitza.getText();
 				pasahitza=Metodoak.ateraMD5(pasahitza);
 				try {
@@ -353,6 +328,15 @@ public class ErregistroLeihoa extends JFrame {
 		Jarraitu.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
 		Jarraitu.setBounds(462, 452, 115, 44);
 		getContentPane().add(Jarraitu);
+		
+		lblPostaElektronikoa.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+		lblPostaElektronikoa.setBounds(327, 216, 145, 28);
+		getContentPane().add(lblPostaElektronikoa);
+		
+		textFieldPostaElektronikoa = new JTextField();
+		textFieldPostaElektronikoa.setBounds(492, 221, 122, 22);
+		getContentPane().add(textFieldPostaElektronikoa);
+		textFieldPostaElektronikoa.setColumns(10);
 
 	}
 }

@@ -14,6 +14,7 @@ public class Kontsulta_Bezero {
 	public static ArrayList <Bezero> BezeroakIkusi() {
 		ArrayList <Bezero> bezeroak = new ArrayList<Bezero>();
 		String idBezeroNan=null;
+		String pasahitzaBezero=null;
 		String izenBezero = null;
 		String abizenBezero = null;
 		int tlfBezero = 0;
@@ -27,14 +28,15 @@ public class Kontsulta_Bezero {
 			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
-			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idBezero, izenBezero, abizenBezero, telefBezero, postaBezero FROM bezero");
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idBezero,pasahitzaBezero, izenBezero, abizenBezero, telefBezero, postaBezero FROM bezero");
 			while (rs.next()) {
 				idBezeroNan = rs.getString("idBezero");
+				pasahitzaBezero = rs.getString("pasahitzaBezero");
 				izenBezero = rs.getString("izenBezero");
 				abizenBezero = rs.getString("abizenBezero");
 				tlfBezero = rs.getInt("telefBezero");
 				postaBezero = rs.getString("postaBezero");
-				Bezero b1 = new Bezero(idBezeroNan, izenBezero, abizenBezero, tlfBezero, postaBezero);
+				Bezero b1 = new Bezero(idBezeroNan,pasahitzaBezero, izenBezero, abizenBezero, tlfBezero, postaBezero);
 				bezeroak.add(b1);
 				System.out.println(b1);
 
