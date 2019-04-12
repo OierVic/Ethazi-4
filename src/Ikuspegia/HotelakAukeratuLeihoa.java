@@ -29,6 +29,8 @@ public class HotelakAukeratuLeihoa extends JFrame {
 	JLabel lblHelbideak = new JLabel("Helbideak");
 	JComboBox comboBoxHelbideak = new JComboBox();
 	ArrayList<Hotel>HotelCombobox = new ArrayList<Hotel>();
+	JButton btnEzeztatu = new JButton("Ezeztatu");
+	JButton btnAtzera = new JButton("Atzera");
 
 
 
@@ -57,15 +59,12 @@ public class HotelakAukeratuLeihoa extends JFrame {
 		comboBoxHelbideak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				comboBoxNombreHoteles.removeAllItems();
-				//System.out.println("Le he pegado");
 				String helbideakSelected = (String) comboBoxHelbideak.getSelectedItem();
 				HotelCombobox=Eredua.Kontsulta_Hoteles.HotelakHelbidearekinAtera(helbideakSelected);
 				for (int i = 0; i < HotelCombobox.size(); i++) {
-					//comboBoxNombreHoteles.addItem("kk");
 					comboBoxNombreHoteles.addItem(HotelCombobox.get(i).comboboxIzena());
 					
 				}
-				//System.out.println("Fuera del for");
 				
 			}
 
@@ -76,40 +75,12 @@ public class HotelakAukeratuLeihoa extends JFrame {
 		comboBoxNombreHoteles.setToolTipText("Aukeratu hotel bat");
 		comboBoxNombreHoteles.setBounds(40, 284, 542, 29);
 		getContentPane().add(comboBoxNombreHoteles);
-//		for (int i=0;i<Hoteles.size();i++) {
-//			System.out.println("holaaaaaaaaaa");
-//			comboBoxNombreHoteles.addItem(Hoteles.get(i).comboboxIzena());
-//		}
 
 		comboBoxNombreHoteles.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
 				
 				System.out.println(PrezioHotel);
 				btnHurrengoa.setEnabled(true);
-				//String helbideaSelected = (String) comboBoxHelbideak.getSelectedItem();
-
-//				ArrayList<Hotel>HotelCombobox = new ArrayList<Hotel>();
-//				HotelCombobox=Modelo.Consultas_Hoteles.HotelakHelbidearekinAtera(hotelakSelected);
-				
-				//String hau badago textFieldPrezioan ezer ez jartzeko
-				
-				//Combobox-etik textFieldPreziora prezioa eramateko
-//				for (int i=0;i<Hoteles.size();i++) {
-//					if (hotelakSelected.equals(Hoteles.get(i).comboboxIzena())) {
-//						// Prezioa String-era pasatu behar da zeren setText egiterakoan eskatzen duelako
-//						PrezioHotel = Hoteles.get(i).getPrezioHotel();
-//						String PrezioHotel = String.valueOf(Hoteles.get(i).getPrezioHotel());
-//						//Mirar haber si funciona para saber que numero es del array para llevarlo a la ventana3 de pagar
-//
-//						if (comboBoxHelbideak.getSelectedItem()==null) {
-//							textFieldPrezioa.setText("");
-//						}
-//						textFieldPrezioa.setText(PrezioHotel+" €");
-//						btnHurrengoa.setEnabled(true);
-//						break;
-//					}
-//
-//				}
 				
 			}
 		});
@@ -127,7 +98,6 @@ public class HotelakAukeratuLeihoa extends JFrame {
 					PrezioHotel = HotelCombobox.get(PosicionSelected).getPrezioHotel();
 							
 					
-					//Metodoak.hirugarrenLeihoa(Hoteles,PrezioHotel);
 					Metodoak.ordainduleihora(Hoteles, PrezioHotel);
 					
 				}
@@ -135,12 +105,34 @@ public class HotelakAukeratuLeihoa extends JFrame {
 			}
 		});
 		btnHurrengoa.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		btnHurrengoa.setBounds(487, 503, 157, 29);
+		btnHurrengoa.setBounds(473, 497, 167, 39);
 		getContentPane().add(btnHurrengoa);
 		
 		lblHelbideak.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblHelbideak.setBounds(74, 36, 105, 39);
 		getContentPane().add(lblHelbideak);
+		
+		btnEzeztatu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Metodoak.ongietorrileihora();
+				
+			}
+		});
+		btnEzeztatu.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnEzeztatu.setBounds(252, 498, 128, 41);
+		getContentPane().add(btnEzeztatu);
+		
+		btnAtzera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+				Metodoak.loginleihora();
+				
+			}
+		});
+		btnAtzera.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnAtzera.setBounds(40, 499, 121, 39);
+		getContentPane().add(btnAtzera);
 		
 		
 		

@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import Kontrolatzailea.*;
+import javax.swing.JCheckBox;
 
 
 public class LoginLeihoa extends JFrame {
@@ -28,6 +29,7 @@ public class LoginLeihoa extends JFrame {
 	private JLabel lblLetra = new JLabel("Letra");
 	private JLabel lblPasahitza = new JLabel("Pasahitza");
 	JLabel lblEzDaukazuKonturik = new JLabel("Ez daukazu Konturik ?");
+	JCheckBox chckbxShowPassword = new JCheckBox("Pasahitza Ikusi");
 
 	
 	private JButton Atzera = new JButton("Atzera");
@@ -213,5 +215,19 @@ public class LoginLeihoa extends JFrame {
 				lblEzDaukazuKonturik.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 				lblEzDaukazuKonturik.setBounds(464, 140, 189, 35);
 				getContentPane().add(lblEzDaukazuKonturik);
+				
+				chckbxShowPassword.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						if (chckbxShowPassword.isSelected()) {
+							Pasahitza.setEchoChar((char)0);
+						}
+						else {
+							Pasahitza.setEchoChar('*');
+						}
+						
+					}
+				});
+				chckbxShowPassword.setBounds(207, 258, 163, 23);
+				getContentPane().add(chckbxShowPassword);
 	}
 }

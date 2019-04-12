@@ -24,6 +24,7 @@ import Eredua.Konsulta_Erregistro;
 import Kontrolatzailea.Bezero;
 import Kontrolatzailea.ErabiltzaileaIgo;
 import Kontrolatzailea.Metodoak;
+import javax.swing.JCheckBox;
 
 
 public class ErregistroLeihoa extends JFrame {
@@ -65,7 +66,9 @@ public class ErregistroLeihoa extends JFrame {
 	private String jaio_data;
 	private String sexua;
 	String PostaElektronikoa;
+	// PostaElektronikoa balidatzeko
 	Pattern pattern = Pattern.compile("^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$");
+	private final JCheckBox chckbxPasahitzaIkusi = new JCheckBox("Pasahitza Ikusi");
 
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -351,6 +354,20 @@ public class ErregistroLeihoa extends JFrame {
 		Jarraitu.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
 		Jarraitu.setBounds(462, 452, 115, 44);
 		getContentPane().add(Jarraitu);
+		chckbxPasahitzaIkusi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if (chckbxPasahitzaIkusi.isSelected()) {
+					Pasahitza.setEchoChar((char)0);
+				}
+				else {
+					Pasahitza.setEchoChar('*');
+				}
+				
+			}
+		});
+		chckbxPasahitzaIkusi.setBounds(204, 415, 158, 23);
+		
+		getContentPane().add(chckbxPasahitzaIkusi);
 		
 		
 

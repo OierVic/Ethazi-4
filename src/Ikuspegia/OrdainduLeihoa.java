@@ -38,12 +38,12 @@ public class OrdainduLeihoa extends JFrame {
 	
 	private double preziototala=0;
 	private ArrayList<Double> preziotot = new ArrayList<Double>();
-	private double prezioa;
+	//private double prezioa;
 	private double prezio2 = 0;
 
 
 	public OrdainduLeihoa(ArrayList <Hotel> Hoteles, double prezioHotel) {
-		prezioa=prezioHotel;
+		//prezioa=prezioHotel;
 		//prezioa=0.0;
 		this.setBounds(275,100,700,600);
 		getContentPane().setLayout(null);
@@ -132,7 +132,7 @@ public class OrdainduLeihoa extends JFrame {
 		getContentPane().add(btnAtzera);
 		btnOrdaindu.setBounds(470, 151, 141, 37);
 		//Arraylistari prezioa sartu
-		preziotot.add(prezioa);
+		preziotot.add(prezioHotel);
 		//ORDAINDU BOTOIA
 		btnOrdaindu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
