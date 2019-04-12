@@ -36,7 +36,8 @@ public class LoginLeihoa extends JFrame {
 	private JButton Jarraitu = new JButton("Jarraitu");
 	private JButton Balidatu = new JButton("Balidatu");
 	private JButton btnKontuBerria = new JButton("Erregistratu");
-	private String nan="";
+	public static int idBezero=0;
+	public static String nan="";
 	private String letra="";
 	private String zenbakia="";
 	private String pasahitza="";
@@ -167,16 +168,10 @@ public class LoginLeihoa extends JFrame {
 						nan=zenbakia+letra;
 						pasahitza=Pasahitza.getText();
 						
-//						for (int i=0;i<bezero.size();i++) {
-//							
-//						}
 						boolean balidatu=true;
 						for (int i=0;i<bezero.size();i++) {
-							System.out.println("Entra en el for");
 							if (bezero.get(i).getIdBezeroNan().equals(nan)) {
-								System.out.println("Entra en el nan");
 								if (bezero.get(i).getPasahitzaBezero().equals(Metodoak.ateraMD5(pasahitza))) {
-									System.out.println("Entra en el pasahitza");
 									Jarraitu.setEnabled(true);
 									Balidatu.setEnabled(false);
 									btnKontuBerria.setEnabled(false);									

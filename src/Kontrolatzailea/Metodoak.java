@@ -7,11 +7,14 @@ import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import Eredua.Konsulta_Erregistro;
 import Eredua.Kontsulta_Bezero;
+import Eredua.Kontsulta_Erreserba;
 import Eredua.Kontsulta_Hoteles;
 import Ikuspegia.ErregistroLeihoa;
+import Ikuspegia.ErreserbaHasieratu;
 import Ikuspegia.EskerrikAskoLeihoa;
 import Ikuspegia.HotelakAukeratuLeihoa;
 import Ikuspegia.LoginLeihoa;
@@ -58,11 +61,16 @@ public class Metodoak {
 
 
 	}
+	//Erreserba prestatzeko lehioa
+		public static void erreserbahasieratu(String hotelak, ArrayList <Hotel> Hoteles, double PrezioHotel) {
+			ErreserbaHasieratu ErreserbaLehioa = new ErreserbaHasieratu(hotelak, Hoteles, PrezioHotel);
+			ErreserbaLehioa.setVisible(true);
+		}
 
 	//Ventana4
-	public static void ordainduleihora(ArrayList <Hotel> Hoteles, double prezioHotel) {
+	public static void ordainduleihora(ArrayList <Hotel> Hoteles, double prezioHotel, Date sartuData, Date joanData) {
 
-		OrdainduLeihoa HotelakAukeratuLeihoa= new OrdainduLeihoa(Hoteles,prezioHotel);
+		OrdainduLeihoa HotelakAukeratuLeihoa= new OrdainduLeihoa(Hoteles,prezioHotel,sartuData, joanData);
 		HotelakAukeratuLeihoa.setVisible(true);
 
 	}
@@ -98,6 +106,11 @@ public class Metodoak {
 			ex.printStackTrace();
 		}
 	}
+	public static void ErreserbaIgo(Erreserba e1) {
+		Kontsulta_Erreserba.InsertErreserba(e1);
+		
+	}
+	
 
 	public static String kanbioMetodoa(double zbk) {
 

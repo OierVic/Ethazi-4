@@ -1,9 +1,10 @@
 package Ikuspegia;
 
-import java.awt.Font;
+import java.awt.Font; 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
+import java.util.Date;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -13,6 +14,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import Eredua.Kontsulta_Erreserba;
 import Kontrolatzailea.Kontagailua;
 import Kontrolatzailea.Erreserba;
 import Kontrolatzailea.Hotel;
@@ -42,7 +44,7 @@ public class OrdainduLeihoa extends JFrame {
 	private double prezio2 = 0;
 
 
-	public OrdainduLeihoa(ArrayList <Hotel> Hoteles, double prezioHotel) {
+	public OrdainduLeihoa(ArrayList <Hotel> Hoteles, double prezioHotel, Date sartuData, Date joanData) {
 		//prezioa=prezioHotel;
 		//prezioa=0.0;
 		this.setBounds(275,100,700,600);
@@ -71,8 +73,9 @@ public class OrdainduLeihoa extends JFrame {
 		btnAmaitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				int idOstatu=1;
-				String idBezero="12345678Z";
+				int idOstatu=HotelakAukeratuLeihoa.idHotel;
+				String idBezero=LoginLeihoa.nan;
+				//String idBezero="12345678Z";
 				String Eskatutakodata=Metodoak.dataAtera();
 				String EskatutakoOrdua=Metodoak.orduaAtera();
 				String dataJoan="20-01-1990";
@@ -82,6 +85,7 @@ public class OrdainduLeihoa extends JFrame {
 				Double precio=prezioHotel;
 				Erreserba e1 = new Erreserba(idOstatu, idBezero,Eskatutakodata,EskatutakoOrdua, dataJoan, dataEtorri, nagusiKopuru, umekopuru, precio);
 				Metodoak.imprimatuTiketa(e1);
+				Metodoak.ErreserbaIgo(e1);
 				Kontagailua contador = new Kontagailua();
 				contador.start();
 			}

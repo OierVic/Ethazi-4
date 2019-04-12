@@ -23,20 +23,20 @@ import java.awt.event.ItemEvent;
 public class HotelakAukeratuLeihoa extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	JLabel lblHotelak = new JLabel("Hotelak");
-	JComboBox<String> comboBoxNombreHoteles = new JComboBox<String>();
-	JButton btnHurrengoa = new JButton("Hurrengoa");
-	JLabel lblHelbideak = new JLabel("Helbideak");
-	JComboBox comboBoxHelbideak = new JComboBox();
-	ArrayList<Hotel>HotelCombobox = new ArrayList<Hotel>();
-	JButton btnEzeztatu = new JButton("Ezeztatu");
-	JButton btnAtzera = new JButton("Atzera");
+	private JLabel lblHotelak = new JLabel("Hotelak");
+	private JComboBox<String> comboBoxNombreHoteles = new JComboBox<String>();
+	private JButton btnHurrengoa = new JButton("Hurrengoa");
+	private JLabel lblHelbideak = new JLabel("Helbideak");
+	private JComboBox comboBoxHelbideak = new JComboBox();
+	private ArrayList<Hotel>HotelCombobox = new ArrayList<Hotel>();
+	private JButton btnEzeztatu = new JButton("Ezeztatu");
+	private JButton btnAtzera = new JButton("Atzera");
 
 
 
 
 	public Double PrezioHotel;
-	public int aukera;
+	public static int idHotel=0;
 
 	public HotelakAukeratuLeihoa(ArrayList <Hotel> Hoteles,ArrayList<String> Helbideak) {
 
@@ -96,10 +96,10 @@ public class HotelakAukeratuLeihoa extends JFrame {
 					System.out.println(PrezioHotel);
 					dispose();
 					PrezioHotel = HotelCombobox.get(PosicionSelected).getPrezioHotel();
-							
+					idHotel = HotelCombobox.get(PosicionSelected).getId_Ostatu();
 					
-					Metodoak.ordainduleihora(Hoteles, PrezioHotel);
-					
+					Metodoak.erreserbahasieratu(hotelak, Hoteles, PrezioHotel);
+
 				}
 				
 			}

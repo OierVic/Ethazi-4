@@ -1,13 +1,11 @@
 package Eredua;
 
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.util.ArrayList;
+import java.sql.DriverManager; 
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
-import Kontrolatzailea.Bezero;
+
 import Kontrolatzailea.ErabiltzaileaIgo;
 
 

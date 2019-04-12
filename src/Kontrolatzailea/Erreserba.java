@@ -15,7 +15,6 @@ public class Erreserba {
 
 	public Erreserba(int idOstatu, String idBezero,String Eskatutakodata,String EskatutakoOrdua, String dataJoan, String dataEtorri, int nagusiKopuru, int umekopuru,
 			double precio) {
-		super();
 		this.idErreserba=idErreserba++;
 		this.idOstatu = idOstatu;
 		this.idBezero = idBezero;
@@ -178,18 +177,18 @@ public class Erreserba {
 				+ " ----------------------------------------------------------------------------------------------------------------------"
 				+ " \t\n"
 
-				+ " -Erreserba Kodea: " + idErreserba + " \t" + "-Id bezero: " + idBezero + " \n" + " \n"
-				+ "-Erreserba data: "+Eskatutakodata+" Ordua: "+EskatutakoOrdua+" \t\n"
+				+ " -Erreserba Kodea: " + idErreserba + " \t" + " -Id Ostatu: " + this.idOstatu + " \t" + "-Id bezero: " + this.idBezero + " \n" + " \n"
+				+ "-Erreserba data: "+this.Eskatutakodata+" \t" + " -Ordua: "+this.EskatutakoOrdua+" \t\n"
 				+ " \t\n"
-				+" -Joateko data: " + dataJoan + " \t\t" + "-Etorri data: " + dataEtorri + " \t\n"
+				+" -Joateko data: " + this.dataJoan + " \t\t" + "-Etorri data: " + this.dataEtorri + " \t\n"
 				+ " ----------------------------------------------------------------------------------------------------------------------"
 				+ " \t\n"
 
-				+ " -Nagusi kopuru: " + nagusiKopuru + "     " + "-Ume Kopuru: " + umekopuru + " \t\n" + " \t\n"
+				+ " -Nagusi kopuru: " + this.nagusiKopuru + "  \t   " + "-Ume Kopuru: " + this.umekopuru + " \t\n" + " \t\n"
 				+ " ----------------------------------------------------------------------------------------------------------------------"
 				+ " \t\n"
 
-				+ " -Prezioa: " + precio + " €";
+				+ " -Prezioa: " + this.precio + " €";
 	}
 
 }
