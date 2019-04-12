@@ -61,8 +61,7 @@ public class Hotel extends Ostatu{
 		this.helbideHotel = helbideHotel;
 	}
 	public int LogelaEskugarri (int LogelaKopurua,int HartutakoLogelak) {
-		int LogelaEskugarri=0;
-		LogelaEskugarri=LogelaKopurua-HartutakoLogelak;
+		int LogelaEskugarri=LogelaKopurua-HartutakoLogelak;
 		return LogelaEskugarri;
 	}
 	
