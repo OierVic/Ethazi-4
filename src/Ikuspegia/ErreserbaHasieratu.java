@@ -28,6 +28,10 @@ public class ErreserbaHasieratu extends JFrame{
 	Date gaur = new Date();
 	Date sartuData = new Date();
 	Date joanData = new Date();
+	private JButton btnAtzera = new JButton("Atzera");
+	private JButton btnEzeztatu = new JButton("Ezeztatu");
+	private JButton button;
+	private JButton button_1;
 	
 	public ErreserbaHasieratu(String hotelak, ArrayList <Hotel> Hoteles, double PrezioHotel) {
 		
@@ -66,6 +70,8 @@ public class ErreserbaHasieratu extends JFrame{
 		dateJoan.setBounds(35, 289, 118, 20);
 		getContentPane().add(dateJoan);
 		
+		
+		
 		dateJoan.getCalendarButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 		
@@ -77,10 +83,46 @@ public class ErreserbaHasieratu extends JFrame{
 			}
 		});
 		
+		getContentPane().add(btnEzeztatu);
+		btnAtzera.setBounds(176, 490, 105, 43);
+		//String nan = Hotel.getDni();
+		btnAtzera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Metodoak.hotelakaukeratuleihora();
+				
+			}
+		});
+		
+		button = new JButton("Atzera");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Metodoak.hotelakaukeratuleihora();
+				
+			}
+		});
+		
 		btnHurrengoa = new JButton("Hurrengoa");
 		btnHurrengoa.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		btnHurrengoa.setBounds(489, 490, 157, 29);
+		btnHurrengoa.setBounds(484, 490, 157, 46);
 		getContentPane().add(btnHurrengoa);
+		
+		
+		button.setFont(new Font("Arial", Font.PLAIN, 18));
+		button.setBounds(65, 496, 105, 43);
+		getContentPane().add(button);
+		
+		button_1 = new JButton("Ezeztatu");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Metodoak.ongietorrileihora();
+			}
+		});
+		button_1.setFont(new Font("Arial", Font.PLAIN, 18));
+		button_1.setBounds(275, 494, 112, 41);
+		getContentPane().add(button_1);
 		
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -88,7 +130,7 @@ public class ErreserbaHasieratu extends JFrame{
 				joanData = (Date) dateJoan.getDate();
 				
 				if(dateJoan != null && dateSartu != null) {
-					Metodoak.ordainduleihora(Hoteles, PrezioHotel, sartuData, joanData);
+					Metodoak.ordainduleihora(hotelak, Hoteles, PrezioHotel, sartuData, joanData);
 					dispose();
 				}
 				

@@ -44,7 +44,7 @@ public class OrdainduLeihoa extends JFrame {
 	private double prezio2 = 0;
 
 
-	public OrdainduLeihoa(ArrayList <Hotel> Hoteles, double prezioHotel, Date sartuData, Date joanData) {
+	public OrdainduLeihoa(String hotelak, ArrayList <Hotel> Hoteles, double prezioHotel, Date sartuData, Date joanData) {
 		//prezioa=prezioHotel;
 		//prezioa=0.0;
 		this.setBounds(275,100,700,600);
@@ -128,7 +128,8 @@ public class OrdainduLeihoa extends JFrame {
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Metodoak.hotelakaukeratuleihora();
+
+				Metodoak.erreserbahasieratu(hotelak, Hoteles, prezioHotel);
 				
 			}
 		});

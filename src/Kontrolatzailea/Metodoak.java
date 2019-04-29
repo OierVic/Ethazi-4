@@ -68,9 +68,9 @@ public class Metodoak {
 		}
 
 	//Ventana4
-	public static void ordainduleihora(ArrayList <Hotel> Hoteles, double prezioHotel, Date sartuData, Date joanData) {
+	public static void ordainduleihora(String hotelak, ArrayList <Hotel> Hoteles, double prezioHotel, Date sartuData, Date joanData) {
 
-		OrdainduLeihoa HotelakAukeratuLeihoa= new OrdainduLeihoa(Hoteles,prezioHotel,sartuData, joanData);
+		OrdainduLeihoa HotelakAukeratuLeihoa= new OrdainduLeihoa(hotelak, Hoteles,prezioHotel,sartuData, joanData);
 		HotelakAukeratuLeihoa.setVisible(true);
 
 	}
