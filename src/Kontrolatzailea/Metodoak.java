@@ -304,5 +304,16 @@ public class Metodoak {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public static double prezioaEgunekin(double prezioHotel, Date sartuData, Date joanData){
+		double prezioa;
+		long diff = (joanData.getTime() - sartuData.getTime());
+		long diffEguna = (diff / 1000 / 60 / 60 / 24) + 1;
+		round(diff, 2);
+		prezioa = prezioHotel * diffEguna;
+		return (double) prezioa;
+	}
 
+	private static void round(long diff, int i) {
+	}
 }

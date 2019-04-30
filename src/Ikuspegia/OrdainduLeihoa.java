@@ -82,7 +82,7 @@ public class OrdainduLeihoa extends JFrame {
 				String dataEtorri="20-03-1990";
 				int nagusiKopuru=10;
 				int umekopuru=5;
-				Double precio=prezioHotel;
+				double precio=Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData);
 				Erreserba e1 = new Erreserba(idOstatu, idBezero,Eskatutakodata,EskatutakoOrdua, dataJoan, dataEtorri, nagusiKopuru, umekopuru, precio);
 				Metodoak.imprimatuTiketa(e1);
 				Metodoak.ErreserbaIgo(e1);
@@ -137,7 +137,7 @@ public class OrdainduLeihoa extends JFrame {
 		getContentPane().add(btnAtzera);
 		btnOrdaindu.setBounds(470, 151, 141, 37);
 		//Arraylistari prezioa sartu
-		preziotot.add(prezioHotel);
+		preziotot.add(Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData));
 		//ORDAINDU BOTOIA
 		btnOrdaindu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -201,18 +201,18 @@ public class OrdainduLeihoa extends JFrame {
 
 		getContentPane().add(btnOrdaindu);
 		Itzuliak.setFont(new Font("Arial", Font.PLAIN, 18));
-
+		
 		Itzuliak.setBounds(241, 225, 380, 254);
 		getContentPane().add(Itzuliak);
 		Itzuliak.setEditable(false);
 		//String ordaintzeko = String.valueOf(hoteles.getPrecioHotel());
-		String ordaintzeko = String.valueOf(prezioHotel); 
+		String ordaintzeko = String.valueOf(Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData));
 		//String ordaintzeko="0";
-		lblOrdaintzeko.setHorizontalAlignment(SwingConstants.CENTER);
+		lblOrdaintzeko.setHorizontalAlignment(SwingConstants.LEFT);
 		
 		lblOrdaintzeko.setText(ordaintzeko);
 		lblOrdaintzeko.setFont(new Font("Arial", Font.PLAIN, 18));
-		lblOrdaintzeko.setBounds(274, 112, 52, 30);
+		lblOrdaintzeko.setBounds(263, 111, 84, 30);
 		getContentPane().add(lblOrdaintzeko);
 		
 		lblOrdainketa_Tituloa.setHorizontalAlignment(SwingConstants.CENTER);
