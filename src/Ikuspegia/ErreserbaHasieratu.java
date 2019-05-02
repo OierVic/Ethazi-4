@@ -24,10 +24,10 @@ public class ErreserbaHasieratu extends JFrame{
 	JButton btnHurrengoa;
 	JLabel aukeratutakoOstatua;
 	JLabel lblSartzeData, lblJoateData;
-	JDateChooser dateSartu, dateJoan;
+	JDateChooser dateJoan, dateSartu;
 	Date gaur = new Date();
-	Date sartuData = new Date();
 	Date joanData = new Date();
+	Date sartuData = new Date();
 	private JButton btnAtzera = new JButton("Atzera");
 	private JButton btnEzeztatu = new JButton("Ezeztatu");
 	private JButton button;
@@ -49,14 +49,14 @@ public class ErreserbaHasieratu extends JFrame{
 		lblSartzeData.setBounds(49, 262, 107, 28);
 		getContentPane().add(lblSartzeData);
 		
-		dateSartu = new JDateChooser();
-		dateSartu.setBounds(262, 289, 118, 20);
-		getContentPane().add(dateSartu);
+		dateJoan = new JDateChooser();
+		dateJoan.setBounds(262, 289, 118, 20);
+		getContentPane().add(dateJoan);
 		
-		dateSartu.getCalendarButton().addActionListener(new ActionListener() {
+		dateJoan.getCalendarButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				dateSartu.setMinSelectableDate(gaur);
+				dateJoan.setMinSelectableDate(gaur);
 				
 			}
 		});
@@ -66,19 +66,19 @@ public class ErreserbaHasieratu extends JFrame{
 		lblJoateData.setBounds(277, 262, 107, 28);
 		getContentPane().add(lblJoateData);
 		
-		dateJoan = new JDateChooser();
-		dateJoan.setBounds(35, 289, 118, 20);
-		getContentPane().add(dateJoan);
+		dateSartu = new JDateChooser();
+		dateSartu.setBounds(35, 289, 118, 20);
+		getContentPane().add(dateSartu);
 		
 		
 		
-		dateJoan.getCalendarButton().addActionListener(new ActionListener() {
+		dateSartu.getCalendarButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 		
-				sartuData = (Date) dateSartu.getDate();
-				dateJoan.setMinSelectableDate(gaur);
+				sartuData = (Date) dateJoan.getDate();
+				dateSartu.setMinSelectableDate(gaur);
 				if(sartuData != null) {
-					dateJoan.setMinSelectableDate(sartuData);
+					dateSartu.setMinSelectableDate(sartuData);
 				}
 			}
 		});
@@ -126,10 +126,10 @@ public class ErreserbaHasieratu extends JFrame{
 		
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				sartuData = (Date) dateSartu.getDate();
 				joanData = (Date) dateJoan.getDate();
+				sartuData = (Date) dateSartu.getDate();
 				
-				if(dateJoan != null && dateSartu != null) {
+				if(dateSartu != null && dateJoan != null) {
 					Metodoak.ordainduleihora(hotelak, Hoteles, PrezioHotel, sartuData, joanData);
 					dispose();
 				}

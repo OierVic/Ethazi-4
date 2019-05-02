@@ -12,18 +12,18 @@ public class Kontsulta_Erreserba {
 	
 	public static void InsertErreserba(Erreserba e1) {
 		
-		Connection Conexion = null;
+		Connection Conexion1 = null;
 		
-		Statement s =null;
+		Statement s1 =null;
 		
 		try {
 
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			Conexion1 = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 
-			s = (Statement) Conexion.createStatement();
+			s1 = (Statement) Conexion1.createStatement();
 
-			s.executeUpdate("INSERT INTO `erreserba`(`idOstatu`, `idBezero`, `dataJoan`, `dataEtorri`, `nagusiKopuru`, `umeKopuru`) VALUES (1,'534534D','423-423-422','533-453-453',645,53)");
-			s.close();
+			s1.executeUpdate("INSERT INTO erreserba (idOstatu, idBezero, dataJoan, dataEtorri, nagusiKopuru, umeKopuru,prezioErreserba) VALUES"+ "("+e1.getIdOstatu()+",'"+e1.getIdBezero()+"','"+e1.getDataJoan()+"','"+e1.getDataEtorri()+"',"+e1.getNagusiKopuru()+","+e1.getUmekopuru()+","+e1.getPrecio()+")");
+			s1.close();
 
 			System.out.println("Conexioa eginda");
 		}catch(Exception e) {
