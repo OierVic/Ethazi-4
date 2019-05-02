@@ -4,7 +4,6 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ArrayList;
 
@@ -37,7 +36,7 @@ public class OrdainduLeihoa extends JFrame {
 	private JTextArea Itzuliak = new JTextArea();
 	private JLabel lblOrdaintzeko = new JLabel("");
 	private JLabel lblOrdainketa_Tituloa = new JLabel("ORDAINKETA");
-	private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
 	
 	private double preziototala=0;
 	private ArrayList<Double> preziotot = new ArrayList<Double>();
@@ -77,10 +76,10 @@ public class OrdainduLeihoa extends JFrame {
 				int idOstatu=HotelakAukeratuLeihoa.idHotel;
 				String idBezero=LoginLeihoa.nan;
 				//String idBezero="12345678Z";
-				String Eskatutakodata=Metodoak.dataAtera();
+				String Eskatutakodata=Metodoak.dataAteraAñoalPrincipio();
 				String EskatutakoOrdua=Metodoak.orduaAtera();
-				String dataJoan=dateFormat.format(sartuData);
-				String dataEtorri=dateFormat.format(joanData);
+				String dataJoan="20-01-1990";
+				String dataEtorri="20-03-1990";
 				int nagusiKopuru=10;
 				int umekopuru=5;
 				double precio=Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData);
@@ -138,7 +137,7 @@ public class OrdainduLeihoa extends JFrame {
 		getContentPane().add(btnAtzera);
 		btnOrdaindu.setBounds(470, 151, 141, 37);
 		//Arraylistari prezioa sartu
-		preziotot.add(Metodoak.prezioaEgunekin(prezioHotel, sartuData, joanData));
+		preziotot.add(Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData));
 		//ORDAINDU BOTOIA
 		btnOrdaindu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -223,4 +222,3 @@ public class OrdainduLeihoa extends JFrame {
 
 	}
 }
-
