@@ -91,6 +91,10 @@ public class HotelakAukeratuLeihoa extends JFrame {
 		});
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String logelKant = textFieldKant.getText();
+				int logelaKant = Integer.parseInt(logelKant);// pasar de String a int		
+				System.out.println(logelaKant);
+				
 				String hotelak = (String) comboBoxNombreHoteles.getSelectedItem();
 				int PosicionSelected = comboBoxNombreHoteles.getSelectedIndex();
 				if (hotelak==(null)) {
