@@ -19,13 +19,13 @@ import Kontrolatzailea.Metodoak;
 
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
-import java.awt.Color;
 
 public class HotelakAukeratuLeihoa extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JLabel lblHotelak = new JLabel("Hotelak");
 	private JComboBox<String> comboBoxNombreHoteles = new JComboBox<String>();
+	private JComboBox<String> comboBoxOheMota = new JComboBox<String>();
 	private JButton btnHurrengoa = new JButton("Hurrengoa");
 	private JLabel lblHelbideak = new JLabel("Helbideak");
 	private JComboBox comboBoxHelbideak = new JComboBox();
@@ -35,17 +35,20 @@ public class HotelakAukeratuLeihoa extends JFrame {
 
 
 
+
 	public Double PrezioHotel;
 	public static int idHotel=0;
+	private JTextField textFieldKant;
 
 	public HotelakAukeratuLeihoa(ArrayList <Hotel> Hoteles,ArrayList<String> Helbideak) {
+		
 
 		this.setBounds(275,100,700,600);
 		this.setBackground(SystemColor.control);
 		getContentPane().setLayout(null);
 
 		lblHotelak.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblHotelak.setBounds(58, 203, 121, 59);
+		lblHotelak.setBounds(58, 176, 121, 59);
 		getContentPane().add(lblHotelak);
 		
 		comboBoxHelbideak.setBounds(58, 107, 196, 39);
@@ -70,10 +73,11 @@ public class HotelakAukeratuLeihoa extends JFrame {
 
 			
 		});
+	
 		
 
 		comboBoxNombreHoteles.setToolTipText("Aukeratu hotel bat");
-		comboBoxNombreHoteles.setBounds(40, 284, 542, 29);
+		comboBoxNombreHoteles.setBounds(40, 246, 542, 29);
 		getContentPane().add(comboBoxNombreHoteles);
 
 		comboBoxNombreHoteles.addItemListener(new ItemListener() {
@@ -81,27 +85,26 @@ public class HotelakAukeratuLeihoa extends JFrame {
 				
 				System.out.println(PrezioHotel);
 				btnHurrengoa.setEnabled(true);
-				
+				System.out.println("_____________________________________________________");
+				comboBoxOheMota.removeAllItems();
 			}
 		});
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String hotelak = (String) comboBoxNombreHoteles.getSelectedItem();
 				int PosicionSelected = comboBoxNombreHoteles.getSelectedIndex();
-				
-				if(HotelCombobox.get(PosicionSelected).LogelaEskugarri(HotelCombobox.get(PosicionSelected).getLogelaKopurua(), HotelCombobox.get(PosicionSelected).getHartutakoLogelak())==0) {
-					btnHurrengoa.setEnabled(false);
-					JOptionPane.showMessageDialog(null,"Ez dago logela eskuragarri momentu honetan.");
-				} else if (hotelak==(null)) {
+				if (hotelak==(null)) {
 					btnHurrengoa.setEnabled(false);
 					JOptionPane.showMessageDialog(null,"Ez duzu hotelik aukeratu. Mezedez, Hotel bat aukeratu.");
-				} else if(!(hotelak==(null))) {
+				}
+				else if(!(hotelak==(null))) {
 					System.out.println(PrezioHotel);
 					dispose();
 					PrezioHotel = HotelCombobox.get(PosicionSelected).getPrezioHotel();
 					idHotel = HotelCombobox.get(PosicionSelected).getId_Ostatu();
 					
 					Metodoak.erreserbahasieratu(hotelak, Hoteles, PrezioHotel);
+
 				}
 				
 			}
@@ -120,6 +123,7 @@ public class HotelakAukeratuLeihoa extends JFrame {
 				Metodoak.ongietorrileihora();
 				
 			}
+			
 		});
 		btnEzeztatu.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnEzeztatu.setBounds(252, 498, 128, 41);
@@ -134,7 +138,43 @@ public class HotelakAukeratuLeihoa extends JFrame {
 		});
 		btnAtzera.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnAtzera.setBounds(40, 499, 121, 39);
-		getContentPane().add(btnAtzera);		
+		getContentPane().add(btnAtzera);
+		
+		JLabel label = new JLabel("Oheak");
+		label.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		label.setBounds(40, 302, 121, 59);
+		getContentPane().add(label);
+		
+		JComboBox<String> comboBoxOheMota = new JComboBox<String>();
+		comboBoxOheMota.setToolTipText("Aukeratu hotel bat");
+		comboBoxOheMota.setBounds(126, 323, 196, 29);
+		getContentPane().add(comboBoxOheMota);
+		
+		textFieldKant = new JTextField();
+		textFieldKant.setColumns(10);
+		textFieldKant.setBounds(314, 396, 136, 26);
+		getContentPane().add(textFieldKant);
+		textFieldKant.enable(false);
+		
+		JLabel label_1 = new JLabel("Sartu loguela kopurua:");
+		label_1.setFont(new Font("Arial", Font.BOLD, 24));
+		label_1.setBounds(40, 386, 288, 37);
+		getContentPane().add(label_1);
+		comboBoxOheMota.addItem("Simplea");
+		comboBoxOheMota.addItem("Bikoitza");
+		comboBoxOheMota.addItem("Umeentzat");
+		
+		comboBoxOheMota.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent arg0) {
+				textFieldKant.enable(true);
+				System.out.println("Esto abilitado");
+				String oheMota = (String) comboBoxOheMota.getSelectedItem();
+				System.out.println(oheMota);
+			}
+		});
+		
+		
+		
 
 
 
