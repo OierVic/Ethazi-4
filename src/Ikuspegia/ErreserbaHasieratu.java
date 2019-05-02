@@ -7,6 +7,7 @@ import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import com.toedter.calendar.JCalendar;
 import java.awt.Font;
@@ -52,6 +53,8 @@ public class ErreserbaHasieratu extends JFrame{
 		dateJoan = new JDateChooser();
 		dateJoan.setBounds(262, 289, 118, 20);
 		getContentPane().add(dateJoan);
+		((JTextField) this.dateJoan.getDateEditor()).setEditable(false); 
+
 		
 		dateJoan.getCalendarButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -69,7 +72,8 @@ public class ErreserbaHasieratu extends JFrame{
 		dateSartu = new JDateChooser();
 		dateSartu.setBounds(35, 289, 118, 20);
 		getContentPane().add(dateSartu);
-		
+		((JTextField) this.dateSartu.getDateEditor()).setEditable(false); 
+
 		
 		
 		dateSartu.getCalendarButton().addActionListener(new ActionListener() {

@@ -247,7 +247,7 @@ public class Metodoak {
 		return ordua;
 	}
 
-	public static String dataAtera () {
+	public static String dataAteraAñoalFinal () {
 		int año,mes,dia = 0;
 
 		Calendar fecha = Calendar.getInstance();
@@ -271,11 +271,35 @@ public class Metodoak {
 		System.out.println(data);
 		return data;
 	}
+	public static String dataAteraAñoalPrincipio () {
+		int año,mes,dia = 0;
+
+		Calendar fecha = Calendar.getInstance();
+
+		//data hartu eta gorde
+		año = fecha.get(Calendar.YEAR);
+		mes = fecha.get(Calendar.MONTH) + 1;
+		dia = fecha.get(Calendar.DAY_OF_MONTH);
+
+		String data = año+"-"+mes+"-"+dia;
+
+		if(dia<10) {
+			data = año+"-"+mes+"-"+"0"+dia;
+		}
+		if(mes<10) {
+			data = año+"-"+"0"+mes+"-"+dia;
+		}
+		if (dia<10 && mes<10) {
+			data = año+"-"+"0"+mes+"-"+"0"+dia;
+		}
+		System.out.println(data);
+		return data;
+	}
 	//	public static void bezeroaIgo(BezeroIgo bezeroIgo) {
 	//		Kontrolatzailea.erregistroa(bezeroIgo);
 	//	}
 
-	public static double Redondear(double numero)
+	public static double RedondearDosDecimales(double numero)
 	{
 		return Math.rint(numero*100)/100;
 	}

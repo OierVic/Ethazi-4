@@ -232,7 +232,8 @@ public class ErregistroLeihoa extends JFrame {
 		jaiodata.getDate();
 		jaiodata.cleanup();
 		jaiodata.setMaxSelectableDate(new Date());
-
+		((JTextField) this.jaiodata.getDateEditor()).setEditable(false); 
+		
 		//LABEL DATU PERSTSONALAK
 		lblDatuPertsonalak.setBounds(22, 118, 632, 22);
 		getContentPane().add(lblDatuPertsonalak);
