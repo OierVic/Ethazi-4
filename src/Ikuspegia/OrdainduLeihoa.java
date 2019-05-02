@@ -138,7 +138,7 @@ public class OrdainduLeihoa extends JFrame {
 		getContentPane().add(btnAtzera);
 		btnOrdaindu.setBounds(470, 151, 141, 37);
 		//Arraylistari prezioa sartu
-		preziotot.add(Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData));
+		preziotot.add(Metodoak.prezioaEgunekin(prezioHotel, sartuData, joanData));
 		//ORDAINDU BOTOIA
 		btnOrdaindu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -305,7 +305,7 @@ public class Metodoak {
 		}
 	}
 	
-	public static double prezioaEgunekin(double prezioHotel, Date sartuData, Date joanData){
+	public static double prezioaEgunekin(double prezioHotel, Date joanData, Date sartuData){
 		double prezioa;
 		long diff = (joanData.getTime() - sartuData.getTime());
 		long diffEguna = (diff / 1000 / 60 / 60 / 24) + 1;
