@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ArrayList;
 
@@ -36,6 +37,7 @@ public class OrdainduLeihoa extends JFrame {
 	private JTextArea Itzuliak = new JTextArea();
 	private JLabel lblOrdaintzeko = new JLabel("");
 	private JLabel lblOrdainketa_Tituloa = new JLabel("ORDAINKETA");
+	private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 	
 	private double preziototala=0;
@@ -78,8 +80,8 @@ public class OrdainduLeihoa extends JFrame {
 				//String idBezero="12345678Z";
 				String Eskatutakodata=Metodoak.dataAteraAñoalPrincipio();
 				String EskatutakoOrdua=Metodoak.orduaAtera();
-				String dataJoan="20-01-1990";
-				String dataEtorri="20-03-1990";
+				String dataJoan=dateFormat.format(sartuData);
+				String dataEtorri=dateFormat.format(joanData);
 				int nagusiKopuru=10;
 				int umekopuru=5;
 				double precio=Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData);
