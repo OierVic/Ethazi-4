@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public class OrdainduLeihoa extends JFrame {
 	private JLabel lblOrdaintzeko = new JLabel("");
 	private JLabel lblOrdainketa_Tituloa = new JLabel("ORDAINKETA");
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	private DecimalFormat dosDecimales = new DecimalFormat("#.00");
 
 	
 	private double preziototala=0;
@@ -212,9 +214,13 @@ public class OrdainduLeihoa extends JFrame {
 		//String ordaintzeko="0";
 		lblOrdaintzeko.setHorizontalAlignment(SwingConstants.LEFT);
 		
-		lblOrdaintzeko.setText(ordaintzeko);
+		//Para que en el label de Ordaindu salgan 2 decimales lo pasamos a double 
+		//y luego decimal format y hacemos el setText
+		double ordaintzekoLabelDosDecimales = Double.parseDouble(ordaintzeko);
+		dosDecimales.format(ordaintzekoLabelDosDecimales);
+		lblOrdaintzeko.setText(ordaintzekoLabelDosDecimales+"");
 		lblOrdaintzeko.setFont(new Font("Arial", Font.PLAIN, 18));
-		lblOrdaintzeko.setBounds(263, 111, 84, 30);
+		lblOrdaintzeko.setBounds(263, 111, 135, 30);
 		getContentPane().add(lblOrdaintzeko);
 		
 		lblOrdainketa_Tituloa.setHorizontalAlignment(SwingConstants.CENTER);
