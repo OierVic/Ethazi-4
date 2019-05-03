@@ -329,6 +329,8 @@ public class Metodoak {
 		}
 	}
 	
+	//hola
+	
 	public static double prezioaEgunekin(double prezioHotel, Date joanData, Date sartuData){
 		double prezioa;
 		long diff = (joanData.getTime() - sartuData.getTime());

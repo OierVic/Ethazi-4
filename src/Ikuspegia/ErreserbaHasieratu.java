@@ -81,7 +81,7 @@ public class ErreserbaHasieratu extends JFrame{
 		getContentPane().add(dateSartu);
 		((JTextField) this.dateSartu.getDateEditor()).setEditable(false); 
 
-		
+		//hola
 		
 		dateSartu.getCalendarButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
