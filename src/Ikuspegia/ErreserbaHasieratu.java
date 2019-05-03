@@ -51,7 +51,8 @@ public class ErreserbaHasieratu extends JFrame{
 		getContentPane().add(lblSartzeData);
 		
 		dateJoan = new JDateChooser();
-		dateJoan.setBounds(262, 289, 118, 20);
+		dateJoan.setBounds(260, 293, 118, 20);
+		dateJoan.setEnabled(false);
 		getContentPane().add(dateJoan);
 		((JTextField) this.dateJoan.getDateEditor()).setEditable(false); 
 
@@ -59,7 +60,13 @@ public class ErreserbaHasieratu extends JFrame{
 		dateJoan.getCalendarButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				dateJoan.setMinSelectableDate(gaur);
+				sartuData = (Date) dateSartu.getDate();
+				if(sartuData == null) {
+					JOptionPane.showMessageDialog(null,"Lehenengo sartze data bat aukeratu, mesedez.");
+					dateJoan.setEnabled(false);
+				} else { 
+					dateJoan.setMinSelectableDate(Metodoak.gehituEguna(sartuData, 1));
+				}		
 				
 			}
 		});
@@ -70,7 +77,7 @@ public class ErreserbaHasieratu extends JFrame{
 		getContentPane().add(lblJoateData);
 		
 		dateSartu = new JDateChooser();
-		dateSartu.setBounds(35, 289, 118, 20);
+		dateSartu.setBounds(38, 293, 118, 20);
 		getContentPane().add(dateSartu);
 		((JTextField) this.dateSartu.getDateEditor()).setEditable(false); 
 
@@ -78,12 +85,11 @@ public class ErreserbaHasieratu extends JFrame{
 		
 		dateSartu.getCalendarButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-		
-				sartuData = (Date) dateJoan.getDate();
+				
 				dateSartu.setMinSelectableDate(gaur);
-				if(sartuData != null) {
-					dateSartu.setMinSelectableDate(sartuData);
-				}
+				dateJoan.setEnabled(true);
+				dateJoan.setCalendar(null);
+				
 			}
 		});
 		

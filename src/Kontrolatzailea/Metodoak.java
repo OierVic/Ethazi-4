@@ -271,7 +271,7 @@ public class Metodoak {
 		System.out.println(data);
 		return data;
 	}
-	public static String dataAteraAñoalPrincipio () {
+	public static String dataAtera() {
 		int año,mes,dia = 0;
 
 		Calendar fecha = Calendar.getInstance();
@@ -340,4 +340,13 @@ public class Metodoak {
 
 	private static void round(long diff, int i) {
 	}
+	
+	public static Date gehituEguna(Date date, int days)
+    {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DATE, days); //minus number would decrement the days
+        return cal.getTime();
+    }
+	
 }

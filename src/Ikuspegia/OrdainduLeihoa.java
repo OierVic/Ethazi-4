@@ -78,7 +78,7 @@ public class OrdainduLeihoa extends JFrame {
 				int idOstatu=HotelakAukeratuLeihoa.idHotel;
 				String idBezero=LoginLeihoa.nan;
 				//String idBezero="12345678Z";
-				String Eskatutakodata=Metodoak.dataAteraAñoalPrincipio();
+				String Eskatutakodata=Metodoak.dataAtera();
 				String EskatutakoOrdua=Metodoak.orduaAtera();
 				String dataJoan=dateFormat.format(sartuData);
 				String dataEtorri=dateFormat.format(joanData);
