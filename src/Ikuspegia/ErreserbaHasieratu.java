@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.SpinnerModel;
+import javax.swing.SpinnerNumberModel;
 
 import com.toedter.calendar.JCalendar;
 import java.awt.Font;
@@ -19,6 +21,7 @@ import Kontrolatzailea.Metodoak;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
+import javax.swing.JSpinner;
 
 public class ErreserbaHasieratu extends JFrame{
 	
@@ -31,8 +34,21 @@ public class ErreserbaHasieratu extends JFrame{
 	Date sartuData = new Date();
 	private JButton btnAtzera = new JButton("Atzera");
 	private JButton btnEzeztatu = new JButton("Ezeztatu");
-	private JButton button;
-	private JButton button_1;
+	private JButton btnAtzeraErreserba;
+	private JButton btnEzeztatuErreserba;
+	private JLabel lblSinpleak;
+	private JLabel lblOheSimpleBat;
+	private JLabel lblOheSimpleBi;
+	private JLabel lblOheBikoitzBat;
+	private JLabel lblOheBikoitzBatEtaSimpleBat;
+	private JLabel lblSehaska;
+	private SpinnerNumberModel oheakSpinner = new SpinnerNumberModel(0, 0, 2, 1);
+	private SpinnerNumberModel sehaskaSpinner = new SpinnerNumberModel(0, 0, 4, 1);
+	private JSpinner spinner_OheSimpleBat = new JSpinner(oheakSpinner);
+	private JSpinner spinner_OheSimpleBi = new JSpinner(oheakSpinner);
+	private JSpinner spinner_OheBikoitzBat = new JSpinner(oheakSpinner);
+	private JSpinner spinner_OheBikoitzBatEtaOheSimpleBat = new JSpinner(oheakSpinner);
+	private JSpinner spinner_Sehaska = new JSpinner(sehaskaSpinner);
 	
 	public ErreserbaHasieratu(String hotelak, ArrayList <Hotel> Hoteles, double PrezioHotel) {
 		
@@ -47,11 +63,11 @@ public class ErreserbaHasieratu extends JFrame{
 		
 		lblSartzeData = new JLabel("Sartze data");
 		lblSartzeData.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblSartzeData.setBounds(49, 262, 107, 28);
+		lblSartzeData.setBounds(65, 119, 107, 28);
 		getContentPane().add(lblSartzeData);
 		
 		dateJoan = new JDateChooser();
-		dateJoan.setBounds(260, 293, 118, 20);
+		dateJoan.setBounds(249, 158, 118, 20);
 		dateJoan.setEnabled(false);
 		getContentPane().add(dateJoan);
 		((JTextField) this.dateJoan.getDateEditor()).setEditable(false); 
@@ -73,11 +89,11 @@ public class ErreserbaHasieratu extends JFrame{
 		
 		lblJoateData = new JLabel("Joate data");
 		lblJoateData.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblJoateData.setBounds(277, 262, 107, 28);
+		lblJoateData.setBounds(280, 119, 107, 28);
 		getContentPane().add(lblJoateData);
 		
 		dateSartu = new JDateChooser();
-		dateSartu.setBounds(38, 293, 118, 20);
+		dateSartu.setBounds(54, 160, 118, 20);
 		getContentPane().add(dateSartu);
 		((JTextField) this.dateSartu.getDateEditor()).setEditable(false); 
 
@@ -104,8 +120,8 @@ public class ErreserbaHasieratu extends JFrame{
 			}
 		});
 		
-		button = new JButton("Atzera");
-		button.addActionListener(new ActionListener() {
+		btnAtzeraErreserba = new JButton("Atzera");
+		btnAtzeraErreserba.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				Metodoak.hotelakaukeratuleihora();
@@ -119,20 +135,70 @@ public class ErreserbaHasieratu extends JFrame{
 		getContentPane().add(btnHurrengoa);
 		
 		
-		button.setFont(new Font("Arial", Font.PLAIN, 18));
-		button.setBounds(65, 496, 105, 43);
-		getContentPane().add(button);
+		btnAtzeraErreserba.setFont(new Font("Arial", Font.PLAIN, 18));
+		btnAtzeraErreserba.setBounds(65, 496, 105, 43);
+		getContentPane().add(btnAtzeraErreserba);
 		
-		button_1 = new JButton("Ezeztatu");
-		button_1.addActionListener(new ActionListener() {
+		btnEzeztatuErreserba = new JButton("Ezeztatu");
+		btnEzeztatuErreserba.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				Metodoak.ongietorrileihora();
 			}
 		});
-		button_1.setFont(new Font("Arial", Font.PLAIN, 18));
-		button_1.setBounds(275, 494, 112, 41);
-		getContentPane().add(button_1);
+		btnEzeztatuErreserba.setFont(new Font("Arial", Font.PLAIN, 18));
+		btnEzeztatuErreserba.setBounds(275, 494, 112, 41);
+		getContentPane().add(btnEzeztatuErreserba);
+		
+		lblSinpleak = new JLabel("Logela motak:");
+		lblSinpleak.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblSinpleak.setBounds(40, 219, 157, 29);
+		getContentPane().add(lblSinpleak);
+		
+		lblOheSimpleBat = new JLabel("Ohe sinple bat:");
+		lblOheSimpleBat.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblOheSimpleBat.setBounds(65, 259, 132, 28);
+		getContentPane().add(lblOheSimpleBat);
+		
+		lblOheSimpleBi = new JLabel("Ohe sinple 2:");
+		lblOheSimpleBi.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblOheSimpleBi.setBounds(65, 298, 118, 29);
+		getContentPane().add(lblOheSimpleBi);
+		
+		lblOheBikoitzBat = new JLabel("Ohe bikoitz bat:");
+		lblOheBikoitzBat.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblOheBikoitzBat.setBounds(65, 338, 123, 25);
+		getContentPane().add(lblOheBikoitzBat);
+		
+		lblOheBikoitzBatEtaSimpleBat = new JLabel("Ohe bikoitz bat eta ohe Simple bat :");
+		lblOheBikoitzBatEtaSimpleBat.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblOheBikoitzBatEtaSimpleBat.setBounds(65, 374, 264, 34);
+		getContentPane().add(lblOheBikoitzBatEtaSimpleBat);
+		
+		lblSehaska = new JLabel("Sehaska :");
+		lblSehaska.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblSehaska.setBounds(65, 435, 80, 20);
+		getContentPane().add(lblSehaska);
+		
+		spinner_OheSimpleBat = new JSpinner();
+		spinner_OheSimpleBat.setBounds(217, 265, 29, 20);
+		getContentPane().add(spinner_OheSimpleBat);
+		
+		spinner_OheSimpleBi = new JSpinner();
+		spinner_OheSimpleBi.setBounds(217, 304, 29, 20);
+		getContentPane().add(spinner_OheSimpleBi);
+		
+		spinner_OheBikoitzBat = new JSpinner();
+		spinner_OheBikoitzBat.setBounds(217, 342, 29, 20);
+		getContentPane().add(spinner_OheBikoitzBat);
+		
+		spinner_OheBikoitzBatEtaOheSimpleBat = new JSpinner();
+		spinner_OheBikoitzBatEtaOheSimpleBat.setBounds(339, 383, 29, 20);
+		getContentPane().add(spinner_OheBikoitzBatEtaOheSimpleBat);
+		
+		spinner_Sehaska = new JSpinner();
+		spinner_Sehaska.setBounds(154, 437, 29, 20);
+		getContentPane().add(spinner_Sehaska);
 		
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
