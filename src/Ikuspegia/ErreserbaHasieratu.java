@@ -42,13 +42,13 @@ public class ErreserbaHasieratu extends JFrame{
 	private JLabel lblOheBikoitzBat;
 	private JLabel lblOheBikoitzBatEtaSimpleBat;
 	private JLabel lblSehaska;
-	private SpinnerNumberModel oheakSpinner = new SpinnerNumberModel(0, 0, 2, 1);
-	private SpinnerNumberModel sehaskaSpinner = new SpinnerNumberModel(0, 0, 4, 1);
-	private JSpinner spinner_OheSimpleBat = new JSpinner(oheakSpinner);
-	private JSpinner spinner_OheSimpleBi = new JSpinner(oheakSpinner);
-	private JSpinner spinner_OheBikoitzBat = new JSpinner(oheakSpinner);
-	private JSpinner spinner_OheBikoitzBatEtaOheSimpleBat = new JSpinner(oheakSpinner);
-	private JSpinner spinner_Sehaska = new JSpinner(sehaskaSpinner);
+//	private SpinnerNumberModel oheakSpinner = new SpinnerNumberModel(0, 0, 2, 1);
+//	private SpinnerNumberModel sehaskaSpinner = new SpinnerNumberModel(0, 0, 4, 1);
+	private JSpinner spinner_OheSimpleBat = new JSpinner();
+	private JSpinner spinner_OheSimpleBi = new JSpinner();
+	private JSpinner spinner_OheBikoitzBat = new JSpinner();
+	private JSpinner spinner_OheBikoitzBatEtaOheSimpleBat = new JSpinner();
+	private JSpinner spinner_Sehaska = new JSpinner();
 	
 	public ErreserbaHasieratu(String hotelak, ArrayList <Hotel> Hoteles, double PrezioHotel) {
 		
@@ -181,22 +181,27 @@ public class ErreserbaHasieratu extends JFrame{
 		getContentPane().add(lblSehaska);
 		
 		spinner_OheSimpleBat = new JSpinner();
+		spinner_OheSimpleBat.setModel(new SpinnerNumberModel(0, 0, 2, 1));
 		spinner_OheSimpleBat.setBounds(217, 265, 29, 20);
 		getContentPane().add(spinner_OheSimpleBat);
 		
 		spinner_OheSimpleBi = new JSpinner();
+		spinner_OheSimpleBi.setModel(new SpinnerNumberModel(0, 0, 2, 1));
 		spinner_OheSimpleBi.setBounds(217, 304, 29, 20);
 		getContentPane().add(spinner_OheSimpleBi);
 		
 		spinner_OheBikoitzBat = new JSpinner();
+		spinner_OheBikoitzBat.setModel(new SpinnerNumberModel(0, 0, 2, 1));
 		spinner_OheBikoitzBat.setBounds(217, 342, 29, 20);
 		getContentPane().add(spinner_OheBikoitzBat);
 		
 		spinner_OheBikoitzBatEtaOheSimpleBat = new JSpinner();
+		spinner_OheBikoitzBatEtaOheSimpleBat.setModel(new SpinnerNumberModel(0, 0, 2, 1));
 		spinner_OheBikoitzBatEtaOheSimpleBat.setBounds(339, 383, 29, 20);
 		getContentPane().add(spinner_OheBikoitzBatEtaOheSimpleBat);
 		
 		spinner_Sehaska = new JSpinner();
+		spinner_Sehaska.setModel(new SpinnerNumberModel(0, 0, 4, 1));
 		spinner_Sehaska.setBounds(154, 437, 29, 20);
 		getContentPane().add(spinner_Sehaska);
 		
