@@ -38,7 +38,6 @@ public class HotelakAukeratuLeihoa extends JFrame {
 
 	public Double PrezioHotel;
 	public static int idHotel=0;
-	private JTextField textFieldKant;
 
 	public HotelakAukeratuLeihoa(ArrayList <Hotel> Hoteles,ArrayList<String> Helbideak) {
 		
@@ -91,9 +90,9 @@ public class HotelakAukeratuLeihoa extends JFrame {
 		});
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String logelKant = textFieldKant.getText();
-				int logelaKant = Integer.parseInt(logelKant);// pasar de String a int		
-				System.out.println(logelaKant);
+//				String logelKant = textFieldKant.getText();
+//				int logelaKant = Integer.parseInt(logelKant);// pasar de String a int		
+//				System.out.println(logelaKant);
 				
 				String hotelak = (String) comboBoxNombreHoteles.getSelectedItem();
 				int PosicionSelected = comboBoxNombreHoteles.getSelectedIndex();
@@ -143,39 +142,6 @@ public class HotelakAukeratuLeihoa extends JFrame {
 		btnAtzera.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnAtzera.setBounds(40, 499, 121, 39);
 		getContentPane().add(btnAtzera);
-		
-		JLabel label = new JLabel("Oheak");
-		label.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		label.setBounds(40, 302, 121, 59);
-		getContentPane().add(label);
-		
-		JComboBox<String> comboBoxOheMota = new JComboBox<String>();
-		comboBoxOheMota.setToolTipText("Aukeratu hotel bat");
-		comboBoxOheMota.setBounds(126, 323, 196, 29);
-		getContentPane().add(comboBoxOheMota);
-		
-		textFieldKant = new JTextField();
-		textFieldKant.setColumns(10);
-		textFieldKant.setBounds(314, 396, 136, 26);
-		getContentPane().add(textFieldKant);
-		textFieldKant.enable(false);
-		
-		JLabel label_1 = new JLabel("Sartu loguela kopurua:");
-		label_1.setFont(new Font("Arial", Font.BOLD, 24));
-		label_1.setBounds(40, 386, 288, 37);
-		getContentPane().add(label_1);
-		comboBoxOheMota.addItem("Simplea");
-		comboBoxOheMota.addItem("Bikoitza");
-		comboBoxOheMota.addItem("Umeentzat");
-		
-		comboBoxOheMota.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-				textFieldKant.enable(true);
-				System.out.println("Esto abilitado");
-				String oheMota = (String) comboBoxOheMota.getSelectedItem();
-				System.out.println(oheMota);
-			}
-		});
 		
 		
 		
