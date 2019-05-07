@@ -87,7 +87,7 @@ public class OrdainduLeihoa extends JFrame {
 				int nagusiKopuru=10;
 				int umekopuru=5;
 				double precio=Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData);
-				Erreserba e1 = new Erreserba(idOstatu, idBezero,Eskatutakodata,EskatutakoOrdua, dataJoan, dataEtorri, nagusiKopuru, umekopuru, precio);
+				Erreserba e1 = new Erreserba(idOstatu, idBezero,Eskatutakodata,EskatutakoOrdua, dataJoan, dataEtorri, nagusiKopuru, umekopuru, precio, umekopuru, umekopuru, umekopuru, umekopuru);
 				Metodoak.imprimatuTiketa(e1);
 				Metodoak.ErreserbaIgo(e1);
 				Kontagailua contador = new Kontagailua();

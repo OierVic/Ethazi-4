@@ -9,12 +9,14 @@ public class Erreserba {
 	private String EskatutakoOrdua;
 	private String dataJoan;
 	private String dataEtorri;
-	private int nagusiKopuru;
-	private int umekopuru;
 	private double precio;
+	private int sinp=1;
+	private int bisinp=1;
+	private int bik=1;
+	private int sinpbik=1;
 
 	public Erreserba(int idOstatu, String idBezero,String Eskatutakodata,String EskatutakoOrdua, String dataJoan, String dataEtorri, int nagusiKopuru, int umekopuru,
-			double precio) {
+			double precio, int sinp, int bisinp, int bik, int sinpbik) {
 		this.idErreserba=idErreserba++;
 		this.idOstatu = idOstatu;
 		this.idBezero = idBezero;
@@ -22,9 +24,12 @@ public class Erreserba {
 		this.EskatutakoOrdua = EskatutakoOrdua;
 		this.dataJoan = dataJoan;
 		this.dataEtorri = dataEtorri;
-		this.nagusiKopuru = nagusiKopuru;
-		this.umekopuru = umekopuru;
 		this.precio = precio;
+		this.sinp = sinp;
+		this.bisinp = bisinp;
+		this.bik = bik;
+		this.sinpbik = sinpbik;
+		
 	}
 	
 	
@@ -40,7 +45,6 @@ public class Erreserba {
 	public static void setIdErreserba(int idErreserba) {
 		Erreserba.idErreserba = idErreserba;
 	}
-
 
 
 
@@ -128,34 +132,6 @@ public class Erreserba {
 
 
 
-	public int getNagusiKopuru() {
-		return nagusiKopuru;
-	}
-
-
-
-
-	public void setNagusiKopuru(int nagusiKopuru) {
-		this.nagusiKopuru = nagusiKopuru;
-	}
-
-
-
-
-	public int getUmekopuru() {
-		return umekopuru;
-	}
-
-
-
-
-	public void setUmekopuru(int umekopuru) {
-		this.umekopuru = umekopuru;
-	}
-
-
-
-
 	public double getPrecio() {
 		return precio;
 	}
@@ -167,6 +143,62 @@ public class Erreserba {
 		this.precio = precio;
 	}
 
+
+
+
+	public int getSinp() {
+		return sinp;
+	}
+
+
+
+
+	public void setSinp(int sinp) {
+		this.sinp = sinp;
+	}
+
+
+
+
+	public int getBisinp() {
+		return bisinp;
+	}
+
+
+
+
+	public void setBisinp(int bisinp) {
+		this.bisinp = bisinp;
+	}
+
+
+
+
+	public int getBik() {
+		return bik;
+	}
+
+
+
+
+	public void setBik(int bik) {
+		this.bik = bik;
+	}
+
+
+
+
+	public int getSinpbik() {
+		return sinpbik;
+	}
+
+
+
+
+	public void setSinpbik(int sinpbik) {
+		this.sinpbik = sinpbik;
+	}
+	
 
 
 
@@ -184,11 +216,16 @@ public class Erreserba {
 				+ " ----------------------------------------------------------------------------------------------------------------------"
 				+ " \t\n"
 
-				+ " -Nagusi kopuru: " + this.nagusiKopuru + "  \t   " + "-Ume Kopuru: " + this.umekopuru + " \t\n" + " \t\n"
+				+ " -Nagusi kopuru: " + "  \t   " + "-Ume Kopuru: " + " \t\n" + " \t\n"
 				+ " ----------------------------------------------------------------------------------------------------------------------"
 				+ " \t\n"
 
 				+ " -Prezioa: " + this.precio + " €";
 	}
+
+
+
+
+
 
 }
