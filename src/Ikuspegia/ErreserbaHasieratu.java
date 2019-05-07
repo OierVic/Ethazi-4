@@ -17,6 +17,7 @@ import com.toedter.calendar.JDateChooser;
 
 import Kontrolatzailea.Hotel;
 import Kontrolatzailea.Metodoak;
+import Kontrolatzailea.OheMotak;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -207,6 +208,19 @@ public class ErreserbaHasieratu extends JFrame{
 		
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				int OheSimpleBat = (int) spinner_OheSimpleBat.getValue();
+				int OheSimpleBi = (int) spinner_OheSimpleBi.getValue();
+				int OheBikoitzBat = (int) spinner_OheBikoitzBat.getValue();
+				int OheBikoitzBatEtaOheSimpleBat = (int) spinner_OheBikoitzBatEtaOheSimpleBat.getValue();
+				int Sehaska = (int) spinner_Sehaska.getValue();
+				
+				OheMotak o1 = new OheMotak(OheSimpleBat, OheSimpleBi, OheBikoitzBat, OheBikoitzBatEtaOheSimpleBat, Sehaska);
+
+				
+
+				
 				joanData = (Date) dateJoan.getDate();
 				sartuData = (Date) dateSartu.getDate();
 				
