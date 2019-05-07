@@ -4,18 +4,18 @@ public class Hotel extends Ostatu{
 	//atributuak
 	
 	private int LogelaKopurua;
-	private int HartutakoLogelak;
+	//private int HartutakoLogelak;
 	private int izarKopurua;
 	private double prezioHotel;
 	private String helbideHotel;
 	
 	//Kontruktorea hotelak behar dituen datuak sartzeko...
 
-	public Hotel(int id_Hotel, String izena_Hotel, int logelaKopurua, int hartutakoLogelak, int izarKopurua,
+	public Hotel(int id_Hotel, String izena_Hotel, int logelaKopurua, int izarKopurua,
 			double prezioHotel, String helbideHotel) {
 		super(id_Hotel, izena_Hotel);
 		this.LogelaKopurua = logelaKopurua;
-		this.HartutakoLogelak = hartutakoLogelak;
+		//this.HartutakoLogelak = hartutakoLogelak;
 		this.izarKopurua = izarKopurua;
 		this.prezioHotel = prezioHotel;
 		this.helbideHotel = helbideHotel;
@@ -25,9 +25,9 @@ public class Hotel extends Ostatu{
 		return LogelaKopurua;
 	}
 
-	public int getHartutakoLogelak() {
-		return HartutakoLogelak;
-	}
+//	public int getHartutakoLogelak() {
+//		return HartutakoLogelak;
+//	}
 
 	public int getIzarKopurua() {
 		return izarKopurua;
@@ -45,9 +45,9 @@ public class Hotel extends Ostatu{
 		LogelaKopurua = logelaKopurua;
 	}
 
-	public void setHartutakoLogelak(int hartutakoLogelak) {
-		HartutakoLogelak = hartutakoLogelak;
-	}
+//	public void setHartutakoLogelak(int hartutakoLogelak) {
+//		HartutakoLogelak = hartutakoLogelak;
+//	}
 
 	public void setIzarKopurua(int izarKopurua) {
 		this.izarKopurua = izarKopurua;
@@ -61,7 +61,7 @@ public class Hotel extends Ostatu{
 		this.helbideHotel = helbideHotel;
 	}
 	public int LogelaEskugarri (int LogelaKopurua,int HartutakoLogelak) {
-		int LogelaEskugarri=LogelaKopurua-HartutakoLogelak;
+		int LogelaEskugarri=LogelaKopurua-5;
 		return LogelaEskugarri;
 	}
 	
@@ -69,7 +69,7 @@ public class Hotel extends Ostatu{
 
 	public String comboboxIzena () {
 		//int logelak = this.getLogelaKopurua() - this.getHartutakoLogelak();
-		String cb = this.getOstatu_Izena() + "           Logelak eskuragarri: " + LogelaEskugarri(this.getLogelaKopurua(),this.getHartutakoLogelak())+"           Helbidea: "+this.helbideHotel+"           Prezioa: "+this.prezioHotel;
+		String cb = this.getOstatu_Izena()+"           Helbidea: "+this.helbideHotel+"           Prezioa: "+this.prezioHotel;
 		return cb;
 	}
 	

@@ -22,7 +22,7 @@ public class Kontsulta_Erreserba {
 
 			s1 = (Statement) Conexion1.createStatement();
 
-			s1.executeUpdate("INSERT INTO erreserba (idOstatu, idBezero, dataJoan, dataEtorri, erosketaData, erosketaOrdua, prezio, 1sinp, 2sinp, 1bik, 1sinp1bik, sehaska)) VALUES"+ "("+e1.getIdOstatu()+",'"+e1.getIdBezero()+"','"+e1.getDataJoan()+"','"+e1.getDataEtorri()+","+e1.getPrecio()+","+e1.getSinp()+"','"+e1.getBisinp()+"','"+e1.getBik()+"','"+e1.getSinpbik()+")");
+			s1.executeUpdate("INSERT INTO `erreserba` (`idOstatu`, `idBezero`, `dataJoan`, `dataEtorri`, `prezioErreserba`, `1sinp`, `2sinp`, `1bik`, `1sinp1bik`, `sehaska`, `erosketaData`, `erosketaOrdua`) VALUES"+ "("+e1.getIdOstatu()+",'"+e1.getIdBezero()+"','"+e1.getDataJoan()+"','"+e1.getDataEtorri()+"',"+e1.getPrecio()+","+e1.getSinp()+","+e1.getBisinp()+","+e1.getBik()+","+e1.getSinpbik()+",'"+e1.getEskatutakodata()+"','"+e1.getEskatutakoOrdua()+"')");
 			s1.close();
 
 			System.out.println("Conexioa eginda");

@@ -10,10 +10,10 @@ public class Erreserba {
 	private String dataJoan;
 	private String dataEtorri;
 	private double precio;
-	private int sinp=1;
-	private int bisinp=1;
-	private int bik=1;
-	private int sinpbik=1;
+	private int sinp;
+	private int bisinp;
+	private int bik;
+	private int sinpbik;
 
 	public Erreserba(int idOstatu, String idBezero,String Eskatutakodata,String EskatutakoOrdua, String dataJoan, String dataEtorri, int nagusiKopuru, int umekopuru,
 			double precio, int sinp, int bisinp, int bik, int sinpbik) {
