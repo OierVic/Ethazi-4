@@ -88,7 +88,7 @@ public class OrdainduLeihoa extends JFrame {
 				String dataEtorri=dateFormat.format(joanData);
 				int nagusiKopuru=10;
 				int umekopuru=5;
-				double precio=Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData, o1);
+				double precio=Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData, o1, HotelakAukeratuLeihoa.idHotel);
 				Erreserba e1 = new Erreserba(idOstatu, idBezero,Eskatutakodata,EskatutakoOrdua, dataJoan, dataEtorri, nagusiKopuru, umekopuru, precio, umekopuru, umekopuru, umekopuru, umekopuru);
 				Metodoak.imprimatuTiketa(e1);
 				Metodoak.ErreserbaIgo(e1);
@@ -143,7 +143,7 @@ public class OrdainduLeihoa extends JFrame {
 		getContentPane().add(btnAtzera);
 		btnOrdaindu.setBounds(470, 151, 141, 37);
 		//Arraylistari prezioa sartu
-		preziotot.add(Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData, o1));
+		preziotot.add(Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData, o1, HotelakAukeratuLeihoa.idHotel));
 		//ORDAINDU BOTOIA
 		btnOrdaindu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -212,7 +212,7 @@ public class OrdainduLeihoa extends JFrame {
 		getContentPane().add(Itzuliak);
 		Itzuliak.setEditable(false);
 		//String ordaintzeko = String.valueOf(hoteles.getPrecioHotel());
-		String ordaintzeko = String.valueOf(Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData, o1));
+		String ordaintzeko = String.valueOf(Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData, o1, HotelakAukeratuLeihoa.idHotel));
 		//String ordaintzeko="0";
 		lblOrdaintzeko.setHorizontalAlignment(SwingConstants.LEFT);
 		
