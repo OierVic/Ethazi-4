@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import com.mysql.jdbc.Statement;
 
 import Kontrolatzailea.Hotel;
+import Kontrolatzailea.Metodoak;
 
 public class Kontsulta_Hoteles{
 	
@@ -81,6 +82,7 @@ public class Kontsulta_Hoteles{
 	}
 	
 	public static ArrayList <Hotel> HotelakHelbidearekinAtera(String helbideaHartu) {
+		
 		ArrayList <Hotel> hotelak2 = new ArrayList<Hotel>();
 		int idHotela=0;
 		String hotelIzena=null;
@@ -123,8 +125,42 @@ public class Kontsulta_Hoteles{
 		}catch(Exception e) {
 			e.getMessage();
 		}
+		
 		return hotelak2;
 		
+		
+	}
+	
+public static Double PrezioaAtera(int idHotel) {
+		
+		Double prezioHotel=null;
+
+		
+		Connection Conexion = null;
+		Statement s =null;
+
+		try {
+			//Class.forName("com.mysql.jdbc.Driver");
+			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			s =(Statement) Conexion.createStatement();
+
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT prezioHotelSimple FROM hotel WHERE idHotel ='"+idHotel+"'");
+			while (rs.next()) {
+				
+				prezioHotel = rs.getDouble("prezioHotelSimple");
+				
+				//System.out.println(izena);
+
+			}
+			System.out.println();
+			System.out.println("Conexioa eginda");
+		}catch(Exception e) {
+			e.getMessage();
+		}
+		
+
+		
+		return prezioHotel;
 		
 	}
 	
