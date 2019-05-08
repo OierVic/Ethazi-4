@@ -326,6 +326,8 @@ public class ErregistroLeihoa extends JFrame {
 					Date jaio_data2= jaiodata.getDate();
 					jaio_data= sm.format(jaio_data2);
 				}catch (Exception e) {
+					Jarraitu.setEnabled(false);
+					Balidatu.setEnabled(true);
 					JOptionPane.showMessageDialog(null, "Data hutsik dago. Mesedez osotu");
 				}
 			}
