@@ -333,7 +333,7 @@ public class Metodoak {
 	
 	public static double prezioaEgunekin(double prezioHotel, Date joanData, Date sartuData, OheMotak o1,int idHotel){
 		
-		double prezioa = 0;
+		
 		double prezioa0 = 0;
 		double prezioa1 = 0;
 		double prezioa2 = 0;
@@ -341,30 +341,30 @@ public class Metodoak {
 		double prezioa4 = 0;
 		
 		
-		prezioa = Kontsulta_Hoteles.PrezioaAtera(idHotel);
-		double prezioBase = prezioa;
+		prezioHotel = Kontsulta_Hoteles.PrezioaAtera(idHotel);
+		double prezioBase = prezioHotel;
 		
 		
 		long diff = (joanData.getTime() - sartuData.getTime());
 		long diffEguna = (diff / 1000 / 60 / 60 / 24) + 1;
 		round(diff, 2);
-		prezioa = prezioHotel * diffEguna;
+		prezioHotel = prezioHotel * diffEguna;
 		
 		if(o1.getOheSimpleBat() > 0) {
-			 prezioa0 = prezioBase * o1.getOheSimpleBat();
+			 prezioa0 = prezioHotel * o1.getOheSimpleBat();
 		}if(o1.getOheBikoitzBat() > 0){
-			 prezioa1 = prezioBase * o1.getOheBikoitzBat() * 1.5; // 50% extra por cada cama doble
+			 prezioa1 = prezioHotel * o1.getOheBikoitzBat() * 1.5; // 50% extra por cada cama doble
 		}if(o1.getOheBikoitzBatEtaOheSimpleBat() > 0) {
-			 prezioa2 = prezioBase * o1.getOheBikoitzBatEtaOheSimpleBat() * 1.75; // 75% extra por cada cama doble y simple
+			 prezioa2 = prezioHotel * o1.getOheBikoitzBatEtaOheSimpleBat() * 1.75; // 75% extra por cada cama doble y simple
 		}if(o1.getOheSimpleBi() > 0){
-			 prezioa3 = prezioBase * o1.getOheSimpleBi() * 2; 
+			 prezioa3 = prezioHotel * o1.getOheSimpleBi() * 2; 
 		} 
 		
 		if(o1.getSehaska() > 0) {
-			 prezioa4 = ((prezioBase* 0.3) + prezioBase) * o1.getSehaska();  //30% por cada Sehaska
+			 prezioa4 = ((prezioHotel* 0.3) + prezioHotel) * o1.getSehaska();  //30% por cada Sehaska
 		}
 		
-		prezioa = prezioa0 + prezioa1 + prezioa2 + prezioa3 + prezioa4;
+		prezioHotel = (prezioa0 + prezioa1 + prezioa2 + prezioa3 + prezioa4);
 		
 		
 		
@@ -373,7 +373,7 @@ public class Metodoak {
 	
 		
 		
-		return (double) prezioa;
+		return (double) prezioHotel;
 	}
 
 	private static void round(long diff, int i) {

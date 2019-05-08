@@ -53,6 +53,7 @@ public class OrdainduLeihoa extends JFrame {
 	public OrdainduLeihoa(String hotelak, ArrayList <Hotel> Hoteles, double prezioHotel, Date sartuData, Date joanData,OheMotak o1) {
 		//prezioa=prezioHotel;
 		//prezioa=0.0;
+		
 		this.setBounds(275,100,700,600);
 		getContentPane().setLayout(null);
 		lblOrdainketa.setBounds(90, 106, 162, 34);
