@@ -68,9 +68,9 @@ public class Metodoak {
 		}
 
 	//Ventana4
-	public static void ordainduleihora(String hotelak, ArrayList <Hotel> Hoteles, double prezioHotel, Date sartuData, Date joanData) {
+	public static void ordainduleihora(String hotelak, ArrayList <Hotel> Hoteles, double prezioHotel, Date sartuData, Date joanData, OheMotak o1) {
 
-		OrdainduLeihoa HotelakAukeratuLeihoa= new OrdainduLeihoa(hotelak, Hoteles,prezioHotel,sartuData, joanData);
+		OrdainduLeihoa HotelakAukeratuLeihoa= new OrdainduLeihoa(hotelak, Hoteles,prezioHotel,sartuData, joanData, o1);
 		HotelakAukeratuLeihoa.setVisible(true);
 
 	}
@@ -331,12 +331,33 @@ public class Metodoak {
 	
 	//hola
 	
-	public static double prezioaEgunekin(double prezioHotel, Date joanData, Date sartuData){
+	public static double prezioaEgunekin(double prezioHotel, Date joanData, Date sartuData, OheMotak o1){	
 		double prezioa;
 		long diff = (joanData.getTime() - sartuData.getTime());
 		long diffEguna = (diff / 1000 / 60 / 60 / 24) + 1;
 		round(diff, 2);
 		prezioa = prezioHotel * diffEguna;
+		
+		if(o1.getOheSimpleBat() > 0) {
+			prezioa = prezioa * o1.getOheSimpleBat();
+		}else if(o1.getOheBikoitzBat() > 0){
+			prezioa = prezioa * o1.getOheBikoitzBat() * 1.5; // 50% extra por cada cama doble
+		}else if(o1.getOheBikoitzBatEtaOheSimpleBat() > 0) {
+			prezioa = prezioa * o1.getOheBikoitzBatEtaOheSimpleBat() * 1.75; // 75% extra por cada cama doble y simple
+		}else if(o1.getOheSimpleBi() > 0){
+			prezioa = prezioa * o1.getOheSimpleBi() * 2; 
+		}else {
+			prezioa = 0;
+		}
+		
+		if(o1.getSehaska() > 0) {
+			prezioa = ((prezioa* 0.3) + prezioa) * o1.getSehaska();  //30% por cada Sehaska
+		}
+	
+		
+	
+		
+		
 		return (double) prezioa;
 	}
 

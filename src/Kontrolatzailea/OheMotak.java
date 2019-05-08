@@ -51,6 +51,12 @@ public class OheMotak {
 	public void setSehaska(int sehaska) {
 		Sehaska = sehaska;
 	}
+	@Override
+	public String toString() {
+		return "OheMotak [OheSimpleBat=" + OheSimpleBat + ", OheSimpleBi=" + OheSimpleBi + ", OheBikoitzBat="
+				+ OheBikoitzBat + ", OheBikoitzBatEtaOheSimpleBat=" + OheBikoitzBatEtaOheSimpleBat + ", Sehaska="
+				+ Sehaska + "]";
+	}
 	
 	
 
