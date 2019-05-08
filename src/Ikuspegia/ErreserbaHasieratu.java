@@ -39,10 +39,10 @@ public class ErreserbaHasieratu extends JFrame{
 	private JButton btnEzeztatuErreserba;
 	private JButton btnDatakEgiaztatu;
 	private JLabel lblSinpleak;
-	private JLabel lblOheSimpleBat;
-	private JLabel lblOheSimpleBi;
+	private JLabel lblOheSipleBat;
+	private JLabel lblOheSinpleBi;
 	private JLabel lblOheBikoitzBat;
-	private JLabel lblOheBikoitzBatEtaSimpleBat;
+	private JLabel lblOheBikoitzBatEtaSinpleBat;
 	private JLabel lblSehaska;
 //	private SpinnerNumberModel oheakSpinner = new SpinnerNumberModel(0, 0, 2, 1);
 //	private SpinnerNumberModel sehaskaSpinner = new SpinnerNumberModel(0, 0, 4, 1);
@@ -157,25 +157,25 @@ public class ErreserbaHasieratu extends JFrame{
 		lblSinpleak.setBounds(40, 219, 157, 29);
 		getContentPane().add(lblSinpleak);
 		
-		lblOheSimpleBat = new JLabel("Ohe sinple bat:");
-		lblOheSimpleBat.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblOheSimpleBat.setBounds(65, 259, 132, 28);
-		getContentPane().add(lblOheSimpleBat);
+		lblOheSipleBat = new JLabel("Ohe sinple bat:");
+		lblOheSipleBat.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblOheSipleBat.setBounds(65, 259, 132, 28);
+		getContentPane().add(lblOheSipleBat);
 		
-		lblOheSimpleBi = new JLabel("Ohe sinple 2:");
-		lblOheSimpleBi.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblOheSimpleBi.setBounds(65, 298, 118, 29);
-		getContentPane().add(lblOheSimpleBi);
+		lblOheSinpleBi = new JLabel("Ohe sinple 2:");
+		lblOheSinpleBi.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblOheSinpleBi.setBounds(65, 298, 118, 29);
+		getContentPane().add(lblOheSinpleBi);
 		
 		lblOheBikoitzBat = new JLabel("Ohe bikoitz bat:");
 		lblOheBikoitzBat.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblOheBikoitzBat.setBounds(65, 338, 123, 25);
 		getContentPane().add(lblOheBikoitzBat);
 		
-		lblOheBikoitzBatEtaSimpleBat = new JLabel("Ohe bikoitz bat eta ohe Simple bat :");
-		lblOheBikoitzBatEtaSimpleBat.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblOheBikoitzBatEtaSimpleBat.setBounds(65, 374, 264, 34);
-		getContentPane().add(lblOheBikoitzBatEtaSimpleBat);
+		lblOheBikoitzBatEtaSinpleBat = new JLabel("Ohe bikoitz bat eta ohe Simple bat :");
+		lblOheBikoitzBatEtaSinpleBat.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblOheBikoitzBatEtaSinpleBat.setBounds(65, 374, 264, 34);
+		getContentPane().add(lblOheBikoitzBatEtaSinpleBat);
 		
 		lblSehaska = new JLabel("Sehaska :");
 		lblSehaska.setFont(new Font("Tahoma", Font.PLAIN, 16));
