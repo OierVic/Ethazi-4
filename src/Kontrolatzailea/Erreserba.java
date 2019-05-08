@@ -2,9 +2,11 @@ package Kontrolatzailea;
 
 import java.sql.Date;
 
+import Eredua.Kontsulta_Erreserba;
+
 public class Erreserba {
 
-	//private int idErreserba;
+	private int idErreserba;
 	private int idOstatu;
 	private String idBezero;
 	private String dataJoan;
@@ -23,6 +25,26 @@ public class Erreserba {
 	public Erreserba(/* int idErreserba, */ int idOstatu, String idBezero, String dataJoan, String dataEtorri, double precio,
 			int sinp, int bisinp, int bik, int sinpbik, int sehaska, String eskatutakodata, String eskatutakoOrdua) {
 		//this.idErreserba = idErreserba;
+		this.idOstatu = idOstatu;
+		this.idBezero = idBezero;
+		this.dataJoan = dataJoan;
+		this.dataEtorri = dataEtorri;
+		this.precio = precio;
+		this.sinp = sinp;
+		this.bisinp = bisinp;
+		this.bik = bik;
+		this.sinpbik = sinpbik;
+		this.sehaska = sehaska;
+		Eskatutakodata = eskatutakodata;
+		EskatutakoOrdua = eskatutakoOrdua;
+	}
+	
+	
+	
+	//Erreserba imprimatzeko beste kontruktore bat
+	public Erreserba(int idErreserba,int idOstatu, String idBezero, String dataJoan, String dataEtorri, double precio,
+			int sinp, int bisinp, int bik, int sinpbik, int sehaska, String eskatutakodata, String eskatutakoOrdua) {
+		this.idErreserba = idErreserba;
 		this.idOstatu = idOstatu;
 		this.idBezero = idBezero;
 		this.dataJoan = dataJoan;
@@ -283,7 +305,7 @@ public class Erreserba {
 				+ " ----------------------------------------------------------------------------------------------------------------------"
 				+ " \t\n"
 
-				+ " -Erreserba Kodea: "/* + idErreserba*/ + " \t" + " -Id Ostatu: " + this.idOstatu + " \t" + "-Id bezero: " + this.idBezero + " \n" + " \n"
+				+ " -Erreserba Kodea: "+this.idErreserba + " \t" + " -Id Ostatu: " + this.idOstatu + " \t" + "-Id bezero: " + this.idBezero + " \n" + " \n"
 				+ "-Erreserba data: "+this.Eskatutakodata+" \t" + " -Ordua: "+this.EskatutakoOrdua+" \t\n"
 				+ " \t\n"
 				+" -Joateko data: " + this.dataJoan + " \t\t" + "-Etorri data: " + this.dataEtorri + " \t\n"

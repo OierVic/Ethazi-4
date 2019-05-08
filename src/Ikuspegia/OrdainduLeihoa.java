@@ -48,9 +48,10 @@ public class OrdainduLeihoa extends JFrame {
 	private ArrayList<Double> preziotot = new ArrayList<Double>();
 	//private double prezioa;
 	private double prezio2 = 0;
+	private int idErreserba;
 
 
-	public OrdainduLeihoa(String hotelak, ArrayList <Hotel> Hoteles, double prezioHotel, Date sartuData, Date joanData,OheMotak o1) {
+	public OrdainduLeihoa(String hotelak, double prezioHotel, Date sartuData, Date joanData,OheMotak o1) {
 		//prezioa=prezioHotel;
 		//prezioa=0.0;
 		
@@ -94,10 +95,13 @@ public class OrdainduLeihoa extends JFrame {
 				int sehaska= o1.getSehaska();
 				
 				double precio=Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData, o1, HotelakAukeratuLeihoa.idHotel);
-				Erreserba e1 = new Erreserba(idOstatu, idBezero, dataJoan, dataEtorri, precio, sinp, bisinp, bik, sinpbik, sehaska, Eskatutakodata, EskatutakoOrdua);
+				Erreserba IgotzekoErreserba = new Erreserba(idOstatu, idBezero, dataJoan, dataEtorri, precio, sinp, bisinp, bik, sinpbik, sehaska, Eskatutakodata, EskatutakoOrdua);
+				Metodoak.ErreserbaIgo(IgotzekoErreserba);
+				
+				idErreserba=Kontsulta_Erreserba.idErreserbaAtera(HotelakAukeratuLeihoa.idHotel);
+				Erreserba ImprimatzekoErreserba = new Erreserba(idErreserba,idOstatu, idBezero, dataJoan, dataEtorri, precio, sinp, bisinp, bik, sinpbik, sehaska, Eskatutakodata, EskatutakoOrdua);
 
-				Metodoak.ErreserbaIgo(e1);
-				Metodoak.imprimatuTiketa(e1);
+				Metodoak.imprimatuTiketa(ImprimatzekoErreserba);
 				Kontagailua contador = new Kontagailua();
 				contador.start();
 			}
@@ -141,7 +145,7 @@ public class OrdainduLeihoa extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 
-				Metodoak.erreserbahasieratu(hotelak, Hoteles, prezioHotel);
+				Metodoak.erreserbahasieratu(hotelak, prezioHotel);
 				
 			}
 		});

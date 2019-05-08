@@ -62,15 +62,15 @@ public class Metodoak {
 
 	}
 	//Erreserba prestatzeko lehioa
-		public static void erreserbahasieratu(String hotelak, ArrayList <Hotel> Hoteles, double PrezioHotel) {
-			ErreserbaHasieratu ErreserbaLehioa = new ErreserbaHasieratu(hotelak, Hoteles, PrezioHotel);
+		public static void erreserbahasieratu(String hotelak, double PrezioHotel) {
+			ErreserbaHasieratu ErreserbaLehioa = new ErreserbaHasieratu(hotelak, PrezioHotel);
 			ErreserbaLehioa.setVisible(true);
 		}
 
 	//Ventana4
-	public static void ordainduleihora(String hotelak, ArrayList <Hotel> Hoteles, double prezioHotel, Date sartuData, Date joanData, OheMotak o1) {
+	public static void ordainduleihora(String hotelak, double prezioHotel, Date sartuData, Date joanData, OheMotak o1) {
 
-		OrdainduLeihoa HotelakAukeratuLeihoa= new OrdainduLeihoa(hotelak, Hoteles,prezioHotel,sartuData, joanData, o1);
+		OrdainduLeihoa HotelakAukeratuLeihoa= new OrdainduLeihoa(hotelak,prezioHotel,sartuData, joanData, o1);
 		HotelakAukeratuLeihoa.setVisible(true);
 
 	}

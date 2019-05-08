@@ -1,6 +1,8 @@
 package Eredua;
 
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
@@ -22,7 +24,6 @@ public class Kontsulta_Erreserba {
 
 			s1 = (Statement) Conexion1.createStatement();
 
-			//s1.executeUpdate("INSERT INTO `erreserba` (`idErreserba`, `idOstatu`, `idBezero`, `dataJoan`, `dataEtorri`, `prezioErreserba`, `1sinp`, `2sinp`, `1bik`, `1sinp1bik`, `sehaska`, `erosketaData`, `erosketaOrdua`) VALUES (null,"+ e1.getIdOstatu()+",'"+e1.getIdBezero()+"',"+e1.getDataJoan()+", "+e1.getDataEtorri()+", "+e1.getPrecio()+", "+e1.getSinp()+", "+e1.getBisinp()+", "+e1.getBik()+", "+e1.getSinpbik()+", "+e1.getSehaska()+", "+e1.getEskatutakodata()+", "+e1.getEskatutakoOrdua()+")");
 			s1.executeUpdate("INSERT INTO `erreserba` (`idErreserba`, `idOstatu`, `idBezero`, `dataJoan`, `dataEtorri`, `prezioErreserba`, `1sinp`, `2sinp`, `1bik`, `1sinp1bik`, `sehaska`, `erosketaData`, `erosketaOrdua`) VALUES (NULL, '"+e1.getIdOstatu()+"', '"+e1.getIdBezero()+"', '"+e1.getDataJoan()+"', '"+e1.getDataEtorri()+"', '"+e1.getPrecio()+"', '"+e1.getSinp()+"', '"+e1.getBisinp()+"', '"+e1.getBik()+"', '"+e1.getSinpbik()+"', '"+e1.getSehaska()+"', '"+e1.getEskatutakodata()+"', '"+e1.getEskatutakoOrdua()+"')"      );
 			s1.close();
 
@@ -30,6 +31,29 @@ public class Kontsulta_Erreserba {
 		}catch(Exception e) {
 			e.getMessage();
 		}
+	}
+	
+	public static int idErreserbaAtera(int idOstatu) {
+		int idErreserba=0; 
+		
+		Connection Conexion = null;
+		Statement s =null;
+
+		try {
+			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			s =(Statement) Conexion.createStatement();
+
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT max(idErreserba) FROM erreserba where idOstatu = '"+idOstatu+"'");
+			while (rs.next()) {
+				idErreserba = rs.getInt("max(idErreserba)");
+				
+			}
+			System.out.println();
+			System.out.println("Conexioa eginda");
+		}catch(Exception e) {
+			e.getMessage();
+		}
+		return idErreserba;
 	}
 
 	//INSERT INTO `erreserba` (`idErreserba`, `idOstatu`, `idBezero`, `dataJoan`, `dataEtorri`, `prezioErreserba`, `1sinp`, `2sinp`, `1bik`, `1sinp1bik`, `sehaska`, `erosketaData`, `erosketaOrdua`) VALUES (NULL, '1', '12345578Z', '2019-05-05', '2019-05-10', '56', '1', '2', '2', '0', '0', '2019-05-08', '00:00');
