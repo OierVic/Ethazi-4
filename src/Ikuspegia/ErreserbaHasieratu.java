@@ -37,6 +37,7 @@ public class ErreserbaHasieratu extends JFrame{
 	private JButton btnEzeztatu = new JButton("Ezeztatu");
 	private JButton btnAtzeraErreserba;
 	private JButton btnEzeztatuErreserba;
+	private JButton btnDatakEgiaztatu;
 	private JLabel lblSinpleak;
 	private JLabel lblOheSimpleBat;
 	private JLabel lblOheSimpleBi;
@@ -59,16 +60,16 @@ public class ErreserbaHasieratu extends JFrame{
 		
 		aukeratutakoOstatua = new JLabel(hotelak);
 		aukeratutakoOstatua.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		aukeratutakoOstatua.setBounds(10, 55, 664, 29);
+		aukeratutakoOstatua.setBounds(10, 25, 664, 29);
 		getContentPane().add(aukeratutakoOstatua);
 		
 		lblSartzeData = new JLabel("Sartze data");
 		lblSartzeData.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblSartzeData.setBounds(65, 119, 107, 28);
+		lblSartzeData.setBounds(40, 83, 107, 28);
 		getContentPane().add(lblSartzeData);
 		
 		dateJoan = new JDateChooser();
-		dateJoan.setBounds(249, 158, 118, 20);
+		dateJoan.setBounds(217, 122, 118, 20);
 		dateJoan.setEnabled(false);
 		getContentPane().add(dateJoan);
 		((JTextField) this.dateJoan.getDateEditor()).setEditable(false); 
@@ -90,11 +91,11 @@ public class ErreserbaHasieratu extends JFrame{
 		
 		lblJoateData = new JLabel("Joate data");
 		lblJoateData.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblJoateData.setBounds(280, 119, 107, 28);
+		lblJoateData.setBounds(232, 83, 107, 28);
 		getContentPane().add(lblJoateData);
 		
 		dateSartu = new JDateChooser();
-		dateSartu.setBounds(54, 160, 118, 20);
+		dateSartu.setBounds(29, 122, 118, 20);
 		getContentPane().add(dateSartu);
 		((JTextField) this.dateSartu.getDateEditor()).setEditable(false); 
 
@@ -205,6 +206,20 @@ public class ErreserbaHasieratu extends JFrame{
 		spinner_Sehaska.setModel(new SpinnerNumberModel(0, 0, 4, 1));
 		spinner_Sehaska.setBounds(154, 437, 29, 20);
 		getContentPane().add(spinner_Sehaska);
+		
+		btnDatakEgiaztatu = new JButton("Datak egiaztatu");
+		btnDatakEgiaztatu.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnDatakEgiaztatu.setBounds(125, 160, 132, 23);
+		getContentPane().add(btnDatakEgiaztatu);
+		
+		btnDatakEgiaztatu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				
+			}
+		});
+		
 		
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

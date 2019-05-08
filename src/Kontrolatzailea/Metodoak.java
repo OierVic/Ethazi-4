@@ -351,4 +351,16 @@ public class Metodoak {
         return cal.getTime();
     }
 	
+	private static int ateraSinpleak (int sinpleak) {
+		return sinpleak;
+	}
+	
+	/*private static String[] dataOkupatuta(Date joanData, Date sartuData) {
+		String[] egunak;
+		
+		
+		
+		return egunak;
+	}*/
+	
 }
