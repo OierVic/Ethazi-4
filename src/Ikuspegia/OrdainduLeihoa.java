@@ -86,12 +86,16 @@ public class OrdainduLeihoa extends JFrame {
 				String EskatutakoOrdua=Metodoak.orduaAtera();
 				String dataJoan=dateFormat.format(sartuData);
 				String dataEtorri=dateFormat.format(joanData);
-				int nagusiKopuru=10;
-				int umekopuru=5;
+				int sinp= o1.getOheSimpleBat();
+				int bisinp= o1.getOheSimpleBi();
+				int bik= o1.getOheBikoitzBat();
+				int sinpbik= o1.getOheBikoitzBatEtaOheSimpleBat();
+				int sehaska= o1.getSehaska();
+				
 				double precio=Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData, o1);
-				Erreserba e1 = new Erreserba(idOstatu, idBezero,Eskatutakodata,EskatutakoOrdua, dataJoan, dataEtorri, nagusiKopuru, umekopuru, precio, umekopuru, umekopuru, umekopuru, umekopuru);
-				Metodoak.imprimatuTiketa(e1);
+				Erreserba e1 = new Erreserba(idOstatu, idBezero, dataJoan, dataEtorri, precio, sinp, bisinp, bik, sinpbik, sehaska, Eskatutakodata, EskatutakoOrdua);
 				Metodoak.ErreserbaIgo(e1);
+				Metodoak.imprimatuTiketa(e1);
 				Kontagailua contador = new Kontagailua();
 				contador.start();
 			}

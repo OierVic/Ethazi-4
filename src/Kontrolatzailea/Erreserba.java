@@ -1,12 +1,12 @@
 package Kontrolatzailea;
 
+import java.sql.Date;
+
 public class Erreserba {
 
-	private static int idErreserba = 1;
+	//private int idErreserba;
 	private int idOstatu;
 	private String idBezero;
-	private String Eskatutakodata;
-	private String EskatutakoOrdua;
 	private String dataJoan;
 	private String dataEtorri;
 	private double precio;
@@ -14,14 +14,17 @@ public class Erreserba {
 	private int bisinp;
 	private int bik;
 	private int sinpbik;
+	private int sehaska;
+	private String Eskatutakodata;
+	private String EskatutakoOrdua;
 
-	public Erreserba(int idOstatu, String idBezero,String Eskatutakodata,String EskatutakoOrdua, String dataJoan, String dataEtorri, int nagusiKopuru, int umekopuru,
-			double precio, int sinp, int bisinp, int bik, int sinpbik) {
-		this.idErreserba=idErreserba++;
+	//(`idErreserba`, `idOstatu`, `idBezero`, `dataJoan`, `dataEtorri`, `prezioErreserba`, `1sinp`, `2sinp`, `1bik`, `1sinp1bik`, `sehaska`, `erosketaData`, `erosketaOrdua`)
+	
+	public Erreserba(/* int idErreserba, */ int idOstatu, String idBezero, String dataJoan, String dataEtorri, double precio,
+			int sinp, int bisinp, int bik, int sinpbik, int sehaska, String eskatutakodata, String eskatutakoOrdua) {
+		//this.idErreserba = idErreserba;
 		this.idOstatu = idOstatu;
 		this.idBezero = idBezero;
-		this.Eskatutakodata = Eskatutakodata;
-		this.EskatutakoOrdua = EskatutakoOrdua;
 		this.dataJoan = dataJoan;
 		this.dataEtorri = dataEtorri;
 		this.precio = precio;
@@ -29,28 +32,39 @@ public class Erreserba {
 		this.bisinp = bisinp;
 		this.bik = bik;
 		this.sinpbik = sinpbik;
-		
+		this.sehaska = sehaska;
+		Eskatutakodata = eskatutakodata;
+		EskatutakoOrdua = eskatutakoOrdua;
 	}
 	
 	
 	
 
-	public static int getIdErreserba() {
-		return idErreserba;
-	}
+
+
+//	public int getIdErreserba() {
+//		return idErreserba;
+//	}
 
 
 
 
-	public static void setIdErreserba(int idErreserba) {
-		Erreserba.idErreserba = idErreserba;
-	}
+
+
+//	public void setIdErreserba(int idErreserba) {
+//		this.idErreserba = idErreserba;
+//	}
+
+
+
 
 
 
 	public int getIdOstatu() {
 		return idOstatu;
 	}
+
+
 
 
 
@@ -62,9 +76,13 @@ public class Erreserba {
 
 
 
+
+
 	public String getIdBezero() {
 		return idBezero;
 	}
+
+
 
 
 
@@ -76,37 +94,13 @@ public class Erreserba {
 
 
 
-	public String getEskatutakodata() {
-		return Eskatutakodata;
-	}
-
-
-
-
-	public void setEskatutakodata(String eskatutakodata) {
-		Eskatutakodata = eskatutakodata;
-	}
-
-
-
-
-	public String getEskatutakoOrdua() {
-		return EskatutakoOrdua;
-	}
-
-
-
-
-	public void setEskatutakoOrdua(String eskatutakoOrdua) {
-		EskatutakoOrdua = eskatutakoOrdua;
-	}
-
-
 
 
 	public String getDataJoan() {
 		return dataJoan;
 	}
+
+
 
 
 
@@ -118,9 +112,13 @@ public class Erreserba {
 
 
 
+
+
 	public String getDataEtorri() {
 		return dataEtorri;
 	}
+
+
 
 
 
@@ -132,9 +130,13 @@ public class Erreserba {
 
 
 
+
+
 	public double getPrecio() {
 		return precio;
 	}
+
+
 
 
 
@@ -146,9 +148,13 @@ public class Erreserba {
 
 
 
+
+
 	public int getSinp() {
 		return sinp;
 	}
+
+
 
 
 
@@ -160,9 +166,13 @@ public class Erreserba {
 
 
 
+
+
 	public int getBisinp() {
 		return bisinp;
 	}
+
+
 
 
 
@@ -174,9 +184,13 @@ public class Erreserba {
 
 
 
+
+
 	public int getBik() {
 		return bik;
 	}
+
+
 
 
 
@@ -188,6 +202,8 @@ public class Erreserba {
 
 
 
+
+
 	public int getSinpbik() {
 		return sinpbik;
 	}
@@ -195,10 +211,68 @@ public class Erreserba {
 
 
 
+
+
 	public void setSinpbik(int sinpbik) {
 		this.sinpbik = sinpbik;
 	}
-	
+
+
+
+
+
+
+	public int getSehaska() {
+		return sehaska;
+	}
+
+
+
+
+
+
+	public void setSehaska(int sehaska) {
+		this.sehaska = sehaska;
+	}
+
+
+
+
+
+
+	public String getEskatutakodata() {
+		return Eskatutakodata;
+	}
+
+
+
+
+
+
+	public void setEskatutakodata(String eskatutakodata) {
+		Eskatutakodata = eskatutakodata;
+	}
+
+
+
+
+
+
+	public String getEskatutakoOrdua() {
+		return EskatutakoOrdua;
+	}
+
+
+
+
+
+
+	public void setEskatutakoOrdua(String eskatutakoOrdua) {
+		EskatutakoOrdua = eskatutakoOrdua;
+	}
+
+
+
 
 
 
@@ -209,7 +283,7 @@ public class Erreserba {
 				+ " ----------------------------------------------------------------------------------------------------------------------"
 				+ " \t\n"
 
-				+ " -Erreserba Kodea: " + idErreserba + " \t" + " -Id Ostatu: " + this.idOstatu + " \t" + "-Id bezero: " + this.idBezero + " \n" + " \n"
+				+ " -Erreserba Kodea: "/* + idErreserba*/ + " \t" + " -Id Ostatu: " + this.idOstatu + " \t" + "-Id bezero: " + this.idBezero + " \n" + " \n"
 				+ "-Erreserba data: "+this.Eskatutakodata+" \t" + " -Ordua: "+this.EskatutakoOrdua+" \t\n"
 				+ " \t\n"
 				+" -Joateko data: " + this.dataJoan + " \t\t" + "-Etorri data: " + this.dataEtorri + " \t\n"
@@ -222,6 +296,8 @@ public class Erreserba {
 
 				+ " -Prezioa: " + this.precio + " €";
 	}
+
+
 
 
 
