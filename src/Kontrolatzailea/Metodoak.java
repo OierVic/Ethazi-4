@@ -342,7 +342,7 @@ public class Metodoak {
 		
 		
 		prezioHotel = Kontsulta_Hoteles.PrezioaAtera(idHotel);
-		double prezioBase = prezioHotel;
+		
 		
 		
 		long diff = (joanData.getTime() - sartuData.getTime());
@@ -365,12 +365,6 @@ public class Metodoak {
 		}
 		
 		prezioHotel = (prezioa0 + prezioa1 + prezioa2 + prezioa3 + prezioa4);
-		
-		
-		
-	
-		
-	
 		
 		
 		return (double) prezioHotel;
