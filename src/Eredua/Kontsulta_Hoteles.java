@@ -128,6 +128,36 @@ public class Kontsulta_Hoteles{
 		
 	}
 	
+public static Double PrezioaAtera(Hotel h1 ) {
+		
+		Double prezioHotel=null;
+		
+		h1.getOstatu_Izena();
+		Connection Conexion = null;
+		Statement s =null;
+
+		try {
+			//Class.forName("com.mysql.jdbc.Driver");
+			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			s =(Statement) Conexion.createStatement();
+
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT prezioHotelSimple, FROM hotel WHERE izenaHotel = ...");
+			while (rs.next()) {
+				
+				prezioHotel = rs.getDouble("prezioHotelSimple");
+				
+				//System.out.println(izena);
+
+			}
+			System.out.println();
+			System.out.println("Conexioa eginda");
+		}catch(Exception e) {
+			e.getMessage();
+		}
+		return prezioHotel;
+		
+	}
+	
 	
 	
 	
