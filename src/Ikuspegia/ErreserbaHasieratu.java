@@ -65,7 +65,7 @@ public class ErreserbaHasieratu extends JFrame{
 	private String joan_Data_string="";
 	private String sartu_Data_string="";
 	private Boolean jarraituBotoia=false;
-	
+	static int LogelaTotala=0;
 	
 	public ErreserbaHasieratu(String hotelak, double PrezioHotel) {
 		
@@ -276,12 +276,21 @@ public class ErreserbaHasieratu extends JFrame{
 				}
 				
 				//Hotela beteta dagoen edo ez balidatzeko
-				ArrayList<java.sql.Date> dataJoanArraylist = new ArrayList<java.sql.Date>();
-				ArrayList<java.sql.Date> dataEtorriArraylist = new ArrayList<java.sql.Date>();
-				dataJoanArraylist=Kontsulta_Hoteles.dataJoan();
-				dataEtorriArraylist=Kontsulta_Hoteles.dataEtorri(); 
+				ArrayList<java.sql.Date> dataJoanArraylistSQLDate = new ArrayList<java.sql.Date>();
+				ArrayList<java.sql.Date> dataEtorriArraylistSQLDate = new ArrayList<java.sql.Date>();
+				dataJoanArraylistSQLDate=Kontsulta_Hoteles.dataJoan();
+				dataEtorriArraylistSQLDate=Kontsulta_Hoteles.dataEtorri();
+				ArrayList<java.util.Date> dataJoanArraylistUtilDate = new ArrayList<java.util.Date>();
+				ArrayList<java.util.Date> dataEtorriArraylistUtilDate = new ArrayList<java.util.Date>();
 				//Pasar de java.sql.Date a java.util.Date
-				
+				for (int i = 0; i < dataJoanArraylistSQLDate.size(); i++) {
+					java.sql.Date dataJoanArraylistUtil_Date = new java.sql.Date(dataJoanArraylistSQLDate.get(i).getTime());
+					dataJoanArraylistUtilDate.add(dataJoanArraylistUtil_Date);
+				}
+				for (int i = 0; i < dataEtorriArraylistSQLDate.size(); i++) {
+					java.sql.Date dataEtorriArraylistUtil_Date = new java.sql.Date(dataEtorriArraylistSQLDate.get(i).getTime());
+					dataEtorriArraylistUtilDate.add(dataEtorriArraylistUtil_Date);
+				}
 				//Hacer Metodos
 				
 				//Metodo Fecha antes
@@ -308,6 +317,7 @@ public class ErreserbaHasieratu extends JFrame{
 				int OheBikoitzBat = (int) spinner_OheBikoitzBat.getValue();
 				int OheBikoitzBatEtaOheSimpleBat = (int) spinner_OheBikoitzBatEtaOheSimpleBat.getValue();
 				int Sehaska = (int) spinner_Sehaska.getValue();
+				LogelaTotala=OheSimpleBat+OheSimpleBi+OheBikoitzBat+OheBikoitzBatEtaOheSimpleBat;
 				
 				OheMotak o1 = new OheMotak(OheSimpleBat, OheSimpleBi, OheBikoitzBat, OheBikoitzBatEtaOheSimpleBat, Sehaska);
 

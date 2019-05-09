@@ -55,6 +55,29 @@ public class Kontsulta_Erreserba {
 		}
 		return idErreserba;
 	}
+	
+	public static int CountLogelaTotala(int LogelaTotala) {
+		int logelaTotala=0; 
+		
+		Connection Conexion = null;
+		Statement s =null;
+
+		try {
+			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			s =(Statement) Conexion.createStatement();
+
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("");
+			while (rs.next()) {
+				logelaTotala = rs.getInt("");
+				
+			}
+			System.out.println();
+			System.out.println("Conexioa eginda");
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return logelaTotala;
+	}
 
 	//INSERT INTO `erreserba` (`idErreserba`, `idOstatu`, `idBezero`, `dataJoan`, `dataEtorri`, `prezioErreserba`, `1sinp`, `2sinp`, `1bik`, `1sinp1bik`, `sehaska`, `erosketaData`, `erosketaOrdua`) VALUES (NULL, '1', '12345578Z', '2019-05-05', '2019-05-10', '56', '1', '2', '2', '0', '0', '2019-05-08', '00:00');
 }

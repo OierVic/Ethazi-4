@@ -99,6 +99,7 @@ public class OrdainduLeihoa extends JFrame {
 				Metodoak.ErreserbaIgo(IgotzekoErreserba);
 				
 				idErreserba=Kontsulta_Erreserba.idErreserbaAtera(HotelakAukeratuLeihoa.idHotel);
+				Kontsulta_Erreserba.CountLogelaTotala(ErreserbaHasieratu.LogelaTotala);
 				Erreserba ImprimatzekoErreserba = new Erreserba(idErreserba,idOstatu, idBezero, dataJoan, dataEtorri, precio, sinp, bisinp, bik, sinpbik, sehaska, Eskatutakodata, EskatutakoOrdua);
 
 				Metodoak.imprimatuTiketa(ImprimatzekoErreserba);

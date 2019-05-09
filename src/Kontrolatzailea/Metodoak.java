@@ -386,6 +386,41 @@ public class Metodoak {
 		return sinpleak;
 	}
 	
+	public static void DataKalkulatu (Date sartzekoDataCliente,Date joatekoDataCliente,ArrayList<Date>SartzekoDataBD,ArrayList<Date>JoatekoDataBD) {
+		
+		
+		int i = 0; // para cada intervalo 
+
+		boolean libre = false; 
+
+		do {
+
+			if (i == 4) {
+				System.out.println("Esta lleno");
+				break;
+				
+			
+			}
+
+			if (sartzekoDataCliente.before(SartzekoDataBD.get(i))) { // Comparar dia de entrada comparar con dia de entrada BD
+				if (joatekoDataCliente.before(SartzekoDataBD.get(i))) { // Comparar dia de salida comprara con dia de entrada BD
+					System.out.println("Esta libre");
+					libre = true; // Si Dia de entrada es mas pequeño que dia de entrada BD y Si Dia de salida es mas pequeño que dia de entrada BD
+
+				} else {
+					++i; // esta fecha esta ocupada, comprobamos la siguiente
+				}
+			} else if (sartzekoDataCliente.after(JoatekoDataBD.get(i))) { // Comparar dia de entrada con dia de salida BD
+				System.out.println("Esta libre");
+				libre = true; // si 
+			} else {
+				++i; // esta fecha esta ocupada, comprobamos la siguiente
+			}
+
+		} while (libre == false);
+
+	}
+	
 	/*private static String[] dataOkupatuta(Date joanData, Date sartuData) {
 		String[] egunak;
 		
@@ -393,5 +428,9 @@ public class Metodoak {
 		
 		return egunak;
 	}*/
+	public static int SumaSpinners(int spinner1,int spinner2,int spinner3,int spinner4) {
+		int sumaTotala=spinner1+spinner1+spinner3+spinner4;
+		return sumaTotala;
+	}
 	
 }
