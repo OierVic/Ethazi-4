@@ -56,7 +56,7 @@ public class Kontsulta_Erreserba {
 		return idErreserba;
 	}
 	
-	public static int logaletotalaDatuBaseanErreserban() {
+	public static int logaletotalaDatuBaseanErreserban(int idOstatu) {
 		int logaletotala=0; 
 		
 		Connection Conexion = null;
@@ -66,7 +66,7 @@ public class Kontsulta_Erreserba {
 			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
-			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT SUM(logelaKopuru) from erreserba");
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT SUM(logelaKopuru) from erreserba where idOstatu='"+idOstatu+"'");
 			while (rs.next()) {
 				logaletotala = rs.getInt("SUM(logelaKopuru)");
 				

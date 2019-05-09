@@ -67,9 +67,9 @@ public class ErreserbaHasieratu extends JFrame{
 	private String sartu_Data_string="";
 	private Boolean jarraituBotoia=false;
 	//LogelaTotala es la suma de todos los spinner que pone el usuario
-	private int LogelaTotala=0;
+	private int LogelaTotalaSpinner=0;
 	//logelatotalaBD es la suma de la columna de logelaKopuru de la tabla erreserbak
-	private int logelatotalaBD=0;
+	private int logelatotalaBDerreserban=0;
 	//logelatotalPosibleHotel es el numero total posible que entran en un hotel y se saca de la tabla hotel
 	private int logelatotalPosibleHotel=0;
 	
@@ -249,7 +249,7 @@ public class ErreserbaHasieratu extends JFrame{
 				OheBikoitzBat = (int) spinner_OheBikoitzBat.getValue();
 				OheBikoitzBatEtaOheSimpleBat = (int) spinner_OheBikoitzBatEtaOheSimpleBat.getValue();
 				Sehaska = (int) spinner_Sehaska.getValue();
-				LogelaTotala=OheSimpleBat+OheSimpleBi+OheBikoitzBat+OheBikoitzBatEtaOheSimpleBat;
+				LogelaTotalaSpinner=OheSimpleBat+OheSimpleBi+OheBikoitzBat+OheBikoitzBatEtaOheSimpleBat;
 				
 				jarraituBotoia=true;
 				//Hoteletik joateko data balidatzeko
@@ -283,9 +283,9 @@ public class ErreserbaHasieratu extends JFrame{
 				
 				//Hotel Osoan lekua dagoen edo ez jakiteko
 				
-				logelatotalaBD=Kontsulta_Erreserba.logaletotalaDatuBaseanErreserban();
+				logelatotalaBDerreserban=Kontsulta_Erreserba.logaletotalaDatuBaseanErreserban(HotelakAukeratuLeihoa.idHotel);
 				logelatotalPosibleHotel=Kontsulta_Hoteles.HoteleanZenbatLekuDauden(HotelakAukeratuLeihoa.idHotel);
-				if ((logelatotalaBD+LogelaTotala)>logelatotalPosibleHotel) {
+				if ((logelatotalaBDerreserban+LogelaTotalaSpinner)>logelatotalPosibleHotel) {
 					btnBalidatu.setEnabled(true);
 					btnHurrengoa.setEnabled(false);
 					jarraituBotoia=false;
@@ -335,7 +335,7 @@ public class ErreserbaHasieratu extends JFrame{
 				sartu_Data = (Date) dateSartu.getDate();
 				
 				if(dateSartu != null && dateJoan != null) {
-					Metodoak.ordainduleihora(hotelak, PrezioHotel, sartu_Data, joan_Data, o1,LogelaTotala);
+					Metodoak.ordainduleihora(hotelak, PrezioHotel, sartu_Data, joan_Data, o1,LogelaTotalaSpinner);
 					dispose();
 				}
 				
