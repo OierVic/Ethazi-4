@@ -51,7 +51,7 @@ public class OrdainduLeihoa extends JFrame {
 	private int idErreserba;
 
 
-	public OrdainduLeihoa(String hotelak, double prezioHotel, Date sartuData, Date joanData,OheMotak o1) {
+	public OrdainduLeihoa(String hotelak, double prezioHotel, Date sartuData, Date joanData,OheMotak o1,int logelaKopurua) {
 		//prezioa=prezioHotel;
 		//prezioa=0.0;
 		
@@ -95,11 +95,10 @@ public class OrdainduLeihoa extends JFrame {
 				int sehaska= o1.getSehaska();
 				
 				double precio=Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData, o1, HotelakAukeratuLeihoa.idHotel);
-				Erreserba IgotzekoErreserba = new Erreserba(idOstatu, idBezero, dataJoan, dataEtorri, precio, sinp, bisinp, bik, sinpbik, sehaska, Eskatutakodata, EskatutakoOrdua);
+				Erreserba IgotzekoErreserba = new Erreserba(idOstatu, idBezero, dataJoan, dataEtorri, precio, sinp, bisinp, bik, sinpbik, sehaska, Eskatutakodata, EskatutakoOrdua,logelaKopurua);
 				Metodoak.ErreserbaIgo(IgotzekoErreserba);
 				
 				idErreserba=Kontsulta_Erreserba.idErreserbaAtera(HotelakAukeratuLeihoa.idHotel);
-				Kontsulta_Erreserba.CountLogelaTotala(ErreserbaHasieratu.LogelaTotala);
 				Erreserba ImprimatzekoErreserba = new Erreserba(idErreserba,idOstatu, idBezero, dataJoan, dataEtorri, precio, sinp, bisinp, bik, sinpbik, sehaska, Eskatutakodata, EskatutakoOrdua);
 
 				Metodoak.imprimatuTiketa(ImprimatzekoErreserba);

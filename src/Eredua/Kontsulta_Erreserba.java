@@ -24,7 +24,7 @@ public class Kontsulta_Erreserba {
 
 			s1 = (Statement) Conexion1.createStatement();
 
-			s1.executeUpdate("INSERT INTO `erreserba` (`idErreserba`, `idOstatu`, `idBezero`, `dataJoan`, `dataEtorri`, `prezioErreserba`, `1sinp`, `2sinp`, `1bik`, `1sinp1bik`, `sehaska`, `erosketaData`, `erosketaOrdua`) VALUES (NULL, '"+e1.getIdOstatu()+"', '"+e1.getIdBezero()+"', '"+e1.getDataJoan()+"', '"+e1.getDataEtorri()+"', '"+e1.getPrecio()+"', '"+e1.getSinp()+"', '"+e1.getBisinp()+"', '"+e1.getBik()+"', '"+e1.getSinpbik()+"', '"+e1.getSehaska()+"', '"+e1.getEskatutakodata()+"', '"+e1.getEskatutakoOrdua()+"')"      );
+			s1.executeUpdate("INSERT INTO `erreserba` (`idErreserba`, `idOstatu`, `idBezero`, `dataJoan`, `dataEtorri`, `prezioErreserba`, `1sinp`, `2sinp`, `1bik`, `1sinp1bik`, `sehaska`, `erosketaData`, `erosketaOrdua`,`logelaKopuru`) VALUES (NULL, '"+e1.getIdOstatu()+"', '"+e1.getIdBezero()+"', '"+e1.getDataJoan()+"', '"+e1.getDataEtorri()+"', '"+e1.getPrecio()+"', '"+e1.getSinp()+"', '"+e1.getBisinp()+"', '"+e1.getBik()+"', '"+e1.getSinpbik()+"', '"+e1.getSehaska()+"', '"+e1.getEskatutakodata()+"', '"+e1.getEskatutakoOrdua()+"',"+e1.getlogelaKopurua()+")");
 			s1.close();
 
 			System.out.println("Conexioa eginda");
@@ -56,8 +56,8 @@ public class Kontsulta_Erreserba {
 		return idErreserba;
 	}
 	
-	public static int CountLogelaTotala(int LogelaTotala) {
-		int logelaTotala=0; 
+	public static int logaletotalaDatuBaseanErreserban() {
+		int logaletotala=0; 
 		
 		Connection Conexion = null;
 		Statement s =null;
@@ -66,9 +66,9 @@ public class Kontsulta_Erreserba {
 			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
-			ResultSet rs = ((java.sql.Statement) s).executeQuery("");
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT SUM(logelaKopuru) from erreserba");
 			while (rs.next()) {
-				logelaTotala = rs.getInt("");
+				logaletotala = rs.getInt("SUM(logelaKopuru)");
 				
 			}
 			System.out.println();
@@ -76,7 +76,7 @@ public class Kontsulta_Erreserba {
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return logelaTotala;
+		return logaletotala;
 	}
 
 	//INSERT INTO `erreserba` (`idErreserba`, `idOstatu`, `idBezero`, `dataJoan`, `dataEtorri`, `prezioErreserba`, `1sinp`, `2sinp`, `1bik`, `1sinp1bik`, `sehaska`, `erosketaData`, `erosketaOrdua`) VALUES (NULL, '1', '12345578Z', '2019-05-05', '2019-05-10', '56', '1', '2', '2', '0', '0', '2019-05-08', '00:00');

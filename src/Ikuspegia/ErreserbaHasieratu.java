@@ -15,6 +15,7 @@ import com.toedter.calendar.JCalendar;
 import java.awt.Font;
 import com.toedter.calendar.JDateChooser;
 
+import Eredua.Kontsulta_Erreserba;
 import Eredua.Kontsulta_Hoteles;
 import Kontrolatzailea.Hotel;
 import Kontrolatzailea.Metodoak;
@@ -65,7 +66,19 @@ public class ErreserbaHasieratu extends JFrame{
 	private String joan_Data_string="";
 	private String sartu_Data_string="";
 	private Boolean jarraituBotoia=false;
-	static int LogelaTotala=0;
+	//LogelaTotala es la suma de todos los spinner que pone el usuario
+	private int LogelaTotala=0;
+	//logelatotalaBD es la suma de la columna de logelaKopuru de la tabla erreserbak
+	private int logelatotalaBD=0;
+	//logelatotalPosibleHotel es el numero total posible que entran en un hotel y se saca de la tabla hotel
+	private int logelatotalPosibleHotel=0;
+	
+	//variables de que recogen de los spinners para que se puedan utilizar fuera del boton
+	private int OheSimpleBat=0;
+	private int OheSimpleBi=0;
+	private int OheBikoitzBat=0;
+	private int OheBikoitzBatEtaOheSimpleBat=0;
+	private int Sehaska=0;
 	
 	public ErreserbaHasieratu(String hotelak, double PrezioHotel) {
 		
@@ -230,6 +243,14 @@ public class ErreserbaHasieratu extends JFrame{
 		
 		btnBalidatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				OheSimpleBat = (int) spinner_OheSimpleBat.getValue();
+				OheSimpleBi = (int) spinner_OheSimpleBi.getValue();
+				OheBikoitzBat = (int) spinner_OheBikoitzBat.getValue();
+				OheBikoitzBatEtaOheSimpleBat = (int) spinner_OheBikoitzBatEtaOheSimpleBat.getValue();
+				Sehaska = (int) spinner_Sehaska.getValue();
+				LogelaTotala=OheSimpleBat+OheSimpleBi+OheBikoitzBat+OheBikoitzBatEtaOheSimpleBat;
+				
 				jarraituBotoia=true;
 				//Hoteletik joateko data balidatzeko
 				try {
@@ -258,6 +279,22 @@ public class ErreserbaHasieratu extends JFrame{
 					JOptionPane.showMessageDialog(null, "Logelaren bat aukeratu behar duzu. Sehaskarik ez nahi baduzu ez da derrigorrezkoa");
 				}
 				
+				
+				
+				//Hotel Osoan lekua dagoen edo ez jakiteko
+				
+				logelatotalaBD=Kontsulta_Erreserba.logaletotalaDatuBaseanErreserban();
+				logelatotalPosibleHotel=Kontsulta_Hoteles.HoteleanZenbatLekuDauden(HotelakAukeratuLeihoa.idHotel);
+				if ((logelatotalaBD+LogelaTotala)>logelatotalPosibleHotel) {
+					btnBalidatu.setEnabled(true);
+					btnHurrengoa.setEnabled(false);
+					jarraituBotoia=false;
+					JOptionPane.showMessageDialog(null, "Hotelan ez dago lekurik");
+				}
+				
+				
+				
+				
 				if (jarraituBotoia==true) {
 					btnBalidatu.setEnabled(false);
 					btnHurrengoa.setEnabled(true);
@@ -275,34 +312,10 @@ public class ErreserbaHasieratu extends JFrame{
 					
 				}
 				
-				//Hotela beteta dagoen edo ez balidatzeko
-				ArrayList<java.sql.Date> dataJoanArraylistSQLDate = new ArrayList<java.sql.Date>();
-				ArrayList<java.sql.Date> dataEtorriArraylistSQLDate = new ArrayList<java.sql.Date>();
-				dataJoanArraylistSQLDate=Kontsulta_Hoteles.dataJoan();
-				dataEtorriArraylistSQLDate=Kontsulta_Hoteles.dataEtorri();
-				ArrayList<java.util.Date> dataJoanArraylistUtilDate = new ArrayList<java.util.Date>();
-				ArrayList<java.util.Date> dataEtorriArraylistUtilDate = new ArrayList<java.util.Date>();
-				//Pasar de java.sql.Date a java.util.Date
-				for (int i = 0; i < dataJoanArraylistSQLDate.size(); i++) {
-					java.sql.Date dataJoanArraylistUtil_Date = new java.sql.Date(dataJoanArraylistSQLDate.get(i).getTime());
-					dataJoanArraylistUtilDate.add(dataJoanArraylistUtil_Date);
-				}
-				for (int i = 0; i < dataEtorriArraylistSQLDate.size(); i++) {
-					java.sql.Date dataEtorriArraylistUtil_Date = new java.sql.Date(dataEtorriArraylistSQLDate.get(i).getTime());
-					dataEtorriArraylistUtilDate.add(dataEtorriArraylistUtil_Date);
-				}
-				//Hacer Metodos
-				
-				//Metodo Fecha antes
-				
-				//Metodo Fecha despues
-				
-				//Metodo Fecha iguales
-				
-				//Metodo FechaIntervalo
 				
 				
 				
+				//Data haietan lekurik ez badago
 				
 				
 			}
@@ -312,12 +325,6 @@ public class ErreserbaHasieratu extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				
 				
-				int OheSimpleBat = (int) spinner_OheSimpleBat.getValue();
-				int OheSimpleBi = (int) spinner_OheSimpleBi.getValue();
-				int OheBikoitzBat = (int) spinner_OheBikoitzBat.getValue();
-				int OheBikoitzBatEtaOheSimpleBat = (int) spinner_OheBikoitzBatEtaOheSimpleBat.getValue();
-				int Sehaska = (int) spinner_Sehaska.getValue();
-				LogelaTotala=OheSimpleBat+OheSimpleBi+OheBikoitzBat+OheBikoitzBatEtaOheSimpleBat;
 				
 				OheMotak o1 = new OheMotak(OheSimpleBat, OheSimpleBi, OheBikoitzBat, OheBikoitzBatEtaOheSimpleBat, Sehaska);
 
@@ -328,7 +335,7 @@ public class ErreserbaHasieratu extends JFrame{
 				sartu_Data = (Date) dateSartu.getDate();
 				
 				if(dateSartu != null && dateJoan != null) {
-					Metodoak.ordainduleihora(hotelak, PrezioHotel, sartu_Data, joan_Data, o1);
+					Metodoak.ordainduleihora(hotelak, PrezioHotel, sartu_Data, joan_Data, o1,LogelaTotala);
 					dispose();
 				}
 				

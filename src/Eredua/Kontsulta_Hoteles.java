@@ -131,7 +131,7 @@ public class Kontsulta_Hoteles{
 		
 	}
 	
-public static Double PrezioaAtera(int idHotel) {
+	public static Double PrezioaAtera(int idHotel) {
 		
 		Double prezioHotel=null;
 
@@ -215,6 +215,31 @@ public static Double PrezioaAtera(int idHotel) {
 			System.out.println(e.getMessage());
 		}
 		return dataEtorri;
+
+	}
+	
+	public static int HoteleanZenbatLekuDauden(int idHotel) {
+		int logelaKopuru=0;
+
+		Connection Conexion = null;
+		Statement s = null;
+
+		try {
+			// Class.forName("com.mysql.jdbc.Driver");
+			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/" + "bidaion", "root", "");
+			s = (Statement) Conexion.createStatement();
+
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT logelaKopurua FROM hotel where idHotel ='"+idHotel+"'");
+			while (rs.next()) {
+				logelaKopuru = rs.getInt("logelaKopurua");
+
+			}
+			System.out.println();
+			System.out.println("Conexioa eginda");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return logelaKopuru;
 
 	}
 	

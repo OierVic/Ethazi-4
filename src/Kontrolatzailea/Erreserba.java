@@ -19,11 +19,12 @@ public class Erreserba {
 	private int sehaska;
 	private String Eskatutakodata;
 	private String EskatutakoOrdua;
+	private int logelaKopurua;
 
 	//(`idErreserba`, `idOstatu`, `idBezero`, `dataJoan`, `dataEtorri`, `prezioErreserba`, `1sinp`, `2sinp`, `1bik`, `1sinp1bik`, `sehaska`, `erosketaData`, `erosketaOrdua`)
 	
 	public Erreserba(/* int idErreserba, */ int idOstatu, String idBezero, String dataJoan, String dataEtorri, double precio,
-			int sinp, int bisinp, int bik, int sinpbik, int sehaska, String eskatutakodata, String eskatutakoOrdua) {
+			int sinp, int bisinp, int bik, int sinpbik, int sehaska, String eskatutakodata, String eskatutakoOrdua,int LogelaKopurua) {
 		//this.idErreserba = idErreserba;
 		this.idOstatu = idOstatu;
 		this.idBezero = idBezero;
@@ -35,8 +36,9 @@ public class Erreserba {
 		this.bik = bik;
 		this.sinpbik = sinpbik;
 		this.sehaska = sehaska;
-		Eskatutakodata = eskatutakodata;
-		EskatutakoOrdua = eskatutakoOrdua;
+		this.Eskatutakodata = eskatutakodata;
+		this.EskatutakoOrdua = eskatutakoOrdua;
+		this.logelaKopurua = LogelaKopurua;
 	}
 	
 	
@@ -291,6 +293,20 @@ public class Erreserba {
 
 	public void setEskatutakoOrdua(String eskatutakoOrdua) {
 		EskatutakoOrdua = eskatutakoOrdua;
+	}
+	
+	
+	public int getlogelaKopurua() {
+		return logelaKopurua;
+	}
+
+
+
+
+
+
+	public void setlogelaKopurua(int LogelaKopurua) {
+		logelaKopurua = LogelaKopurua;
 	}
 
 
