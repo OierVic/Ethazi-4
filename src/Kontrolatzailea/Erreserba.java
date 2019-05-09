@@ -308,6 +308,8 @@ public class Erreserba {
 				+ " -Erreserba Kodea: "+this.idErreserba + " \t" + " -Id Ostatu: " + this.idOstatu + " \t" + "-Id bezero: " + this.idBezero + " \n" + " \n"
 				+ "-Erreserba data: "+this.Eskatutakodata+" \t" + " -Ordua: "+this.EskatutakoOrdua+" \t\n"
 				+ " \t\n"
+				+ "-----------------------------------------------------------------------------------------------------------------------"
+				+ " \t\n"
 				+" -Joateko data: " + this.dataJoan + " \t\t" + "-Etorri data: " + this.dataEtorri + " \t\n"
 				+ " ----------------------------------------------------------------------------------------------------------------------"
 				+ " \t\n"
