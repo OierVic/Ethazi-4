@@ -386,7 +386,7 @@ public class Metodoak {
 		return sinpleak;
 	}
 	
-	public static void DataKalkulatu (Date sartzekoDataCliente,Date joatekoDataCliente,ArrayList<Date>SartzekoDataBD,ArrayList<Date>JoatekoDataBD) {
+	public static void DataKalkulatu (Date sartzekoDataCliente,Date joatekoDataCliente,ArrayList<java.sql.Date> dataJoan,ArrayList<java.sql.Date> dataEtorri) {
 		
 		
 		int i = 0; // para cada intervalo 
@@ -395,22 +395,22 @@ public class Metodoak {
 
 		do {
 
-			if (i == 4) {
+			if (i == 2) {
 				System.out.println("Esta lleno");
 				break;
 				
 			
 			}
 
-			if (sartzekoDataCliente.before(SartzekoDataBD.get(i))) { // Comparar dia de entrada comparar con dia de entrada BD
-				if (joatekoDataCliente.before(SartzekoDataBD.get(i))) { // Comparar dia de salida comprara con dia de entrada BD
+			if (sartzekoDataCliente.before(dataJoan.get(i))) { // Comparar dia de entrada comparar con dia de entrada BD
+				if (joatekoDataCliente.before(dataJoan.get(i))) { // Comparar dia de salida comprara con dia de entrada BD
 					System.out.println("Esta libre");
 					libre = true; // Si Dia de entrada es mas pequeño que dia de entrada BD y Si Dia de salida es mas pequeño que dia de entrada BD
 
 				} else {
 					++i; // esta fecha esta ocupada, comprobamos la siguiente
 				}
-			} else if (sartzekoDataCliente.after(JoatekoDataBD.get(i))) { // Comparar dia de entrada con dia de salida BD
+			} else if (sartzekoDataCliente.after(dataEtorri.get(i))) { // Comparar dia de entrada con dia de salida BD
 				System.out.println("Esta libre");
 				libre = true; // si 
 			} else {

@@ -37,7 +37,7 @@ public class HotelakAukeratuLeihoa extends JFrame {
 
 
 	public Double PrezioHotel;
-	public static int idHotel=0;
+	public static int idHotel;
 
 	public HotelakAukeratuLeihoa(ArrayList <Hotel> Hoteles,ArrayList<String> Helbideak) {
 		
@@ -112,6 +112,11 @@ public class HotelakAukeratuLeihoa extends JFrame {
 				
 			}
 		});
+		
+		
+	
+		
+		
 		btnHurrengoa.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		btnHurrengoa.setBounds(473, 497, 167, 39);
 		getContentPane().add(btnHurrengoa);
@@ -143,10 +148,10 @@ public class HotelakAukeratuLeihoa extends JFrame {
 		btnAtzera.setBounds(40, 499, 121, 39);
 		getContentPane().add(btnAtzera);
 		
-		
-		
 
-
-
+	}
+	public static int idHotelArtu(){
+		int idhotel = idHotel;
+		return idhotel;
 	}
 }

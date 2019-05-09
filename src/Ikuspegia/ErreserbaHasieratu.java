@@ -318,6 +318,21 @@ public class ErreserbaHasieratu extends JFrame{
 				//Data haietan lekurik ez badago
 				
 				
+				//Diegate1
+				ArrayList<java.sql.Date> dataJoan = new ArrayList<java.sql.Date>();
+				dataJoan = Kontsulta_Hoteles.dataJoan();
+				
+				ArrayList<java.sql.Date> dataEtorri = new ArrayList<java.sql.Date>();
+				dataEtorri = Kontsulta_Hoteles.dataEtorri();
+				
+			
+				Metodoak.DataKalkulatu(sartu_Data, joan_Data, dataJoan, dataEtorri);
+				
+		
+				
+				
+				
+				
 			}
 		});
 		

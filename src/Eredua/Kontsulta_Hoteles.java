@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import com.mysql.jdbc.Statement;
 
+import Ikuspegia.HotelakAukeratuLeihoa;
 import Kontrolatzailea.Hotel;
 import Kontrolatzailea.Metodoak;
 
@@ -167,6 +168,9 @@ public class Kontsulta_Hoteles{
 	public static ArrayList<java.sql.Date> dataJoan() {
 		ArrayList<java.sql.Date> dataJoan = new ArrayList<java.sql.Date>();
 		Date JoatekoData = null;
+		int loguelaKopurua;
+		int i=0;
+		int idHotel = HotelakAukeratuLeihoa.idHotelArtu();
 
 		Connection Conexion = null;
 		Statement s = null;
@@ -176,10 +180,19 @@ public class Kontsulta_Hoteles{
 			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/" + "bidaion", "root", "");
 			s = (Statement) Conexion.createStatement();
 
-			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT dataJoan FROM erreserba");
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT dataJoan, logelaKopuru FROM erreserba WHERE idOstatu  ='"+idHotel+"'");
 			while (rs.next()) {
 				JoatekoData = rs.getDate("dataJoan");
-				dataJoan.add(JoatekoData);
+				loguelaKopurua = rs.getInt("logelaKopuru");
+				i=0;
+				System.out.println("i= " + i);
+				do {
+					dataJoan.add(JoatekoData);
+					System.out.println(i + "--------");
+					System.out.println(JoatekoData);
+
+					++i;
+					}while(loguelaKopurua > i );
 
 			}
 			System.out.println();
@@ -194,6 +207,9 @@ public class Kontsulta_Hoteles{
 	public static ArrayList<java.sql.Date> dataEtorri() {
 		ArrayList<java.sql.Date> dataEtorri = new ArrayList<java.sql.Date>();
 		Date EtortzekoData = null;
+		int loguelaKopurua;
+		int i = 0;
+		int idHotel = HotelakAukeratuLeihoa.idHotelArtu();
 
 		Connection Conexion = null;
 		Statement s = null;
@@ -203,10 +219,21 @@ public class Kontsulta_Hoteles{
 			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/" + "bidaion", "root", "");
 			s = (Statement) Conexion.createStatement();
 
-			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT dataEtorri FROM erreserba");
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT dataEtorri, logelaKopuru FROM erreserba WHERE idOstatu  ='"+idHotel+"'");
 			while (rs.next()) {
 				EtortzekoData = rs.getDate("dataEtorri");
+				loguelaKopurua = rs.getInt("logelaKopuru");
+				i=0;
+				
+				System.out.println("i= " + i);
+				do {
 				dataEtorri.add(EtortzekoData);
+				System.out.println(i + "--------");
+				System.out.println(EtortzekoData);
+				++i;
+				}while(loguelaKopurua > i );
+				
+				
 
 			}
 			System.out.println();
