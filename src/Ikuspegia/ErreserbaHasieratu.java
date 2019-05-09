@@ -283,14 +283,14 @@ public class ErreserbaHasieratu extends JFrame{
 				
 				//Hotel Osoan lekua dagoen edo ez jakiteko
 				
-				logelatotalaBDerreserban=Kontsulta_Erreserba.logaletotalaDatuBaseanErreserban(HotelakAukeratuLeihoa.idHotel);
-				logelatotalPosibleHotel=Kontsulta_Hoteles.HoteleanZenbatLekuDauden(HotelakAukeratuLeihoa.idHotel);
-				if ((logelatotalaBDerreserban+LogelaTotalaSpinner)>logelatotalPosibleHotel) {
-					btnBalidatu.setEnabled(true);
-					btnHurrengoa.setEnabled(false);
-					jarraituBotoia=false;
-					JOptionPane.showMessageDialog(null, "Hotelan ez dago lekurik");
-				}
+//				logelatotalaBDerreserban=Kontsulta_Erreserba.logaletotalaDatuBaseanErreserban(HotelakAukeratuLeihoa.idHotel);
+//				logelatotalPosibleHotel=Kontsulta_Hoteles.HoteleanZenbatLekuDauden(HotelakAukeratuLeihoa.idHotel);
+//				if ((logelatotalaBDerreserban+LogelaTotalaSpinner)>logelatotalPosibleHotel) {
+//					btnBalidatu.setEnabled(true);
+//					btnHurrengoa.setEnabled(false);
+//					jarraituBotoia=false;
+//					JOptionPane.showMessageDialog(null, "Hotelan ez dago lekurik");
+//				}
 				
 				
 				
@@ -325,8 +325,19 @@ public class ErreserbaHasieratu extends JFrame{
 				ArrayList<java.sql.Date> dataEtorri = new ArrayList<java.sql.Date>();
 				dataEtorri = Kontsulta_Hoteles.dataEtorri();
 				
-			
-				Metodoak.DataKalkulatu(sartu_Data, joan_Data, dataJoan, dataEtorri);
+				boolean libre;
+				libre = Metodoak.DataKalkulatu(sartu_Data, joan_Data, dataJoan, dataEtorri, LogelaTotalaSpinner);
+				
+				System.out.println("Ya en la ventana: "+libre);
+				if(libre==false) {
+					System.out.println("Ya en la ventana: "+libre);
+
+					btnBalidatu.setEnabled(true);
+					btnHurrengoa.setEnabled(false);
+					jarraituBotoia=false;
+					JOptionPane.showMessageDialog(null, "Hotelan ez dago lekurik");
+					
+				}
 				
 		
 				

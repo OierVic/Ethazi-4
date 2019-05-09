@@ -386,8 +386,9 @@ public class Metodoak {
 		return sinpleak;
 	}
 	
-	public static void DataKalkulatu (Date sartzekoDataCliente,Date joatekoDataCliente,ArrayList<java.sql.Date> dataJoan,ArrayList<java.sql.Date> dataEtorri) {
-		
+	public static boolean DataKalkulatu (Date sartzekoDataCliente,Date joatekoDataCliente,ArrayList<java.sql.Date> dataJoan,ArrayList<java.sql.Date> dataEtorri, int logelaTotalaSpinner) {
+		int logelaKopurua = Kontsulta_Hoteles.logelaKopurua();
+		boolean lekua= false;
 		
 		int i = 0; // para cada intervalo 
 
@@ -395,30 +396,43 @@ public class Metodoak {
 
 		do {
 
-			if (i == 2) {
-				System.out.println("Esta lleno");
-				break;
-				
-			
-			}
 
 			if (sartzekoDataCliente.before(dataJoan.get(i))) { // Comparar dia de entrada comparar con dia de entrada BD
 				if (joatekoDataCliente.before(dataJoan.get(i))) { // Comparar dia de salida comprara con dia de entrada BD
-					System.out.println("Esta libre");
-					libre = true; // Si Dia de entrada es mas pequeño que dia de entrada BD y Si Dia de salida es mas pequeño que dia de entrada BD
-
+					System.out.println("No afecta");
+					++i;
 				} else {
-					++i; // esta fecha esta ocupada, comprobamos la siguiente
+					++i;
+					--logelaKopurua;// esta fecha esta ocupada, comprobamos la siguiente
 				}
 			} else if (sartzekoDataCliente.after(dataEtorri.get(i))) { // Comparar dia de entrada con dia de salida BD
-				System.out.println("Esta libre");
-				libre = true; // si 
+				System.out.println("No afecta");
+				++i;
 			} else {
-				++i; // esta fecha esta ocupada, comprobamos la siguiente
+				++i;
+				--logelaKopurua;// esta fecha esta ocupada, comprobamos la siguiente
 			}
+			
+			if(logelaKopurua <= 0) {
+				lekua = false;
+			}else {
+				lekua = true;
+			}
+			System.out.println(logelaKopurua);
 
-		} while (libre == false);
+		} while (i != dataJoan.size());
+		
+		
+		logelaKopurua = logelaKopurua - logelaTotalaSpinner;
+		System.out.println("Despues de tu eleccion: " + logelaKopurua);
+		
+		if(logelaKopurua < 0) {
+			lekua = false;
+		}
+		
+		System.out.println(lekua);
 
+		return lekua;
 	}
 	
 	/*private static String[] dataOkupatuta(Date joanData, Date sartuData) {

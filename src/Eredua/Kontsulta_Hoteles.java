@@ -270,6 +270,39 @@ public class Kontsulta_Hoteles{
 
 	}
 	
+public static int logelaKopurua() {
+	int idHotel = HotelakAukeratuLeihoa.idHotelArtu();
+		int logelaKopurua=0;
+		
+		
+		
+		Connection Conexion = null;
+		Statement s =null;
+
+		try {
+			//Class.forName("com.mysql.jdbc.Driver");
+			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			s =(Statement) Conexion.createStatement();
+
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT logelaKopurua FROM hotel WHERE idHotel='"+idHotel+"'");
+			while (rs.next()) {
+				
+				logelaKopurua = rs.getInt("logelaKopurua");
+				
+				
+
+			}
+			
+			
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return logelaKopurua;
+		
+		
+	}
+	
 	
 	
 	
