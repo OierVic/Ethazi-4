@@ -15,6 +15,7 @@ import com.toedter.calendar.JCalendar;
 import java.awt.Font;
 import com.toedter.calendar.JDateChooser;
 
+import Eredua.Kontsulta_Hoteles;
 import Kontrolatzailea.Hotel;
 import Kontrolatzailea.Metodoak;
 import Kontrolatzailea.OheMotak;
@@ -275,6 +276,22 @@ public class ErreserbaHasieratu extends JFrame{
 				}
 				
 				//Hotela beteta dagoen edo ez balidatzeko
+				ArrayList<java.sql.Date> dataJoanArraylist = new ArrayList<java.sql.Date>();
+				ArrayList<java.sql.Date> dataEtorriArraylist = new ArrayList<java.sql.Date>();
+				dataJoanArraylist=Kontsulta_Hoteles.dataJoan();
+				dataEtorriArraylist=Kontsulta_Hoteles.dataEtorri(); 
+				//Pasar de java.sql.Date a java.util.Date
+				
+				//Hacer Metodos
+				
+				//Metodo Fecha antes
+				
+				//Metodo Fecha despues
+				
+				//Metodo Fecha iguales
+				
+				//Metodo FechaIntervalo
+				
 				
 				
 				

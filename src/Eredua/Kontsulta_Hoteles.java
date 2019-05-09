@@ -163,6 +163,60 @@ public static Double PrezioaAtera(int idHotel) {
 		return prezioHotel;
 		
 	}
+
+	public static ArrayList<java.sql.Date> dataJoan() {
+		ArrayList<java.sql.Date> dataJoan = new ArrayList<java.sql.Date>();
+		Date JoatekoData = null;
+
+		Connection Conexion = null;
+		Statement s = null;
+
+		try {
+			// Class.forName("com.mysql.jdbc.Driver");
+			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/" + "bidaion", "root", "");
+			s = (Statement) Conexion.createStatement();
+
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT dataJoan FROM erreserba");
+			while (rs.next()) {
+				JoatekoData = rs.getDate("dataJoan");
+				dataJoan.add(JoatekoData);
+
+			}
+			System.out.println();
+			System.out.println("Conexioa eginda");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return dataJoan;
+
+	}
+	
+	public static ArrayList<java.sql.Date> dataEtorri() {
+		ArrayList<java.sql.Date> dataEtorri = new ArrayList<java.sql.Date>();
+		Date EtortzekoData = null;
+
+		Connection Conexion = null;
+		Statement s = null;
+
+		try {
+			// Class.forName("com.mysql.jdbc.Driver");
+			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/" + "bidaion", "root", "");
+			s = (Statement) Conexion.createStatement();
+
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT dataEtorri FROM erreserba");
+			while (rs.next()) {
+				EtortzekoData = rs.getDate("dataEtorri");
+				dataEtorri.add(EtortzekoData);
+
+			}
+			System.out.println();
+			System.out.println("Conexioa eginda");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return dataEtorri;
+
+	}
 	
 	
 	
