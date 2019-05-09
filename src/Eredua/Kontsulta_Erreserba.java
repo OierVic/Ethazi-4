@@ -29,7 +29,7 @@ public class Kontsulta_Erreserba {
 
 			System.out.println("Conexioa eginda");
 		}catch(Exception e) {
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 	}
 	
@@ -51,7 +51,7 @@ public class Kontsulta_Erreserba {
 			System.out.println();
 			System.out.println("Conexioa eginda");
 		}catch(Exception e) {
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 		return idErreserba;
 	}

@@ -46,7 +46,7 @@ public class Kontsulta_Hoteles{
 			System.out.println();
 			System.out.println("Conexioa eginda");
 		}catch(Exception e) {
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 		return hotelak;
 		
@@ -75,7 +75,7 @@ public class Kontsulta_Hoteles{
 			System.out.println();
 			System.out.println("Conexioa eginda2");
 		}catch(Exception e) {
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 		return Helbideak;
 		
@@ -123,7 +123,7 @@ public class Kontsulta_Hoteles{
 			System.out.println();
 			System.out.println("Conexioa eginda");
 		}catch(Exception e) {
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 		
 		return hotelak2;
@@ -155,7 +155,7 @@ public static Double PrezioaAtera(int idHotel) {
 			System.out.println();
 			System.out.println("Conexioa eginda");
 		}catch(Exception e) {
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 		
 

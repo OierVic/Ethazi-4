@@ -44,7 +44,7 @@ public class Kontsulta_Bezero {
 			System.out.println();
 			System.out.println("Conexioa eginda");
 		}catch(Exception e) {
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 		return bezeroak;
 		

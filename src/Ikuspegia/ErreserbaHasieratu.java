@@ -274,6 +274,10 @@ public class ErreserbaHasieratu extends JFrame{
 					
 				}
 				
+				//Hotela beteta dagoen edo ez balidatzeko
+				
+				
+				
 				
 			}
 		});

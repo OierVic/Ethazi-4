@@ -29,7 +29,7 @@ public class Konsulta_Erregistro {
 
 			System.out.println("Conexioa eginda");
 		}catch(Exception e) {
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 		
 	}
