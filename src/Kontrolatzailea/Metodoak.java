@@ -366,6 +366,7 @@ public class Metodoak {
 		
 		prezioHotel = (prezioa0 + prezioa1 + prezioa2 + prezioa3 + prezioa4);
 		
+		prezioHotel = Math.round(prezioHotel * 100) / 100d;
 		
 		return (double) prezioHotel;
 	}
