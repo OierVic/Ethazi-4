@@ -38,6 +38,7 @@ public class ErreserbaHasieratu extends JFrame{
 	private Date joan_Data = new Date();
 	private Date sartu_Data = new Date();
 	private Date gaur = new Date();
+	private Date urtea = new Date();
 	private JButton btnAtzera = new JButton("Atzera");
 	private JButton btnEzeztatu = new JButton("Ezeztatu");
 	private JButton btnAtzeraErreserba = new JButton("Atzera");;
@@ -95,6 +96,8 @@ public class ErreserbaHasieratu extends JFrame{
 		lblSartzeData.setBounds(40, 83, 107, 28);
 		getContentPane().add(lblSartzeData);
 		
+		urtea = Metodoak.gehituUrtea(sartu_Data, 1); 
+		
 		dateJoan = new JDateChooser();
 		dateJoan.setBounds(217, 122, 118, 20);
 		dateJoan.setEnabled(false);
@@ -106,11 +109,13 @@ public class ErreserbaHasieratu extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				
 				sartu_Data = (Date) dateSartu.getDate();
+				
 				if(sartu_Data == null) {
 					JOptionPane.showMessageDialog(null,"Lehenengo sartze data bat aukeratu, mesedez.");
 					dateJoan.setEnabled(false);
 				} else { 
 					dateJoan.setMinSelectableDate(Metodoak.gehituEguna(sartu_Data, 1));
+					dateJoan.setMaxSelectableDate(Metodoak.gehituEguna(urtea, 1));
 				}
 				
 			}
@@ -130,7 +135,9 @@ public class ErreserbaHasieratu extends JFrame{
 		dateSartu.getCalendarButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
+				
 				dateSartu.setMinSelectableDate(gaur);
+				dateSartu.setMaxSelectableDate(urtea);
 				dateJoan.setEnabled(true);
 				dateJoan.setCalendar(null);
 				
@@ -295,22 +302,7 @@ public class ErreserbaHasieratu extends JFrame{
 				
 				
 				
-				if (jarraituBotoia==true) {
-					btnBalidatu.setEnabled(false);
-					btnHurrengoa.setEnabled(true);
-					
-					//JDateChooserrak desaktibatu
-					dateJoan.getCalendarButton().setEnabled(false);
-					dateSartu.getCalendarButton().setEnabled(false);
-					
-					//Spinnerrak desaktibatu
-					spinner_OheSimpleBat.setEnabled(false);
-					spinner_OheSimpleBi.setEnabled(false);
-					spinner_OheBikoitzBat.setEnabled(false);
-					spinner_OheBikoitzBatEtaOheSimpleBat.setEnabled(false);
-					spinner_Sehaska.setEnabled(false);
-					
-				}
+				
 				
 				
 				
@@ -340,6 +332,23 @@ public class ErreserbaHasieratu extends JFrame{
 				}
 				
 		
+				
+				if (jarraituBotoia==true) {
+					btnBalidatu.setEnabled(false);
+					btnHurrengoa.setEnabled(true);
+					
+					//JDateChooserrak desaktibatu
+					dateJoan.getCalendarButton().setEnabled(false);
+					dateSartu.getCalendarButton().setEnabled(false);
+					
+					//Spinnerrak desaktibatu
+					spinner_OheSimpleBat.setEnabled(false);
+					spinner_OheSimpleBi.setEnabled(false);
+					spinner_OheBikoitzBat.setEnabled(false);
+					spinner_OheBikoitzBatEtaOheSimpleBat.setEnabled(false);
+					spinner_Sehaska.setEnabled(false);
+					
+				}
 				
 				
 				
