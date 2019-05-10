@@ -396,10 +396,11 @@ public class Metodoak {
 		return sinpleak;
 	}
 	
-	public static boolean DataKalkulatu (Date sartzekoDataCliente,Date joatekoDataCliente,ArrayList<java.sql.Date> dataJoan,ArrayList<java.sql.Date> dataEtorri, int logelaTotalaSpinner) {
-		int logelaKopurua = Kontsulta_Hoteles.logelaKopurua();
+	public static boolean DataKalkulatu (Date sartzekoDataCliente,Date joatekoDataCliente,ArrayList<java.sql.Date> dataJoan,ArrayList<java.sql.Date> dataEtorri, int oheMotakZbk, String oheMotak) {
+		int logelaKopurua = Kontsulta_Hoteles.HoteleanZenbatLekuDauden(oheMotak);
 		boolean lekua= false;
 		
+		System.out.println("Numero de plazas del tipo: " + oheMotak + " = " + logelaKopurua);
 		int i = 0; // para cada intervalo 
 
 
@@ -427,7 +428,7 @@ public class Metodoak {
 				--logelaKopurua;// esta fecha esta ocupada, comprobamos la siguiente
 			}
 			
-			if(logelaKopurua <= 0) {
+			if(logelaKopurua < 0) {
 				lekua = false;
 			}else {
 				lekua = true;
@@ -437,7 +438,10 @@ public class Metodoak {
 		} while (i != dataJoan.size());
 		
 		
-		logelaKopurua = logelaKopurua - logelaTotalaSpinner;
+		
+		
+		logelaKopurua = logelaKopurua - oheMotakZbk;
+		System.out.println(logelaKopurua+" - "+oheMotakZbk);
 		System.out.println("Despues de tu eleccion: " + logelaKopurua);
 		
 		if(logelaKopurua < 0) {

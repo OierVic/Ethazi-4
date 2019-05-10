@@ -311,14 +311,37 @@ public class ErreserbaHasieratu extends JFrame{
 				
 				
 				//Diegate1
+				int i = 0;
+				boolean libre;
+				String[] oheMotak =new String[4];
+				oheMotak[0]= "1sinp";
+				oheMotak[1]= "2sinp";
+				oheMotak[2]= "1bik";
+				oheMotak[3]= "1sinp1bik";
+
+				
+				int[] oheMotakZbk =new int[4];
+				oheMotakZbk[0]= OheSimpleBat;
+				oheMotakZbk[1]= OheSimpleBi;
+				oheMotakZbk[2]= OheBikoitzBat;
+				oheMotakZbk[3]= OheBikoitzBatEtaOheSimpleBat;
+				
+
+				
+				do {
 				ArrayList<java.sql.Date> dataJoan = new ArrayList<java.sql.Date>();
-				dataJoan = Kontsulta_Hoteles.dataJoan();
+				dataJoan = Kontsulta_Hoteles.dataJoan(oheMotak[i]);
 				
 				ArrayList<java.sql.Date> dataEtorri = new ArrayList<java.sql.Date>();
-				dataEtorri = Kontsulta_Hoteles.dataEtorri();
+				dataEtorri = Kontsulta_Hoteles.dataEtorri(oheMotak[i]);
 				
-				boolean libre;
-				libre = Metodoak.DataKalkulatu(sartu_Data, joan_Data, dataJoan, dataEtorri, LogelaTotalaSpinner);
+				
+				libre = Metodoak.DataKalkulatu(sartu_Data, joan_Data, dataJoan, dataEtorri, oheMotakZbk[i],oheMotak[i]);
+				if (libre== false) {
+					break;
+				}
+				++i;
+				}while(i!=4);
 				
 				System.out.println("Ya en la ventana: "+libre);
 				if(libre==false) {

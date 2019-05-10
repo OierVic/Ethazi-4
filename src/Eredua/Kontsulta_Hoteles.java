@@ -8,6 +8,7 @@ import com.mysql.jdbc.Statement;
 import Ikuspegia.HotelakAukeratuLeihoa;
 import Kontrolatzailea.Hotel;
 import Kontrolatzailea.Metodoak;
+import Kontrolatzailea.OheMotak;
 
 public class Kontsulta_Hoteles{
 	
@@ -165,7 +166,7 @@ public class Kontsulta_Hoteles{
 		
 	}
 
-	public static ArrayList<java.sql.Date> dataJoan() {
+	public static ArrayList<java.sql.Date> dataJoan(String oheMotak) {
 		ArrayList<java.sql.Date> dataJoan = new ArrayList<java.sql.Date>();
 		Date JoatekoData = null;
 		int loguelaKopurua;
@@ -180,10 +181,11 @@ public class Kontsulta_Hoteles{
 			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/" + "bidaion", "root", "");
 			s = (Statement) Conexion.createStatement();
 
-			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT dataJoan, logelaKopuru FROM erreserba WHERE idOstatu  ='"+idHotel+"'");
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT dataJoan, "+oheMotak+" FROM erreserba WHERE idOstatu  ='"+idHotel+"' AND "+oheMotak+" > 0"); 
+					
 			while (rs.next()) {
 				JoatekoData = rs.getDate("dataJoan");
-				loguelaKopurua = rs.getInt("logelaKopuru");
+				loguelaKopurua = rs.getInt(oheMotak);
 				i=0;
 				System.out.println("i= " + i);
 				do {
@@ -204,7 +206,7 @@ public class Kontsulta_Hoteles{
 
 	}
 	
-	public static ArrayList<java.sql.Date> dataEtorri() {
+	public static ArrayList<java.sql.Date> dataEtorri(String oheMotak) {
 		ArrayList<java.sql.Date> dataEtorri = new ArrayList<java.sql.Date>();
 		Date EtortzekoData = null;
 		int loguelaKopurua;
@@ -219,12 +221,13 @@ public class Kontsulta_Hoteles{
 			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/" + "bidaion", "root", "");
 			s = (Statement) Conexion.createStatement();
 
-			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT dataEtorri, logelaKopuru FROM erreserba WHERE idOstatu  ='"+idHotel+"'");
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT dataEtorri, "+oheMotak+" FROM erreserba WHERE idOstatu  ='"+idHotel+"' AND "+oheMotak+" > 0");
 			while (rs.next()) {
 				EtortzekoData = rs.getDate("dataEtorri");
-				loguelaKopurua = rs.getInt("logelaKopuru");
-				i=0;
+				loguelaKopurua = rs.getInt(oheMotak);
 				
+				
+				i=0;
 				System.out.println("i= " + i);
 				do {
 				dataEtorri.add(EtortzekoData);
@@ -245,20 +248,22 @@ public class Kontsulta_Hoteles{
 
 	}
 	
-	public static int HoteleanZenbatLekuDauden(int idHotel) {
+	public static int HoteleanZenbatLekuDauden(String oheMotak) {
 		int logelaKopuru=0;
-
+		int idHotel = HotelakAukeratuLeihoa.idHotelArtu();
 		Connection Conexion = null;
 		Statement s = null;
+		
+		System.out.println("Nombre del tipo de logela: " + oheMotak);
 
 		try {
 			// Class.forName("com.mysql.jdbc.Driver");
 			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/" + "bidaion", "root", "");
 			s = (Statement) Conexion.createStatement();
 
-			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT logelaKopurua FROM hotel where idHotel ='"+idHotel+"'");
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT "+oheMotak+" FROM hotel where idHotel ='"+idHotel+"'");
 			while (rs.next()) {
-				logelaKopuru = rs.getInt("logelaKopurua");
+				logelaKopuru = rs.getInt(oheMotak);
 
 			}
 			System.out.println();
@@ -270,38 +275,39 @@ public class Kontsulta_Hoteles{
 
 	}
 	
-public static int logelaKopurua() {
+
+
+public static OheMotak logelaKopurua() {
 	int idHotel = HotelakAukeratuLeihoa.idHotelArtu();
-		int logelaKopurua=0;
-		
-		
-		
-		Connection Conexion = null;
-		Statement s =null;
+	OheMotak o2 = null;
+	
+	Connection Conexion = null;
+	Statement s = null;
 
-		try {
-			//Class.forName("com.mysql.jdbc.Driver");
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
-			s =(Statement) Conexion.createStatement();
+	try {
+		// Class.forName("com.mysql.jdbc.Driver");
+		Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/" + "bidaion", "root", "");
+		s = (Statement) Conexion.createStatement();
 
-			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT logelaKopurua FROM hotel WHERE idHotel='"+idHotel+"'");
-			while (rs.next()) {
-				
-				logelaKopurua = rs.getInt("logelaKopurua");
-				
-				
+		ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT OheSimpleBat, OheSimpleBi, OheBikoitzBat, OheBikoitzBatEtaOheSimpleBat FROM hotel where idHotel ='"+idHotel+"'");
+		
+		while (rs.next()) {
+			o2.setOheSimpleBat(rs.getInt("OheSimpleBat"));
+			o2.setOheSimpleBi(rs.getInt("OheSimpleBi"));
+			o2.setOheBikoitzBat(rs.getInt("OheBikoitzBat"));
+			o2.setOheBikoitzBatEtaOheSimpleBat(rs.getInt("OheBikoitzBatEtaOheSimpleBat"));
 
-			}
-			
-			
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
+
 		}
-		
-		return logelaKopurua;
-		
+		System.out.println();
+		System.out.println("Conexioa eginda");
+	} catch (Exception e) {
+		System.out.println(e.getMessage());
+	}
+	return o2;
 		
 	}
+	
 	
 	
 	
