@@ -26,6 +26,8 @@ import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JSpinner;
+import javax.swing.SwingConstants;
+import javax.swing.JComboBox;
 
 public class ErreserbaHasieratu extends JFrame{
 	
@@ -80,6 +82,10 @@ public class ErreserbaHasieratu extends JFrame{
 	private int OheBikoitzBat=0;
 	private int OheBikoitzBatEtaOheSimpleBat=0;
 	private int Sehaska=0;
+	private JTextField lblOheSipleBatKant;
+	private JTextField lblOheSinpleBiKant;
+	private JTextField lblOheBikoitzBatKant;
+	private JTextField lblOheBikoitzBatEtaSinpleBatKant;
 	
 	public ErreserbaHasieratu(String hotelak, double PrezioHotel) {
 		
@@ -239,7 +245,60 @@ public class ErreserbaHasieratu extends JFrame{
 		btnDatakEgiaztatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
+				//Diegate1
+				int i = 0;
+				boolean libre;
 				
+				String[] oheMotak =new String[4];
+				oheMotak[0]= "1sinp";
+				oheMotak[1]= "2sinp";
+				oheMotak[2]= "1bik";
+				oheMotak[3]= "1sinp1bik";
+				
+				int[] oheMotakZbk =new int[4];
+				oheMotakZbk[0]= OheSimpleBat;
+				oheMotakZbk[1]= OheSimpleBi;
+				oheMotakZbk[2]= OheBikoitzBat;
+				oheMotakZbk[3]= OheBikoitzBatEtaOheSimpleBat;
+				
+				int[] gelaLibre =new int[4];
+							
+				
+				do {
+				ArrayList<java.sql.Date> dataJoan = new ArrayList<java.sql.Date>();
+				dataJoan = Kontsulta_Hoteles.dataJoan(oheMotak[i]);
+				
+				ArrayList<java.sql.Date> dataEtorri = new ArrayList<java.sql.Date>();
+				dataEtorri = Kontsulta_Hoteles.dataEtorri(oheMotak[i]);
+				
+				
+				libre = Metodoak.DataKalkulatu(sartu_Data, joan_Data, dataJoan, dataEtorri, oheMotakZbk[i],oheMotak[i]);
+				
+				gelaLibre[i]= Metodoak.getlogelaKant(999);
+				System.out.println("gelaLibre: " + gelaLibre[i] + " ____________________");
+				
+				String[] strgelaLibre =new String[4];
+
+				strgelaLibre[0] = String.valueOf(gelaLibre[0]);
+				strgelaLibre[1] = String.valueOf(gelaLibre[1]);
+				strgelaLibre[2] = String.valueOf(gelaLibre[2]);
+				strgelaLibre[3] = String.valueOf(gelaLibre[3]);
+				
+
+				lblOheSipleBatKant.setText(strgelaLibre[0]);
+				lblOheBikoitzBatKant.setText(strgelaLibre[2]);
+				lblOheSinpleBiKant.setText(strgelaLibre[1]);
+				lblOheBikoitzBatEtaSinpleBatKant.setText(strgelaLibre[3]);
+				
+				
+				
+				
+				++i;
+				}while(i!=4);
+				
+		
+				
+	
 				
 			}
 		});
@@ -247,6 +306,29 @@ public class ErreserbaHasieratu extends JFrame{
 		btnBalidatu.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		btnBalidatu.setBounds(498, 259, 132, 43);
 		getContentPane().add(btnBalidatu);
+		
+		lblOheSipleBatKant = new JTextField();
+		lblOheSipleBatKant.setBounds(268, 265, 86, 20);
+		getContentPane().add(lblOheSipleBatKant);
+		lblOheSipleBatKant.setColumns(10);
+		
+		
+		
+		lblOheSinpleBiKant = new JTextField();
+		lblOheSinpleBiKant.setColumns(10);
+		lblOheSinpleBiKant.setBounds(267, 304, 86, 20);
+		getContentPane().add(lblOheSinpleBiKant);
+		
+		lblOheBikoitzBatKant = new JTextField();
+		lblOheBikoitzBatKant.setColumns(10);
+		lblOheBikoitzBatKant.setBounds(267, 342, 86, 20);
+		getContentPane().add(lblOheBikoitzBatKant);
+		
+		lblOheBikoitzBatEtaSinpleBatKant = new JTextField();
+		lblOheBikoitzBatEtaSinpleBatKant.setColumns(10);
+		lblOheBikoitzBatEtaSinpleBatKant.setBounds(397, 383, 86, 20);
+		getContentPane().add(lblOheBikoitzBatEtaSinpleBatKant);
+		//lblOheSipleBat.g
 		
 		btnBalidatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

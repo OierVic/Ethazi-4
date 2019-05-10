@@ -22,6 +22,7 @@ import Ikuspegia.OngiEtorriLeihoa;
 import Ikuspegia.OrdainduLeihoa;
 
 public class Metodoak {
+	static int LogelaKant;
 	//Ventana1
 	public static void ongietorrileihora() {
 
@@ -438,7 +439,7 @@ public class Metodoak {
 		} while (i != dataJoan.size());
 		
 		
-		
+		getlogelaKant(logelaKopurua);
 		
 		logelaKopurua = logelaKopurua - oheMotakZbk;
 		System.out.println(logelaKopurua+" - "+oheMotakZbk);
@@ -453,6 +454,18 @@ public class Metodoak {
 		return lekua;
 	}
 	
+	public static int getlogelaKant (int logelaKant){
+		if(logelaKant==999){
+			
+		}else {
+			//LogelaKant = logelaKant;
+			LogelaKant = 9;
+		}
+		
+		
+		
+		return LogelaKant;
+	}
 	/*private static String[] dataOkupatuta(Date joanData, Date sartuData) {
 		String[] egunak;
 		
