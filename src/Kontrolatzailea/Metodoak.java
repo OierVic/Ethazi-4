@@ -392,11 +392,15 @@ public class Metodoak {
 		
 		int i = 0; // para cada intervalo 
 
-		boolean libre = false; 
 
 		do {
 
-
+			
+			if(dataJoan.size() == 0) {
+				lekua = true;
+				return lekua;
+			}
+			
 			if (sartzekoDataCliente.before(dataJoan.get(i))) { // Comparar dia de entrada comparar con dia de entrada BD
 				if (joatekoDataCliente.before(dataJoan.get(i))) { // Comparar dia de salida comprara con dia de entrada BD
 					System.out.println("No afecta");
