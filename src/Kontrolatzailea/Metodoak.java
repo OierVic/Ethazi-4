@@ -333,7 +333,7 @@ public class Metodoak {
 	
 	public static double prezioaEgunekin(double prezioHotel, Date joanData, Date sartuData, OheMotak o1,int idHotel){
 		
-		
+		double prezioTrampa = prezioHotel;
 		double prezioa0 = 0;
 		double prezioa1 = 0;
 		double prezioa2 = 0;
@@ -348,8 +348,10 @@ public class Metodoak {
 		long diff = (joanData.getTime() - sartuData.getTime());
 		long diffEguna = (diff / 1000 / 60 / 60 / 24) + 1;
 		round(diff, 2);
-		prezioHotel = prezioHotel * diffEguna;
-		
+		if(diffEguna - 1 != 0) {
+			prezioHotel = prezioHotel * (diffEguna - 1);	
+		}
+				
 		if(o1.getOheSimpleBat() > 0) {
 			 prezioa0 = prezioHotel * o1.getOheSimpleBat();
 		}if(o1.getOheBikoitzBat() > 0){
