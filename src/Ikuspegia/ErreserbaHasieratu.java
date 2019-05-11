@@ -242,70 +242,11 @@ public class ErreserbaHasieratu extends JFrame{
 		btnDatakEgiaztatu.setBounds(125, 160, 132, 23);
 		getContentPane().add(btnDatakEgiaztatu);
 		
-		btnDatakEgiaztatu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				//Diegate1
-				int i = 0;
-				boolean libre;
-				
-				String[] oheMotak =new String[4];
-				oheMotak[0]= "1sinp";
-				oheMotak[1]= "2sinp";
-				oheMotak[2]= "1bik";
-				oheMotak[3]= "1sinp1bik";
-				
-				int[] oheMotakZbk =new int[4];
-				oheMotakZbk[0]= OheSimpleBat;
-				oheMotakZbk[1]= OheSimpleBi;
-				oheMotakZbk[2]= OheBikoitzBat;
-				oheMotakZbk[3]= OheBikoitzBatEtaOheSimpleBat;
-				
-				int[] gelaLibre =new int[4];
-							
-				
-				do {
-				ArrayList<java.sql.Date> dataJoan = new ArrayList<java.sql.Date>();
-				dataJoan = Kontsulta_Hoteles.dataJoan(oheMotak[i]);
-				
-				ArrayList<java.sql.Date> dataEtorri = new ArrayList<java.sql.Date>();
-				dataEtorri = Kontsulta_Hoteles.dataEtorri(oheMotak[i]);
-				
-				
-				libre = Metodoak.DataKalkulatu(sartu_Data, joan_Data, dataJoan, dataEtorri, oheMotakZbk[i],oheMotak[i]);
-				
-				gelaLibre[i]= Metodoak.getlogelaKant(999);
-				System.out.println("gelaLibre: " + gelaLibre[i] + " ____________________");
-				
-				String[] strgelaLibre =new String[4];
-
-				strgelaLibre[0] = String.valueOf(gelaLibre[0]);
-				strgelaLibre[1] = String.valueOf(gelaLibre[1]);
-				strgelaLibre[2] = String.valueOf(gelaLibre[2]);
-				strgelaLibre[3] = String.valueOf(gelaLibre[3]);
-				
-
-				lblOheSipleBatKant.setText(strgelaLibre[0]);
-				lblOheBikoitzBatKant.setText(strgelaLibre[2]);
-				lblOheSinpleBiKant.setText(strgelaLibre[1]);
-				lblOheBikoitzBatEtaSinpleBatKant.setText(strgelaLibre[3]);
-				
-				
-				
-				
-				++i;
-				}while(i!=4);
-				
-		
-				
-	
-				
-			}
-		});
 		
 		btnBalidatu.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		btnBalidatu.setBounds(498, 259, 132, 43);
 		getContentPane().add(btnBalidatu);
+		btnBalidatu.setEnabled(false);
 		
 		lblOheSipleBatKant = new JTextField();
 		lblOheSipleBatKant.setBounds(268, 265, 86, 20);
@@ -329,6 +270,114 @@ public class ErreserbaHasieratu extends JFrame{
 		lblOheBikoitzBatEtaSinpleBatKant.setBounds(397, 383, 86, 20);
 		getContentPane().add(lblOheBikoitzBatEtaSinpleBatKant);
 		//lblOheSipleBat.g
+		
+		btnDatakEgiaztatu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btnBalidatu.setEnabled(true);
+				//Hoteletik joateko data balidatzeko
+				try {
+					joan_Data= dateJoan.getDate();
+					joan_Data_string=dateFormat.format(joan_Data);
+				}catch (Exception e1) {
+					btnBalidatu.setEnabled(true);
+					btnHurrengoa.setEnabled(false);
+					jarraituBotoia=false;
+					JOptionPane.showMessageDialog(null, "Sartzeko data hutsik dago. Mesedez osotu");
+				}
+				//Hotelera sartzeko data balidatzeko
+				try {
+					sartu_Data= dateSartu.getDate();
+					sartu_Data_string=dateFormat.format(sartu_Data);
+				}catch (Exception e1) {
+					btnBalidatu.setEnabled(true);
+					btnHurrengoa.setEnabled(false);
+					jarraituBotoia=false;
+					JOptionPane.showMessageDialog(null, "Sartzeko data hutsik dago. Mesedez osotu");
+				}
+
+
+				
+				//Diegate1
+				int i = 0;
+				boolean libre;
+				
+				String[] oheMotak =new String[4];
+				oheMotak[0]= "1sinp";
+				oheMotak[1]= "2sinp";
+				oheMotak[2]= "1bik";
+				oheMotak[3]= "1sinp1bik";
+				
+				int[] oheMotakZbk =new int[4];
+				oheMotakZbk[0]= OheSimpleBat;
+				oheMotakZbk[1]= OheSimpleBi;
+				oheMotakZbk[2]= OheBikoitzBat;
+				oheMotakZbk[3]= OheBikoitzBatEtaOheSimpleBat;
+				
+				int[] gelaLibre =new int[4];
+							
+				OheMotak o1 = Kontsulta_Hoteles.logelaKopurua();
+				do {
+				ArrayList<java.sql.Date> dataJoan = new ArrayList<java.sql.Date>();
+				ArrayList<java.sql.Date> dataEtorri = new ArrayList<java.sql.Date>();
+				ArrayList<java.sql.Date>[] dataArray = new ArrayList[2]; 
+
+				dataArray = Kontsulta_Hoteles.dataJoan(oheMotak[i]);
+				
+				dataJoan = dataArray[0];
+				dataEtorri = dataArray[1];
+				
+				
+				libre = Metodoak.DataKalkulatu(sartu_Data, joan_Data, dataJoan, dataEtorri, oheMotakZbk[i],oheMotak[i],i, o1);
+				
+				gelaLibre[i]= Metodoak.getlogelaKant(999);
+				System.out.println("gelaLibre: " + gelaLibre[i] + " ____________________");
+				
+				String[] strgelaLibre =new String[4];
+				if(gelaLibre[0] < 0) {
+					strgelaLibre[0] = "0";
+				}else {
+					strgelaLibre[0] = String.valueOf(gelaLibre[0]);
+				}if(gelaLibre[1] < 0) {
+					strgelaLibre[1] = "0";
+				}else {
+					strgelaLibre[1] = String.valueOf(gelaLibre[1]);
+				}if(gelaLibre[2] < 0) {
+					strgelaLibre[2] = "0";
+				}else {
+					strgelaLibre[2] = String.valueOf(gelaLibre[2]);
+				}if(gelaLibre[3] < 0) {
+					strgelaLibre[3] = "0";
+				}else {
+					strgelaLibre[3] = String.valueOf(gelaLibre[3]);
+				}
+				
+				
+				
+				if(i==0) {
+					lblOheSipleBatKant.setText(strgelaLibre[i]);
+				}else if(i==1) {
+					lblOheSinpleBiKant.setText(strgelaLibre[i]);
+				}else if(i==2) {
+					lblOheBikoitzBatKant.setText(strgelaLibre[i]);
+				}else if(i==3) {
+					lblOheBikoitzBatEtaSinpleBatKant.setText(strgelaLibre[i]);
+				}
+				
+			
+				
+				
+				
+				
+				
+				++i;
+				}while(i!=4);
+				
+		
+				
+	
+				
+			}
+		});
 		
 		btnBalidatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -408,17 +457,20 @@ public class ErreserbaHasieratu extends JFrame{
 				oheMotakZbk[2]= OheBikoitzBat;
 				oheMotakZbk[3]= OheBikoitzBatEtaOheSimpleBat;
 				
-
+				OheMotak o1 = Kontsulta_Hoteles.logelaKopurua();
 				
 				do {
-				ArrayList<java.sql.Date> dataJoan = new ArrayList<java.sql.Date>();
-				dataJoan = Kontsulta_Hoteles.dataJoan(oheMotak[i]);
+					ArrayList<java.sql.Date> dataJoan = new ArrayList<java.sql.Date>();
+					ArrayList<java.sql.Date> dataEtorri = new ArrayList<java.sql.Date>();
+					ArrayList<java.sql.Date>[] dataArray = new ArrayList[i]; 
+
+					dataArray = Kontsulta_Hoteles.dataJoan(oheMotak[i]);
+					
+					dataJoan = dataArray[0];
+					dataEtorri = dataArray[1];
 				
-				ArrayList<java.sql.Date> dataEtorri = new ArrayList<java.sql.Date>();
-				dataEtorri = Kontsulta_Hoteles.dataEtorri(oheMotak[i]);
 				
-				
-				libre = Metodoak.DataKalkulatu(sartu_Data, joan_Data, dataJoan, dataEtorri, oheMotakZbk[i],oheMotak[i]);
+				libre = Metodoak.DataKalkulatu(sartu_Data, joan_Data, dataJoan, dataEtorri, oheMotakZbk[i],oheMotak[i], i, o1);
 				if (libre== false) {
 					break;
 				}

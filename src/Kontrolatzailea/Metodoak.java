@@ -397,32 +397,55 @@ public class Metodoak {
 		return sinpleak;
 	}
 	
-	public static boolean DataKalkulatu (Date sartzekoDataCliente,Date joatekoDataCliente,ArrayList<java.sql.Date> dataJoan,ArrayList<java.sql.Date> dataEtorri, int oheMotakZbk, String oheMotak) {
-		int logelaKopurua = Kontsulta_Hoteles.HoteleanZenbatLekuDauden(oheMotak);
+	public static boolean DataKalkulatu (Date sartzekoDataCliente,Date joatekoDataCliente,ArrayList<java.sql.Date> dataJoan,ArrayList<java.sql.Date> dataEtorri, int oheMotakZbk, String oheMotak, int y, OheMotak o1) {
+		int logelaKopurua = 0;
+		
+		System.out.println(o1.getOheSimpleBat());
+		System.out.println(o1.getOheSimpleBi());
+		System.out.println(o1.getOheBikoitzBat());
+		System.out.println(o1.getOheBikoitzBatEtaOheSimpleBat());
+		
+		if(y == 0) {
+			logelaKopurua = o1.getOheSimpleBat();
+		} else if(y == 1) {
+			logelaKopurua = o1.getOheSimpleBi();
+		}else if(y== 2) {
+			logelaKopurua = o1.getOheBikoitzBat();
+		}else if (y==3) {
+			logelaKopurua = o1.getOheBikoitzBatEtaOheSimpleBat();
+		}
+		
 		boolean lekua= false;
 		
-		System.out.println("Numero de plazas del tipo: " + oheMotak + " = " + logelaKopurua);
+		System.out.println("Numero de plazas del tipo: " + oheMotak + " = " + logelaKopurua + " " + dataJoan.size());
 		int i = 0; // para cada intervalo 
-
+		//System.out.println("No afecta1" + sartzekoDataCliente + "before. " + dataJoan.get(i));
+		//System.out.println("No afecta1" + joatekoDataCliente + "before. " + dataJoan.get(i));
 
 		do {
-
+	
 			
 			if(dataJoan.size() == 0) {
 				lekua = true;
+				System.out.println("__________________ "+oheMotak+" AQUII: " + logelaKopurua);
+
+				getlogelaKant(logelaKopurua);
 				return lekua;
 			}
 			
 			if (sartzekoDataCliente.before(dataJoan.get(i))) { // Comparar dia de entrada comparar con dia de entrada BD
 				if (joatekoDataCliente.before(dataJoan.get(i))) { // Comparar dia de salida comprara con dia de entrada BD
-					System.out.println("No afecta");
+					
+					System.out.println("No afecta1" + sartzekoDataCliente + "before. " + dataJoan.get(i));
+					System.out.println("No afecta1" + joatekoDataCliente + "before. " + dataJoan.get(i));
+
 					++i;
 				} else {
 					++i;
 					--logelaKopurua;// esta fecha esta ocupada, comprobamos la siguiente
 				}
 			} else if (sartzekoDataCliente.after(dataEtorri.get(i))) { // Comparar dia de entrada con dia de salida BD
-				System.out.println("No afecta");
+				System.out.println("No afecta2");
 				++i;
 			} else {
 				++i;
@@ -435,10 +458,15 @@ public class Metodoak {
 				lekua = true;
 			}
 			System.out.println(logelaKopurua);
+			
+	
 
 		} while (i != dataJoan.size());
 		
+	
 		
+		System.out.println("___________________"+oheMotak+" AQUII2: " + logelaKopurua);
+
 		getlogelaKant(logelaKopurua);
 		
 		logelaKopurua = logelaKopurua - oheMotakZbk;
@@ -456,15 +484,17 @@ public class Metodoak {
 	
 	public static int getlogelaKant (int logelaKant){
 		if(logelaKant==999){
-			
+			System.out.println("Dime cual es el Logela Kopuruaaaaaa: " + logelaKant + " " + LogelaKant );
+			logelaKant = LogelaKant;
 		}else {
-			//LogelaKant = logelaKant;
-			LogelaKant = 9;
+			System.out.println("Dime cual es el Logela Kopuruaaaaaa: " + logelaKant + " " + LogelaKant );
+			LogelaKant = logelaKant;
+			//LogelaKant = 9;
 		}
 		
 		
 		
-		return LogelaKant;
+		return logelaKant;
 	}
 	/*private static String[] dataOkupatuta(Date joanData, Date sartuData) {
 		String[] egunak;

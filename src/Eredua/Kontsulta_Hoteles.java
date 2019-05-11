@@ -46,7 +46,7 @@ public class Kontsulta_Hoteles{
 
 			}
 			System.out.println();
-			System.out.println("Conexioa eginda");
+			System.out.println("Conexioa eginda3");
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -166,11 +166,18 @@ public class Kontsulta_Hoteles{
 		
 	}
 
-	public static ArrayList<java.sql.Date> dataJoan(String oheMotak) {
+	public static ArrayList<Date>[] dataJoan(String oheMotak) {
 		ArrayList<java.sql.Date> dataJoan = new ArrayList<java.sql.Date>();
-		Date JoatekoData = null;
-		int loguelaKopurua;
+		ArrayList<java.sql.Date> dataEtorri = new ArrayList<java.sql.Date>();
+		ArrayList<java.sql.Date>[] dataArray = new ArrayList[2]; 
 		int i=0;
+	
+
+		Date JoatekoData = null;
+		Date EtortzekoData = null;
+
+		int loguelaKopurua;
+		
 		int idHotel = HotelakAukeratuLeihoa.idHotelArtu();
 
 		Connection Conexion = null;
@@ -181,19 +188,26 @@ public class Kontsulta_Hoteles{
 			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/" + "bidaion", "root", "");
 			s = (Statement) Conexion.createStatement();
 
-			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT dataJoan, "+oheMotak+" FROM erreserba WHERE idOstatu  ='"+idHotel+"' AND "+oheMotak+" > 0"); 
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT dataJoan, dataEtorri, "+oheMotak+" FROM erreserba WHERE idOstatu  ='"+idHotel+"' AND "+oheMotak+" > 0"); 
 					
 			while (rs.next()) {
 				JoatekoData = rs.getDate("dataJoan");
+				EtortzekoData = rs.getDate("dataEtorri"); 
 				loguelaKopurua = rs.getInt(oheMotak);
 				i=0;
+				
 				System.out.println("i= " + i);
 				do {
 					dataJoan.add(JoatekoData);
+					dataEtorri.add(EtortzekoData);
+					
 					System.out.println(i + "--------");
 					System.out.println(JoatekoData);
+					System.out.println(EtortzekoData);
 
 					++i;
+					
+					
 					}while(loguelaKopurua > i );
 
 			}
@@ -202,51 +216,21 @@ public class Kontsulta_Hoteles{
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return dataJoan;
+		
+	
+		dataArray[0] = dataJoan;
+		dataArray[1] = dataEtorri;
+		
+		
+		
+		
+		
+		return dataArray;
 
 	}
 	
-	public static ArrayList<java.sql.Date> dataEtorri(String oheMotak) {
-		ArrayList<java.sql.Date> dataEtorri = new ArrayList<java.sql.Date>();
-		Date EtortzekoData = null;
-		int loguelaKopurua;
-		int i = 0;
-		int idHotel = HotelakAukeratuLeihoa.idHotelArtu();
 
-		Connection Conexion = null;
-		Statement s = null;
 
-		try {
-			// Class.forName("com.mysql.jdbc.Driver");
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/" + "bidaion", "root", "");
-			s = (Statement) Conexion.createStatement();
-
-			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT dataEtorri, "+oheMotak+" FROM erreserba WHERE idOstatu  ='"+idHotel+"' AND "+oheMotak+" > 0");
-			while (rs.next()) {
-				EtortzekoData = rs.getDate("dataEtorri");
-				loguelaKopurua = rs.getInt(oheMotak);
-				
-				
-				i=0;
-				System.out.println("i= " + i);
-				do {
-				dataEtorri.add(EtortzekoData);
-				System.out.println(i + "--------");
-				System.out.println(EtortzekoData);
-				++i;
-				}while(loguelaKopurua > i );
-				
-				
-
-			}
-			System.out.println();
-			System.out.println("Conexioa eginda");
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		return dataEtorri;
-
-	}
 	
 	public static int HoteleanZenbatLekuDauden(String oheMotak) {
 		int logelaKopuru=0;
@@ -267,7 +251,7 @@ public class Kontsulta_Hoteles{
 
 			}
 			System.out.println();
-			System.out.println("Conexioa eginda");
+			System.out.println("Conexioa eginda1");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -279,7 +263,7 @@ public class Kontsulta_Hoteles{
 
 public static OheMotak logelaKopurua() {
 	int idHotel = HotelakAukeratuLeihoa.idHotelArtu();
-	OheMotak o2 = null;
+	OheMotak o2 = new OheMotak(9, 9, 9, 9, 9);
 	
 	Connection Conexion = null;
 	Statement s = null;
@@ -289,21 +273,35 @@ public static OheMotak logelaKopurua() {
 		Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/" + "bidaion", "root", "");
 		s = (Statement) Conexion.createStatement();
 
-		ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT OheSimpleBat, OheSimpleBi, OheBikoitzBat, OheBikoitzBatEtaOheSimpleBat FROM hotel where idHotel ='"+idHotel+"'");
+		ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT 1sinp, 2sinp, 1bik, 1sinp1bik FROM hotel where idHotel ='"+idHotel+"'");
 		
 		while (rs.next()) {
-			o2.setOheSimpleBat(rs.getInt("OheSimpleBat"));
-			o2.setOheSimpleBi(rs.getInt("OheSimpleBi"));
-			o2.setOheBikoitzBat(rs.getInt("OheBikoitzBat"));
-			o2.setOheBikoitzBatEtaOheSimpleBat(rs.getInt("OheBikoitzBatEtaOheSimpleBat"));
+			System.out.println(rs.getInt("1sinp"));
+			System.out.println(rs.getInt("2sinp"));
+			System.out.println(rs.getInt("1bik"));
+			System.out.println(rs.getInt("1sinp1bik"));
+			
+			o2.setOheSimpleBat(rs.getInt("1sinp"));
+			o2.setOheSimpleBi(rs.getInt("2sinp"));
+			o2.setOheBikoitzBat(rs.getInt("1bik"));
+			o2.setOheBikoitzBatEtaOheSimpleBat(rs.getInt("1sinp1bik"));
+			
+			
 
 
 		}
 		System.out.println();
-		System.out.println("Conexioa eginda");
+		System.out.println("Conexioa eginda2");
 	} catch (Exception e) {
 		System.out.println(e.getMessage());
 	}
+	
+	System.out.println(o2.getOheSimpleBat());
+	System.out.println(o2.getOheSimpleBi());
+	System.out.println(o2.getOheBikoitzBat());
+	System.out.println(o2.getOheBikoitzBatEtaOheSimpleBat());
+	
+	
 	return o2;
 		
 	}
