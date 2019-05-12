@@ -140,7 +140,7 @@ public class LoginLeihoa extends JFrame {
 		Jarraitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Metodoak.hotelakaukeratuleihora();
+				Metodoak.ostatumotaaukeratuleihora();
 			}
 		});
 		Jarraitu.setFont(new Font("Arial", Font.PLAIN, 18));

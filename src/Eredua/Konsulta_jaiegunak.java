@@ -29,6 +29,8 @@ public class Konsulta_jaiegunak {
 				jaieguna = rs.getDate("jaiEguna");
 				jaiegunak.add(jaieguna);
 				
+				
+				
 			}
 			System.out.println();
 			System.out.println("Conexioa eginda");

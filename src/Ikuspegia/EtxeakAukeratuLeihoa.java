@@ -14,22 +14,23 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
+import Kontrolatzailea.Etxea;
 import Kontrolatzailea.Hotel;
 import Kontrolatzailea.Metodoak;
 
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 
-public class HotelakAukeratuLeihoa extends JFrame {
+public class EtxeakAukeratuLeihoa extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private JLabel lblHotelak = new JLabel("Hotelak");
+	private JLabel lblEtxeak = new JLabel("Etxeak");
 	private JComboBox<String> comboBoxNombreHoteles = new JComboBox<String>();
 	private JComboBox<String> comboBoxOheMota = new JComboBox<String>();
 	private JButton btnHurrengoa = new JButton("Hurrengoa");
 	private JLabel lblHelbideak = new JLabel("Helbideak");
-	private JComboBox comboBoxHelbideak = new JComboBox();
-	private ArrayList<Hotel>HotelCombobox = new ArrayList<Hotel>();
+	private JComboBox<String> comboBoxHelbideak = new JComboBox();
+	private ArrayList<Etxea>HotelCombobox = new ArrayList<Etxea>();
 	private JButton btnEzeztatu = new JButton("Ezeztatu");
 	private JButton btnAtzera = new JButton("Atzera");
 
@@ -39,16 +40,16 @@ public class HotelakAukeratuLeihoa extends JFrame {
 	public Double PrezioHotel;
 	public static int idHotel;
 
-	public HotelakAukeratuLeihoa(ArrayList <Hotel> Hoteles,ArrayList<String> Helbideak) {
+	public EtxeakAukeratuLeihoa(ArrayList <Etxea> Etxeak,ArrayList<String> Helbideak) {
 		
 
 		this.setBounds(275,100,700,600);
 		this.setBackground(SystemColor.control);
 		getContentPane().setLayout(null);
 
-		lblHotelak.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblHotelak.setBounds(58, 176, 121, 59);
-		getContentPane().add(lblHotelak);
+		lblEtxeak.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblEtxeak.setBounds(58, 176, 121, 59);
+		getContentPane().add(lblEtxeak);
 		
 		comboBoxHelbideak.setBounds(58, 107, 196, 39);
 		getContentPane().add(comboBoxHelbideak);
@@ -62,7 +63,7 @@ public class HotelakAukeratuLeihoa extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				comboBoxNombreHoteles.removeAllItems();
 				String helbideakSelected = (String) comboBoxHelbideak.getSelectedItem();
-				HotelCombobox=Eredua.Kontsulta_Hoteles.HotelakHelbidearekinAtera(helbideakSelected);
+				HotelCombobox=Eredua.Kontsulta_Etxeak.EtxeakHelbidearekinAtera(helbideakSelected);
 				for (int i = 0; i < HotelCombobox.size(); i++) {
 					comboBoxNombreHoteles.addItem(HotelCombobox.get(i).comboboxIzena());
 					
@@ -94,19 +95,19 @@ public class HotelakAukeratuLeihoa extends JFrame {
 //				int logelaKant = Integer.parseInt(logelKant);// pasar de String a int		
 //				System.out.println(logelaKant);
 				
-				String hotelak = (String) comboBoxNombreHoteles.getSelectedItem();
+				String etxeak = (String) comboBoxNombreHoteles.getSelectedItem();
 				int PosicionSelected = comboBoxNombreHoteles.getSelectedIndex();
-				if (hotelak==(null)) {
+				if (etxeak==(null)) {
 					btnHurrengoa.setEnabled(false);
-					JOptionPane.showMessageDialog(null,"Ez duzu hotelik aukeratu. Mezedez, Hotel bat aukeratu.");
+					JOptionPane.showMessageDialog(null,"Ez duzu etxerik aukeratu. Mezedez, Hotel bat aukeratu.");
 				}
-				else if(!(hotelak==(null))) {
+				else if(!(etxeak==(null))) {
 					System.out.println(PrezioHotel);
 					dispose();
-					PrezioHotel = HotelCombobox.get(PosicionSelected).getPrezioHotel();
+					PrezioHotel = HotelCombobox.get(PosicionSelected).getPrezioEtxea();
 					idHotel = HotelCombobox.get(PosicionSelected).getId_Ostatu();
 					
-					Metodoak.erreserbahasieratu(hotelak, PrezioHotel);
+					Metodoak.erreserbahasieratu(etxeak, PrezioHotel);
 
 				}
 				
@@ -149,8 +150,5 @@ public class HotelakAukeratuLeihoa extends JFrame {
 		
 
 	}
-	public static int idHotelArtu(){
-		int idhotel = idHotel;
-		return idhotel;
-	}
+
 }

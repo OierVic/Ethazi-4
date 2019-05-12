@@ -12,14 +12,17 @@ import java.util.Date;
 import Eredua.Konsulta_Erregistro;
 import Eredua.Kontsulta_Bezero;
 import Eredua.Kontsulta_Erreserba;
+import Eredua.Kontsulta_Etxeak;
 import Eredua.Kontsulta_Hoteles;
 import Ikuspegia.ErregistroLeihoa;
 import Ikuspegia.ErreserbaHasieratu;
 import Ikuspegia.EskerrikAskoLeihoa;
+import Ikuspegia.EtxeakAukeratuLeihoa;
 import Ikuspegia.HotelakAukeratuLeihoa;
 import Ikuspegia.LoginLeihoa;
 import Ikuspegia.OngiEtorriLeihoa;
 import Ikuspegia.OrdainduLeihoa;
+import Ikuspegia.OstauMotaAukeratu;
 
 public class Metodoak {
 	static int LogelaKant;
@@ -50,6 +53,13 @@ public class Metodoak {
 
 		}
 		
+		public static void ostatumotaaukeratuleihora() {
+
+			OstauMotaAukeratu OstatuMotaAukeratu= new OstauMotaAukeratu();
+			OstatuMotaAukeratu.setVisible(true);
+
+		}
+		
 	//Ventana3
 	public static void hotelakaukeratuleihora() {
 
@@ -60,8 +70,19 @@ public class Metodoak {
 		HotelakAukeratuLeihoa LoginLeihoa= new HotelakAukeratuLeihoa(Hoteles,Helbideak);
 		LoginLeihoa.setVisible(true);
 
+	}
+	
+	public static void etxeakaukeratuleihora() {
+
+		ArrayList <Etxea> Etxeak= new ArrayList <Etxea>();
+		Etxeak=Kontsulta_Etxeak.EtxeakIkusi();
+		ArrayList<String> Helbideak =new ArrayList<String>();
+		Helbideak=Kontsulta_Etxeak.HelbideakIkusi();
+		EtxeakAukeratuLeihoa EtxeakAukeratu= new EtxeakAukeratuLeihoa(Etxeak,Helbideak);
+		EtxeakAukeratu.setVisible(true);
 
 	}
+	
 	//Erreserba prestatzeko lehioa
 		public static void erreserbahasieratu(String hotelak, double PrezioHotel) {
 			ErreserbaHasieratu ErreserbaLehioa = new ErreserbaHasieratu(hotelak, PrezioHotel);
