@@ -138,6 +138,14 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 				
 			}
 		});
+		btnHurrengoa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				double prezio=Metodoak.prezioaEgunekinEtxea(PrezioEtxea, joan_Data, sartu_Data);
+				
+				
+			}
+		});
 		
 		btnHurrengoa.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		btnHurrengoa.setBounds(484, 490, 157, 46);
@@ -190,6 +198,7 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 				
 				if(sartu_Data != null && joan_Data != null)
 							btnHurrengoa.setEnabled(true);
+				
 				
 			}
 		});

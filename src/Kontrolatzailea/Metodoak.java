@@ -411,6 +411,21 @@ public class Metodoak {
 		
 		return (double) prezioHotel;
 	}
+	
+	public static double prezioaEgunekinEtxea(double prezioHotel, Date joanData, Date sartuData) {
+		
+		long diff = (joanData.getTime() - sartuData.getTime());
+		long diffEguna = (diff / 1000 / 60 / 60 / 24) + 1;
+		round(diff, 2);
+		
+		prezioHotel = prezioHotel * (diffEguna - 1);	
+		
+		prezioHotel = Math.round(prezioHotel * 100) / 100d;
+		
+		System.out.println(prezioHotel + "   prezio etxea");
+		
+		return (double) prezioHotel;
+	}
 
 	private static void round(long diff, int i) {
 	}
