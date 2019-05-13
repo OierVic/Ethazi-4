@@ -89,7 +89,7 @@ public class OrdainduLeihoaEtxeak extends JFrame {
 				String dataJoan=dateFormat.format(sartuData);
 				String dataEtorri=dateFormat.format(joanData);
 
-				
+				//oierbike
 				
 				/*Erreserba IgotzekoErreserba = new Erreserba(idOstatu, idBezero, dataJoan, dataEtorri, prezioHotel, 0, 0, 0, 0, 0, Eskatutakodata, 0);
 				Metodoak.ErreserbaIgo(IgotzekoErreserba);
