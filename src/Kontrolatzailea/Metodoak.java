@@ -87,11 +87,9 @@ public class Metodoak {
 	}
 	//Apartamentua aukeratzeko lehiora joateko
 	public static void apartamentuakAukeratuleihora() {
-//		ArrayList <Etxea> Etxeak= new ArrayList <Etxea>();
-//		Etxeak=Kontsulta_Apartamentua.ApartamentuakHelbidearekinAtera();
-//		ArrayList<String> Helbideak =new ArrayList<String>();
-//		Helbideak=Kontsulta_Apartamentua.ApartamentuenHelbideakIkusi();
-		ApartamentuakAukeratuLeihoa apartamentuakAukeratuLeihoa= new ApartamentuakAukeratuLeihoa();
+		ArrayList<String> Helbideak =new ArrayList<String>();
+		Helbideak=Kontsulta_Apartamentua.ApartamentuenHelbideakIkusi();
+		ApartamentuakAukeratuLeihoa apartamentuakAukeratuLeihoa= new ApartamentuakAukeratuLeihoa(Helbideak);
 		apartamentuakAukeratuLeihoa.setVisible(true);
 
 	}

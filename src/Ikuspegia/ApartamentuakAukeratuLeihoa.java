@@ -1,6 +1,7 @@
 package Ikuspegia;
 
 import java.awt.SystemColor;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,8 +21,7 @@ public class ApartamentuakAukeratuLeihoa extends JFrame {
 	JButton btnAtzeraApartamentua = new JButton("Atzera");
 
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public ApartamentuakAukeratuLeihoa() {
+	public ApartamentuakAukeratuLeihoa(ArrayList<String> Helbideak) {
 		getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 20));
 		this.setBounds(275,100,700,600);
 		this.setBackground(SystemColor.control);

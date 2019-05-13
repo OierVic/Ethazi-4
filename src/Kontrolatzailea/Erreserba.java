@@ -316,7 +316,7 @@ public class Erreserba {
 
 	@Override
 	public String toString() {
-		return " \n" + "                                                             HOTEL                        "
+		return " \n" + "                                                             Erreserba                        "
 				+ " \t\n"
 				+ " ----------------------------------------------------------------------------------------------------------------------"
 				+ " \t\n"
