@@ -79,9 +79,11 @@ public class OstauMotaAukeratu extends JFrame {
 		btnApartamentuak.setFont(new Font("Tahoma", Font.PLAIN, 21));
 		btnApartamentuak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+				Metodoak.apartamentuakAukeratuleihora();
 			}
 		});
-		btnApartamentuak.setBounds(486, 120, 175, 316);
+		btnApartamentuak.setBounds(470, 120, 204, 316);
 		getContentPane().add(btnApartamentuak);
 		
 

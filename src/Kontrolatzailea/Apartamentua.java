@@ -42,11 +42,10 @@ public class Apartamentua extends Ostatu {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
 	
-	@Override
-	public String toString() {
-		return "Apartamentua [prezioApartementua=" + this.prezioApartementua + ", Helbidea=" + this.helbidea + "]";
+	public String comboboxIzena() {
+		String cb = this.getOstatu_Izena()+"           Helbidea: "+this.helbidea+"           Prezioa: "+this.prezioApartementua;
+		return cb;
 	}
 
 
