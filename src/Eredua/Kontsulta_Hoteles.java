@@ -31,16 +31,14 @@ public class Kontsulta_Hoteles{
 			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
-			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idHotel,izenaHotel,logelaKopurua,HartutakoLogelak,izarKopurua,prezioHotelSimple,helbideHotel FROM hotel");
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idHotel,izenaHotel,izarKopurua,prezioHotelSimple,helbideHotel FROM hotel");
 			while (rs.next()) {
 				idHotela = rs.getInt("idHotel");
 				hotelIzena = rs.getString("izenaHotel");
-				logelaKopurua = rs.getInt("logelaKopurua");
-				HartutakoLogelak = rs.getInt("HartutakoLogelak");
 				izarKopurua = rs.getInt("izarKopurua");
 				prezioHotel = rs.getDouble("prezioHotelSimple");
 				Helbidea = rs.getString("helbideHotel");
-				Hotel h1 = new Hotel(idHotela, hotelIzena, logelaKopurua, izarKopurua, prezioHotel,Helbidea);
+				Hotel h1 = new Hotel(idHotela, hotelIzena, izarKopurua, prezioHotel,Helbidea);
 				hotelak.add(h1);
 				//System.out.println(izena);
 
@@ -103,16 +101,15 @@ public class Kontsulta_Hoteles{
 			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
-			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idHotel,izenaHotel,logelaKopurua,izarKopurua,prezioHotelSimple,helbideHotel FROM hotel where helbideHotel='"+helbideaHartu+"'");
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idHotel,izenaHotel,izarKopurua,prezioHotelSimple,helbideHotel FROM hotel where helbideHotel='"+helbideaHartu+"'");
 			while (rs.next()) {
 				idHotela = rs.getInt("idHotel");
 				hotelIzena = rs.getString("izenaHotel");
-				logelaKopurua = rs.getInt("logelaKopurua");
 				//HartutakoLogelak = rs.getInt("HartutakoLogelak");
 				izarKopurua = rs.getInt("izarKopurua");
 				prezioHotel = rs.getDouble("prezioHotelSimple");
 				Helbidea = rs.getString("helbideHotel");
-				Hotel h1 = new Hotel(idHotela, hotelIzena, logelaKopurua, izarKopurua, prezioHotel,Helbidea);
+				Hotel h1 = new Hotel(idHotela, hotelIzena, izarKopurua, prezioHotel,Helbidea);
 				hotelak2.add(h1);
 				//System.out.println(izena);
 

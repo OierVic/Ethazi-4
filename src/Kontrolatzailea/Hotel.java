@@ -3,7 +3,6 @@ package Kontrolatzailea;
 public class Hotel extends Ostatu{
 	//atributuak
 	
-	private int LogelaKopurua;
 	//private int HartutakoLogelak;
 	private int izarKopurua;
 	private double prezioHotel;
@@ -11,18 +10,13 @@ public class Hotel extends Ostatu{
 	
 	//Kontruktorea hotelak behar dituen datuak sartzeko...
 
-	public Hotel(int id_Hotel, String izena_Hotel, int logelaKopurua, int izarKopurua,
+	public Hotel(int id_Hotel, String izena_Hotel, int izarKopurua,
 			double prezioHotel, String helbideHotel) {
 		super(id_Hotel, izena_Hotel);
-		this.LogelaKopurua = logelaKopurua;
 		//this.HartutakoLogelak = hartutakoLogelak;
 		this.izarKopurua = izarKopurua;
 		this.prezioHotel = prezioHotel;
 		this.helbideHotel = helbideHotel;
-	}
-
-	public int getLogelaKopurua() {
-		return LogelaKopurua;
 	}
 
 //	public int getHartutakoLogelak() {
@@ -41,9 +35,7 @@ public class Hotel extends Ostatu{
 		return helbideHotel;
 	}
 
-	public void setLogelaKopurua(int logelaKopurua) {
-		LogelaKopurua = logelaKopurua;
-	}
+
 
 //	public void setHartutakoLogelak(int hartutakoLogelak) {
 //		HartutakoLogelak = hartutakoLogelak;
