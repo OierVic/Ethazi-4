@@ -70,9 +70,18 @@ public class ApartamentuakAukeratuLeihoa extends JFrame {
 			
 		});
 		
+		
 		btnHurrengoaApartamentua.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnHurrengoaApartamentua.setBounds(520, 497, 127, 41);
+		btnHurrengoaApartamentua.setBounds(520, 497, 140, 41);
 		getContentPane().add(btnHurrengoaApartamentua);
+		btnHurrengoaApartamentua.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				//Falta por pasar el precio y el nombre
+				Metodoak.erreserbahasieratuapartamentua("Falta por cambiar esto", 20);
+				
+			}
+		});
 		
 		btnEzeztatuApartamentua.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnEzeztatuApartamentua.setBounds(262, 497, 115, 41);

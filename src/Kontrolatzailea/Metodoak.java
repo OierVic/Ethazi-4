@@ -88,8 +88,6 @@ public class Metodoak {
 	}
 	//Apartamentua aukeratzeko lehiora joateko
 	public static void apartamentuakAukeratuleihora() {
-//		ArrayList <Apartamentua> Apartamentuak= new ArrayList <Apartamentua>();
-//		Apartamentuak=Kontsulta_Apartamentua.ApartamentuakIkusi();
 		ArrayList<String> Helbideak =new ArrayList<String>();
 		Helbideak=Kontsulta_Apartamentua.ApartamentuenHelbideakIkusi();
 		ApartamentuakAukeratuLeihoa apartamentuakAukeratuLeihoa= new ApartamentuakAukeratuLeihoa(Helbideak);
@@ -108,8 +106,11 @@ public class Metodoak {
 			ErreserbaHasieratuEtxea ErreserbaLehioaEtxea = new ErreserbaHasieratuEtxea(etxeak, PrezioEtxea);
 			ErreserbaLehioaEtxea.setVisible(true);
 		}
+		public static void erreserbahasieratuapartamentua(String apartamentuak, double PrezioApartamentua) {
+			ErreserbaHasieratuEtxea ErreserbaLehioaEtxea = new ErreserbaHasieratuEtxea(apartamentuak, PrezioApartamentua);
+			ErreserbaLehioaEtxea.setVisible(true);
+		}
 
-		//oierbike
 		
 	//Ventana4
 	public static void ordainduleihora(String hotelak, double prezioHotel, Date sartuData, Date joanData, OheMotak o1,int logelaKopurua) {
