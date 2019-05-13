@@ -40,10 +40,9 @@ public class Kontsulta_Hoteles{
 				Helbidea = rs.getString("helbideHotel");
 				Hotel h1 = new Hotel(idHotela, hotelIzena, izarKopurua, prezioHotel,Helbidea);
 				hotelak.add(h1);
-				//System.out.println(izena);
+			
 
 			}
-			System.out.println();
 			System.out.println("Conexioa eginda3");
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
@@ -72,7 +71,6 @@ public class Kontsulta_Hoteles{
 				Helbideak.add(helbideak);
 				
 			}
-			System.out.println();
 			System.out.println("Conexioa eginda2");
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
@@ -111,7 +109,6 @@ public class Kontsulta_Hoteles{
 				Helbidea = rs.getString("helbideHotel");
 				Hotel h1 = new Hotel(idHotela, hotelIzena, izarKopurua, prezioHotel,Helbidea);
 				hotelak2.add(h1);
-				//System.out.println(izena);
 
 			}
 			for (int i = 0; i < hotelak2.size(); i++) {
@@ -119,7 +116,6 @@ public class Kontsulta_Hoteles{
 			}
 			
 			
-			System.out.println();
 			System.out.println("Conexioa eginda");
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
@@ -148,10 +144,9 @@ public class Kontsulta_Hoteles{
 				
 				prezioHotel = rs.getDouble("prezioHotelSimple");
 				
-				//System.out.println(izena);
+				
 
 			}
-			System.out.println();
 			System.out.println("Conexioa eginda");
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
@@ -193,14 +188,10 @@ public class Kontsulta_Hoteles{
 				loguelaKopurua = rs.getInt(oheMotak);
 				i=0;
 				
-				System.out.println("i= " + i);
 				do {
 					dataJoan.add(JoatekoData);
 					dataEtorri.add(EtortzekoData);
 					
-					System.out.println(i + "--------");
-					System.out.println(JoatekoData);
-					System.out.println(EtortzekoData);
 
 					++i;
 					
@@ -208,7 +199,6 @@ public class Kontsulta_Hoteles{
 					}while(loguelaKopurua > i );
 
 			}
-			System.out.println();
 			System.out.println("Conexioa eginda");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -235,7 +225,6 @@ public class Kontsulta_Hoteles{
 		Connection Conexion = null;
 		Statement s = null;
 		
-		System.out.println("Nombre del tipo de logela: " + oheMotak);
 
 		try {
 			// Class.forName("com.mysql.jdbc.Driver");
@@ -247,7 +236,6 @@ public class Kontsulta_Hoteles{
 				logelaKopuru = rs.getInt(oheMotak);
 
 			}
-			System.out.println();
 			System.out.println("Conexioa eginda1");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -273,10 +261,6 @@ public static OheMotak logelaKopurua() {
 		ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT 1sinp, 2sinp, 1bik, 1sinp1bik FROM hotel where idHotel ='"+idHotel+"'");
 		
 		while (rs.next()) {
-			System.out.println(rs.getInt("1sinp"));
-			System.out.println(rs.getInt("2sinp"));
-			System.out.println(rs.getInt("1bik"));
-			System.out.println(rs.getInt("1sinp1bik"));
 			
 			o2.setOheSimpleBat(rs.getInt("1sinp"));
 			o2.setOheSimpleBi(rs.getInt("2sinp"));
@@ -287,16 +271,12 @@ public static OheMotak logelaKopurua() {
 
 
 		}
-		System.out.println();
 		System.out.println("Conexioa eginda2");
 	} catch (Exception e) {
 		System.out.println(e.getMessage());
 	}
 	
-	System.out.println(o2.getOheSimpleBat());
-	System.out.println(o2.getOheSimpleBi());
-	System.out.println(o2.getOheBikoitzBat());
-	System.out.println(o2.getOheBikoitzBatEtaOheSimpleBat());
+
 	
 	
 	return o2;

@@ -185,6 +185,9 @@ public class ErreserbaHasieratu extends JFrame{
 				Metodoak.ongietorrileihora();
 			}
 		});
+		
+	
+		
 		btnEzeztatuErreserba.setFont(new Font("Arial", Font.PLAIN, 18));
 		btnEzeztatuErreserba.setBounds(275, 494, 112, 41);
 		getContentPane().add(btnEzeztatuErreserba);
@@ -212,32 +215,7 @@ public class ErreserbaHasieratu extends JFrame{
 		lblSehaska.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblSehaska.setBounds(65, 435, 80, 20);
 		getContentPane().add(lblSehaska);
-		
-		spinner_OheSimpleBat = new JSpinner();
-		spinner_OheSimpleBat.setModel(new SpinnerNumberModel(0, 0, 2, 1));
-		spinner_OheSimpleBat.setBounds(217, 265, 40, 20);
-		getContentPane().add(spinner_OheSimpleBat);
-		
-		spinner_OheSimpleBi = new JSpinner();
-		spinner_OheSimpleBi.setModel(new SpinnerNumberModel(0, 0, 2, 1));
-		spinner_OheSimpleBi.setBounds(217, 304, 40, 20);
-		getContentPane().add(spinner_OheSimpleBi);
-		
-		spinner_OheBikoitzBat = new JSpinner();
-		spinner_OheBikoitzBat.setModel(new SpinnerNumberModel(0, 0, 2, 1));
-		spinner_OheBikoitzBat.setBounds(217, 342, 40, 20);
-		getContentPane().add(spinner_OheBikoitzBat);
-		
-		spinner_OheBikoitzBatEtaOheSimpleBat = new JSpinner();
-		spinner_OheBikoitzBatEtaOheSimpleBat.setModel(new SpinnerNumberModel(0, 0, 2, 1));
-		spinner_OheBikoitzBatEtaOheSimpleBat.setBounds(339, 383, 48, 20);
-		getContentPane().add(spinner_OheBikoitzBatEtaOheSimpleBat);
-		
-		spinner_Sehaska = new JSpinner();
-		spinner_Sehaska.setModel(new SpinnerNumberModel(0, 0, 4, 1));
-		spinner_Sehaska.setBounds(154, 437, 43, 20);
-		getContentPane().add(spinner_Sehaska);
-		
+				
 		btnDatakEgiaztatu.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnDatakEgiaztatu.setBounds(125, 160, 132, 23);
 		getContentPane().add(btnDatakEgiaztatu);
@@ -270,6 +248,10 @@ public class ErreserbaHasieratu extends JFrame{
 		lblOheBikoitzBatEtaSinpleBatKant.setBounds(397, 383, 86, 20);
 		getContentPane().add(lblOheBikoitzBatEtaSinpleBatKant);
 		//lblOheSipleBat.g
+	
+		int[] gelaLibre =new int[4];
+		
+		
 		
 		btnDatakEgiaztatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -298,6 +280,8 @@ public class ErreserbaHasieratu extends JFrame{
 
 				
 				//Diegate1
+				int[] gelaLibre =new int[4];
+				
 				int i = 0;
 				boolean libre;
 				
@@ -313,7 +297,7 @@ public class ErreserbaHasieratu extends JFrame{
 				oheMotakZbk[2]= OheBikoitzBat;
 				oheMotakZbk[3]= OheBikoitzBatEtaOheSimpleBat;
 				
-				int[] gelaLibre =new int[4];
+				
 							
 				OheMotak o1 = Kontsulta_Hoteles.logelaKopurua();
 				do {
@@ -330,7 +314,12 @@ public class ErreserbaHasieratu extends JFrame{
 				libre = Metodoak.DataKalkulatu(sartu_Data, joan_Data, dataJoan, dataEtorri, oheMotakZbk[i],oheMotak[i],i, o1);
 				
 				gelaLibre[i]= Metodoak.getlogelaKant(999);
-				System.out.println("gelaLibre: " + gelaLibre[i] + " ____________________");
+				
+				System.out.println(gelaLibre[0]);
+				spinner_OheSimpleBat.setModel(new SpinnerNumberModel(0, 0, gelaLibre[0], 1));
+				spinner_OheSimpleBi.setModel(new SpinnerNumberModel(0, 0, gelaLibre[1], 1));
+				spinner_OheBikoitzBat.setModel(new SpinnerNumberModel(0, 0, gelaLibre[1], 1));
+				spinner_OheBikoitzBatEtaOheSimpleBat.setModel(new SpinnerNumberModel(0, 0, gelaLibre[1], 1));
 				
 				String[] strgelaLibre =new String[4];
 				if(gelaLibre[0] < 0) {
@@ -371,13 +360,37 @@ public class ErreserbaHasieratu extends JFrame{
 				
 				++i;
 				}while(i!=4);
+			
 				
-		
-				
-	
 				
 			}
 		});
+	
+		
+		spinner_OheSimpleBat = new JSpinner();
+		spinner_OheSimpleBat.setModel(new SpinnerNumberModel(0, 0, gelaLibre[0], 1));
+		spinner_OheSimpleBat.setBounds(217, 265, 40, 20);
+		getContentPane().add(spinner_OheSimpleBat);
+		
+		spinner_OheSimpleBi = new JSpinner();
+		spinner_OheSimpleBi.setModel(new SpinnerNumberModel(0, 0, gelaLibre[1], 1));
+		spinner_OheSimpleBi.setBounds(217, 304, 40, 20);
+		getContentPane().add(spinner_OheSimpleBi);
+		
+		spinner_OheBikoitzBat = new JSpinner();
+		spinner_OheBikoitzBat.setModel(new SpinnerNumberModel(0, 0, gelaLibre[2], 1));
+		spinner_OheBikoitzBat.setBounds(217, 342, 40, 20);
+		getContentPane().add(spinner_OheBikoitzBat);
+		
+		spinner_OheBikoitzBatEtaOheSimpleBat = new JSpinner();
+		spinner_OheBikoitzBatEtaOheSimpleBat.setModel(new SpinnerNumberModel(0, 0, gelaLibre[3], 1));
+		spinner_OheBikoitzBatEtaOheSimpleBat.setBounds(339, 383, 48, 20);
+		getContentPane().add(spinner_OheBikoitzBatEtaOheSimpleBat);
+		
+		spinner_Sehaska = new JSpinner();
+		spinner_Sehaska.setModel(new SpinnerNumberModel(0, 0, 4, 1));
+		spinner_Sehaska.setBounds(154, 437, 43, 20);
+		getContentPane().add(spinner_Sehaska);
 		
 		btnBalidatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -477,9 +490,7 @@ public class ErreserbaHasieratu extends JFrame{
 				++i;
 				}while(i!=4);
 				
-				System.out.println("Ya en la ventana: "+libre);
 				if(libre==false) {
-					System.out.println("Ya en la ventana: "+libre);
 
 					btnBalidatu.setEnabled(true);
 					btnHurrengoa.setEnabled(false);

@@ -26,6 +26,7 @@ import Ikuspegia.OstauMotaAukeratu;
 
 public class Metodoak {
 	static int LogelaKant;
+
 	//Ventana1
 	public static void ongietorrileihora() {
 
@@ -265,7 +266,6 @@ public class Metodoak {
 		if(hora<10 && minutos<10) {
 			ordua = hora+":"+"0"+minutos;
 		}
-		System.out.println(ordua);
 		return ordua;
 	}
 
@@ -290,7 +290,6 @@ public class Metodoak {
 		if (dia<10 && mes<10) {
 			data = "0"+dia+"-"+"0"+mes+"-"+año;
 		}
-		System.out.println(data);
 		return data;
 	}
 	public static String dataAtera() {
@@ -314,7 +313,6 @@ public class Metodoak {
 		if (dia<10 && mes<10) {
 			data = año+"-"+"0"+mes+"-"+"0"+dia;
 		}
-		System.out.println(data);
 		return data;
 	}
 	//	public static void bezeroaIgo(BezeroIgo bezeroIgo) {
@@ -421,10 +419,6 @@ public class Metodoak {
 	public static boolean DataKalkulatu (Date sartzekoDataCliente,Date joatekoDataCliente,ArrayList<java.sql.Date> dataJoan,ArrayList<java.sql.Date> dataEtorri, int oheMotakZbk, String oheMotak, int y, OheMotak o1) {
 		int logelaKopurua = 0;
 		
-		System.out.println(o1.getOheSimpleBat());
-		System.out.println(o1.getOheSimpleBi());
-		System.out.println(o1.getOheBikoitzBat());
-		System.out.println(o1.getOheBikoitzBatEtaOheSimpleBat());
 		
 		if(y == 0) {
 			logelaKopurua = o1.getOheSimpleBat();
@@ -438,7 +432,6 @@ public class Metodoak {
 		
 		boolean lekua= false;
 		
-		System.out.println("Numero de plazas del tipo: " + oheMotak + " = " + logelaKopurua + " " + dataJoan.size());
 		int i = 0; // para cada intervalo 
 		//System.out.println("No afecta1" + sartzekoDataCliente + "before. " + dataJoan.get(i));
 		//System.out.println("No afecta1" + joatekoDataCliente + "before. " + dataJoan.get(i));
@@ -448,7 +441,6 @@ public class Metodoak {
 			
 			if(dataJoan.size() == 0) {
 				lekua = true;
-				System.out.println("__________________ "+oheMotak+" AQUII: " + logelaKopurua);
 
 				getlogelaKant(logelaKopurua);
 				return lekua;
@@ -457,8 +449,6 @@ public class Metodoak {
 			if (sartzekoDataCliente.before(dataJoan.get(i))) { // Comparar dia de entrada comparar con dia de entrada BD
 				if (joatekoDataCliente.before(dataJoan.get(i))) { // Comparar dia de salida comprara con dia de entrada BD
 					
-					System.out.println("No afecta1" + sartzekoDataCliente + "before. " + dataJoan.get(i));
-					System.out.println("No afecta1" + joatekoDataCliente + "before. " + dataJoan.get(i));
 
 					++i;
 				} else {
@@ -466,7 +456,6 @@ public class Metodoak {
 					--logelaKopurua;// esta fecha esta ocupada, comprobamos la siguiente
 				}
 			} else if (sartzekoDataCliente.after(dataEtorri.get(i))) { // Comparar dia de entrada con dia de salida BD
-				System.out.println("No afecta2");
 				++i;
 			} else {
 				++i;
@@ -478,7 +467,6 @@ public class Metodoak {
 			}else {
 				lekua = true;
 			}
-			System.out.println(logelaKopurua);
 			
 	
 
@@ -486,29 +474,23 @@ public class Metodoak {
 		
 	
 		
-		System.out.println("___________________"+oheMotak+" AQUII2: " + logelaKopurua);
 
 		getlogelaKant(logelaKopurua);
 		
 		logelaKopurua = logelaKopurua - oheMotakZbk;
-		System.out.println(logelaKopurua+" - "+oheMotakZbk);
-		System.out.println("Despues de tu eleccion: " + logelaKopurua);
 		
 		if(logelaKopurua < 0) {
 			lekua = false;
 		}
 		
-		System.out.println(lekua);
 
 		return lekua;
 	}
 	
 	public static int getlogelaKant (int logelaKant){
 		if(logelaKant==999){
-			System.out.println("Dime cual es el Logela Kopuruaaaaaa: " + logelaKant + " " + LogelaKant );
 			logelaKant = LogelaKant;
 		}else {
-			System.out.println("Dime cual es el Logela Kopuruaaaaaa: " + logelaKant + " " + LogelaKant );
 			LogelaKant = logelaKant;
 			//LogelaKant = 9;
 		}
@@ -528,5 +510,6 @@ public class Metodoak {
 		int sumaTotala=spinner1+spinner1+spinner3+spinner4;
 		return sumaTotala;
 	}
+	
 	
 }
