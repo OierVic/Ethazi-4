@@ -46,7 +46,6 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 	private JButton btnAtzeraErreserba = new JButton("Atzera");;
 	private JButton btnEzeztatuErreserba = new JButton("Ezeztatu");
 	private JButton btnDatakEgiaztatu = new JButton("Datak egiaztatu");
-	private JButton btnBalidatu = new JButton("Balidatu");
 	//Date formatutik String-era aldatzeko
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -127,7 +126,7 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Metodoak.hotelakaukeratuleihora();
+				Metodoak.etxeakaukeratuleihora();
 				
 			}
 		});
@@ -135,7 +134,7 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 		btnAtzeraErreserba.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Metodoak.hotelakaukeratuleihora();
+				Metodoak.etxeakaukeratuleihora();
 				
 			}
 		});
@@ -163,139 +162,40 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 		btnDatakEgiaztatu.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnDatakEgiaztatu.setBounds(125, 160, 132, 23);
 		getContentPane().add(btnDatakEgiaztatu);
-		
-		
-		btnBalidatu.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		btnBalidatu.setBounds(498, 259, 132, 43);
-		getContentPane().add(btnBalidatu);
-		btnBalidatu.setEnabled(false);
 		//lblOheSipleBat.g
 		
 		btnDatakEgiaztatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				btnBalidatu.setEnabled(true);
 				//Hoteletik joateko data balidatzeko
 				try {
 					joan_Data= dateJoan.getDate();
 					joan_Data_string=dateFormat.format(joan_Data);
 				}catch (Exception e1) {
-					btnBalidatu.setEnabled(true);
 					btnHurrengoa.setEnabled(false);
 					jarraituBotoia=false;
-					JOptionPane.showMessageDialog(null, "Sartzeko data hutsik dago. Mesedez osotu");
+					JOptionPane.showMessageDialog(null, "Sartzeko data hutsik dago. Mesedez, aukeratu bat");
 				}
 				//Hotelera sartzeko data balidatzeko
 				try {
 					sartu_Data= dateSartu.getDate();
 					sartu_Data_string=dateFormat.format(sartu_Data);
 				}catch (Exception e1) {
-					btnBalidatu.setEnabled(true);
 					btnHurrengoa.setEnabled(false);
 					jarraituBotoia=false;
-					JOptionPane.showMessageDialog(null, "Sartzeko data hutsik dago. Mesedez osotu");
-				}
-
-			}
-		});
-		
-		/*btnBalidatu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				jarraituBotoia=true;
-				//Hoteletik joateko data balidatzeko
-				try {
-					joan_Data= dateJoan.getDate();
-					joan_Data_string=dateFormat.format(joan_Data);
-				}catch (Exception e1) {
-					btnBalidatu.setEnabled(true);
-					btnHurrengoa.setEnabled(false);
-					jarraituBotoia=false;
-					JOptionPane.showMessageDialog(null, "Sartzeko data hutsik dago. Mesedez osotu");
-				}
-				//Hotelera sartzeko data balidatzeko
-				try {
-					sartu_Data= dateSartu.getDate();
-					sartu_Data_string=dateFormat.format(sartu_Data);
-				}catch (Exception e1) {
-					btnBalidatu.setEnabled(true);
-					btnHurrengoa.setEnabled(false);
-					jarraituBotoia=false;
-					JOptionPane.showMessageDialog(null, "Sartzeko data hutsik dago. Mesedez osotu");
+					JOptionPane.showMessageDialog(null, "Joateko data hutsik dago. Mesedez, aukeratu bat");
 				}
 				
-				
-				
-				
-				
-				int i = 0;
-				boolean libre;
-				
-				
-				
-				//Data haietan lekurik ez badago
-				
-				
-				do {
-					ArrayList<java.sql.Date> dataJoan = new ArrayList<java.sql.Date>();
-					ArrayList<java.sql.Date> dataEtorri = new ArrayList<java.sql.Date>();
-					ArrayList<java.sql.Date>[] dataArray = new ArrayList[i]; 
-					
-					dataJoan = dataArray[0];
-					dataEtorri = dataArray[1];
-				
-				
-				libre = Metodoak.DataKalkulatu(sartu_Data, joan_Data, dataJoan, dataEtorri, i);
-				if (libre== false) {
-					break;
-				}
-				++i;
-				}while(i!=4);
-				
-				System.out.println("Ya en la ventana: "+libre);
-				if(libre==false) {
-					System.out.println("Ya en la ventana: "+libre);
-
-					btnBalidatu.setEnabled(true);
-					btnHurrengoa.setEnabled(false);
-					jarraituBotoia=false;
-					JOptionPane.showMessageDialog(null, "Hotelan ez dago lekurik");
-					
-				}
-				
-		
-				
-				if (jarraituBotoia==true) {
-					btnBalidatu.setEnabled(false);
-					btnHurrengoa.setEnabled(true);
-					
-					//JDateChooserrak desaktibatu
-					dateJoan.getCalendarButton().setEnabled(false);
-					dateSartu.getCalendarButton().setEnabled(false);
-					
-					
-				}
-				
-				
-				
-				
-			}
-		});
-		
-		btnHurrengoa.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				
-
-				
-				joan_Data = (Date) dateJoan.getDate();
 				sartu_Data = (Date) dateSartu.getDate();
+				joan_Data = (Date) dateJoan.getDate();
 				
-				if(dateSartu != null && dateJoan != null) {
-					Metodoak.ordainduleihora(etxeak, PrezioEtxea, sartu_Data, joan_Data);
-					dispose();
-				}
+				if(sartu_Data != null && joan_Data != null)
+							btnHurrengoa.setEnabled(true);
 				
 			}
-		});*/
+		});
+		//oierbike
+		
 	}
-}
+		
+	}
+
