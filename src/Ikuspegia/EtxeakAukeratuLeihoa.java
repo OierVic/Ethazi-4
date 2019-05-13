@@ -107,7 +107,7 @@ public class EtxeakAukeratuLeihoa extends JFrame {
 					PrezioHotel = HotelCombobox.get(PosicionSelected).getPrezioEtxea();
 					idHotel = HotelCombobox.get(PosicionSelected).getId_Ostatu();
 					
-					Metodoak.erreserbahasieratu(etxeak, PrezioHotel);
+					Metodoak.erreserbahasieratuetxea(etxeak, PrezioHotel);
 
 				}
 				
