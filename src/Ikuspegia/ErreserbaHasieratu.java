@@ -53,6 +53,8 @@ public class ErreserbaHasieratu extends JFrame{
 	private JLabel lblOheBikoitzBat = new JLabel("Ohe bikoitz bat:");
 	private JLabel lblOheBikoitzBatEtaSinpleBat = new JLabel("Ohe bikoitz bat eta ohe Simple bat :");
 	private JLabel lblSehaska = new JLabel("Sehaska :");
+	private JLabel lblLogelaLibre = new JLabel("Logela libre:");
+
 //	private SpinnerNumberModel oheakSpinner = new SpinnerNumberModel(0, 0, 2, 1);
 //	private SpinnerNumberModel sehaskaSpinner = new SpinnerNumberModel(0, 0, 4, 1);
 	//Spinnerrak
@@ -230,25 +232,28 @@ public class ErreserbaHasieratu extends JFrame{
 		lblOheSipleBatKant.setBounds(268, 265, 86, 20);
 		getContentPane().add(lblOheSipleBatKant);
 		lblOheSipleBatKant.setColumns(10);
-		
+		lblOheSipleBatKant.setEditable(false);
 		
 		
 		lblOheSinpleBiKant = new JTextField();
 		lblOheSinpleBiKant.setColumns(10);
 		lblOheSinpleBiKant.setBounds(267, 304, 86, 20);
 		getContentPane().add(lblOheSinpleBiKant);
+		lblOheSinpleBiKant.setEditable(false);
 		
 		lblOheBikoitzBatKant = new JTextField();
 		lblOheBikoitzBatKant.setColumns(10);
 		lblOheBikoitzBatKant.setBounds(267, 342, 86, 20);
 		getContentPane().add(lblOheBikoitzBatKant);
+		lblOheBikoitzBatKant.setEditable(false);
 		
 		lblOheBikoitzBatEtaSinpleBatKant = new JTextField();
 		lblOheBikoitzBatEtaSinpleBatKant.setColumns(10);
 		lblOheBikoitzBatEtaSinpleBatKant.setBounds(397, 383, 86, 20);
 		getContentPane().add(lblOheBikoitzBatEtaSinpleBatKant);
-		//lblOheSipleBat.g
-	
+		lblOheBikoitzBatEtaSinpleBatKant.setEditable(false);
+
+		
 		int[] gelaLibre =new int[4];
 		
 		
@@ -391,6 +396,10 @@ public class ErreserbaHasieratu extends JFrame{
 		spinner_Sehaska.setModel(new SpinnerNumberModel(0, 0, 4, 1));
 		spinner_Sehaska.setBounds(154, 437, 43, 20);
 		getContentPane().add(spinner_Sehaska);
+		lblLogelaLibre.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblLogelaLibre.setBounds(268, 223, 99, 20);
+		
+		getContentPane().add(lblLogelaLibre);
 		
 		btnBalidatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

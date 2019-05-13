@@ -10,10 +10,12 @@ import java.util.Calendar;
 import java.util.Date;
 
 import Eredua.Konsulta_Erregistro;
+import Eredua.Kontsulta_Apartamentua;
 import Eredua.Kontsulta_Bezero;
 import Eredua.Kontsulta_Erreserba;
 import Eredua.Kontsulta_Etxeak;
 import Eredua.Kontsulta_Hoteles;
+import Ikuspegia.ApartamentuakAukeratuLeihoa;
 import Ikuspegia.ErregistroLeihoa;
 import Ikuspegia.ErreserbaHasieratu;
 import Ikuspegia.EskerrikAskoLeihoa;
@@ -72,7 +74,7 @@ public class Metodoak {
 		LoginLeihoa.setVisible(true);
 
 	}
-	
+	//etxera aukeratzeko leihora joateko
 	public static void etxeakaukeratuleihora() {
 
 		ArrayList <Etxea> Etxeak= new ArrayList <Etxea>();
@@ -83,6 +85,17 @@ public class Metodoak {
 		EtxeakAukeratu.setVisible(true);
 
 	}
+	//Apartamentua aukeratzeko lehiora joateko
+	public static void apartamentuakAukeratuleihora() {
+//		ArrayList <Etxea> Etxeak= new ArrayList <Etxea>();
+//		Etxeak=Kontsulta_Apartamentua.ApartamentuakHelbidearekinAtera();
+//		ArrayList<String> Helbideak =new ArrayList<String>();
+//		Helbideak=Kontsulta_Apartamentua.ApartamentuenHelbideakIkusi();
+		ApartamentuakAukeratuLeihoa apartamentuakAukeratuLeihoa= new ApartamentuakAukeratuLeihoa();
+		apartamentuakAukeratuLeihoa.setVisible(true);
+
+	}
+	
 	
 	//Erreserba prestatzeko lehioa
 		public static void erreserbahasieratu(String hotelak, double PrezioHotel) {
