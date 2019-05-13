@@ -107,6 +107,8 @@ public class Metodoak {
 			ErreserbaLehioaEtxea.setVisible(true);
 		}
 
+		//oierbike
+		
 	//Ventana4
 	public static void ordainduleihora(String hotelak, double prezioHotel, Date sartuData, Date joanData, OheMotak o1,int logelaKopurua) {
 

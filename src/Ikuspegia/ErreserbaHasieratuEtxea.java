@@ -193,7 +193,7 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 				
 			}
 		});
-		
+		//oierbike
 		
 	}
 		

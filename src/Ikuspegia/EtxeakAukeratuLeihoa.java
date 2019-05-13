@@ -70,7 +70,7 @@ public class EtxeakAukeratuLeihoa extends JFrame {
 				}
 				
 			}
-
+			//oierbike
 			
 		});
 	
