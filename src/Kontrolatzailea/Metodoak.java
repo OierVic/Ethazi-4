@@ -87,6 +87,8 @@ public class Metodoak {
 	}
 	//Apartamentua aukeratzeko lehiora joateko
 	public static void apartamentuakAukeratuleihora() {
+//		ArrayList <Apartamentua> Apartamentuak= new ArrayList <Apartamentua>();
+//		Apartamentuak=Kontsulta_Apartamentua.ApartamentuakIkusi();
 		ArrayList<String> Helbideak =new ArrayList<String>();
 		Helbideak=Kontsulta_Apartamentua.ApartamentuenHelbideakIkusi();
 		ApartamentuakAukeratuLeihoa apartamentuakAukeratuLeihoa= new ApartamentuakAukeratuLeihoa(Helbideak);

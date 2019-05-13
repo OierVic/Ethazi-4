@@ -7,19 +7,28 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTable;
+
+import Eredua.Kontsulta_Apartamentua;
+import Kontrolatzailea.Apartamentua;
+import Kontrolatzailea.Metodoak;
+
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ApartamentuakAukeratuLeihoa extends JFrame {
 	private static final long serialVersionUID = 1L;
 	JLabel lblHelbideak = new JLabel("Helbideak:");
 	JComboBox comboBoxHelbideakApartamentuak = new JComboBox();
 	JLabel lblApartamentuak = new JLabel("Apartamentuak:");
-	JComboBox comboBox = new JComboBox();
+	JComboBox comboBoxApartamentuakAukeratu = new JComboBox();
 	JButton btnHurrengoaApartamentua = new JButton("Hurrengoa");
 	JButton btnEzeztatuApartamentua = new JButton("Ezeztatu");
 	JButton btnAtzeraApartamentua = new JButton("Atzera");
 
+	//Bariableak
+	ArrayList<Apartamentua> ApartamentuakComboBox = new ArrayList<Apartamentua>();
 	
 	public ApartamentuakAukeratuLeihoa(ArrayList<String> Helbideak) {
 		getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -34,14 +43,32 @@ public class ApartamentuakAukeratuLeihoa extends JFrame {
 		comboBoxHelbideakApartamentuak.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBoxHelbideakApartamentuak.setBounds(51, 95, 180, 30);
 		getContentPane().add(comboBoxHelbideakApartamentuak);
+		comboBoxHelbideakApartamentuak.addItem("");
+		for (int i=0;i<Helbideak.size();i++) {
+			comboBoxHelbideakApartamentuak.addItem(Helbideak.get(i));
+		}
 		
 		lblApartamentuak.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblApartamentuak.setBounds(69, 210, 162, 30);
 		getContentPane().add(lblApartamentuak);
 		
-		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		comboBox.setBounds(49, 277, 371, 30);
-		getContentPane().add(comboBox);
+		comboBoxApartamentuakAukeratu.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		comboBoxApartamentuakAukeratu.setBounds(49, 277, 598, 30);
+		getContentPane().add(comboBoxApartamentuakAukeratu);
+		comboBoxHelbideakApartamentuak.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				comboBoxApartamentuakAukeratu.removeAllItems();
+				String helbideakSelected = (String) comboBoxHelbideakApartamentuak.getSelectedItem();
+				ApartamentuakComboBox=Kontsulta_Apartamentua.ApartamentuakHelbidearekinAtera(helbideakSelected);
+				for (int i = 0; i < ApartamentuakComboBox.size(); i++) {
+					comboBoxApartamentuakAukeratu.addItem(ApartamentuakComboBox.get(i).comboboxIzena());
+					
+				}
+				
+			}
+
+			
+		});
 		
 		btnHurrengoaApartamentua.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnHurrengoaApartamentua.setBounds(520, 497, 127, 41);
@@ -50,11 +77,22 @@ public class ApartamentuakAukeratuLeihoa extends JFrame {
 		btnEzeztatuApartamentua.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnEzeztatuApartamentua.setBounds(262, 497, 115, 41);
 		getContentPane().add(btnEzeztatuApartamentua);
+		btnEzeztatuApartamentua.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Metodoak.ongietorrileihora();
+			}
+		});
 		
 		btnAtzeraApartamentua.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnAtzeraApartamentua.setBounds(22, 497, 105, 41);
 		getContentPane().add(btnAtzeraApartamentua);
-
+		btnAtzeraApartamentua.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Metodoak.ostatumotaaukeratuleihora();
+			}
+		});
 
 
 	}
