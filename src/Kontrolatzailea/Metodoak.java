@@ -548,6 +548,15 @@ public class Metodoak {
 		
 		return logelaKant;
 	}
+	
+	public static boolean temporadaAlta (Date joanData, Date etorriDate) {
+		boolean temporadaAlta=false;
+		
+		
+		return temporadaAlta;
+	}
+
+
 	/*private static String[] dataOkupatuta(Date joanData, Date sartuData) {
 		String[] egunak;
 		
