@@ -38,7 +38,6 @@ public class EtxeakAukeratuLeihoa extends JFrame {
 
 
 	public Double PrezioEtxea;
-	public static int idHotel;
 
 	public EtxeakAukeratuLeihoa(ArrayList <Etxea> Etxeak,ArrayList<String> Helbideak) {
 		
@@ -105,7 +104,7 @@ public class EtxeakAukeratuLeihoa extends JFrame {
 					System.out.println(PrezioEtxea);
 					dispose();
 					PrezioEtxea = HotelCombobox.get(PosicionSelected).getPrezioEtxea();
-					idHotel = HotelCombobox.get(PosicionSelected).getId_Ostatu();
+					OstauMotaAukeratu.idOstatu = HotelCombobox.get(PosicionSelected).getId_Ostatu();
 					
 					Metodoak.erreserbahasieratuetxea(etxeak, PrezioEtxea);
 

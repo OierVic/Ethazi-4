@@ -99,6 +99,13 @@ public class OrdainduLeihoaEtxeak extends JFrame {
 
 				Metodoak.imprimatuTiketa(ImprimatzekoErreserba);*/
 				Erreserba IgotzekoErreserbaEtxea = new Erreserba(idOstatu, idBezero, dataJoan, dataEtorri, prezioa, 0, 0, 0, 0, 0, Eskatutakodata, EskatutakoOrdua, 0);
+				System.out.println("Holaa");
+				System.out.println(idOstatu);
+				System.out.println(idBezero);
+				System.out.println(dataJoan);
+				System.out.println(dataEtorri);
+				System.out.println(prezioa);
+
 				Metodoak.ErreserbaIgoEtxea(IgotzekoErreserbaEtxea);
 				
 				idErreserba=Kontsulta_Erreserba.idErreserbaAtera(OstauMotaAukeratu.idOstatu);
