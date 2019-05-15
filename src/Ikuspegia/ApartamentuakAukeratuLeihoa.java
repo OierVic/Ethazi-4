@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTable;
 
@@ -29,6 +31,8 @@ public class ApartamentuakAukeratuLeihoa extends JFrame {
 
 	//Bariableak
 	ArrayList<Apartamentua> ApartamentuakComboBox = new ArrayList<Apartamentua>();
+	
+	public Double PrezioApartamentua;
 	
 	public ApartamentuakAukeratuLeihoa(ArrayList<String> Helbideak) {
 		getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -74,11 +78,26 @@ public class ApartamentuakAukeratuLeihoa extends JFrame {
 		btnHurrengoaApartamentua.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnHurrengoaApartamentua.setBounds(520, 497, 140, 41);
 		getContentPane().add(btnHurrengoaApartamentua);
+		
 		btnHurrengoaApartamentua.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				//Falta por pasar el precio y el nombre
-				Metodoak.erreserbahasieratuapartamentua("Falta por cambiar esto", 20);
+				
+				
+				String apartamentuak = (String) comboBoxApartamentuakAukeratu.getSelectedItem();
+				int PosicionSelected = comboBoxApartamentuakAukeratu.getSelectedIndex();
+				if (apartamentuak==(null)) {
+					btnHurrengoaApartamentua.setEnabled(false);
+					JOptionPane.showMessageDialog(null,"Ez duzu etxerik aukeratu. Mezedez, Hotel bat aukeratu.");
+				}
+				else if(!(apartamentuak==(null))) {
+					dispose();
+					PrezioApartamentua= ApartamentuakComboBox.get(PosicionSelected).getPrezioApartementua();
+					OstauMotaAukeratu.idOstatu = ApartamentuakComboBox.get(PosicionSelected).getId_Ostatu();
+					
+					Metodoak.erreserbahasieratuapartamentua(apartamentuak, PrezioApartamentua);
+
+				}
 				
 			}
 		});

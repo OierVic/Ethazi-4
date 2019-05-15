@@ -54,6 +54,8 @@ public class ErreserbaHasieratuApartamentua extends JFrame{
 	private String joan_Data_string="";
 	private String sartu_Data_string="";
 	private Boolean jarraituBotoia=false;
+	private double PrezioEtxeaFinal=0;
+	private boolean oierbike;
 	
 	//variables de que recogen de los spinners para que se puedan utilizar fuera del boton
 	
@@ -145,8 +147,11 @@ public class ErreserbaHasieratuApartamentua extends JFrame{
 		btnHurrengoa.setEnabled(false);
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//dispose();
-				//Metodoak.ordainduleihora(hotelak, prezioHotel, sartuData, joanData, o1, logelaKopurua);
+				
+				PrezioEtxeaFinal = Metodoak.prezioaEgunekinEtxea(PrezioApartamentua, joan_Data, sartu_Data);
+				dispose();
+				oierbike = false;
+				Metodoak.ordainduleihoraetxea(apartamentuak, PrezioEtxeaFinal, sartu_Data, joan_Data, oierbike);
 			}
 		});
 		
