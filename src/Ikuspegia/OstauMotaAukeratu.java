@@ -24,6 +24,7 @@ public class OstauMotaAukeratu extends JFrame {
 
 
 	private JButton btnAtzera = new JButton("Atzera");
+	public static int idOstatu;
 
 
 

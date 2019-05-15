@@ -25,6 +25,7 @@ import Ikuspegia.HotelakAukeratuLeihoa;
 import Ikuspegia.LoginLeihoa;
 import Ikuspegia.OngiEtorriLeihoa;
 import Ikuspegia.OrdainduLeihoa;
+import Ikuspegia.OrdainduLeihoaEtxeak;
 import Ikuspegia.OstauMotaAukeratu;
 
 public class Metodoak {
@@ -131,7 +132,14 @@ public class Metodoak {
 		Konsulta_Erregistro.Erabiltzailea_erregistratu(e1);
 		
 	}
+	//ErreserbaEtxetik Ordaindu Etxera
+	public static void ordainduleihoraetxea(String hotelak, double prezioHotel, Date sartuData, Date joanData) {
 
+		OrdainduLeihoaEtxeak ordainduLeihoaEtxeak= new OrdainduLeihoaEtxeak(hotelak,prezioHotel,sartuData, joanData);
+		ordainduLeihoaEtxeak.setVisible(true);
+
+	}
+	
 	public static boolean konprobatuNegatibo(double zbk) {
 		boolean balidatu=false;
 		if (zbk>0)
@@ -156,6 +164,10 @@ public class Metodoak {
 		
 	}
 	
+	public static void ErreserbaIgoEtxea(Erreserba e1) {
+		Kontsulta_Erreserba.InsertErreserbaEtxea(e1);
+		
+	}
 
 	public static String kanbioMetodoa(double zbk) {
 

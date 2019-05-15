@@ -547,6 +547,7 @@ public class ErreserbaHasieratu extends JFrame{
 				sartu_Data = (Date) dateSartu.getDate();
 				
 				if(dateSartu != null && dateJoan != null) {
+					
 					Metodoak.ordainduleihora(hotelak, PrezioHotel, sartu_Data, joan_Data, o1,LogelaTotalaSpinner);
 					dispose();
 				}

@@ -51,7 +51,7 @@ public class OrdainduLeihoaEtxeak extends JFrame {
 	private int idErreserba;
 
 
-	public OrdainduLeihoaEtxeak(String hotelak, double prezioHotel, Date sartuData, Date joanData) {
+	public OrdainduLeihoaEtxeak(String izenak, double prezioa, Date sartuData, Date joanData) {
 		//prezioa=prezioHotel;
 		//prezioa=0.0;
 		
@@ -81,13 +81,13 @@ public class OrdainduLeihoaEtxeak extends JFrame {
 		btnAmaitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				int idOstatu=HotelakAukeratuLeihoa.idHotel;
+				int idOstatu=OstauMotaAukeratu.idOstatu;
 				String idBezero=LoginLeihoa.nan;
 				//String idBezero="12345678Z";
 				String Eskatutakodata=Metodoak.dataAtera();
 				String EskatutakoOrdua=Metodoak.orduaAtera();
-				String dataJoan=dateFormat.format(sartuData);
-				String dataEtorri=dateFormat.format(joanData);
+				String dataJoan=dateFormat.format(sartuData);//Hotelera heldu
+				String dataEtorri=dateFormat.format(joanData);//Hoteletik joan
 
 				//oierbike
 				
@@ -98,6 +98,14 @@ public class OrdainduLeihoaEtxeak extends JFrame {
 				Erreserba ImprimatzekoErreserba = new Erreserba(idErreserba, idOstatu, idBezero, dataJoan, dataEtorri, prezioHotel, 0, 0, 0, 0, 0, Eskatutakodata, 0);
 
 				Metodoak.imprimatuTiketa(ImprimatzekoErreserba);*/
+				Erreserba IgotzekoErreserbaEtxea = new Erreserba(idOstatu, idBezero, dataJoan, dataEtorri, prezioa, 0, 0, 0, 0, 0, Eskatutakodata, EskatutakoOrdua, 0);
+				Metodoak.ErreserbaIgoEtxea(IgotzekoErreserbaEtxea);
+				
+				idErreserba=Kontsulta_Erreserba.idErreserbaAtera(OstauMotaAukeratu.idOstatu);
+				//Erreserba ImprimatzekoErreserba = new Erreserba(idErreserba, idOstatu, idBezero, dataJoan, dataEtorri, prezioa, 0, 0, 0, 0, 0, Eskatutakodata, 0);
+				Erreserba ImprimatzekoErreserba = new Erreserba(idErreserba, idOstatu, idBezero, dataJoan, dataEtorri, prezioa,0, 0, 0, 0, 0, Eskatutakodata, EskatutakoOrdua);
+				Metodoak.imprimatuTiketa(ImprimatzekoErreserba);
+				
 				Kontagailua contador = new Kontagailua();
 				contador.start();
 			}
@@ -140,8 +148,7 @@ public class OrdainduLeihoaEtxeak extends JFrame {
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-
-				Metodoak.erreserbahasieratu(hotelak, prezioHotel);
+				Metodoak.erreserbahasieratuetxea(izenak, prezioa);
 				
 			}
 		});
@@ -149,7 +156,7 @@ public class OrdainduLeihoaEtxeak extends JFrame {
 		getContentPane().add(btnAtzera);
 		btnOrdaindu.setBounds(470, 151, 141, 37);
 		//Arraylistari prezioa sartu
-		preziotot.add(prezioHotel);
+		preziotot.add(prezioa);
 		//ORDAINDU BOTOIA
 		btnOrdaindu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -218,7 +225,7 @@ public class OrdainduLeihoaEtxeak extends JFrame {
 		getContentPane().add(Itzuliak);
 		Itzuliak.setEditable(false);
 		//String ordaintzeko = String.valueOf(hoteles.getPrecioHotel());
-		String ordaintzeko = String.valueOf(prezioHotel);
+		String ordaintzeko = String.valueOf(prezioa);
 		//String ordaintzeko="0";
 		lblOrdaintzeko.setHorizontalAlignment(SwingConstants.LEFT);
 		

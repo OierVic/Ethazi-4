@@ -33,6 +33,27 @@ public class Kontsulta_Erreserba {
 		}
 	}
 	
+public static void InsertErreserbaEtxea(Erreserba e1) {
+		
+		Connection Conexion1 = null;
+		
+		Statement s1 =null;
+
+		try {
+
+			Conexion1 = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+
+			s1 = (Statement) Conexion1.createStatement();
+
+			s1.executeUpdate("INSERT INTO erreserba (idErreserba, idBezero, dataJoan, dataEtorri, prezioErreserba, 1sinp, 2sinp, 1bik, 1sinp1bik, sehaska, erosketaData, erosketaOrdua, idOstatu, logelaKopuru) VALUES (NULL, '12345678Z', '2019-05-03', '2019-05-13', 56, NULL, NULL, NULL, NULL, NULL, '2019-05-15', '00:00', 13, NULL)");
+			s1.close();
+			
+			System.out.println("Conexioa eginda");
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	public static int idErreserbaAtera(int idOstatu) {
 		int idErreserba=0; 
 		

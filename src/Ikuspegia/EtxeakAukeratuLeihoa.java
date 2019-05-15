@@ -37,7 +37,7 @@ public class EtxeakAukeratuLeihoa extends JFrame {
 
 
 
-	public Double PrezioHotel;
+	public Double PrezioEtxea;
 	public static int idHotel;
 
 	public EtxeakAukeratuLeihoa(ArrayList <Etxea> Etxeak,ArrayList<String> Helbideak) {
@@ -83,7 +83,7 @@ public class EtxeakAukeratuLeihoa extends JFrame {
 		comboBoxNombreHoteles.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
 				
-				System.out.println(PrezioHotel);
+				System.out.println(PrezioEtxea);
 				btnHurrengoa.setEnabled(true);
 				System.out.println("_____________________________________________________");
 				comboBoxOheMota.removeAllItems();
@@ -102,12 +102,12 @@ public class EtxeakAukeratuLeihoa extends JFrame {
 					JOptionPane.showMessageDialog(null,"Ez duzu etxerik aukeratu. Mezedez, Hotel bat aukeratu.");
 				}
 				else if(!(etxeak==(null))) {
-					System.out.println(PrezioHotel);
+					System.out.println(PrezioEtxea);
 					dispose();
-					PrezioHotel = HotelCombobox.get(PosicionSelected).getPrezioEtxea();
+					PrezioEtxea = HotelCombobox.get(PosicionSelected).getPrezioEtxea();
 					idHotel = HotelCombobox.get(PosicionSelected).getId_Ostatu();
 					
-					Metodoak.erreserbahasieratuetxea(etxeak, PrezioHotel);
+					Metodoak.erreserbahasieratuetxea(etxeak, PrezioEtxea);
 
 				}
 				

@@ -12,18 +12,18 @@ public class Erreserba {
 	private String dataJoan;
 	private String dataEtorri;
 	private double precio;
-	private int sinp;
-	private int bisinp;
-	private int bik;
-	private int sinpbik;
-	private int sehaska;
+	private int sinp =0;
+	private int bisinp=0;
+	private int bik=0;
+	private int sinpbik=0;
+	private int sehaska=0;
 	private String Eskatutakodata;
 	private String EskatutakoOrdua;
-	private int logelaKopurua;
+	private int logelaKopurua=0;
 
 	//(`idErreserba`, `idOstatu`, `idBezero`, `dataJoan`, `dataEtorri`, `prezioErreserba`, `1sinp`, `2sinp`, `1bik`, `1sinp1bik`, `sehaska`, `erosketaData`, `erosketaOrdua`)
 	
-	public Erreserba(/* int idErreserba, */ int idOstatu, String idBezero, String dataJoan, String dataEtorri, double precio,
+	public Erreserba(int idOstatu, String idBezero, String dataJoan, String dataEtorri, double precio,
 			int sinp, int bisinp, int bik, int sinpbik, int sehaska, String eskatutakodata, String eskatutakoOrdua,int LogelaKopurua) {
 		//this.idErreserba = idErreserba;
 		this.idOstatu = idOstatu;
