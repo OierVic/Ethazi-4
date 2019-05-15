@@ -20,12 +20,12 @@ public class Kontsulta_Bezero {
 		int tlfBezero = 0;
 		String postaBezero = null;		
 		
-		Connection Conexion = null;
+		Connection Conexion = (Connection) Konexioa.getConexion();
 		Statement s =null;
 
 		try {
 			//Class.forName("com.mysql.jdbc.Driver");
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			//Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
 			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idBezero,pasahitzaBezero, izenBezero, abizenBezero, postaBezero FROM bezero");

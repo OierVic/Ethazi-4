@@ -15,11 +15,11 @@ public class Konsulta_Erregistro {
 	
 	public static void Erabiltzailea_erregistratu(ErabiltzaileaIgo e1) {
 		
-		Connection Conexion = null;
+		Connection Conexion = (Connection) Konexioa.getConexion();
 		Statement s =null;
 		try {
 
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			//Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 
 			s = (Statement) Conexion.createStatement();
 

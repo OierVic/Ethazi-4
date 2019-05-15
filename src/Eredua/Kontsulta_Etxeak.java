@@ -19,12 +19,12 @@ public class Kontsulta_Etxeak {
 		double prezioEtxea;
 		String Helbidea=null;
 		
-		Connection Conexion = null;
+		Connection Conexion = (Connection) Konexioa.getConexion();
 		Statement s =null;
 
 		try {
 			//Class.forName("com.mysql.jdbc.Driver");
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			//Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
 			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idEtxea, izenaEtxea, prezioEtxea, helbideEtxea FROM etxea");
@@ -49,20 +49,20 @@ public class Kontsulta_Etxeak {
 	}
 	
 	
-public static ArrayList <Etxea> EtxeakHelbidearekinAtera(String helbideaHartu) {
-	ArrayList <Etxea> etxeak2 = new ArrayList<Etxea>();
-	int idEtxea=0;
-	String etxeaIzena=null;
-	double prezioEtxea;
-	String Helbidea=null;
+	public static ArrayList <Etxea> EtxeakHelbidearekinAtera(String helbideaHartu) {
+		ArrayList <Etxea> etxeak2 = new ArrayList<Etxea>();
+		int idEtxea=0;
+		String etxeaIzena=null;
+		double prezioEtxea;
+		String Helbidea=null;
 		
 		
-		Connection Conexion = null;
+		Connection Conexion = (Connection) Konexioa.getConexion();
 		Statement s =null;
 
 		try {
 			//Class.forName("com.mysql.jdbc.Driver");
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			//Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
 			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idEtxea, izenaEtxea, prezioEtxea, helbideEtxea "
@@ -99,12 +99,12 @@ public static ArrayList <Etxea> EtxeakHelbidearekinAtera(String helbideaHartu) {
 		
 		
 		
-		Connection Conexion = null;
+		Connection Conexion = (Connection) Konexioa.getConexion();
 		Statement s =null;
 	
 		try {
 			//Class.forName("com.mysql.jdbc.Driver");
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			//Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 	
 			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT distinct helbideEtxea FROM etxea");

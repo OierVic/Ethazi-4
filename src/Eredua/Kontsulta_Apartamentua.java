@@ -20,12 +20,12 @@ public class Kontsulta_Apartamentua {
 		double prezioApartamentu;
 		String helbideApartamentu=null;
 		
-		Connection Conexion = null;
+		Connection Conexion = (Connection) Konexioa.getConexion();
 		Statement s =null;
 
 		try {
 			//Class.forName("com.mysql.jdbc.Driver");
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			//Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
 			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idApartamentu, izenaApartamentu, prezioApartamentu, helbideApartamentu FROM apartamentu");
@@ -55,12 +55,12 @@ public class Kontsulta_Apartamentua {
 		
 		
 		
-		Connection Conexion = null;
+		Connection Conexion = (Connection) Konexioa.getConexion();
 		Statement s =null;
 
 		try {
 			//Class.forName("com.mysql.jdbc.Driver");
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			//Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
 			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT distinct helbideApartamentu FROM apartamentu");
@@ -88,12 +88,12 @@ public class Kontsulta_Apartamentua {
 		String helbideApartamentu=null;
 		
 		
-		Connection Conexion = null;
+		Connection Conexion = (Connection) Konexioa.getConexion();
 		Statement s =null;
 
 		try {
 			//Class.forName("com.mysql.jdbc.Driver");
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			//Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
 			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idApartamentu,izenaApartamentu,prezioApartamentu,helbideApartamentu FROM apartamentu where helbideApartamentu='"+helbideaHartu+"'");

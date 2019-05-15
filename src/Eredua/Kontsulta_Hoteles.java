@@ -23,12 +23,12 @@ public class Kontsulta_Hoteles{
 		String Helbidea=null;
 		
 		
-		Connection Conexion = null;
+		Connection Conexion = (Connection) Konexioa.getConexion();
 		Statement s =null;
 
 		try {
 			//Class.forName("com.mysql.jdbc.Driver");
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			//Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
 			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idHotel,izenaHotel,izarKopurua,prezioHotelSimple,helbideHotel FROM hotel");
@@ -57,12 +57,12 @@ public class Kontsulta_Hoteles{
 		
 		
 		
-		Connection Conexion = null;
+		Connection Conexion = (Connection) Konexioa.getConexion();
 		Statement s =null;
 
 		try {
 			//Class.forName("com.mysql.jdbc.Driver");
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			//Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
 			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT distinct helbideHotel FROM hotel");
@@ -91,12 +91,12 @@ public class Kontsulta_Hoteles{
 		String Helbidea=null;
 		
 		
-		Connection Conexion = null;
+		Connection Conexion = (Connection) Konexioa.getConexion();
 		Statement s =null;
 
 		try {
 			//Class.forName("com.mysql.jdbc.Driver");
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			//Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
 			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT idHotel,izenaHotel,izarKopurua,prezioHotelSimple,helbideHotel FROM hotel where helbideHotel='"+helbideaHartu+"'");
@@ -131,12 +131,12 @@ public class Kontsulta_Hoteles{
 		Double prezioHotel=null;
 
 		
-		Connection Conexion = null;
+		Connection Conexion = (Connection) Konexioa.getConexion();
 		Statement s =null;
 
 		try {
 			//Class.forName("com.mysql.jdbc.Driver");
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			//Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
 			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT prezioHotelSimple FROM hotel WHERE idHotel ='"+idHotel+"'");
@@ -172,12 +172,12 @@ public class Kontsulta_Hoteles{
 		
 		int idHotel = HotelakAukeratuLeihoa.idHotelArtu();
 
-		Connection Conexion = null;
+		Connection Conexion = (Connection) Konexioa.getConexion();
 		Statement s = null;
 
 		try {
 			// Class.forName("com.mysql.jdbc.Driver");
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/" + "bidaion", "root", "");
+			//Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/" + "bidaion", "root", "");
 			s = (Statement) Conexion.createStatement();
 
 			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT dataJoan, dataEtorri, "+oheMotak+" FROM erreserba WHERE idOstatu  ='"+idHotel+"' AND "+oheMotak+" > 0"); 
@@ -222,13 +222,13 @@ public class Kontsulta_Hoteles{
 	public static int HoteleanZenbatLekuDauden(String oheMotak) {
 		int logelaKopuru=0;
 		int idHotel = HotelakAukeratuLeihoa.idHotelArtu();
-		Connection Conexion = null;
+		Connection Conexion = (Connection) Konexioa.getConexion();
 		Statement s = null;
 		
 
 		try {
 			// Class.forName("com.mysql.jdbc.Driver");
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/" + "bidaion", "root", "");
+			//Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/" + "bidaion", "root", "");
 			s = (Statement) Conexion.createStatement();
 
 			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT "+oheMotak+" FROM hotel where idHotel ='"+idHotel+"'");
@@ -246,16 +246,16 @@ public class Kontsulta_Hoteles{
 	
 
 
-public static OheMotak logelaKopurua() {
-	int idHotel = HotelakAukeratuLeihoa.idHotelArtu();
-	OheMotak o2 = new OheMotak(9, 9, 9, 9, 9);
+	public static OheMotak logelaKopurua() {
+		int idHotel = HotelakAukeratuLeihoa.idHotelArtu();
+		OheMotak o2 = new OheMotak(9, 9, 9, 9, 9);
 	
-	Connection Conexion = null;
-	Statement s = null;
+		Connection Conexion = (Connection) Konexioa.getConexion();
+		Statement s = null;
 
 	try {
 		// Class.forName("com.mysql.jdbc.Driver");
-		Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/" + "bidaion", "root", "");
+		//Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/" + "bidaion", "root", "");
 		s = (Statement) Conexion.createStatement();
 
 		ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT 1sinp, 2sinp, 1bik, 1sinp1bik FROM hotel where idHotel ='"+idHotel+"'");

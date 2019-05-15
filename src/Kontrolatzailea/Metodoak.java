@@ -5,6 +5,8 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -549,8 +551,24 @@ public class Metodoak {
 		return logelaKant;
 	}
 	
-	public static boolean temporadaAlta (Date joanData, Date etorriDate) {
+	public static boolean temporadaAlta (Date joanData, Date etorriDate) throws ParseException {
 		boolean temporadaAlta=false;
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); //Para declarar valores en nuevos objetos date, usa el mismo formato date que usaste al crear las fechas 
+		//Fechas de Verano
+		Date InicioVerano = sdf.parse(joanData.getYear()+"-06-21");
+		Date InicioVeranoAñoSiguiente = sdf.parse((joanData.getYear()+1)+"-06-21");
+		Date FinVerano = sdf.parse(joanData.getYear()+"-09-23");
+		Date FinVeranoAñoSiguiente = sdf.parse((joanData.getYear()+1)+"-09-23");
+		//Fechas de Semana Santa
+		Date InicioSemanaSanta = sdf.parse(joanData.getYear()+"-04-05");
+		Date InicioSemanaSantaAñoSiguiente = sdf.parse((joanData.getYear()+1)+"-04-05");
+		Date FinSemanaSanta = sdf.parse(joanData.getYear()+"-04-12");
+		Date FinSemanaSantaAñoSiguiente = sdf.parse((joanData.getYear()+1)+"-04-05");
+		
+		if (joanData.getMonth()>=6) {
+			
+		}
 		
 		
 		return temporadaAlta;
