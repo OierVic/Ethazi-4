@@ -51,7 +51,7 @@ public class OrdainduLeihoaEtxeak extends JFrame {
 	private int idErreserba;
 
 
-	public OrdainduLeihoaEtxeak(String izenak, double prezioa, Date sartuData, Date joanData) {
+	public OrdainduLeihoaEtxeak(String izenak, double prezioa, Date sartuData, Date joanData, boolean oierbike) {
 		//prezioa=prezioHotel;
 		//prezioa=0.0;
 		
@@ -155,7 +155,14 @@ public class OrdainduLeihoaEtxeak extends JFrame {
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Metodoak.erreserbahasieratuetxea(izenak, prezioa);
+				
+				if(oierbike == true) {
+					Metodoak.erreserbahasieratuetxea(izenak, prezioa);
+				} else {
+					Metodoak.erreserbahasieratuapartamentua(izenak, prezioa);
+				}
+				
+				
 				
 			}
 		});

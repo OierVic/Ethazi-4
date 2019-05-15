@@ -55,6 +55,7 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 	private String sartu_Data_string="";
 	private Boolean jarraituBotoia=false;
 	private double PrezioEtxeaFinal=0;
+	private boolean oierbike;
 	
 	//variables de que recogen de los spinners para que se puedan utilizar fuera del boton
 	
@@ -144,7 +145,8 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 				
 				PrezioEtxeaFinal = Metodoak.prezioaEgunekinEtxea(PrezioEtxea, joan_Data, sartu_Data);
 				dispose();
-				Metodoak.ordainduleihoraetxea(etxeak, PrezioEtxeaFinal, sartu_Data, joan_Data);
+				oierbike = true;
+				Metodoak.ordainduleihoraetxea(etxeak, PrezioEtxeaFinal, sartu_Data, joan_Data, oierbike);
 				
 			}
 		});

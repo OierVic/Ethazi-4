@@ -133,9 +133,9 @@ public class Metodoak {
 		
 	}
 	//ErreserbaEtxetik Ordaindu Etxera
-	public static void ordainduleihoraetxea(String hotelak, double prezioHotel, Date sartuData, Date joanData) {
+	public static void ordainduleihoraetxea(String hotelak, double prezioHotel, Date sartuData, Date joanData, boolean oierbike) {
 
-		OrdainduLeihoaEtxeak ordainduLeihoaEtxeak= new OrdainduLeihoaEtxeak(hotelak,prezioHotel,sartuData, joanData);
+		OrdainduLeihoaEtxeak ordainduLeihoaEtxeak= new OrdainduLeihoaEtxeak(hotelak,prezioHotel,sartuData, joanData, oierbike);
 		ordainduLeihoaEtxeak.setVisible(true);
 
 	}
