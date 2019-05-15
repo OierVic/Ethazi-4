@@ -22,6 +22,7 @@ import Kontrolatzailea.Metodoak;
 import Kontrolatzailea.OheMotak;
 
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
@@ -144,6 +145,15 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				
 				PrezioEtxeaFinal = Metodoak.prezioaEgunekinEtxea(PrezioEtxea, joan_Data, sartu_Data);
+				System.out.println(PrezioEtxeaFinal);
+				System.out.println("Holaaaaa------------------");
+				try {
+					PrezioEtxeaFinal = Metodoak.PrezioaTemporadekinKalkulatu(sartu_Data,joan_Data, PrezioEtxeaFinal);
+					System.out.println(PrezioEtxeaFinal);
+				} catch (ParseException e) {
+					System.out.println(e.getMessage());
+				}
+				
 				dispose();
 				oierbike = true;
 				Metodoak.ordainduleihoraetxea(etxeak, PrezioEtxeaFinal, sartu_Data, joan_Data, oierbike);
