@@ -602,8 +602,11 @@ public class Metodoak {
 		    int dias=(int) ((joanData.getTime()-etorriData.getTime())/86400000);
 		    prezioa=dias*10;
 		}
+		//------------------------------------------------------------------------------
 		//Verano el Siguiente Año
 		
+		
+		//------------------------------------------------------------------------------
 		//Semana Santa el Siguiente Año
 
 		
