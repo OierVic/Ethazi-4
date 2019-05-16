@@ -18,6 +18,7 @@ import com.toedter.calendar.JDateChooser;
 import Eredua.Kontsulta_Erreserba;
 import Eredua.Kontsulta_Hoteles;
 import Kontrolatzailea.Hotel;
+import Kontrolatzailea.Jaiegunak;
 import Kontrolatzailea.Metodoak;
 import Kontrolatzailea.OheMotak;
 
@@ -26,6 +27,7 @@ import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JSpinner;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 
@@ -48,6 +50,7 @@ public class ErreserbaHasieratuApartamentua extends JFrame{
 	private JButton btnDatakEgiaztatu = new JButton("Datak egiaztatu");
 	//Date formatutik String-era aldatzeko
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	private JTextArea txtAreaDatak = new JTextArea();
 
 	
 	//Bariableak
@@ -56,6 +59,9 @@ public class ErreserbaHasieratuApartamentua extends JFrame{
 	private Boolean jarraituBotoia=false;
 	private double PrezioEtxeaFinal=0;
 	private boolean oierbike;
+	private String jaiGustiak = null;
+	private int zenbatJaiEgun = 0;
+	private Jaiegunak j1 = new Jaiegunak(null, null);
 	
 	//variables de que recogen de los spinners para que se puedan utilizar fuera del boton
 	
@@ -121,6 +127,10 @@ public class ErreserbaHasieratuApartamentua extends JFrame{
 				
 			}
 		});
+		
+		txtAreaDatak.setBounds(397, 122, 247, 100);
+		txtAreaDatak.setEditable(false);
+		getContentPane().add(txtAreaDatak);
 		
 		getContentPane().add(btnEzeztatu);
 		btnAtzera.setBounds(176, 490, 105, 43);
@@ -201,6 +211,13 @@ public class ErreserbaHasieratuApartamentua extends JFrame{
 				
 				if(sartu_Data != null && joan_Data != null)
 							btnHurrengoa.setEnabled(true);
+				
+				
+				j1 = Eredua.Konsulta_jaiegunak.JaiegunakAtera();
+				zenbatJaiEgun = Metodoak.DataFestiboak(sartu_Data, joan_Data, j1);	
+				jaiGustiak = Metodoak.printJaiegunak1(null, 999);
+				System.out.println(jaiGustiak);
+				txtAreaDatak.setText(jaiGustiak);
 				
 			}
 		});
