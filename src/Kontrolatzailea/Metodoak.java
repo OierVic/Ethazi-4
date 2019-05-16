@@ -590,6 +590,9 @@ public class Metodoak {
 		    dias=(int) ((etorriData.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
 		}
+		else {
+			System.out.println("No hay temporada Alta");
+		}
 		//------------------------------------------------------------------------------
 		//SemanaSanta el Mismo Año
 		if ((joanData.before(InicioSemanaSanta) && etorriData.after(InicioSemanaSanta))) {
@@ -607,6 +610,9 @@ public class Metodoak {
 		else if (joanData.after(InicioSemanaSanta) && etorriData.before(FinSemanaSanta)) {
 		    dias=(int) ((etorriData.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		}
+		else {
+			System.out.println("No hay temporada Alta");
 		}
 		//------------------------------------------------------------------------------
 		//Verano el Siguiente Año
@@ -626,6 +632,9 @@ public class Metodoak {
 		else if (joanData.after(InicioVeranoAñoSiguiente) && etorriData.before(FinVeranoAñoSiguiente)) {
 		    dias=(int) ((etorriData.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		}
+		else {
+			System.out.println("No hay temporada Alta");
 		}
 		
 		
@@ -647,6 +656,9 @@ public class Metodoak {
 		    dias=(int) ((etorriData.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
 		}
+		else {
+			System.out.println("No hay temporada Alta");
+		}
 		//------------------------------------------------------------------------------
 		//Navidad el Mismo Año
 		if ((joanData.before(InicioNavidad) && etorriData.after(InicioNavidad))) {
@@ -664,6 +676,9 @@ public class Metodoak {
 		else if (joanData.after(InicioNavidad) && etorriData.before(FinNavidad)) {
 		    dias=(int) ((etorriData.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		}
+		else {
+			System.out.println("No hay temporada Alta");
 		}
 		
 		//------------------------------------------------------------------------------
@@ -685,8 +700,7 @@ public class Metodoak {
 		    prezioa=prezioa+(dias*10);
 		}
 		
-		
-		if (dias==0) {
+		else {
 			System.out.println("No hay temporada Alta");
 		}
 			
