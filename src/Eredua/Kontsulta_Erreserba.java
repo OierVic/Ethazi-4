@@ -20,7 +20,7 @@ public class Kontsulta_Erreserba {
 
 		try {
 
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			//Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 
 			s1 = (Statement) Conexion.createStatement();
 
@@ -41,7 +41,7 @@ public class Kontsulta_Erreserba {
 
 		try {
 
-			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			//Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 
 			s1 = (Statement) Conexion.createStatement();
 
