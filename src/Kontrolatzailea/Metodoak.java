@@ -32,6 +32,7 @@ import Ikuspegia.OstauMotaAukeratu;
 
 public class Metodoak {
 	static int LogelaKant;
+	static String JaiGustiak;
 
 	//Ventana1
 	public static void ongietorrileihora() {
@@ -660,6 +661,60 @@ public class Metodoak {
 	public static int SumaSpinners(int spinner1,int spinner2,int spinner3,int spinner4) {
 		int sumaTotala=spinner1+spinner1+spinner3+spinner4;
 		return sumaTotala;
+	}
+	
+	public static int DataFestiboak(Date sartzekoDataKliente, Date joatekoDataKliente, Jaiegunak j1){
+		int i=0;
+		int jaiaKount = 0;
+		ArrayList<java.sql.Date> jaiDatak = new ArrayList<java.sql.Date>();
+		ArrayList <String> jaiIzenak = new ArrayList<String>();
+		jaiDatak = j1.getJaiDatak();
+		jaiIzenak = j1.getJaiIzenak();
+		String jaiGustiak = "";
+		String[] jaiakPrint =new String[100];
+		do {
+			if(sartzekoDataKliente.equals(jaiDatak.get(i))) {
+		//mezuaAtera();
+		//JOptionPane.showMessageDialog(null, jaiDatak.get(i), "Jaiegunen bat daukazu datetan." + jaiIzenak.get(i), JOptionPane.INFORMATION_MESSAGE);
+		++jaiaKount;
+		
+	
+			jaiakPrint[i] = jaiIzenak.get(i) + ":  " + jaiDatak.get(i);
+			jaiGustiak = jaiakPrint[i] + "\n" + jaiGustiak;	
+			System.out.println("if " + jaiakPrint[i] + " " +i);
+			}
+			if(sartzekoDataKliente.before(jaiDatak.get(i))) { // 1 antes que: 5
+		if(joatekoDataKliente.after(jaiDatak.get(i))) {  // 7 despues que: 5
+			//mezuaAtera();
+			//JOptionPane.showMessageDialog(null, jaiDatak.get(i), "Jaiegunen bat daukazu datetan." + jaiIzenak.get(i), JOptionPane.INFORMATION_MESSAGE);
+			++jaiaKount;
+			
+				
+				jaiakPrint[i] = jaiIzenak.get(i) + ":  " + jaiDatak.get(i);
+				jaiGustiak = jaiakPrint[i] + "\n" + jaiGustiak;	
+				System.out.println("if " + jaiakPrint[i] + " " +i);
+			}
+		}
+			++i;
+		}while(jaiDatak.size() > i);
+	
+		
+		printJaiegunak1(jaiGustiak, i);
+
+	return jaiaKount;
+		
+	}
+
+
+	public static String printJaiegunak1(String jaiGustiak, int i) {
+		if(i != 999) {
+			
+			JaiGustiak = jaiGustiak;
+		}else {
+			jaiGustiak = JaiGustiak;
+		}
+	
+		return jaiGustiak;
 	}
 	
 	
