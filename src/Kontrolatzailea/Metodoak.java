@@ -623,6 +623,7 @@ public class Metodoak {
 		    prezioa=prezioa+(dias*10);
 		}
 		
+		
 		//------------------------------------------------------------------------------
 		//Semana Santa el Siguiente Año
 		if ((joanData.before(InicioSemanaSantaAñoSiguiente) && etorriData.after(InicioSemanaSantaAñoSiguiente))) {
