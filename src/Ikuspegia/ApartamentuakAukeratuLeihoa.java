@@ -35,6 +35,7 @@ public class ApartamentuakAukeratuLeihoa extends JFrame {
 	public Double PrezioApartamentua;
 	
 	public ApartamentuakAukeratuLeihoa(ArrayList<String> Helbideak) {
+		this.setResizable(false);
 		getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 20));
 		this.setBounds(275,100,700,600);
 		this.setBackground(SystemColor.control);

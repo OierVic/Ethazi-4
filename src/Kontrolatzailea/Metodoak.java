@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.swing.JOptionPane;
+
 import Eredua.Konsulta_Erregistro;
 import Eredua.Kontsulta_Apartamentua;
 import Eredua.Kontsulta_Bezero;
@@ -32,6 +34,7 @@ import Ikuspegia.OstauMotaAukeratu;
 
 public class Metodoak {
 	static int LogelaKant;
+	static String JaiGustiak;
 
 	//Ventana1
 	public static void ongietorrileihora() {
@@ -663,6 +666,61 @@ public class Metodoak {
 	public static int SumaSpinners(int spinner1,int spinner2,int spinner3,int spinner4) {
 		int sumaTotala=spinner1+spinner1+spinner3+spinner4;
 		return sumaTotala;
+	}
+	
+	public static int DataFestiboak(Date sartzekoDataKliente, Date joatekoDataKliente, Jaiegunak j1){
+		int i=0;
+		int jaiaKount = 0;
+		ArrayList<java.sql.Date> jaiDatak = new ArrayList<java.sql.Date>();
+		ArrayList <String> jaiIzenak = new ArrayList<String>();
+		jaiDatak = j1.getJaiDatak();
+		jaiIzenak = j1.getJaiIzenak();
+		String jaiGustiak = "";
+		String[] jaiakPrint =new String[100];
+		do {
+			System.out.println("i = " + i + "sartzekoDataKliente = " + sartzekoDataKliente + "jaiDatak.get(i) " + jaiDatak.get(i));
+			if(sartzekoDataKliente.equals(jaiDatak.get(i))) {
+		//mezuaAtera();
+		++jaiaKount;
+		
+	
+			jaiakPrint[i] = jaiIzenak.get(i) + ":  " + jaiDatak.get(i);
+			jaiGustiak = jaiakPrint[i] + "\n" + jaiGustiak;	
+			System.out.println("if " + jaiakPrint[i] + " " +i);
+			}
+			if(sartzekoDataKliente.before(jaiDatak.get(i))) { // 1 antes que: 5
+		if(joatekoDataKliente.after(jaiDatak.get(i))) {  // 7 despues que: 5
+			//mezuaAtera();
+			++jaiaKount;
+			
+				
+				jaiakPrint[i] = jaiIzenak.get(i) + ":  " + jaiDatak.get(i);
+				jaiGustiak = jaiakPrint[i] + "\n" + jaiGustiak;	
+				System.out.println("if " + jaiakPrint[i] + " " +i);
+			}
+		}
+			++i;
+			System.out.println("i =" + i  + jaiaKount);
+		}while(jaiDatak.size() > i);
+	
+		
+		printJaiegunak1(jaiGustiak, i);
+
+	return jaiaKount;
+		
+	}
+
+
+	public static String printJaiegunak1(String jaiGustiak, int i) {
+		if(i != 999) {
+			System.out.println("Hemen jasotzen da: " + JaiGustiak);
+			JaiGustiak = jaiGustiak;
+		}else {
+			System.out.println("Hemen gordetzen da: " + JaiGustiak);
+			jaiGustiak = JaiGustiak;
+		}
+	
+		return jaiGustiak;
 	}
 	
 	

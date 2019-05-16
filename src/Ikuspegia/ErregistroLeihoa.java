@@ -73,6 +73,7 @@ public class ErregistroLeihoa extends JFrame {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public ErregistroLeihoa(ArrayList<Bezero> bezero) {
+		this.setResizable(false);
 		this.setBounds(275,100,700,600);
 		getContentPane().setLayout(null);
 

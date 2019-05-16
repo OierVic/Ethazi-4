@@ -18,6 +18,7 @@ import com.toedter.calendar.JDateChooser;
 import Eredua.Kontsulta_Erreserba;
 import Eredua.Kontsulta_Hoteles;
 import Kontrolatzailea.Hotel;
+import Kontrolatzailea.Jaiegunak;
 import Kontrolatzailea.Metodoak;
 import Kontrolatzailea.OheMotak;
 
@@ -27,6 +28,7 @@ import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JSpinner;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 
@@ -55,6 +57,7 @@ public class ErreserbaHasieratu extends JFrame{
 	private JLabel lblOheBikoitzBatEtaSinpleBat = new JLabel("Ohe bikoitz bat eta ohe Simple bat :");
 	private JLabel lblSehaska = new JLabel("Sehaska :");
 	private JLabel lblLogelaLibre = new JLabel("Logela libre:");
+	private JTextArea txtAreaDatak = new JTextArea();
 
 //	private SpinnerNumberModel oheakSpinner = new SpinnerNumberModel(0, 0, 2, 1);
 //	private SpinnerNumberModel sehaskaSpinner = new SpinnerNumberModel(0, 0, 4, 1);
@@ -258,6 +261,12 @@ public class ErreserbaHasieratu extends JFrame{
 		
 		int[] gelaLibre =new int[4];
 		
+
+
+			txtAreaDatak.setBounds(397, 122, 247, 100);
+			txtAreaDatak.setEditable(false);
+			getContentPane().add(txtAreaDatak);
+		
 		
 		
 		btnDatakEgiaztatu.addActionListener(new ActionListener() {
@@ -292,6 +301,8 @@ public class ErreserbaHasieratu extends JFrame{
 				int i = 0;
 				boolean libre;
 				
+				Jaiegunak j1 = new Jaiegunak(null, null);
+				
 				String[] oheMotak =new String[4];
 				oheMotak[0]= "1sinp";
 				oheMotak[1]= "2sinp";
@@ -304,13 +315,16 @@ public class ErreserbaHasieratu extends JFrame{
 				oheMotakZbk[2]= OheBikoitzBat;
 				oheMotakZbk[3]= OheBikoitzBatEtaOheSimpleBat;
 				
-				
+				String jaiGustiak = null;
 							
 				OheMotak o1 = Kontsulta_Hoteles.logelaKopurua();
+					j1 = Eredua.Konsulta_jaiegunak.JaiegunakAtera();
 				do {
 				ArrayList<java.sql.Date> dataJoan = new ArrayList<java.sql.Date>();
 				ArrayList<java.sql.Date> dataEtorri = new ArrayList<java.sql.Date>();
 				ArrayList<java.sql.Date>[] dataArray = new ArrayList[2]; 
+				
+				Metodoak.DataFestiboak(sartu_Data, joan_Data, j1);
 
 				dataArray = Kontsulta_Hoteles.dataJoan(oheMotak[i]);
 				
@@ -361,7 +375,10 @@ public class ErreserbaHasieratu extends JFrame{
 				
 			
 				
-				
+				//hemen impimitu behar da .........................................................
+				jaiGustiak = Metodoak.printJaiegunak1(null, 999);
+				System.out.println(jaiGustiak);
+				txtAreaDatak.setText(jaiGustiak);
 				
 				
 				
