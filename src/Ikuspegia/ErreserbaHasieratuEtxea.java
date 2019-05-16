@@ -63,6 +63,7 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 	private String jaiGustiak = null;
 	private int zenbatJaiEgun = 0;
 	private Jaiegunak j1 = new Jaiegunak(null, null);
+	private final JLabel label = new JLabel("Jai-egunak");
 	
 	//variables de que recogen de los spinners para que se puedan utilizar fuera del boton
 	
@@ -194,6 +195,10 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 		btnDatakEgiaztatu.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnDatakEgiaztatu.setBounds(125, 160, 132, 23);
 		getContentPane().add(btnDatakEgiaztatu);
+		label.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		label.setBounds(397, 83, 107, 28);
+		
+		getContentPane().add(label);
 		//lblOheSipleBat.g
 		
 		btnDatakEgiaztatu.addActionListener(new ActionListener() {

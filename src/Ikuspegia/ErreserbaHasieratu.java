@@ -423,6 +423,11 @@ public class ErreserbaHasieratu extends JFrame{
 		
 		getContentPane().add(lblLogelaLibre);
 		
+		JLabel lblJaiEgunak = new JLabel("Jai-egunak");
+		lblJaiEgunak.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblJaiEgunak.setBounds(397, 83, 107, 28);
+		getContentPane().add(lblJaiEgunak);
+		
 		btnBalidatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
