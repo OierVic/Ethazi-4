@@ -572,12 +572,11 @@ public class ErreserbaHasieratu extends JFrame{
 					PrezioHotelFinal = Metodoak.prezioaEgunekin(PrezioHotel, joan_Data, sartu_Data, o1, OstauMotaAukeratu.idOstatu, zenbatJaiEgun);
 					try {
 						PrezioHotelFinal = Metodoak.PrezioaTemporadekinKalkulatu(sartu_Data,joan_Data, PrezioHotelFinal);
-						System.out.println(PrezioHotelFinal);
 					} catch (ParseException e1) {
 						System.out.println(e1.getMessage());
 					}
 
-					Metodoak.ordainduleihora(hotelak, PrezioHotel, sartu_Data, joan_Data, o1,LogelaTotalaSpinner);
+					Metodoak.ordainduleihora(hotelak, PrezioHotelFinal, sartu_Data, joan_Data, o1,LogelaTotalaSpinner);
 					dispose();
 				}
 				

@@ -412,15 +412,15 @@ public class Metodoak {
 		if(o1.getOheSimpleBat() > 0) {
 			 prezioa0 = prezioHotel * o1.getOheSimpleBat();
 		}if(o1.getOheBikoitzBat() > 0){
-			 prezioa1 = prezioHotel * o1.getOheBikoitzBat() * 1.5; // 50% extra por cada cama doble
+			 prezioa1 = prezioHotel + (o1.getOheBikoitzBat() * (prezioHotel * 0.5)); // 50% extra por cada cama doble
 		}if(o1.getOheBikoitzBatEtaOheSimpleBat() > 0) {
-			 prezioa2 = prezioHotel * o1.getOheBikoitzBatEtaOheSimpleBat() * 1.75; // 75% extra por cada cama doble y simple
+			 prezioa2 = prezioHotel + (o1.getOheBikoitzBatEtaOheSimpleBat() * (prezioHotel * 0.75)); // 75% extra por cada cama doble y simple
 		}if(o1.getOheSimpleBi() > 0){
-			 prezioa3 = prezioHotel * o1.getOheSimpleBi() * 2; 
+			 prezioa3 = prezioHotel + (o1.getOheSimpleBi() * (prezioHotel * 0.65)); 
 		} 
 		
 		if(o1.getSehaska() > 0) {
-			 prezioa4 = ((prezioHotel* 0.3) + prezioHotel) * o1.getSehaska();  //30% por cada Sehaska
+			 prezioa4 = (o1.getSehaska() * (prezioHotel * 0.25));  //30% por cada Sehaska
 		}
 		
 		prezioHotel = (prezioa0 + prezioa1 + prezioa2 + prezioa3 + prezioa4);
