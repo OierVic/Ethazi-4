@@ -553,7 +553,7 @@ public class Metodoak {
 	}
 	//Este metodo le pasas un prezioa y las dos fechas seleccionadas.Con el Prezio que metes lo modifica segun las datak(Si coge temporada alta o no) y lo retorna
 	public static double PrezioaTemporadekinKalkulatu (Date joanData, Date etorriData,double prezioa) throws ParseException {
-		//boolean temporadaAlta=false;
+		boolean temporadaAlta=false;
 		int dias=0;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); //Para declarar valores en nuevos objetos date, usa el mismo formato date que usaste al crear las fechas 
 		//Fechas de Verano
@@ -577,42 +577,45 @@ public class Metodoak {
 		    dias=(int) ((etorriData.getTime()-InicioVerano.getTime())/86400000);
 		    //egun bakoitza en temporada alta 10 euro gehiago
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
 		else if (joanData.before(FinVerano) && etorriData.after(FinVerano)) {
 		    dias=(int) ((FinVerano.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
 		else if (joanData.before(InicioVerano) && etorriData.after(FinVerano)) {
 		    dias=(int) ((FinVerano.getTime()-InicioVerano.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
 		else if (joanData.after(InicioVerano) && etorriData.before(FinVerano)) {
 		    dias=(int) ((etorriData.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
-		else {
-			System.out.println("No hay temporada Alta");
-		}
+		
 		//------------------------------------------------------------------------------
 		//SemanaSanta el Mismo Año
 		if ((joanData.before(InicioSemanaSanta) && etorriData.after(InicioSemanaSanta))) {
 			dias=(int) ((etorriData.getTime()-InicioSemanaSanta.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
 		else if (joanData.before(FinSemanaSanta) && etorriData.after(FinSemanaSanta)) {
 		    dias=(int) ((FinSemanaSanta.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
 		else if (joanData.before(InicioSemanaSanta) && etorriData.after(FinSemanaSanta)) {
 		    dias=(int) ((FinSemanaSanta.getTime()-InicioSemanaSanta.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
 		else if (joanData.after(InicioSemanaSanta) && etorriData.before(FinSemanaSanta)) {
 		    dias=(int) ((etorriData.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
-		}
-		else {
-			System.out.println("No hay temporada Alta");
+		    temporadaAlta=true;
 		}
 		//------------------------------------------------------------------------------
 		//Verano el Siguiente Año
@@ -620,65 +623,67 @@ public class Metodoak {
 		    dias=(int) ((etorriData.getTime()-InicioVeranoAñoSiguiente.getTime())/86400000);
 		    //egun bakoitza en temporada alta 10 euro gehiago
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
 		else if (joanData.before(FinVeranoAñoSiguiente) && etorriData.after(FinVeranoAñoSiguiente)) {
 		    dias=(int) ((FinVeranoAñoSiguiente.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
 		else if (joanData.before(InicioVeranoAñoSiguiente) && etorriData.after(FinVeranoAñoSiguiente)) {
 		    dias=(int) ((FinVeranoAñoSiguiente.getTime()-InicioVeranoAñoSiguiente.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
 		else if (joanData.after(InicioVeranoAñoSiguiente) && etorriData.before(FinVeranoAñoSiguiente)) {
 		    dias=(int) ((etorriData.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
-		else {
-			System.out.println("No hay temporada Alta");
-		}
-		
 		
 		//------------------------------------------------------------------------------
 		//Semana Santa el Siguiente Año
 		if ((joanData.before(InicioSemanaSantaAñoSiguiente) && etorriData.after(InicioSemanaSantaAñoSiguiente))) {
 		    dias=(int) ((etorriData.getTime()-InicioSemanaSantaAñoSiguiente.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
 		else if (joanData.before(FinSemanaSantaAñoSiguiente) && etorriData.after(FinSemanaSantaAñoSiguiente)) {
 		    dias=(int) ((FinSemanaSantaAñoSiguiente.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
 		else if (joanData.before(InicioSemanaSantaAñoSiguiente) && etorriData.after(FinSemanaSantaAñoSiguiente)) {
 		    dias=(int) ((FinSemanaSantaAñoSiguiente.getTime()-InicioSemanaSantaAñoSiguiente.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
 		else if (joanData.after(InicioSemanaSantaAñoSiguiente) && etorriData.before(FinSemanaSantaAñoSiguiente)) {
 		    dias=(int) ((etorriData.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
-		}
-		else {
-			System.out.println("No hay temporada Alta");
+		    temporadaAlta=true;
 		}
 		//------------------------------------------------------------------------------
 		//Navidad el Mismo Año
 		if ((joanData.before(InicioNavidad) && etorriData.after(InicioNavidad))) {
 		    dias=(int) ((etorriData.getTime()-InicioNavidad.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
 		else if (joanData.before(FinNavidad) && etorriData.after(FinNavidad)) {
 		    dias=(int) ((FinNavidad.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
 		else if (joanData.before(InicioNavidad) && etorriData.after(FinNavidad)) {
 		    dias=(int) ((FinNavidad.getTime()-InicioNavidad.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
 		else if (joanData.after(InicioNavidad) && etorriData.before(FinNavidad)) {
 		    dias=(int) ((etorriData.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
-		}
-		else {
-			System.out.println("No hay temporada Alta");
+		    temporadaAlta=true;
 		}
 		
 		//------------------------------------------------------------------------------
@@ -686,24 +691,26 @@ public class Metodoak {
 		if ((joanData.before(InicioNavidadAñoSiguiente) && etorriData.after(InicioNavidadAñoSiguiente))) {
 		    dias=(int) ((etorriData.getTime()-InicioNavidadAñoSiguiente.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
 		else if (joanData.before(FinNavidadAñoSiguiente) && etorriData.after(FinNavidadAñoSiguiente)) {
 		    dias=(int) ((FinNavidadAñoSiguiente.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
 		else if (joanData.before(InicioNavidadAñoSiguiente) && etorriData.after(FinNavidadAñoSiguiente)) {
 		    dias=(int) ((FinNavidadAñoSiguiente.getTime()-InicioNavidadAñoSiguiente.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
 		else if (joanData.after(InicioNavidadAñoSiguiente) && etorriData.before(FinNavidadAñoSiguiente)) {
 		    dias=(int) ((etorriData.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
+		    temporadaAlta=true;
 		}
-		
-		else {
+		if (temporadaAlta=false) {
 			System.out.println("No hay temporada Alta");
 		}
-			
 		
 		
 		return prezioa;
