@@ -22,6 +22,7 @@ import Kontrolatzailea.Metodoak;
 import Kontrolatzailea.OheMotak;
 
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
@@ -84,6 +85,7 @@ public class ErreserbaHasieratu extends JFrame{
 	private int OheBikoitzBat=0;
 	private int OheBikoitzBatEtaOheSimpleBat=0;
 	private int Sehaska=0;
+	private double PrezioHotelFinal=0.00;
 	private JTextField lblOheSipleBatKant;
 	private JTextField lblOheSinpleBiKant;
 	private JTextField lblOheBikoitzBatKant;
@@ -547,8 +549,16 @@ public class ErreserbaHasieratu extends JFrame{
 				sartu_Data = (Date) dateSartu.getDate();
 				
 				if(dateSartu != null && dateJoan != null) {
+					PrezioHotelFinal = Metodoak.prezioaEgunekin(PrezioHotel, joan_Data, sartu_Data, o1, OstauMotaAukeratu.idOstatu);
+					try {
+						PrezioHotelFinal = Metodoak.PrezioaTemporadekinKalkulatu(sartu_Data,joan_Data, PrezioHotelFinal);
+						System.out.println(PrezioHotelFinal);
+					} catch (ParseException e1) {
+						System.out.println(e1.getMessage());
+					}
 					
-					Metodoak.ordainduleihora(hotelak, PrezioHotel, sartu_Data, joan_Data, o1,LogelaTotalaSpinner);
+					
+					Metodoak.ordainduleihora(hotelak, PrezioHotelFinal, sartu_Data, joan_Data, o1,LogelaTotalaSpinner);
 					dispose();
 				}
 				
