@@ -119,9 +119,9 @@ public class Metodoak {
 
 		
 	//Ventana4
-	public static void ordainduleihora(String hotelak, double prezioHotel, Date sartuData, Date joanData, OheMotak o1,int logelaKopurua) {
+	public static void ordainduleihora(String hotelak, double prezioHotel, Date sartuData, Date joanData, OheMotak o1,int logelaKopurua, int zenbatJaiEgun) {
 
-		OrdainduLeihoa HotelakAukeratuLeihoa= new OrdainduLeihoa(hotelak,prezioHotel,sartuData, joanData, o1,logelaKopurua);
+		OrdainduLeihoa HotelakAukeratuLeihoa= new OrdainduLeihoa(hotelak,prezioHotel,sartuData, joanData, o1,logelaKopurua, zenbatJaiEgun);
 		HotelakAukeratuLeihoa.setVisible(true);
 
 	}
@@ -174,7 +174,7 @@ public class Metodoak {
 		
 	}
 
-	public static String kanbioMetodoa(double zbk) {
+	public static String bueltakMetodoa(double zbk) {
 
 
 		double kanbio= zbk;
@@ -308,7 +308,7 @@ public class Metodoak {
 		return ordua;
 	}
 
-	public static String dataAteraAñoalFinal () {
+	public static String dataAteraAñoalFinala () {
 		int año,mes,dia = 0;
 
 		Calendar fecha = Calendar.getInstance();
@@ -354,9 +354,7 @@ public class Metodoak {
 		}
 		return data;
 	}
-	//	public static void bezeroaIgo(BezeroIgo bezeroIgo) {
-	//		Kontrolatzailea.erregistroa(bezeroIgo);
-	//	}
+	
 
 	public static double RedondearDosDecimales(double numero)
 	{
@@ -390,7 +388,7 @@ public class Metodoak {
 	
 	//hola
 	
-	public static double prezioaEgunekin(double prezioHotel, Date joanData, Date sartuData, OheMotak o1,int idHotel){
+	public static double prezioaEgunekin(double prezioHotel, Date joanData, Date sartuData, OheMotak o1,int idHotel, int zenbatJaiEgun){
 		
 		double prezioTrampa = prezioHotel;
 		double prezioa0 = 0;
@@ -429,6 +427,8 @@ public class Metodoak {
 		
 		prezioHotel = Math.round(prezioHotel * 100) / 100d;
 		
+		prezioHotel = prezioHotel + (zenbatJaiEgun * 20);
+		System.out.println(prezioHotel + " "+ zenbatJaiEgun +"__________________");
 		return (double) prezioHotel;
 	}
 	
@@ -442,7 +442,6 @@ public class Metodoak {
 		
 		prezioHotel = Math.round(prezioHotel * 100) / 100d;
 		
-		System.out.println(prezioHotel + "   prezio etxea");
 		
 		return (double) prezioHotel;
 	}
@@ -487,8 +486,7 @@ public class Metodoak {
 		boolean lekua= false;
 		
 		int i = 0; // para cada intervalo 
-		//System.out.println("No afecta1" + sartzekoDataCliente + "before. " + dataJoan.get(i));
-		//System.out.println("No afecta1" + joatekoDataCliente + "before. " + dataJoan.get(i));
+	
 
 		do {
 	
@@ -546,7 +544,7 @@ public class Metodoak {
 			logelaKant = LogelaKant;
 		}else {
 			LogelaKant = logelaKant;
-			//LogelaKant = 9;
+			
 		}
 		
 		
@@ -675,29 +673,25 @@ public class Metodoak {
 		String jaiGustiak = "";
 		String[] jaiakPrint =new String[100];
 		do {
-			System.out.println("i = " + i + "sartzekoDataKliente = " + sartzekoDataKliente + "jaiDatak.get(i) " + jaiDatak.get(i));
 			if(sartzekoDataKliente.equals(jaiDatak.get(i))) {
-		//mezuaAtera();
+		
 		++jaiaKount;
 		
 	
 			jaiakPrint[i] = jaiIzenak.get(i) + ":  " + jaiDatak.get(i);
 			jaiGustiak = jaiakPrint[i] + "\n" + jaiGustiak;	
-			System.out.println("if " + jaiakPrint[i] + " " +i);
 			}
 			if(sartzekoDataKliente.before(jaiDatak.get(i))) { // 1 antes que: 5
 		if(joatekoDataKliente.after(jaiDatak.get(i))) {  // 7 despues que: 5
-			//mezuaAtera();
+		
 			++jaiaKount;
 			
 				
 				jaiakPrint[i] = jaiIzenak.get(i) + ":  " + jaiDatak.get(i);
 				jaiGustiak = jaiakPrint[i] + "\n" + jaiGustiak;	
-				System.out.println("if " + jaiakPrint[i] + " " +i);
 			}
 		}
 			++i;
-			System.out.println("i =" + i  + jaiaKount);
 		}while(jaiDatak.size() > i);
 	
 		
@@ -710,10 +704,8 @@ public class Metodoak {
 
 	public static String printJaiegunak1(String jaiGustiak, int i) {
 		if(i != 999) {
-			System.out.println("Hemen jasotzen da: " + JaiGustiak);
 			JaiGustiak = jaiGustiak;
 		}else {
-			System.out.println("Hemen gordetzen da: " + JaiGustiak);
 			jaiGustiak = JaiGustiak;
 		}
 	

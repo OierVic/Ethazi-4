@@ -91,6 +91,8 @@ public class ErreserbaHasieratu extends JFrame{
 	private JTextField lblOheBikoitzBatKant;
 	private JTextField lblOheBikoitzBatEtaSinpleBatKant;
 	
+	private int zenbatJaiEgun = 0;
+	
 	public ErreserbaHasieratu(String hotelak, double PrezioHotel) {
 		
 		this.setBounds(275,100,700,600);
@@ -299,6 +301,7 @@ public class ErreserbaHasieratu extends JFrame{
 				int i = 0;
 				boolean libre;
 				
+				
 				Jaiegunak j1 = new Jaiegunak(null, null);
 				
 				String[] oheMotak =new String[4];
@@ -322,7 +325,7 @@ public class ErreserbaHasieratu extends JFrame{
 				ArrayList<java.sql.Date> dataEtorri = new ArrayList<java.sql.Date>();
 				ArrayList<java.sql.Date>[] dataArray = new ArrayList[2]; 
 				
-				Metodoak.DataFestiboak(sartu_Data, joan_Data, j1);
+				zenbatJaiEgun = Metodoak.DataFestiboak(sartu_Data, joan_Data, j1);
 
 				dataArray = Kontsulta_Hoteles.dataJoan(oheMotak[i]);
 				
@@ -565,7 +568,7 @@ public class ErreserbaHasieratu extends JFrame{
 				
 				if(dateSartu != null && dateJoan != null) {
 					
-					Metodoak.ordainduleihora(hotelak, PrezioHotel, sartu_Data, joan_Data, o1,LogelaTotalaSpinner);
+					Metodoak.ordainduleihora(hotelak, PrezioHotel, sartu_Data, joan_Data, o1,LogelaTotalaSpinner, zenbatJaiEgun);
 					dispose();
 				}
 				
