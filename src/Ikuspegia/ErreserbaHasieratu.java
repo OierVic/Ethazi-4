@@ -56,6 +56,7 @@ public class ErreserbaHasieratu extends JFrame{
 	private JLabel lblOheBikoitzBatEtaSinpleBat = new JLabel("Ohe bikoitz bat eta ohe Simple bat :");
 	private JLabel lblSehaska = new JLabel("Sehaska :");
 	private JLabel lblLogelaLibre = new JLabel("Logela libre:");
+	private JTextArea txtAreaDatak = new JTextArea();
 
 //	private SpinnerNumberModel oheakSpinner = new SpinnerNumberModel(0, 0, 2, 1);
 //	private SpinnerNumberModel sehaskaSpinner = new SpinnerNumberModel(0, 0, 4, 1);
@@ -260,9 +261,8 @@ public class ErreserbaHasieratu extends JFrame{
 		
 
 
-
-		JTextArea txtAreaDatak = new JTextArea();
 			txtAreaDatak.setBounds(397, 122, 247, 100);
+			txtAreaDatak.setEditable(false);
 			getContentPane().add(txtAreaDatak);
 		
 		
