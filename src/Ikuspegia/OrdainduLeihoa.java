@@ -145,7 +145,7 @@ public class OrdainduLeihoa extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 
-				Metodoak.erreserbahasieratu(hotelak, prezioHotelFinal);
+				Metodoak.erreserbahasieratu(hotelak, HotelakAukeratuLeihoa.PrezioSoloHotel);
 				
 			}
 		});

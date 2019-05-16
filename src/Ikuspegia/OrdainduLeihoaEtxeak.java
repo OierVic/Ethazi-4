@@ -157,9 +157,9 @@ public class OrdainduLeihoaEtxeak extends JFrame {
 				dispose();
 				
 				if(oierbike == true) {
-					Metodoak.erreserbahasieratuetxea(izenak, prezioa);
+					Metodoak.erreserbahasieratuetxea(izenak, EtxeakAukeratuLeihoa.PrezioSoloEtxea);
 				} else {
-					Metodoak.erreserbahasieratuapartamentua(izenak, prezioa);
+					Metodoak.erreserbahasieratuapartamentua(izenak, ApartamentuakAukeratuLeihoa.PrezioSoloApartamentua);
 				}
 				
 				

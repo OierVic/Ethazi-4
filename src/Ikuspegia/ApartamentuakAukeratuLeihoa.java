@@ -33,7 +33,8 @@ public class ApartamentuakAukeratuLeihoa extends JFrame {
 	ArrayList<Apartamentua> ApartamentuakComboBox = new ArrayList<Apartamentua>();
 	
 	public Double PrezioApartamentua;
-	
+	public static double PrezioSoloApartamentua=0;
+
 	public ApartamentuakAukeratuLeihoa(ArrayList<String> Helbideak) {
 		getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 20));
 		this.setBounds(275,100,700,600);
@@ -94,7 +95,7 @@ public class ApartamentuakAukeratuLeihoa extends JFrame {
 					dispose();
 					PrezioApartamentua= ApartamentuakComboBox.get(PosicionSelected).getPrezioApartementua();
 					OstauMotaAukeratu.idOstatu = ApartamentuakComboBox.get(PosicionSelected).getId_Ostatu();
-					
+					PrezioSoloApartamentua = ApartamentuakComboBox.get(PosicionSelected).getPrezioApartementua();
 					Metodoak.erreserbahasieratuapartamentua(apartamentuak, PrezioApartamentua);
 
 				}

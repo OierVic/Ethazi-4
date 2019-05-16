@@ -37,6 +37,7 @@ public class HotelakAukeratuLeihoa extends JFrame {
 
 
 	public Double PrezioHotel;
+	public static double PrezioSoloHotel=0;
 	
 	public HotelakAukeratuLeihoa(ArrayList <Hotel> Hoteles,ArrayList<String> Helbideak) {
 		
@@ -104,7 +105,7 @@ public class HotelakAukeratuLeihoa extends JFrame {
 					dispose();
 					PrezioHotel = HotelCombobox.get(PosicionSelected).getPrezioHotel();
 					OstauMotaAukeratu.idOstatu = HotelCombobox.get(PosicionSelected).getId_Ostatu();
-					
+					PrezioSoloHotel = HotelCombobox.get(PosicionSelected).getPrezioHotel();
 					Metodoak.erreserbahasieratu(hotelak, PrezioHotel);
 
 				}
