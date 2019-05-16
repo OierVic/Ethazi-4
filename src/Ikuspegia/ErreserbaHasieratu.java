@@ -26,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JSpinner;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 
@@ -256,6 +257,13 @@ public class ErreserbaHasieratu extends JFrame{
 		
 		int[] gelaLibre =new int[4];
 		
+
+
+
+		JTextArea txtAreaDatak = new JTextArea();
+			txtAreaDatak.setBounds(397, 122, 247, 100);
+			getContentPane().add(txtAreaDatak);
+		
 		
 		
 		btnDatakEgiaztatu.addActionListener(new ActionListener() {
@@ -302,7 +310,7 @@ public class ErreserbaHasieratu extends JFrame{
 				oheMotakZbk[2]= OheBikoitzBat;
 				oheMotakZbk[3]= OheBikoitzBatEtaOheSimpleBat;
 				
-				
+				String jaiGustiak = null;
 							
 				OheMotak o1 = Kontsulta_Hoteles.logelaKopurua();
 				do {
@@ -359,7 +367,9 @@ public class ErreserbaHasieratu extends JFrame{
 				
 			
 				
-				
+
+				jaiGustiak = Metodoak.printJaiegunak1(null, 999);
+				txtAreaDatak.setText(jaiGustiak);
 				
 				
 				
