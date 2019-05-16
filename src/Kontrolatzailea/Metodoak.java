@@ -557,7 +557,6 @@ public class Metodoak {
 	public static double PrezioaTemporadekinKalkulatu (Date joanData, Date etorriData,double prezioa) throws ParseException {
 		//boolean temporadaAlta=false;
 		int dias=0;
-		System.out.println(joanData.getYear());
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); //Para declarar valores en nuevos objetos date, usa el mismo formato date que usaste al crear las fechas 
 		//Fechas de Verano
 		Date InicioVerano = sdf.parse("2019-06-21");
