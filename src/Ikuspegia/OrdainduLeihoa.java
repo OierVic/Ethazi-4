@@ -190,7 +190,7 @@ public class OrdainduLeihoa extends JFrame {
 							if (preziototala<0) {
 
 								preziototala=preziototala*(-1);
-								String kanbioak=Metodoak.kanbioMetodoa(preziototala);
+								String kanbioak=Metodoak.bueltakMetodoa(preziototala);
 								Itzuliak.setText(kanbioak);
 								btnAmaitu.setEnabled(true);
 								btnEzeztatu.setEnabled(false);

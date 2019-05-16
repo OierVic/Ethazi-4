@@ -54,7 +54,7 @@ public class OrdainduLeihoaEtxeak extends JFrame {
 	public OrdainduLeihoaEtxeak(String izenak, double prezioa, Date sartuData, Date joanData, boolean oierbike) {
 		//prezioa=prezioHotel;
 		//prezioa=0.0;
-		this.setResizable(false);
+		
 		this.setBounds(275,100,700,600);
 		getContentPane().setLayout(null);
 		lblOrdainketa.setBounds(90, 106, 162, 34);
@@ -207,7 +207,7 @@ public class OrdainduLeihoaEtxeak extends JFrame {
 							if (preziototala<0) {
 
 								preziototala=preziototala*(-1);
-								String kanbioak=Metodoak.kanbioMetodoa(preziototala);
+								String kanbioak=Metodoak.bueltakMetodoa(preziototala);
 								Itzuliak.setText(kanbioak);
 								btnAmaitu.setEnabled(true);
 								btnEzeztatu.setEnabled(false);

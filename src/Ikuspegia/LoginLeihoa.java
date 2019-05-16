@@ -46,7 +46,7 @@ public class LoginLeihoa extends JFrame {
 	public LoginLeihoa(ArrayList<Bezero> bezero) {
 		this.setBounds(275,100,700,600);
 		getContentPane().setLayout(null);
-		this.setResizable(false);
+
 		//LABEL TXARTEL ERREGISTROA
 		lblTxatelaErregistroa.setFont(new Font("Arial", Font.BOLD, 37));
 		lblTxatelaErregistroa.setBounds(222, 46, 133, 37);

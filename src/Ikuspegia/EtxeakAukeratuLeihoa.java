@@ -41,7 +41,7 @@ public class EtxeakAukeratuLeihoa extends JFrame {
 
 	public EtxeakAukeratuLeihoa(ArrayList <Etxea> Etxeak,ArrayList<String> Helbideak) {
 		
-		this.setResizable(false);
+
 		this.setBounds(275,100,700,600);
 		this.setBackground(SystemColor.control);
 		getContentPane().setLayout(null);

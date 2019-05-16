@@ -55,13 +55,13 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 	private String joan_Data_string="";
 	private String sartu_Data_string="";
 	private Boolean jarraituBotoia=false;
-	private double PrezioEtxeaFinal=0.00;
+	private double PrezioEtxeaFinal=0;
 	private boolean oierbike;
 	
 	//variables de que recogen de los spinners para que se puedan utilizar fuera del boton
 	
 	public ErreserbaHasieratuEtxea(String etxeak, double PrezioEtxea) {
-		this.setResizable(false);
+		
 		this.setBounds(275,100,700,600);
 		this.setBackground(SystemColor.control);
 		getContentPane().setLayout(null);
@@ -125,6 +125,7 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 		
 		getContentPane().add(btnEzeztatu);
 		btnAtzera.setBounds(176, 490, 105, 43);
+		//String nan = Hotel.getDni();
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -142,7 +143,10 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 		});
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 				PrezioEtxeaFinal = Metodoak.prezioaEgunekinEtxea(PrezioEtxea, joan_Data, sartu_Data);
+				System.out.println(PrezioEtxeaFinal);
+				System.out.println("Holaaaaa------------------");
 				try {
 					PrezioEtxeaFinal = Metodoak.PrezioaTemporadekinKalkulatu(sartu_Data,joan_Data, PrezioEtxeaFinal);
 					System.out.println(PrezioEtxeaFinal);

@@ -94,6 +94,8 @@ public class ErreserbaHasieratu extends JFrame{
 	private JTextField lblOheBikoitzBatKant;
 	private JTextField lblOheBikoitzBatEtaSinpleBatKant;
 	
+	private int zenbatJaiEgun = 0;
+	
 	public ErreserbaHasieratu(String hotelak, double PrezioHotel) {
 		
 		this.setBounds(275,100,700,600);
@@ -301,6 +303,7 @@ public class ErreserbaHasieratu extends JFrame{
 				int i = 0;
 				boolean libre;
 				
+				
 				Jaiegunak j1 = new Jaiegunak(null, null);
 				
 				String[] oheMotak =new String[4];
@@ -324,7 +327,7 @@ public class ErreserbaHasieratu extends JFrame{
 				ArrayList<java.sql.Date> dataEtorri = new ArrayList<java.sql.Date>();
 				ArrayList<java.sql.Date>[] dataArray = new ArrayList[2]; 
 				
-				Metodoak.DataFestiboak(sartu_Data, joan_Data, j1);
+				zenbatJaiEgun = Metodoak.DataFestiboak(sartu_Data, joan_Data, j1);
 
 				dataArray = Kontsulta_Hoteles.dataJoan(oheMotak[i]);
 				
@@ -566,16 +569,15 @@ public class ErreserbaHasieratu extends JFrame{
 				sartu_Data = (Date) dateSartu.getDate();
 				
 				if(dateSartu != null && dateJoan != null) {
-					PrezioHotelFinal = Metodoak.prezioaEgunekin(PrezioHotel, joan_Data, sartu_Data, o1, OstauMotaAukeratu.idOstatu);
+					PrezioHotelFinal = Metodoak.prezioaEgunekin(PrezioHotel, joan_Data, sartu_Data, o1, OstauMotaAukeratu.idOstatu, zenbatJaiEgun);
 					try {
 						PrezioHotelFinal = Metodoak.PrezioaTemporadekinKalkulatu(sartu_Data,joan_Data, PrezioHotelFinal);
 						System.out.println(PrezioHotelFinal);
 					} catch (ParseException e1) {
 						System.out.println(e1.getMessage());
 					}
-					
-					
-					Metodoak.ordainduleihora(hotelak, PrezioHotelFinal, sartu_Data, joan_Data, o1,LogelaTotalaSpinner);
+
+					Metodoak.ordainduleihora(hotelak, PrezioHotel, sartu_Data, joan_Data, o1,LogelaTotalaSpinner);
 					dispose();
 				}
 				

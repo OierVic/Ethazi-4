@@ -19,8 +19,6 @@ public class OngiEtorriLeihoa extends JFrame {
 	private JLabel lblTxrtelSaltzailera = new JLabel("Bidai-Onera");
 
 	public OngiEtorriLeihoa() {
-		this.setResizable(false);
-		this.setResizable(false);
 		getContentPane().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {

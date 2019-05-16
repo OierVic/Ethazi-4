@@ -16,7 +16,7 @@ public class EskerrikAskoLeihoa extends JFrame {
 
 	public EskerrikAskoLeihoa() {
 		
-		this.setResizable(false);
+		
 		this.setBounds(275,100,700,600);
 		getContentPane().setLayout(null);
 		

@@ -22,7 +22,6 @@ import Kontrolatzailea.Metodoak;
 import Kontrolatzailea.OheMotak;
 
 import java.awt.event.ActionListener;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
@@ -55,13 +54,13 @@ public class ErreserbaHasieratuApartamentua extends JFrame{
 	private String joan_Data_string="";
 	private String sartu_Data_string="";
 	private Boolean jarraituBotoia=false;
-	private double PrezioApartamentuaFinal=0.00;
+	private double PrezioEtxeaFinal=0;
 	private boolean oierbike;
 	
 	//variables de que recogen de los spinners para que se puedan utilizar fuera del boton
 	
 	public ErreserbaHasieratuApartamentua(String apartamentuak, double PrezioApartamentua) {
-		this.setResizable(false);
+		
 		this.setBounds(275,100,700,600);
 		this.setBackground(SystemColor.control);
 		getContentPane().setLayout(null);
@@ -149,16 +148,10 @@ public class ErreserbaHasieratuApartamentua extends JFrame{
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				PrezioApartamentuaFinal = Metodoak.prezioaEgunekinEtxea(PrezioApartamentua, joan_Data, sartu_Data);
-				try {
-					PrezioApartamentuaFinal = Metodoak.PrezioaTemporadekinKalkulatu(sartu_Data,joan_Data, PrezioApartamentuaFinal);
-					System.out.println(PrezioApartamentuaFinal);
-				} catch (ParseException e1) {
-					System.out.println(e1.getMessage());
-				}
+				PrezioEtxeaFinal = Metodoak.prezioaEgunekinEtxea(PrezioApartamentua, joan_Data, sartu_Data);
 				dispose();
 				oierbike = false;
-				Metodoak.ordainduleihoraetxea(apartamentuak, PrezioApartamentuaFinal, sartu_Data, joan_Data, oierbike);
+				Metodoak.ordainduleihoraetxea(apartamentuak, PrezioEtxeaFinal, sartu_Data, joan_Data, oierbike);
 			}
 		});
 		
