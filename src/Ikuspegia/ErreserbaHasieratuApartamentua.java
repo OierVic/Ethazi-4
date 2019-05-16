@@ -60,7 +60,7 @@ public class ErreserbaHasieratuApartamentua extends JFrame{
 	//variables de que recogen de los spinners para que se puedan utilizar fuera del boton
 	
 	public ErreserbaHasieratuApartamentua(String apartamentuak, double PrezioApartamentua) {
-		
+		this.setResizable(false);
 		this.setBounds(275,100,700,600);
 		this.setBackground(SystemColor.control);
 		getContentPane().setLayout(null);

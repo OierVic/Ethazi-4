@@ -32,7 +32,7 @@ public class OstauMotaAukeratu extends JFrame {
 
 	public OstauMotaAukeratu() {
 		
-
+		this.setResizable(false);
 		this.setBounds(275,100,700,600);
 		this.setBackground(SystemColor.control);
 		getContentPane().setLayout(null);
