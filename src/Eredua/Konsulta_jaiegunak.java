@@ -37,7 +37,8 @@ public class Konsulta_jaiegunak {
 				
 				jaiEgunak.add(jaieguna);
 				jaiIzenak.add(jaiegunIzena);
-		
+		System.out.println(jaiEgunak);
+		System.out.println(jaiIzenak);
 				
 			}
 		

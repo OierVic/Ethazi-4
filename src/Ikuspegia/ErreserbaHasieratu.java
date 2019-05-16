@@ -18,6 +18,7 @@ import com.toedter.calendar.JDateChooser;
 import Eredua.Kontsulta_Erreserba;
 import Eredua.Kontsulta_Hoteles;
 import Kontrolatzailea.Hotel;
+import Kontrolatzailea.Jaiegunak;
 import Kontrolatzailea.Metodoak;
 import Kontrolatzailea.OheMotak;
 
@@ -298,6 +299,8 @@ public class ErreserbaHasieratu extends JFrame{
 				int i = 0;
 				boolean libre;
 				
+				Jaiegunak j1 = new Jaiegunak(null, null);
+				
 				String[] oheMotak =new String[4];
 				oheMotak[0]= "1sinp";
 				oheMotak[1]= "2sinp";
@@ -313,10 +316,13 @@ public class ErreserbaHasieratu extends JFrame{
 				String jaiGustiak = null;
 							
 				OheMotak o1 = Kontsulta_Hoteles.logelaKopurua();
+					j1 = Eredua.Konsulta_jaiegunak.JaiegunakAtera();
 				do {
 				ArrayList<java.sql.Date> dataJoan = new ArrayList<java.sql.Date>();
 				ArrayList<java.sql.Date> dataEtorri = new ArrayList<java.sql.Date>();
 				ArrayList<java.sql.Date>[] dataArray = new ArrayList[2]; 
+				
+				Metodoak.DataFestiboak(sartu_Data, joan_Data, j1);
 
 				dataArray = Kontsulta_Hoteles.dataJoan(oheMotak[i]);
 				
@@ -367,8 +373,9 @@ public class ErreserbaHasieratu extends JFrame{
 				
 			
 				
-
+				//hemen impimitu behar da .........................................................
 				jaiGustiak = Metodoak.printJaiegunak1(null, 999);
+				System.out.println(jaiGustiak);
 				txtAreaDatak.setText(jaiGustiak);
 				
 				

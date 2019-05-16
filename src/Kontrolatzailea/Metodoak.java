@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.swing.JOptionPane;
+
 import Eredua.Konsulta_Erregistro;
 import Eredua.Kontsulta_Apartamentua;
 import Eredua.Kontsulta_Bezero;
@@ -673,9 +675,9 @@ public class Metodoak {
 		String jaiGustiak = "";
 		String[] jaiakPrint =new String[100];
 		do {
+			System.out.println("i = " + i + "sartzekoDataKliente = " + sartzekoDataKliente + "jaiDatak.get(i) " + jaiDatak.get(i));
 			if(sartzekoDataKliente.equals(jaiDatak.get(i))) {
 		//mezuaAtera();
-		//JOptionPane.showMessageDialog(null, jaiDatak.get(i), "Jaiegunen bat daukazu datetan." + jaiIzenak.get(i), JOptionPane.INFORMATION_MESSAGE);
 		++jaiaKount;
 		
 	
@@ -686,7 +688,6 @@ public class Metodoak {
 			if(sartzekoDataKliente.before(jaiDatak.get(i))) { // 1 antes que: 5
 		if(joatekoDataKliente.after(jaiDatak.get(i))) {  // 7 despues que: 5
 			//mezuaAtera();
-			//JOptionPane.showMessageDialog(null, jaiDatak.get(i), "Jaiegunen bat daukazu datetan." + jaiIzenak.get(i), JOptionPane.INFORMATION_MESSAGE);
 			++jaiaKount;
 			
 				
@@ -696,6 +697,7 @@ public class Metodoak {
 			}
 		}
 			++i;
+			System.out.println("i =" + i  + jaiaKount);
 		}while(jaiDatak.size() > i);
 	
 		
@@ -708,9 +710,10 @@ public class Metodoak {
 
 	public static String printJaiegunak1(String jaiGustiak, int i) {
 		if(i != 999) {
-			
+			System.out.println("Hemen jasotzen da: " + JaiGustiak);
 			JaiGustiak = jaiGustiak;
 		}else {
+			System.out.println("Hemen gordetzen da: " + JaiGustiak);
 			jaiGustiak = JaiGustiak;
 		}
 	
