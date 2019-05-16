@@ -119,9 +119,9 @@ public class Metodoak {
 
 		
 	//Ventana4
-	public static void ordainduleihora(String hotelak, double prezioHotel, Date sartuData, Date joanData, OheMotak o1,int logelaKopurua, int zenbatJaiEgun) {
+	public static void ordainduleihora(String hotelak, double prezioHotel, Date sartuData, Date joanData, OheMotak o1,int logelaKopurua) {
 
-		OrdainduLeihoa HotelakAukeratuLeihoa= new OrdainduLeihoa(hotelak,prezioHotel,sartuData, joanData, o1,logelaKopurua, zenbatJaiEgun);
+		OrdainduLeihoa HotelakAukeratuLeihoa= new OrdainduLeihoa(hotelak,prezioHotel,sartuData, joanData, o1,logelaKopurua);
 		HotelakAukeratuLeihoa.setVisible(true);
 
 	}
@@ -554,97 +554,99 @@ public class Metodoak {
 	//Este metodo le pasas un prezioa y las dos fechas seleccionadas.Con el Prezio que metes lo modifica segun las datak(Si coge temporada alta o no) y lo retorna
 	public static double PrezioaTemporadekinKalkulatu (Date joanData, Date etorriData,double prezioa) throws ParseException {
 		//boolean temporadaAlta=false;
-		
+		int dias=0;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); //Para declarar valores en nuevos objetos date, usa el mismo formato date que usaste al crear las fechas 
 		//Fechas de Verano
-		Date InicioVerano = sdf.parse(joanData.getYear()+"-06-21");
-		Date InicioVeranoAñoSiguiente = sdf.parse((joanData.getYear()+1)+"-06-21");
-		Date FinVerano = sdf.parse(joanData.getYear()+"-09-23");
-		Date FinVeranoAñoSiguiente = sdf.parse((joanData.getYear()+1)+"-09-23");
+		Date InicioVerano = sdf.parse("2019-06-21");
+		Date InicioVeranoAñoSiguiente = sdf.parse("2020-06-21");
+		Date FinVerano = sdf.parse("2019-09-23");
+		Date FinVeranoAñoSiguiente = sdf.parse("2020-09-23");
 		//Fechas de Semana Santa
-		Date InicioSemanaSanta = sdf.parse(joanData.getYear()+"-04-05");
-		Date InicioSemanaSantaAñoSiguiente = sdf.parse((joanData.getYear()+1)+"-04-05");
-		Date FinSemanaSanta = sdf.parse(joanData.getYear()+"-04-12");
-		Date FinSemanaSantaAñoSiguiente = sdf.parse((joanData.getYear()+1)+"-04-05");
+		Date InicioSemanaSanta = sdf.parse("2019-04-05");
+		Date InicioSemanaSantaAñoSiguiente = sdf.parse("2020-04-05");
+		Date FinSemanaSanta = sdf.parse("2019-04-13");
+		Date FinSemanaSantaAñoSiguiente = sdf.parse("2020-04-13");
 		
 		//Verano el Mismo Año
 		if ((joanData.before(InicioVerano) && etorriData.after(InicioVerano))) {
-		    int dias=(int) ((etorriData.getTime()-InicioVerano.getTime())/86400000);
+		    dias=(int) ((etorriData.getTime()-InicioVerano.getTime())/86400000);
 		    //egun bakoitza en temporada alta 10 euro gehiago
 		    prezioa=prezioa+(dias*10);
 		}
 		else if (joanData.before(FinVerano) && etorriData.after(FinVerano)) {
-		    int dias=(int) ((FinVerano.getTime()-joanData.getTime())/86400000);
+		    dias=(int) ((FinVerano.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
 		}
 		else if (joanData.before(InicioVerano) && etorriData.after(FinVerano)) {
-		    int dias=(int) ((FinVerano.getTime()-InicioVerano.getTime())/86400000);
+		    dias=(int) ((FinVerano.getTime()-InicioVerano.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
 		}
 		else if (joanData.after(InicioVerano) && etorriData.before(FinVerano)) {
-		    int dias=(int) ((etorriData.getTime()-joanData.getTime())/86400000);
+		    dias=(int) ((etorriData.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
 		}
 		//------------------------------------------------------------------------------
 		//SemanaSanta el Mismo Año
 		if ((joanData.before(InicioSemanaSanta) && etorriData.after(InicioSemanaSanta))) {
-		    int dias=(int) ((etorriData.getTime()-InicioSemanaSanta.getTime())/86400000);
+			dias=(int) ((etorriData.getTime()-InicioSemanaSanta.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
 		}
 		else if (joanData.before(FinSemanaSanta) && etorriData.after(FinSemanaSanta)) {
-		    int dias=(int) ((FinSemanaSanta.getTime()-joanData.getTime())/86400000);
+		    dias=(int) ((FinSemanaSanta.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
 		}
 		else if (joanData.before(InicioSemanaSanta) && etorriData.after(FinSemanaSanta)) {
-		    int dias=(int) ((FinSemanaSanta.getTime()-InicioSemanaSanta.getTime())/86400000);
+		    dias=(int) ((FinSemanaSanta.getTime()-InicioSemanaSanta.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
 		}
 		else if (joanData.after(InicioSemanaSanta) && etorriData.before(FinSemanaSanta)) {
-		    int dias=(int) ((etorriData.getTime()-joanData.getTime())/86400000);
+		    dias=(int) ((etorriData.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
 		}
 		//------------------------------------------------------------------------------
 		//Verano el Siguiente Año
 		if ((joanData.before(InicioVeranoAñoSiguiente) && etorriData.after(InicioVeranoAñoSiguiente))) {
-		    int dias=(int) ((etorriData.getTime()-InicioVeranoAñoSiguiente.getTime())/86400000);
+		    dias=(int) ((etorriData.getTime()-InicioVeranoAñoSiguiente.getTime())/86400000);
 		    //egun bakoitza en temporada alta 10 euro gehiago
 		    prezioa=prezioa+(dias*10);
 		}
 		else if (joanData.before(FinVeranoAñoSiguiente) && etorriData.after(FinVeranoAñoSiguiente)) {
-		    int dias=(int) ((FinVeranoAñoSiguiente.getTime()-joanData.getTime())/86400000);
+		    dias=(int) ((FinVeranoAñoSiguiente.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
 		}
 		else if (joanData.before(InicioVeranoAñoSiguiente) && etorriData.after(FinVeranoAñoSiguiente)) {
-		    int dias=(int) ((FinVeranoAñoSiguiente.getTime()-InicioVeranoAñoSiguiente.getTime())/86400000);
+		    dias=(int) ((FinVeranoAñoSiguiente.getTime()-InicioVeranoAñoSiguiente.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
 		}
 		else if (joanData.after(InicioVeranoAñoSiguiente) && etorriData.before(FinVeranoAñoSiguiente)) {
-		    int dias=(int) ((etorriData.getTime()-joanData.getTime())/86400000);
+		    dias=(int) ((etorriData.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
 		}
+		
 		
 		//------------------------------------------------------------------------------
 		//Semana Santa el Siguiente Año
 		if ((joanData.before(InicioSemanaSantaAñoSiguiente) && etorriData.after(InicioSemanaSantaAñoSiguiente))) {
-		    int dias=(int) ((etorriData.getTime()-InicioSemanaSantaAñoSiguiente.getTime())/86400000);
+		    dias=(int) ((etorriData.getTime()-InicioSemanaSantaAñoSiguiente.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
 		}
 		else if (joanData.before(FinSemanaSantaAñoSiguiente) && etorriData.after(FinSemanaSantaAñoSiguiente)) {
-		    int dias=(int) ((FinSemanaSantaAñoSiguiente.getTime()-joanData.getTime())/86400000);
+		    dias=(int) ((FinSemanaSantaAñoSiguiente.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
 		}
 		else if (joanData.before(InicioSemanaSantaAñoSiguiente) && etorriData.after(FinSemanaSantaAñoSiguiente)) {
-		    int dias=(int) ((FinSemanaSantaAñoSiguiente.getTime()-InicioSemanaSantaAñoSiguiente.getTime())/86400000);
+		    dias=(int) ((FinSemanaSantaAñoSiguiente.getTime()-InicioSemanaSantaAñoSiguiente.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
 		}
 		else if (joanData.after(InicioSemanaSantaAñoSiguiente) && etorriData.before(FinSemanaSantaAñoSiguiente)) {
-		    int dias=(int) ((etorriData.getTime()-joanData.getTime())/86400000);
+		    dias=(int) ((etorriData.getTime()-joanData.getTime())/86400000);
 		    prezioa=prezioa+(dias*10);
 		}
 		
-		else {
+		if (dias==0) {
 			System.out.println("No hay temporada Alta");
 		}
+			
 		
 		
 		return prezioa;

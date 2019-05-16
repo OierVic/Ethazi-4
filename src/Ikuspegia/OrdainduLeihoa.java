@@ -51,10 +51,10 @@ public class OrdainduLeihoa extends JFrame {
 	private int idErreserba;
 
 
-	public OrdainduLeihoa(String hotelak, double prezioHotel, Date sartuData, Date joanData,OheMotak o1,int logelaKopurua, int zenbatJaiEgun) {
+	public OrdainduLeihoa(String hotelak, double prezioHotelFinal, Date sartuData, Date joanData,OheMotak o1,int logelaKopurua) {
 		//prezioa=prezioHotel;
 		//prezioa=0.0;
-		
+		this.setResizable(false);
 		this.setBounds(275,100,700,600);
 		getContentPane().setLayout(null);
 		lblOrdainketa.setBounds(90, 106, 162, 34);
@@ -94,7 +94,7 @@ public class OrdainduLeihoa extends JFrame {
 				int sinpbik= o1.getOheBikoitzBatEtaOheSimpleBat();
 				int sehaska= o1.getSehaska();
 				
-				double precio=Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData, o1, OstauMotaAukeratu.idOstatu, zenbatJaiEgun);
+				double precio= prezioHotelFinal;
 				Erreserba IgotzekoErreserba = new Erreserba(idOstatu, idBezero, dataJoan, dataEtorri, precio, sinp, bisinp, bik, sinpbik, sehaska, Eskatutakodata, EskatutakoOrdua,logelaKopurua);
 				Metodoak.ErreserbaIgo(IgotzekoErreserba);
 				
@@ -145,7 +145,7 @@ public class OrdainduLeihoa extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 
-				Metodoak.erreserbahasieratu(hotelak, prezioHotel);
+				Metodoak.erreserbahasieratu(hotelak, prezioHotelFinal);
 				
 			}
 		});
@@ -153,7 +153,7 @@ public class OrdainduLeihoa extends JFrame {
 		getContentPane().add(btnAtzera);
 		btnOrdaindu.setBounds(470, 151, 141, 37);
 		//Arraylistari prezioa sartu
-		preziotot.add(Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData, o1, OstauMotaAukeratu.idOstatu, zenbatJaiEgun));
+		preziotot.add(prezioHotelFinal);
 		//ORDAINDU BOTOIA
 		btnOrdaindu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -222,7 +222,7 @@ public class OrdainduLeihoa extends JFrame {
 		getContentPane().add(Itzuliak);
 		Itzuliak.setEditable(false);
 		//String ordaintzeko = String.valueOf(hoteles.getPrecioHotel());
-		String ordaintzeko = String.valueOf(Metodoak.prezioaEgunekin(prezioHotel, joanData, sartuData, o1, OstauMotaAukeratu.idOstatu, zenbatJaiEgun));
+		String ordaintzeko = String.valueOf(prezioHotelFinal);
 		//String ordaintzeko="0";
 		lblOrdaintzeko.setHorizontalAlignment(SwingConstants.LEFT);
 		

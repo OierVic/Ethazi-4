@@ -23,6 +23,7 @@ import Kontrolatzailea.Metodoak;
 import Kontrolatzailea.OheMotak;
 
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
@@ -56,6 +57,7 @@ public class ErreserbaHasieratu extends JFrame{
 	private JLabel lblOheBikoitzBatEtaSinpleBat = new JLabel("Ohe bikoitz bat eta ohe Simple bat :");
 	private JLabel lblSehaska = new JLabel("Sehaska :");
 	private JLabel lblLogelaLibre = new JLabel("Logela libre:");
+	private JTextArea txtAreaDatak = new JTextArea();
 
 //	private SpinnerNumberModel oheakSpinner = new SpinnerNumberModel(0, 0, 2, 1);
 //	private SpinnerNumberModel sehaskaSpinner = new SpinnerNumberModel(0, 0, 4, 1);
@@ -86,6 +88,7 @@ public class ErreserbaHasieratu extends JFrame{
 	private int OheBikoitzBat=0;
 	private int OheBikoitzBatEtaOheSimpleBat=0;
 	private int Sehaska=0;
+	private double PrezioHotelFinal=0.00;
 	private JTextField lblOheSipleBatKant;
 	private JTextField lblOheSinpleBiKant;
 	private JTextField lblOheBikoitzBatKant;
@@ -262,9 +265,8 @@ public class ErreserbaHasieratu extends JFrame{
 		
 
 
-
-		JTextArea txtAreaDatak = new JTextArea();
 			txtAreaDatak.setBounds(397, 122, 247, 100);
+			txtAreaDatak.setEditable(false);
 			getContentPane().add(txtAreaDatak);
 		
 		
@@ -567,8 +569,15 @@ public class ErreserbaHasieratu extends JFrame{
 				sartu_Data = (Date) dateSartu.getDate();
 				
 				if(dateSartu != null && dateJoan != null) {
-					
-					Metodoak.ordainduleihora(hotelak, PrezioHotel, sartu_Data, joan_Data, o1,LogelaTotalaSpinner, zenbatJaiEgun);
+					PrezioHotelFinal = Metodoak.prezioaEgunekin(PrezioHotel, joan_Data, sartu_Data, o1, OstauMotaAukeratu.idOstatu, zenbatJaiEgun);
+					try {
+						PrezioHotelFinal = Metodoak.PrezioaTemporadekinKalkulatu(sartu_Data,joan_Data, PrezioHotelFinal);
+						System.out.println(PrezioHotelFinal);
+					} catch (ParseException e1) {
+						System.out.println(e1.getMessage());
+					}
+
+					Metodoak.ordainduleihora(hotelak, PrezioHotel, sartu_Data, joan_Data, o1,LogelaTotalaSpinner);
 					dispose();
 				}
 				
