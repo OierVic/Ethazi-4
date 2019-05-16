@@ -8,43 +8,49 @@ import java.util.ArrayList;
 
 import com.mysql.jdbc.Statement;
 
+import Kontrolatzailea.Hotel;
+import Kontrolatzailea.Jaiegunak;
+
 public class Konsulta_jaiegunak {
 	
-	public static ArrayList <Date> JaiegunakAtera() {
-		ArrayList <Date> jaiegunak = new ArrayList<Date>();
+	public static Jaiegunak JaiegunakAtera() {
+		ArrayList <Date> jaiEgunak = new ArrayList<Date>();
+		ArrayList <String> jaiIzenak = new ArrayList<String>();
+
 		Date jaieguna=null;
+		String jaiegunIzena;
 		
 		
 		
-		Connection Conexion = (Connection) Konexioa.getConexion();
+		Connection Conexion = null;
 		Statement s =null;
 
 		try {
 			//Class.forName("com.mysql.jdbc.Driver");
-			//Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
+			Conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/"+"bidaion","root","");
 			s =(Statement) Conexion.createStatement();
 
-			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT jaiEguna FROM jaiegunak");
+			ResultSet rs = ((java.sql.Statement) s).executeQuery("SELECT jaiEguna, jaiegunIzena FROM jaiegunak");
 			while (rs.next()) {
 				jaieguna = rs.getDate("jaiEguna");
-				jaiegunak.add(jaieguna);
+				jaiegunIzena= rs.getString("jaiegunIzena");
 				
-				
+				jaiEgunak.add(jaieguna);
+				jaiIzenak.add(jaiegunIzena);
+		
 				
 			}
+		
 			System.out.println();
 			System.out.println("Conexioa eginda");
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return jaiegunak;
 		
+		Jaiegunak j1 = new Jaiegunak(jaiEgunak, jaiIzenak);
+		
+		return j1;
 	}
 	
-	
-	
-	
-	
-	
-
 }
+		
