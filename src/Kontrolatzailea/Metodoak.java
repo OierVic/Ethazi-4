@@ -567,10 +567,10 @@ public class Metodoak {
 		Date FinSemanaSanta = sdf.parse("2019-04-13");
 		Date FinSemanaSantaAñoSiguiente = sdf.parse("2020-04-13");
 		//Temporada Alta Navidad
-		Date InicioNavidad = sdf.parse("2019-04-05");
-		Date InicioNavidadAñoSiguiente = sdf.parse("2020-04-05");
-		Date FinNavidad = sdf.parse("2019-04-13");
-		Date FinNavidadAñoSiguiente = sdf.parse("2020-04-13");
+		Date InicioNavidad = sdf.parse("2019-12-01");
+		Date InicioNavidadAñoSiguiente = sdf.parse("2020-12-01");
+		Date FinNavidad = sdf.parse("2020-01-01");
+		Date FinNavidadAñoSiguiente = sdf.parse("2021-01-01");
 		
 		//Verano el Mismo Año
 		if ((joanData.before(InicioVerano) && etorriData.after(InicioVerano))) {
@@ -648,11 +648,11 @@ public class Metodoak {
 		    prezioa=prezioa+(dias*10);
 		}
 		//------------------------------------------------------------------------------
-		//Verano el Mismo Año
+		//Navidad el Mismo Año
 		
 		
 		//------------------------------------------------------------------------------
-		//Verano el Siguiente Año
+		//Navidad el Siguiente Año
 		
 		if (dias==0) {
 			System.out.println("No hay temporada Alta");
