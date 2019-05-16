@@ -22,6 +22,7 @@ import Eredua.Kontsulta_Hoteles;
 import Ikuspegia.ApartamentuakAukeratuLeihoa;
 import Ikuspegia.ErregistroLeihoa;
 import Ikuspegia.ErreserbaHasieratu;
+import Ikuspegia.ErreserbaHasieratuApartamentua;
 import Ikuspegia.ErreserbaHasieratuEtxea;
 import Ikuspegia.EskerrikAskoLeihoa;
 import Ikuspegia.EtxeakAukeratuLeihoa;
@@ -113,8 +114,8 @@ public class Metodoak {
 			ErreserbaLehioaEtxea.setVisible(true);
 		}
 		public static void erreserbahasieratuapartamentua(String apartamentuak, double PrezioApartamentua) {
-			ErreserbaHasieratuEtxea ErreserbaLehioaEtxea = new ErreserbaHasieratuEtxea(apartamentuak, PrezioApartamentua);
-			ErreserbaLehioaEtxea.setVisible(true);
+			ErreserbaHasieratuApartamentua ErreserbaHasieratuApartamentua = new ErreserbaHasieratuApartamentua(apartamentuak, PrezioApartamentua);
+			ErreserbaHasieratuApartamentua.setVisible(true);
 		}
 
 		
