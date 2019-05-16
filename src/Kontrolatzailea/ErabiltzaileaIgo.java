@@ -9,16 +9,18 @@ public class ErabiltzaileaIgo {
 	private String pasahitza;
 	private String jaiotzeData;
 	private String postaBezero;
+	private String altaData;
 	
 	
 	public ErabiltzaileaIgo(String nan, String erabil_Izena, String erabil_Abizenak, String pasahitza,
-			String jaiotzeData, String postaBezero) {
+			String jaiotzeData, String postaBezero, String altaData) {
 		this.nan = nan;
 		this.erabil_Izena = erabil_Izena;
 		this.erabil_Abizenak = erabil_Abizenak;
 		this.pasahitza = pasahitza;
 		this.jaiotzeData = jaiotzeData;
 		this.postaBezero = postaBezero;
+		this.altaData = altaData;
 	}
 
 
@@ -72,6 +74,16 @@ public class ErabiltzaileaIgo {
 	}
 
 
+	public String getAltaData() {
+		return altaData;
+	}
+
+
+	public void setAltaData(String altaData) {
+		this.altaData = altaData;
+	}
+
+	
 	public String getPostaBezero() {
 		return postaBezero;
 	}
@@ -80,7 +92,6 @@ public class ErabiltzaileaIgo {
 	public void setPostaBezero(String postaBezero) {
 		this.postaBezero = postaBezero;
 	}
-
 
 	@Override
 	public String toString() {
