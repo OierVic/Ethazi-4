@@ -390,7 +390,7 @@ public class Metodoak {
 	
 	//hola
 	
-	public static double prezioaEgunekin(double prezioHotel, Date joanData, Date sartuData, OheMotak o1,int idHotel, int zenbatJaiEgun, int promoPortzentaia){
+	public static double prezioaEgunekin(double prezioHotel, Date joanData, Date sartuData, OheMotak o1,int idHotel, int zenbatJaiEgun, double promoPortzentaia){
 		
 		double prezioTrampa = prezioHotel;
 		double prezioa0 = 0;
@@ -433,22 +433,21 @@ public class Metodoak {
 		System.out.println(prezioHotel + " "+ zenbatJaiEgun +"__________________");
 		
 		prezioHotel = prezioHotel - (prezioHotel * (promoPortzentaia / 100));
-		
+		prezioHotel = Math.round(prezioHotel * 100) / 100d;
 		return (double) prezioHotel;
 	}
 	
-	public static double prezioaEgunekinEtxea(double prezioHotel, Date joanData, Date sartuData,  int promoPortzentaia) {
+	public static double prezioaEgunekinEtxea(double prezioHotel, Date joanData, Date sartuData,  double promoPortzentaia) {
 		
 		long diff = (joanData.getTime() - sartuData.getTime());
 		long diffEguna = (diff / 1000 / 60 / 60 / 24) + 1;
 		round(diff, 2);
 		
-		prezioHotel = prezioHotel * (diffEguna - 1);	
-		
+		prezioHotel = prezioHotel * (diffEguna - 1);
 		prezioHotel = Math.round(prezioHotel * 100) / 100d;
 		
 		prezioHotel = prezioHotel - (prezioHotel * (promoPortzentaia / 100));
-		
+		prezioHotel = Math.round(prezioHotel * 100) / 100d;
 		return (double) prezioHotel;
 	}
 
