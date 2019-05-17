@@ -566,7 +566,7 @@ public class ErreserbaHasieratu extends JFrame{
 					} catch (ParseException e1) {
 						System.out.println(e1.getMessage());
 					}
-
+					Metodoak.RedondearDosDecimales(PrezioHotelFinal);
 					Metodoak.ordainduleihora(hotelak, PrezioHotelFinal, sartu_Data, joan_Data, o1,LogelaTotalaSpinner);
 					dispose();
 				}

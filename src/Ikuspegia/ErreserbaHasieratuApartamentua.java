@@ -24,6 +24,7 @@ import Kontrolatzailea.OheMotak;
 import Kontrolatzailea.PromoKodea;
 
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
@@ -68,6 +69,9 @@ public class ErreserbaHasieratuApartamentua extends JFrame{
 	private Jaiegunak j1 = new Jaiegunak(null, null);
 	private final JLabel label = new JLabel("Jai-egunak");
 	private JTextField textField;
+	private double PrezioApartamentuaEgunekin=0.00;
+	private double PrezioApartamentuaEgunekinMasJaiegunak =0.00;
+	private double PrezioApartamentuFinal=0.00;
 	
 	//variables de que recogen de los spinners para que se puedan utilizar fuera del boton
 	
@@ -163,11 +167,21 @@ public class ErreserbaHasieratuApartamentua extends JFrame{
 		btnHurrengoa.setEnabled(false);
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				PrezioEtxeaFinal = Metodoak.prezioaEgunekinEtxea(PrezioApartamentua, joan_Data, sartu_Data);
+				System.out.println("Solo Apartamentu : "+PrezioApartamentua);
+				PrezioApartamentuaEgunekin = Metodoak.prezioaEgunekinEtxea(PrezioApartamentua, joan_Data, sartu_Data);
+				System.out.println("Prezio Egunekin : "+PrezioApartamentuaEgunekin);
+				PrezioApartamentuaEgunekinMasJaiegunak = PrezioApartamentuaEgunekin +(zenbatJaiEgun * 20);//Cada dia festivo +20 euros
+				System.out.println("PrezioEgunakin mas Jaiegunak : "+PrezioApartamentuaEgunekinMasJaiegunak+" Jaiegunak : "+zenbatJaiEgun);
+				try {
+					PrezioApartamentuFinal = Metodoak.PrezioaTemporadekinKalkulatu(sartu_Data,joan_Data, PrezioApartamentuaEgunekinMasJaiegunak);
+					System.out.println("Prezio Final : "+PrezioApartamentuFinal);
+				} catch (ParseException e1) {
+					System.out.println(e1.getMessage());
+				}
 				dispose();
 				oierbike = false;
-				Metodoak.ordainduleihoraetxea(apartamentuak, PrezioEtxeaFinal, sartu_Data, joan_Data, oierbike);
+				Metodoak.RedondearDosDecimales(PrezioApartamentuFinal);
+				Metodoak.ordainduleihoraetxea(apartamentuak, PrezioApartamentuFinal, sartu_Data, joan_Data, oierbike);
 			}
 		});
 		
