@@ -164,7 +164,7 @@ public class ErreserbaHasieratuApartamentua extends JFrame{
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				PrezioEtxeaFinal = Metodoak.prezioaEgunekinEtxea(PrezioApartamentua, joan_Data, sartu_Data);
+				PrezioEtxeaFinal = Metodoak.prezioaEgunekinEtxea(PrezioApartamentua, joan_Data, sartu_Data, promoPortzentaia);
 				dispose();
 				oierbike = false;
 				Metodoak.ordainduleihoraetxea(apartamentuak, PrezioEtxeaFinal, sartu_Data, joan_Data, oierbike);

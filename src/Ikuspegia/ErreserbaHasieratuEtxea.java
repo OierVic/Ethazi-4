@@ -160,7 +160,7 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				PrezioEtxeaFinal = Metodoak.prezioaEgunekinEtxea(PrezioEtxea, joan_Data, sartu_Data);
+				PrezioEtxeaFinal = Metodoak.prezioaEgunekinEtxea(PrezioEtxea, joan_Data, sartu_Data, promoPortzentaia);
 				System.out.println(PrezioEtxeaFinal);
 				System.out.println("Holaaaaa------------------");
 				try {
