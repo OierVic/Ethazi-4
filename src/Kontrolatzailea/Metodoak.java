@@ -23,6 +23,7 @@ import Eredua.Kontsulta_Promoak;
 import Ikuspegia.ApartamentuakAukeratuLeihoa;
 import Ikuspegia.ErregistroLeihoa;
 import Ikuspegia.ErreserbaHasieratu;
+import Ikuspegia.ErreserbaHasieratuApartamentua;
 import Ikuspegia.ErreserbaHasieratuEtxea;
 import Ikuspegia.EskerrikAskoLeihoa;
 import Ikuspegia.EtxeakAukeratuLeihoa;
@@ -115,8 +116,8 @@ public class Metodoak {
 			ErreserbaLehioaEtxea.setVisible(true);
 		}
 		public static void erreserbahasieratuapartamentua(String apartamentuak, double PrezioApartamentua) {
-			ErreserbaHasieratuEtxea ErreserbaLehioaEtxea = new ErreserbaHasieratuEtxea(apartamentuak, PrezioApartamentua);
-			ErreserbaLehioaEtxea.setVisible(true);
+			ErreserbaHasieratuApartamentua ErreserbaHasieratuApartamentua = new ErreserbaHasieratuApartamentua(apartamentuak, PrezioApartamentua);
+			ErreserbaHasieratuApartamentua.setVisible(true);
 		}
 
 		
@@ -390,7 +391,7 @@ public class Metodoak {
 	
 	//hola
 	
-	public static double prezioaEgunekin(double prezioHotel, Date joanData, Date sartuData, OheMotak o1,int idHotel, int zenbatJaiEgun){
+	public static double prezioaEgunekin(double prezioHotel, Date joanData, Date sartuData, OheMotak o1,int idHotel, int zenbatJaiEgun, double promoPortzentaia){
 		
 		double prezioTrampa = prezioHotel;
 		double prezioa0 = 0;
@@ -431,20 +432,23 @@ public class Metodoak {
 		
 		prezioHotel = prezioHotel + (zenbatJaiEgun * 20);
 		System.out.println(prezioHotel + " "+ zenbatJaiEgun +"__________________");
+		
+		prezioHotel = prezioHotel - (prezioHotel * (promoPortzentaia / 100));
+		prezioHotel = Math.round(prezioHotel * 100) / 100d;
 		return (double) prezioHotel;
 	}
 	
-	public static double prezioaEgunekinEtxea(double prezioHotel, Date joanData, Date sartuData) {
+	public static double prezioaEgunekinEtxea(double prezioHotel, Date joanData, Date sartuData,  double promoPortzentaia) {
 		
 		long diff = (joanData.getTime() - sartuData.getTime());
 		long diffEguna = (diff / 1000 / 60 / 60 / 24) + 1;
 		round(diff, 2);
 		
-		prezioHotel = prezioHotel * (diffEguna - 1);	
-		
+		prezioHotel = prezioHotel * (diffEguna - 1);
 		prezioHotel = Math.round(prezioHotel * 100) / 100d;
 		
-		
+		prezioHotel = prezioHotel - (prezioHotel * (promoPortzentaia / 100));
+		prezioHotel = Math.round(prezioHotel * 100) / 100d;
 		return (double) prezioHotel;
 	}
 

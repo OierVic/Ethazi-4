@@ -349,8 +349,8 @@ public class ErreserbaHasieratu extends JFrame{
 				System.out.println(gelaLibre[0]);
 				spinner_OheSimpleBat.setModel(new SpinnerNumberModel(0, 0, gelaLibre[0], 1));
 				spinner_OheSimpleBi.setModel(new SpinnerNumberModel(0, 0, gelaLibre[1], 1));
-				spinner_OheBikoitzBat.setModel(new SpinnerNumberModel(0, 0, gelaLibre[1], 1));
-				spinner_OheBikoitzBatEtaOheSimpleBat.setModel(new SpinnerNumberModel(0, 0, gelaLibre[1], 1));
+				spinner_OheBikoitzBat.setModel(new SpinnerNumberModel(0, 0, gelaLibre[2], 1));
+				spinner_OheBikoitzBatEtaOheSimpleBat.setModel(new SpinnerNumberModel(0, 0, gelaLibre[3], 1));
 				
 				String[] strgelaLibre =new String[4];
 				if(gelaLibre[0] < 0) {
@@ -560,7 +560,7 @@ public class ErreserbaHasieratu extends JFrame{
 				sartu_Data = (Date) dateSartu.getDate();
 				
 				if(dateSartu != null && dateJoan != null) {
-					PrezioHotelFinal = Metodoak.prezioaEgunekin(PrezioHotel, joan_Data, sartu_Data, o1, OstauMotaAukeratu.idOstatu, zenbatJaiEgun);
+					PrezioHotelFinal = Metodoak.prezioaEgunekin(PrezioHotel, joan_Data, sartu_Data, o1, OstauMotaAukeratu.idOstatu, zenbatJaiEgun, promoPortzentaia);
 					try {
 						PrezioHotelFinal = Metodoak.PrezioaTemporadekinKalkulatu(sartu_Data,joan_Data, PrezioHotelFinal);
 					} catch (ParseException e1) {

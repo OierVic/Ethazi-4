@@ -162,7 +162,7 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Solo Apartamentu : "+PrezioEtxea);
-				PrezioEtxeaEgunekin = Metodoak.prezioaEgunekinEtxea(PrezioEtxea, joan_Data, sartu_Data);
+				PrezioEtxeaEgunekin = Metodoak.prezioaEgunekinEtxea(PrezioEtxea, joan_Data, sartu_Data,promoPortzentaia);
 				System.out.println("Prezio Egunekin : "+PrezioEtxeaEgunekin);
 				PrezioEtxeaEgunekinMasJaiegunak = PrezioEtxeaEgunekin +(zenbatJaiEgun * 20); //Cada dia festivo +20 euros
 				System.out.println("PrezioEgunakin mas Jaiegunak : "+PrezioEtxeaEgunekinMasJaiegunak+" Jaiegunak : "+zenbatJaiEgun);
