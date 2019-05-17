@@ -157,9 +157,9 @@ public class OrdainduLeihoaEtxeak extends JFrame {
 				dispose();
 				
 				if(oierbike == true) {
-					Metodoak.erreserbahasieratuetxea(izenak, prezioa);
+					Metodoak.erreserbahasieratuetxea(izenak, EtxeakAukeratuLeihoa.PrezioSoloEtxea);
 				} else {
-					Metodoak.erreserbahasieratuapartamentua(izenak, prezioa);
+					Metodoak.erreserbahasieratuapartamentua(izenak, ApartamentuakAukeratuLeihoa.PrezioSoloApartamentua);
 				}
 				
 				
@@ -207,7 +207,7 @@ public class OrdainduLeihoaEtxeak extends JFrame {
 							if (preziototala<0) {
 
 								preziototala=preziototala*(-1);
-								String kanbioak=Metodoak.kanbioMetodoa(preziototala);
+								String kanbioak=Metodoak.bueltakMetodoa(preziototala);
 								Itzuliak.setText(kanbioak);
 								btnAmaitu.setEnabled(true);
 								btnEzeztatu.setEnabled(false);

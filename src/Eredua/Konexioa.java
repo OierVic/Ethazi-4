@@ -21,7 +21,7 @@ public class Konexioa {
 	/*******Konexioa objektua sortzen dugu metodo batekin konexioa egiteko**********/
 	public Konexioa() {
 	
-		String fichero = "src\\Eredua\\Konexioa.txt";
+		String fichero = "Eredua\\Konexioa.txt";
 
 		int kontagailua =0;
 		String server="jdbc:mysql://";

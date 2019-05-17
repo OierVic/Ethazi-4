@@ -64,8 +64,6 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 	private int zenbatJaiEgun = 0;
 	private Jaiegunak j1 = new Jaiegunak(null, null);
 	private final JLabel label = new JLabel("Jai-egunak");
-	private double PrezioEtxeaEgunekin=0.00;
-	private double PrezioEtxeaEgunekinMasJaiegunak=0.00;
 	
 	//variables de que recogen de los spinners para que se puedan utilizar fuera del boton
 	
@@ -156,21 +154,19 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 		});
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Solo Apartamentu : "+PrezioEtxea);
-				PrezioEtxeaEgunekin = Metodoak.prezioaEgunekinEtxea(PrezioEtxea, joan_Data, sartu_Data);
-				System.out.println("Prezio Egunekin : "+PrezioEtxeaEgunekin);
-				PrezioEtxeaEgunekinMasJaiegunak = PrezioEtxeaEgunekin +(zenbatJaiEgun * 20); //Cada dia festivo +20 euros
-				System.out.println("PrezioEgunakin mas Jaiegunak : "+PrezioEtxeaEgunekinMasJaiegunak+" Jaiegunak : "+zenbatJaiEgun);
+				
+				PrezioEtxeaFinal = Metodoak.prezioaEgunekinEtxea(PrezioEtxea, joan_Data, sartu_Data);
+				System.out.println(PrezioEtxeaFinal);
+				System.out.println("Holaaaaa------------------");
 				try {
-					PrezioEtxeaFinal = Metodoak.PrezioaTemporadekinKalkulatu(sartu_Data,joan_Data, PrezioEtxeaEgunekinMasJaiegunak);
-					System.out.println("Prezio Final : "+PrezioEtxeaFinal);
+					PrezioEtxeaFinal = Metodoak.PrezioaTemporadekinKalkulatu(sartu_Data,joan_Data, PrezioEtxeaFinal);
+					System.out.println(PrezioEtxeaFinal);
 				} catch (ParseException e) {
 					System.out.println(e.getMessage());
 				}
 				
 				dispose();
 				oierbike = true;
-				Metodoak.RedondearDosDecimales(PrezioEtxeaFinal);
 				Metodoak.ordainduleihoraetxea(etxeak, PrezioEtxeaFinal, sartu_Data, joan_Data, oierbike);
 				
 			}

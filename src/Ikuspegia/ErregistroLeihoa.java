@@ -4,6 +4,9 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,6 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -25,6 +29,9 @@ import Kontrolatzailea.Bezero;
 import Kontrolatzailea.ErabiltzaileaIgo;
 import Kontrolatzailea.Metodoak;
 import javax.swing.JCheckBox;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import java.awt.Color;
 
 
 public class ErregistroLeihoa extends JFrame {
@@ -52,7 +59,8 @@ public class ErregistroLeihoa extends JFrame {
 	private SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
 	private JLabel lblPostaElektronikoa = new JLabel("Posta Elektronikoa");
 	private JTextField textFieldPostaElektronikoa;
-
+	private JButton bueltaErregistrora = new JButton("Atzera");
+	private final JTextArea textArea = new JTextArea();
 
 
 	private String nan="";
@@ -64,11 +72,13 @@ public class ErregistroLeihoa extends JFrame {
 	private String izena2="";
 	private String abizena="";
 	private String jaio_data;
-	private String sexua;
+	private String altaData;
+	private String fitxeroa = "src\\Eredua\\baseLegalak.txt";
 	String PostaElektronikoa;
 	// PostaElektronikoa balidatzeko
 	Pattern pattern = Pattern.compile("^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$");
 	private final JCheckBox chckbxPasahitzaIkusi = new JCheckBox("Pasahitza Ikusi");
+
 
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -157,7 +167,7 @@ public class ErregistroLeihoa extends JFrame {
 
 		//Balidatu botoia
 		Balidatu.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
-		Balidatu.setBounds(315, 452, 115, 44);
+		Balidatu.setBounds(337, 452, 115, 44);
 		getContentPane().add(Balidatu);
 
 		//LABEL IZENA
@@ -254,7 +264,7 @@ public class ErregistroLeihoa extends JFrame {
 
 			}
 		});
-		Ezeztatu.setBounds(165, 452, 109, 44);
+		Ezeztatu.setBounds(192, 452, 109, 44);
 		getContentPane().add(Ezeztatu);
 		//DNI ETA PASAHITZA BALIDATZEKO BOTOIA
 
@@ -278,10 +288,33 @@ public class ErregistroLeihoa extends JFrame {
 				}
 
 				if (nan.equals(nan2) && !izena.getText().equals("") && !abizenatextfield.getText().equals("") && !Pasahitza.getText().equals("") && zenbakia.length()==8) {
+					Jarraitu.setVisible(true);
 					Jarraitu.setEnabled(true);
-					Balidatu.setEnabled(false);
+					textNAN.setVisible(false);
+					textLetra.setVisible(false);
+					Pasahitza.setVisible(false);
+					lblTxatelaErregistroa.setVisible(false);
+					lblNan.setVisible(false);
+					lblLetra.setVisible(false);
+					lblPasahitza.setVisible(false);
+					izena.setVisible(false);
+					jaiodata.setVisible(false);
+					abizenatextfield.setVisible(false);
+					lblIzena.setVisible(false);
+					lblJaiotzeData.setVisible(false);
+					lblAbizena.setVisible(false);
+					lblErabiltzaileDatuak.setVisible(false);
+					lblDatuPertsonalak.setVisible(false);
+					lblPostaElektronikoa.setVisible(false);
+					textFieldPostaElektronikoa.setVisible(false);
+					Balidatu.setVisible(false);
+					chckbxPasahitzaIkusi.setVisible(false);
+					Ezeztatu.setVisible(false);
+					bueltaErregistrora.setVisible(true);
+					textArea.setVisible(true);
+					
 				}else if(izena.getText().equals("")) {
-					JOptionPane.showMessageDialog(null, "Izena hutsik dago. Mesedez osotu");
+					JOptionPane.showMessageDialog(null, "Izena hutsik dago. Mesedez ostu");
 
 				}
 				else if(abizenatextfield.getText().equals("")) {
@@ -341,12 +374,19 @@ public class ErregistroLeihoa extends JFrame {
 		//JARRAITU BOTOIA
 		
 		//De momento lo ponemos en true para pasar de pantalla
-		Jarraitu.setEnabled(false);
+		Jarraitu.setVisible(false);
+		Jarraitu.setEnabled(true);
 		//Jarraitu Botoiak egiten duena
 		Jarraitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				ErabiltzaileaIgo e1 = new ErabiltzaileaIgo(nan, izena2, abizena, pasahitza, jaio_data, PostaElektronikoa);
+				altaData = Metodoak.dataAtera();
+				//nan = Metodoak.ateraMD5(nan);
+				izena2 = Metodoak.ateraMD5(izena2);
+				abizena = Metodoak.ateraMD5(abizena);
+				PostaElektronikoa = Metodoak.ateraMD5(PostaElektronikoa);
+				
+				ErabiltzaileaIgo e1 = new ErabiltzaileaIgo(nan, izena2, abizena, pasahitza, jaio_data, PostaElektronikoa, altaData);
 //				BezeroIgo BeIgo = new BezeroIgo(nan, izena2, abizena, jaio_data, sexua, pasahitza);
 //				Metodoak.bezeroaIgo(cliente);
 				Metodoak.Erregistratu(e1);
@@ -355,7 +395,7 @@ public class ErregistroLeihoa extends JFrame {
 		});
 		//Jarraitu Botoiaren egitura
 		Jarraitu.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
-		Jarraitu.setBounds(462, 452, 115, 44);
+		Jarraitu.setBounds(512, 452, 115, 44);
 		getContentPane().add(Jarraitu);
 		chckbxPasahitzaIkusi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -372,7 +412,54 @@ public class ErregistroLeihoa extends JFrame {
 		
 		getContentPane().add(chckbxPasahitzaIkusi);
 		
-		
 
+		
+		bueltaErregistrora.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Jarraitu.setVisible(false);
+				textNAN.setVisible(true);
+				textLetra.setVisible(true);
+				Pasahitza.setVisible(true);
+				lblTxatelaErregistroa.setVisible(true);
+				lblNan.setVisible(true);
+				lblLetra.setVisible(true);
+				lblPasahitza.setVisible(true);
+				izena.setVisible(true);
+				jaiodata.setVisible(true);
+				abizenatextfield.setVisible(true);
+				lblIzena.setVisible(true);
+				lblJaiotzeData.setVisible(true);
+				lblAbizena.setVisible(true);
+				lblErabiltzaileDatuak.setVisible(true);
+				lblDatuPertsonalak.setVisible(true);
+				lblPostaElektronikoa.setVisible(true);
+				textFieldPostaElektronikoa.setVisible(true);
+				Balidatu.setVisible(true);
+				chckbxPasahitzaIkusi.setVisible(true);
+				Ezeztatu.setVisible(true);
+				bueltaErregistrora.setVisible(false);
+				textArea.setVisible(false);
+			}
+		});
+		bueltaErregistrora.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		bueltaErregistrora.setBounds(46, 452, 109, 44);
+		bueltaErregistrora.setVisible(false);
+		getContentPane().add(bueltaErregistrora);
+		
+		textArea.setEditable(false);
+		textArea.setVisible(false);
+		textArea.setBounds(63, 81, 551, 345);
+		textArea.setText("Honen bidez gure programaren base eta eredu legalak\r\n" + 
+				"onartzen hari zara. Hauek dira gure eskaera edo legeak:\r\n" + 
+				"	- ZERBAIT\r\n" + 
+				"	- ZERBAIT\r\n" + 
+				"	- ZERBAIT\r\n" + 
+				"	- ZERBAIT\r\n" + 
+				"	- ZERBAIT\r\n" + 
+				"	- ZERBAIT\r\n" + 
+				"	- ZERBAIT\r\n" + 
+				"	- ZERBAIT");
+		getContentPane().add(textArea);
+		
 	}
 }

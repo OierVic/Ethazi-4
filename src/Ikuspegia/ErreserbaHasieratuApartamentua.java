@@ -23,7 +23,6 @@ import Kontrolatzailea.Metodoak;
 import Kontrolatzailea.OheMotak;
 
 import java.awt.event.ActionListener;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
@@ -58,14 +57,12 @@ public class ErreserbaHasieratuApartamentua extends JFrame{
 	private String joan_Data_string="";
 	private String sartu_Data_string="";
 	private Boolean jarraituBotoia=false;
-	private double PrezioApartamentuFinal=0.00;
+	private double PrezioEtxeaFinal=0;
 	private boolean oierbike;
 	private String jaiGustiak = null;
 	private int zenbatJaiEgun = 0;
 	private Jaiegunak j1 = new Jaiegunak(null, null);
 	private final JLabel label = new JLabel("Jai-egunak");
-	private double PrezioApartamentuaEgunekin=0.00;
-	private double PrezioApartamentuaEgunekinMasJaiegunak =0.00;
 	
 	//variables de que recogen de los spinners para que se puedan utilizar fuera del boton
 	
@@ -161,21 +158,11 @@ public class ErreserbaHasieratuApartamentua extends JFrame{
 		btnHurrengoa.setEnabled(false);
 		btnHurrengoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Solo Apartamentu : "+PrezioApartamentua);
-				PrezioApartamentuaEgunekin = Metodoak.prezioaEgunekinEtxea(PrezioApartamentua, joan_Data, sartu_Data);
-				System.out.println("Prezio Egunekin : "+PrezioApartamentuaEgunekin);
-				PrezioApartamentuaEgunekinMasJaiegunak = PrezioApartamentuaEgunekin +(zenbatJaiEgun * 20);//Cada dia festivo +20 euros
-				System.out.println("PrezioEgunakin mas Jaiegunak : "+PrezioApartamentuaEgunekinMasJaiegunak+" Jaiegunak : "+zenbatJaiEgun);
-				try {
-					PrezioApartamentuFinal = Metodoak.PrezioaTemporadekinKalkulatu(sartu_Data,joan_Data, PrezioApartamentuaEgunekinMasJaiegunak);
-					System.out.println("Prezio Final : "+PrezioApartamentuFinal);
-				} catch (ParseException e1) {
-					System.out.println(e1.getMessage());
-				}
+				
+				PrezioEtxeaFinal = Metodoak.prezioaEgunekinEtxea(PrezioApartamentua, joan_Data, sartu_Data);
 				dispose();
 				oierbike = false;
-				Metodoak.RedondearDosDecimales(PrezioApartamentuFinal);
-				Metodoak.ordainduleihoraetxea(apartamentuak, PrezioApartamentuFinal, sartu_Data, joan_Data, oierbike);
+				Metodoak.ordainduleihoraetxea(apartamentuak, PrezioEtxeaFinal, sartu_Data, joan_Data, oierbike);
 			}
 		});
 		
