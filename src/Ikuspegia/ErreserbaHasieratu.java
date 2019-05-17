@@ -21,6 +21,7 @@ import Kontrolatzailea.Hotel;
 import Kontrolatzailea.Jaiegunak;
 import Kontrolatzailea.Metodoak;
 import Kontrolatzailea.OheMotak;
+import Kontrolatzailea.PromoKodea;
 
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -58,6 +59,7 @@ public class ErreserbaHasieratu extends JFrame{
 	private JLabel lblSehaska = new JLabel("Sehaska :");
 	private JLabel lblLogelaLibre = new JLabel("Logela libre:");
 	private JTextArea txtAreaDatak = new JTextArea();
+	private final JButton button = new JButton("Sartu");
 
 //	private SpinnerNumberModel oheakSpinner = new SpinnerNumberModel(0, 0, 2, 1);
 //	private SpinnerNumberModel sehaskaSpinner = new SpinnerNumberModel(0, 0, 4, 1);
@@ -89,10 +91,13 @@ public class ErreserbaHasieratu extends JFrame{
 	private int OheBikoitzBatEtaOheSimpleBat=0;
 	private int Sehaska=0;
 	private double PrezioHotelFinal=0.00;
+	private String promoKodea;
+	private int promoPortzentaia = 0;
 	private JTextField lblOheSipleBatKant;
 	private JTextField lblOheSinpleBiKant;
 	private JTextField lblOheBikoitzBatKant;
 	private JTextField lblOheBikoitzBatEtaSinpleBatKant;
+	private JTextField textField;
 	
 	private int zenbatJaiEgun = 0;
 	
@@ -295,7 +300,9 @@ public class ErreserbaHasieratu extends JFrame{
 					JOptionPane.showMessageDialog(null, "Sartzeko data hutsik dago. Mesedez osotu");
 				}
 
-
+				if(sartu_Data!=null && joan_Data!=null) {
+					button.setEnabled(true);
+				}
 				
 				//Diegate1
 				int[] gelaLibre =new int[4];
@@ -466,27 +473,6 @@ public class ErreserbaHasieratu extends JFrame{
 					JOptionPane.showMessageDialog(null, "Logelaren bat aukeratu behar duzu. Sehaskarik ez nahi baduzu ez da derrigorrezkoa");
 				}
 				
-				
-				
-				//Hotel Osoan lekua dagoen edo ez jakiteko
-				
-//				logelatotalaBDerreserban=Kontsulta_Erreserba.logaletotalaDatuBaseanErreserban(HotelakAukeratuLeihoa.idHotel);
-//				logelatotalPosibleHotel=Kontsulta_Hoteles.HoteleanZenbatLekuDauden(HotelakAukeratuLeihoa.idHotel);
-//				if ((logelatotalaBDerreserban+LogelaTotalaSpinner)>logelatotalPosibleHotel) {
-//					btnBalidatu.setEnabled(true);
-//					btnHurrengoa.setEnabled(false);
-//					jarraituBotoia=false;
-//					JOptionPane.showMessageDialog(null, "Hotelan ez dago lekurik");
-//				}
-				
-				
-				
-				
-				
-				
-				
-				
-				
 				//Data haietan lekurik ez badago
 				
 				
@@ -584,6 +570,45 @@ public class ErreserbaHasieratu extends JFrame{
 					Metodoak.ordainduleihora(hotelak, PrezioHotelFinal, sartu_Data, joan_Data, o1,LogelaTotalaSpinner);
 					dispose();
 				}
+				
+			}
+		});
+		
+		
+		textField = new JTextField();
+		textField.setToolTipText("promo kodea");
+		textField.setHorizontalAlignment(SwingConstants.CENTER);
+		textField.setColumns(10);
+		textField.setBounds(437, 441, 86, 20);
+		getContentPane().add(textField);
+		
+		button.setFont(new Font("Arial", Font.PLAIN, 18));
+		button.setBounds(524, 436, 89, 22);
+		button.setEnabled(false);
+		getContentPane().add(button);
+
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				promoKodea = textField.getText();
+				System.out.print(textField.getText());
+				
+				boolean promoTrue = false;
+				ArrayList<PromoKodea> bdPromoKodeaArray = Metodoak.promoKodeaBalidatu(promoKodea);
+				
+				for ( int i = 0; i < bdPromoKodeaArray.size(); i ++ ) {
+					if(promoKodea.equals(bdPromoKodeaArray.get(i).getPromozioKodeaIzen())) {
+						promoPortzentaia = bdPromoKodeaArray.get(i).getPromozioaZbk();
+						promoTrue = true;
+					}
+				}
+				
+				if(promoTrue == true) {
+					JOptionPane.showMessageDialog(null, "Kodia Sartuta!!!");
+					button.setEnabled(false);
+				}else {
+					JOptionPane.showMessageDialog(null, "Ez da kode balidoa...");
+				}
+				
 				
 			}
 		});

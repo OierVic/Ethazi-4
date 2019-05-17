@@ -19,6 +19,7 @@ import Eredua.Kontsulta_Bezero;
 import Eredua.Kontsulta_Erreserba;
 import Eredua.Kontsulta_Etxeak;
 import Eredua.Kontsulta_Hoteles;
+import Eredua.Kontsulta_Promoak;
 import Ikuspegia.ApartamentuakAukeratuLeihoa;
 import Ikuspegia.ErregistroLeihoa;
 import Ikuspegia.ErreserbaHasieratu;
@@ -35,6 +36,7 @@ import Ikuspegia.OstauMotaAukeratu;
 public class Metodoak {
 	static int LogelaKant;
 	static String JaiGustiak;
+	static String idBezero;
 
 	//Ventana1
 	public static void ongietorrileihora() {
@@ -778,5 +780,16 @@ public class Metodoak {
 		return jaiGustiak;
 	}
 	
+	public static ArrayList<PromoKodea> promoKodeaBalidatu(String promoKodea){//Promozio gustiak artzen ditu BD-tik idBezeroaren arabera...
+		boolean promoTrue = false;
+		System.out.println("IMPORTANTE IDBEZERO = " + idBezero);
+		ArrayList<PromoKodea> bdPromoKodeaArray = Kontsulta_Promoak.Promoak(idBezero);
+		
+		return bdPromoKodeaArray;
+	}
+	
+	public static void promoIdBezeroBalidatu(String nan){//idBezero Gorde...
+		idBezero = nan;
+	}
 	
 }

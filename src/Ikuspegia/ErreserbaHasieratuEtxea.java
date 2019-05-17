@@ -21,6 +21,7 @@ import Kontrolatzailea.Hotel;
 import Kontrolatzailea.Jaiegunak;
 import Kontrolatzailea.Metodoak;
 import Kontrolatzailea.OheMotak;
+import Kontrolatzailea.PromoKodea;
 
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -52,6 +53,7 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 	//Date formatutik String-era aldatzeko
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	private JTextArea txtAreaDatak = new JTextArea();
+	private final JButton button = new JButton("Sartu");
 
 	
 	//Bariableak
@@ -61,9 +63,12 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 	private double PrezioEtxeaFinal=0;
 	private boolean oierbike;
 	private String jaiGustiak = null;
+	private String promoKodea;
+	private int promoPortzentaia = 0;
 	private int zenbatJaiEgun = 0;
 	private Jaiegunak j1 = new Jaiegunak(null, null);
 	private final JLabel label = new JLabel("Jai-egunak");
+	private JTextField textField;
 	
 	//variables de que recogen de los spinners para que se puedan utilizar fuera del boton
 	
@@ -199,6 +204,18 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 		label.setBounds(397, 83, 107, 28);
 		
 		getContentPane().add(label);
+		
+		button.setFont(new Font("Arial", Font.PLAIN, 18));
+		button.setBounds(525, 439, 89, 22);
+		button.setEnabled(false);
+		getContentPane().add(button);
+		
+		textField = new JTextField();
+		textField.setToolTipText("promo kodea");
+		textField.setHorizontalAlignment(SwingConstants.CENTER);
+		textField.setColumns(10);
+		textField.setBounds(437, 441, 86, 20);
+		getContentPane().add(textField);
 		//lblOheSipleBat.g
 		
 		btnDatakEgiaztatu.addActionListener(new ActionListener() {
@@ -227,6 +244,7 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 				
 				if(sartu_Data != null && joan_Data != null)
 							btnHurrengoa.setEnabled(true);
+							button.setEnabled(true);
 				
 				
 				j1 = Eredua.Konsulta_jaiegunak.JaiegunakAtera();
@@ -236,12 +254,35 @@ public class ErreserbaHasieratuEtxea extends JFrame{
 				txtAreaDatak.setText(jaiGustiak);
 				
 				
-				
 			}
 		});
 		//oierbike
-		
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				promoKodea = textField.getText();
+				System.out.print(textField.getText());
+				
+				boolean promoTrue = false;
+				ArrayList<PromoKodea> bdPromoKodeaArray = Metodoak.promoKodeaBalidatu(promoKodea);
+				
+				for ( int i = 0; i < bdPromoKodeaArray.size(); i ++ ) {
+					if(promoKodea.equals(bdPromoKodeaArray.get(i).getPromozioKodeaIzen())) {
+						promoPortzentaia = bdPromoKodeaArray.get(i).getPromozioaZbk();
+						promoTrue = true;
+					}
+				}
+				
+				if(promoTrue == true) {
+					JOptionPane.showMessageDialog(null, "Kodia Sartuta!!!");
+					button.setEnabled(false);
+
+				}else {
+					JOptionPane.showMessageDialog(null, "Ez da kode balidoa...");
+				}
+				
+				
+			}
+		});
 	}
-		
 	}
 
