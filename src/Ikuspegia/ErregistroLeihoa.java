@@ -382,9 +382,9 @@ public class ErregistroLeihoa extends JFrame {
 				dispose();
 				altaData = Metodoak.dataAtera();
 				//nan = Metodoak.ateraMD5(nan);
-				izena2 = Metodoak.ateraMD5(izena2);
-				abizena = Metodoak.ateraMD5(abizena);
-				PostaElektronikoa = Metodoak.ateraMD5(PostaElektronikoa);
+//				izena2 = Metodoak.ateraMD5(izena2);
+//				abizena = Metodoak.ateraMD5(abizena);
+//				PostaElektronikoa = Metodoak.ateraMD5(PostaElektronikoa);
 				
 				ErabiltzaileaIgo e1 = new ErabiltzaileaIgo(nan, izena2, abizena, pasahitza, jaio_data, PostaElektronikoa, altaData);
 //				BezeroIgo BeIgo = new BezeroIgo(nan, izena2, abizena, jaio_data, sexua, pasahitza);

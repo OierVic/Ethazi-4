@@ -7,6 +7,7 @@ import com.mysql.jdbc.Statement;
 
 
 import Kontrolatzailea.ErabiltzaileaIgo;
+import Kontrolatzailea.Metodoak;
 
 
 
@@ -23,8 +24,8 @@ public class Konsulta_Erregistro {
 
 			s = (Statement) Conexion.createStatement();
 
-			s.executeUpdate("INSERT INTO `bezero` (`idBezero`, `pasahitzaBezero`, `izenBezero`, `abizenBezero`, `postaBezero`, `jaiotzeData`) "
-					+ "VALUES ('"+e1.getNan()+"','"+e1.getPasahitza()+"', '"+e1.getErabil_Izena()+"', '"+e1.getErabil_Abizenak()+"', '"+e1.getPostaBezero()+"', '"+e1.getJaiotzeData()+"')");
+			s.executeUpdate("INSERT INTO `bezero` (`idBezero`, `pasahitzaBezero`, `izenBezero`, `abizenBezero`, `postaBezero`, `jaiotzeData`, `altaData`) "
+					+ "VALUES ('"+e1.getNan()+"', '"+e1.getPasahitza()+"', '"+e1.getErabil_Izena()+"', '"+e1.getErabil_Abizenak()+"', '"+e1.getPostaBezero()+"', '"+e1.getJaiotzeData()+"', '"+e1.getAltaData()+"')");
 			s.close();
 
 			System.out.println("Conexioa eginda");
