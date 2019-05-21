@@ -41,7 +41,7 @@ public class ErregistroLeihoa extends JFrame {
 	private JTextField textNAN;
 	private JTextField textLetra;
 	private JPasswordField Pasahitza;
-	private JLabel lblTxatelaErregistroa = new JLabel("Txatela Erregistroa");
+	private JLabel lblTxatelaErregistroa = new JLabel("Erregistroa");
 	private JLabel lblNan = new JLabel("NAN");
 	private JLabel lblLetra = new JLabel("Letra");
 	private JLabel lblPasahitza = new JLabel("Pasahitza");
