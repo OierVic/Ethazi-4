@@ -10,7 +10,11 @@ import com.mysql.jdbc.Statement;
 import Kontrolatzailea.Apartamentua;
 import Kontrolatzailea.Etxea;
 import Kontrolatzailea.Hotel;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class Kontsulta_Apartamentua {
 	
 	public static ArrayList <Apartamentua> ApartamentuakIkusi(){
@@ -47,7 +51,10 @@ public class Kontsulta_Apartamentua {
 		
 		return Apartamentuak;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	
 	public static ArrayList <String> ApartamentuenHelbideakIkusi() {
 		ArrayList <String> Helbideak = new ArrayList<String>();
@@ -77,6 +84,11 @@ public class Kontsulta_Apartamentua {
 		return Helbideak;
 		
 	}
+	/**
+	 * 
+	 * @param helbideaHartu
+	 * @return
+	 */
 	
 	public static ArrayList <Apartamentua> ApartamentuakHelbidearekinAtera(String helbideaHartu) {
 		

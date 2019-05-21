@@ -9,7 +9,11 @@ import com.mysql.jdbc.Statement;
 
 import Kontrolatzailea.Etxea;
 import Kontrolatzailea.Hotel;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class Kontsulta_Etxeak {
 
 	public static ArrayList <Etxea> EtxeakIkusi(){

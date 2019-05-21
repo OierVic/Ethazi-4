@@ -18,7 +18,11 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class ApartamentuakAukeratuLeihoa extends JFrame {
 	private static final long serialVersionUID = 1L;
 	JLabel lblHelbideak = new JLabel("Helbideak:");
@@ -35,6 +39,10 @@ public class ApartamentuakAukeratuLeihoa extends JFrame {
 	public Double PrezioApartamentua;
 	public static double PrezioSoloApartamentua=0;
 
+	/**
+	 * 
+	 * @param Helbideak
+	 */
 	public ApartamentuakAukeratuLeihoa(ArrayList<String> Helbideak) {
 		getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 20));
 		this.setBounds(275,100,700,600);

@@ -24,7 +24,11 @@ import Kontrolatzailea.Metodoak;
 import Kontrolatzailea.OheMotak;
 
 import javax.swing.JScrollBar;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class OrdainduLeihoa extends JFrame {
 
 
@@ -50,7 +54,15 @@ public class OrdainduLeihoa extends JFrame {
 	private double prezio2 = 0;
 	private int idErreserba;
 
-
+	/**
+	 * 
+	 * @param hotelak
+	 * @param prezioHotelFinal
+	 * @param sartuData
+	 * @param joanData
+	 * @param o1
+	 * @param logelaKopurua
+	 */
 	public OrdainduLeihoa(String hotelak, double prezioHotelFinal, Date sartuData, Date joanData,OheMotak o1,int logelaKopurua) {
 		//prezioa=prezioHotel;
 		//prezioa=0.0;

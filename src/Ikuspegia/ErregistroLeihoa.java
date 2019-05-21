@@ -32,7 +32,11 @@ import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import java.awt.Color;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 
 public class ErregistroLeihoa extends JFrame {
 
@@ -80,7 +84,10 @@ public class ErregistroLeihoa extends JFrame {
 	private final JCheckBox chckbxPasahitzaIkusi = new JCheckBox("Pasahitza Ikusi");
 
 
-
+/**
+ * 
+ * @param bezero
+ */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public ErregistroLeihoa(ArrayList<Bezero> bezero) {
 		this.setBounds(275,100,700,600);

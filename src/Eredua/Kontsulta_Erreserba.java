@@ -8,7 +8,11 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
 import Kontrolatzailea.Erreserba;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class Kontsulta_Erreserba {
 
 
@@ -32,6 +36,10 @@ public class Kontsulta_Erreserba {
 			System.out.println(e.getMessage());
 		}
 	}
+	/**
+	 * 
+	 * @param e1
+	 */
 
 	public static void InsertErreserbaEtxea(Erreserba e1) {
 
@@ -53,6 +61,11 @@ public class Kontsulta_Erreserba {
 			System.out.println(e.getMessage());
 		}
 	}
+	/**
+	 * 
+	 * @param idOstatu
+	 * @return
+	 */
 
 	public static int idErreserbaAtera(int idOstatu) {
 		int idErreserba=0; 
@@ -76,6 +89,11 @@ public class Kontsulta_Erreserba {
 		}
 		return idErreserba;
 	}
+	/**
+	 * 
+	 * @param idOstatu
+	 * @return
+	 */
 
 	public static int logaletotalaDatuBaseanErreserban(int idOstatu) {
 		int logaletotala=0; 

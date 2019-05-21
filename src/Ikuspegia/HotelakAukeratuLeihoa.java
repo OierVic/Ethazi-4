@@ -19,7 +19,11 @@ import Kontrolatzailea.Metodoak;
 
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class HotelakAukeratuLeihoa extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -38,7 +42,11 @@ public class HotelakAukeratuLeihoa extends JFrame {
 
 	public Double PrezioHotel;
 	public static double PrezioSoloHotel=0;
-	
+	/**
+	 * 
+	 * @param Hoteles
+	 * @param Helbideak
+	 */
 	public HotelakAukeratuLeihoa(ArrayList <Hotel> Hoteles,ArrayList<String> Helbideak) {
 		
 

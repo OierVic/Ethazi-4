@@ -1,7 +1,11 @@
 package Kontrolatzailea;
 
 import Ikuspegia.EskerrikAskoLeihoa;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class Kontagailua extends Thread {
 
 	

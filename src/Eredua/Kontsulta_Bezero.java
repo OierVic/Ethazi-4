@@ -8,7 +8,11 @@ import java.util.ArrayList;
 import com.mysql.jdbc.Statement;
 
 import Kontrolatzailea.Bezero;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class Kontsulta_Bezero {
 	
 	public static ArrayList <Bezero> BezeroakIkusi() {

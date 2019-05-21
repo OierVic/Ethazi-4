@@ -33,7 +33,11 @@ import Ikuspegia.OngiEtorriLeihoa;
 import Ikuspegia.OrdainduLeihoa;
 import Ikuspegia.OrdainduLeihoaEtxeak;
 import Ikuspegia.OstauMotaAukeratu;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class Metodoak {
 	static int LogelaKant;
 	static String JaiGustiak;

@@ -3,7 +3,11 @@ package Ikuspegia;
 import java.awt.GridBagConstraints;
 
 import javax.swing.JFrame;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class Frame extends JFrame {
 
 

@@ -20,7 +20,11 @@ import Kontrolatzailea.Metodoak;
 
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class EtxeakAukeratuLeihoa extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -39,7 +43,11 @@ public class EtxeakAukeratuLeihoa extends JFrame {
 
 	public Double PrezioEtxea;
 	public static double PrezioSoloEtxea=0;
-
+	/**
+	 * 
+	 * @param Etxeak
+	 * @param Helbideak
+	 */
 	public EtxeakAukeratuLeihoa(ArrayList <Etxea> Etxeak,ArrayList<String> Helbideak) {
 		
 

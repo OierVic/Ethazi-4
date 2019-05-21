@@ -19,7 +19,11 @@ import Kontrolatzailea.Metodoak;
 
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class OstauMotaAukeratu extends JFrame {
 
 

@@ -10,7 +10,11 @@ import Kontrolatzailea.ErabiltzaileaIgo;
 import Kontrolatzailea.Metodoak;
 
 
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class Konsulta_Erregistro {
 	
 	

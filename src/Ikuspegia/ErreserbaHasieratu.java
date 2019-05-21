@@ -32,7 +32,11 @@ import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class ErreserbaHasieratu extends JFrame{
 	
 	private JButton btnHurrengoa = new JButton("Hurrengoa");
@@ -100,7 +104,11 @@ public class ErreserbaHasieratu extends JFrame{
 	private JTextField textField;
 	
 	private int zenbatJaiEgun = 0;
-	
+	/**
+	 * 
+	 * @param hotelak
+	 * @param PrezioHotel
+	 */
 	public ErreserbaHasieratu(String hotelak, double PrezioHotel) {
 		
 		this.setBounds(275,100,700,600);

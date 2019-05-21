@@ -10,7 +10,11 @@ import Kontrolatzailea.Bezero;
 import Kontrolatzailea.Etxea;
 import Kontrolatzailea.Hotel;
 import Kontrolatzailea.PromoKodea;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class Kontsulta_Promoak {
 	public static ArrayList<PromoKodea> Promoak(String idBezero) {
 		ArrayList<PromoKodea> promoArray = new ArrayList<PromoKodea>();

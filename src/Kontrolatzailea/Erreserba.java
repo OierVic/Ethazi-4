@@ -3,7 +3,11 @@ package Kontrolatzailea;
 import java.sql.Date;
 
 import Eredua.Kontsulta_Erreserba;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class Erreserba {
 
 	private int idErreserba;
@@ -20,8 +24,22 @@ public class Erreserba {
 	private String Eskatutakodata;
 	private String EskatutakoOrdua;
 	private int logelaKopurua=0;
-
-	//(`idErreserba`, `idOstatu`, `idBezero`, `dataJoan`, `dataEtorri`, `prezioErreserba`, `1sinp`, `2sinp`, `1bik`, `1sinp1bik`, `sehaska`, `erosketaData`, `erosketaOrdua`)
+	/**
+	 * 
+	 * @param idOstatu
+	 * @param idBezero
+	 * @param dataJoan
+	 * @param dataEtorri
+	 * @param precio
+	 * @param sinp
+	 * @param bisinp
+	 * @param bik
+	 * @param sinpbik
+	 * @param sehaska
+	 * @param eskatutakodata
+	 * @param eskatutakoOrdua
+	 * @param LogelaKopurua
+	 */
 	
 	public Erreserba(int idOstatu, String idBezero, String dataJoan, String dataEtorri, double precio,
 			int sinp, int bisinp, int bik, int sinpbik, int sehaska, String eskatutakodata, String eskatutakoOrdua,int LogelaKopurua) {
@@ -41,7 +59,22 @@ public class Erreserba {
 		this.logelaKopurua = LogelaKopurua;
 	}
 	
-	
+	/**
+	 * 
+	 * @param idErreserba
+	 * @param idOstatu
+	 * @param idBezero
+	 * @param dataJoan
+	 * @param dataEtorri
+	 * @param precio
+	 * @param sinp
+	 * @param bisinp
+	 * @param bik
+	 * @param sinpbik
+	 * @param sehaska
+	 * @param eskatutakodata
+	 * @param eskatutakoOrdua
+	 */
 	
 	//Erreserba imprimatzeko beste kontruktore bat
 	public Erreserba(int idErreserba,int idOstatu, String idBezero, String dataJoan, String dataEtorri, double precio,
@@ -62,7 +95,11 @@ public class Erreserba {
 	}
 	
 	
-	
+	/**
+	 * 
+	 * @return
+	 */
+	 
 
 
 
@@ -88,7 +125,10 @@ public class Erreserba {
 		return idOstatu;
 	}
 
-
+/**
+ * 
+ * @param idOstatu
+ */
 
 
 
@@ -96,7 +136,10 @@ public class Erreserba {
 	public void setIdOstatu(int idOstatu) {
 		this.idOstatu = idOstatu;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 
 
 
@@ -106,7 +149,10 @@ public class Erreserba {
 		return idBezero;
 	}
 
-
+	/**
+	 * 
+	 * @param idBezero
+	 */
 
 
 
@@ -115,7 +161,10 @@ public class Erreserba {
 		this.idBezero = idBezero;
 	}
 
-
+	/**
+	 * 
+	 * @return
+	 */
 
 
 
@@ -124,7 +173,10 @@ public class Erreserba {
 		return dataJoan;
 	}
 
-
+	/**
+	 * 
+	 * @param dataJoan
+	 */
 
 
 
@@ -133,7 +185,10 @@ public class Erreserba {
 		this.dataJoan = dataJoan;
 	}
 
-
+	/**
+	 * 
+	 * @return
+	 */
 
 
 
@@ -142,7 +197,10 @@ public class Erreserba {
 		return dataEtorri;
 	}
 
-
+	/**
+	 * 
+	 * @param dataEtorri
+	 */
 
 
 
@@ -151,7 +209,10 @@ public class Erreserba {
 		this.dataEtorri = dataEtorri;
 	}
 
-
+	/**
+	 * 
+	 * @return
+	 */
 
 
 
@@ -160,7 +221,10 @@ public class Erreserba {
 		return precio;
 	}
 
-
+/**
+ * 
+ * @param precio
+ */
 
 
 
@@ -170,7 +234,10 @@ public class Erreserba {
 	}
 
 
-
+/**
+ * 
+ * @return
+ */
 
 
 
@@ -178,7 +245,10 @@ public class Erreserba {
 		return sinp;
 	}
 
-
+/**
+ * 
+ * @param sinp
+ */
 
 
 
@@ -189,14 +259,20 @@ public class Erreserba {
 
 
 
-
+/**
+ * 
+ * @return
+ */
 
 
 	public int getBisinp() {
 		return bisinp;
 	}
 
-
+/**
+ * 
+ * @param bisinp
+ */
 
 
 
@@ -206,7 +282,10 @@ public class Erreserba {
 	}
 
 
-
+/**
+ * 
+ * @return
+ */
 
 
 
@@ -214,7 +293,10 @@ public class Erreserba {
 		return bik;
 	}
 
-
+/**
+ * 
+ * @param bik
+ */
 
 
 
@@ -223,7 +305,10 @@ public class Erreserba {
 		this.bik = bik;
 	}
 
-
+/**
+ * 
+ * @return
+ */
 
 
 
@@ -234,7 +319,10 @@ public class Erreserba {
 
 
 
-
+/**
+ * 
+ * @param sinpbik
+ */
 
 
 	public void setSinpbik(int sinpbik) {
@@ -242,7 +330,10 @@ public class Erreserba {
 	}
 
 
-
+/**
+ * 
+ * @return
+ */
 
 
 
@@ -252,7 +343,10 @@ public class Erreserba {
 
 
 
-
+/**
+ * 
+ * @param sehaska
+ */
 
 
 	public void setSehaska(int sehaska) {
@@ -260,7 +354,10 @@ public class Erreserba {
 	}
 
 
-
+/**
+ * 
+ * @return
+ */
 
 
 
@@ -268,7 +365,10 @@ public class Erreserba {
 		return Eskatutakodata;
 	}
 
-
+/**
+ * 
+ * @param eskatutakodata
+ */
 
 
 
@@ -278,7 +378,10 @@ public class Erreserba {
 	}
 
 
-
+/**
+ * 
+ * @return
+ */
 
 
 
@@ -286,7 +389,10 @@ public class Erreserba {
 		return EskatutakoOrdua;
 	}
 
-
+/**
+ * 
+ * @param eskatutakoOrdua
+ */
 
 
 
@@ -294,22 +400,26 @@ public class Erreserba {
 	public void setEskatutakoOrdua(String eskatutakoOrdua) {
 		EskatutakoOrdua = eskatutakoOrdua;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	
 	public int getlogelaKopurua() {
 		return logelaKopurua;
 	}
 
 
-
+/**
+ * 
+ * @param LogelaKopurua
+ */
 
 
 
 	public void setlogelaKopurua(int LogelaKopurua) {
 		logelaKopurua = LogelaKopurua;
 	}
-
-
 
 
 

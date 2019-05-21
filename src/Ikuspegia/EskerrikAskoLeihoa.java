@@ -5,7 +5,11 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class EskerrikAskoLeihoa extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -13,7 +17,7 @@ public class EskerrikAskoLeihoa extends JFrame {
 	private JLabel lblEskerrikAsko = new JLabel("Eskerrik asko erosteagatik ");
 	private JLabel lblZureTxartelaOrain = new JLabel("Zure erreserba orain aterako da");
 	private JLabel icono = new JLabel();
-
+	
 	public EskerrikAskoLeihoa() {
 		
 		

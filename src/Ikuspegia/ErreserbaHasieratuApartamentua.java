@@ -32,7 +32,11 @@ import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class ErreserbaHasieratuApartamentua extends JFrame{
 	
 	private JButton btnHurrengoa = new JButton("Hurrengoa");
@@ -74,7 +78,11 @@ public class ErreserbaHasieratuApartamentua extends JFrame{
 	private double PrezioApartamentuFinal=0.00;
 	
 	//variables de que recogen de los spinners para que se puedan utilizar fuera del boton
-	
+	/**
+	 * 
+	 * @param apartamentuak
+	 * @param PrezioApartamentua
+	 */
 	public ErreserbaHasieratuApartamentua(String apartamentuak, double PrezioApartamentua) {
 		
 		this.setBounds(275,100,700,600);

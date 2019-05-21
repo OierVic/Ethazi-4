@@ -9,7 +9,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import Kontrolatzailea.Metodoak;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class OngiEtorriLeihoa extends JFrame {
 
 

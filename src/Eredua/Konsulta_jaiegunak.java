@@ -10,7 +10,11 @@ import com.mysql.jdbc.Statement;
 
 import Kontrolatzailea.Hotel;
 import Kontrolatzailea.Jaiegunak;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class Konsulta_jaiegunak {
 	
 	public static Jaiegunak JaiegunakAtera() {

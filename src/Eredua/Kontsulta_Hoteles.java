@@ -9,7 +9,11 @@ import Ikuspegia.HotelakAukeratuLeihoa;
 import Kontrolatzailea.Hotel;
 import Kontrolatzailea.Metodoak;
 import Kontrolatzailea.OheMotak;
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class Kontsulta_Hoteles{
 	
 	public static ArrayList <Hotel> HotelakIkusi() {
@@ -50,6 +54,10 @@ public class Kontsulta_Hoteles{
 		return hotelak;
 		
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	
 	public static ArrayList <String> HelbideakIkusi() {
 		ArrayList <String> Helbideak = new ArrayList<String>();
@@ -78,6 +86,11 @@ public class Kontsulta_Hoteles{
 		return Helbideak;
 		
 	}
+	/**
+	 * 
+	 * @param helbideaHartu
+	 * @return
+	 */
 	
 	public static ArrayList <Hotel> HotelakHelbidearekinAtera(String helbideaHartu) {
 		
@@ -125,6 +138,11 @@ public class Kontsulta_Hoteles{
 		
 		
 	}
+	/**
+	 * 
+	 * @param idHotel
+	 * @return
+	 */
 	
 	public static Double PrezioaAtera(int idHotel) {
 		
@@ -157,7 +175,11 @@ public class Kontsulta_Hoteles{
 		return prezioHotel;
 		
 	}
-
+	/**
+	 * 
+	 * @param oheMotak
+	 * @return
+	 */
 	public static ArrayList<Date>[] dataJoan(String oheMotak) {
 		ArrayList<java.sql.Date> dataJoan = new ArrayList<java.sql.Date>();
 		ArrayList<java.sql.Date> dataEtorri = new ArrayList<java.sql.Date>();
@@ -215,6 +237,11 @@ public class Kontsulta_Hoteles{
 		return dataArray;
 
 	}
+	/**
+	 * 
+	 * @param oheMotak
+	 * @return
+	 */
 	
 
 
@@ -243,6 +270,10 @@ public class Kontsulta_Hoteles{
 		return logelaKopuru;
 
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	
 
 

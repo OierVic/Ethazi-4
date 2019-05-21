@@ -17,7 +17,11 @@ import javax.swing.SwingConstants;
 import Kontrolatzailea.*;
 import javax.swing.JCheckBox;
 
-
+/**
+ * 
+ * @author Oier Vicente,Diego,Erlantz,Aintzane
+ *
+ */
 public class LoginLeihoa extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -42,7 +46,10 @@ public class LoginLeihoa extends JFrame {
 	private String zenbakia="";
 	private String pasahitza="";
 
-	
+	/**
+	 * 
+	 * @param bezero
+	 */
 	public LoginLeihoa(ArrayList<Bezero> bezero) {
 		this.setBounds(275,100,700,600);
 		getContentPane().setLayout(null);
